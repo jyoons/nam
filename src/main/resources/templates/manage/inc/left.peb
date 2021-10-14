@@ -7,8 +7,8 @@
         <li {% if uri contains "/manage/board" %} class="active" {%else%} class="" {% endif %}>
             <a href="#" class="dep-1">게시판관리 <span class="toggle">열기/닫기</span></a>
             <ul class="sub">
-                <li {% if uri contains "/notice" %} class="active" {%else%} class="" {% endif %}><a href="/manage/board/relatenews/list"> 관련소식</a></li>
-                <li {% if uri contains "/notice" %} class="active" {%else%} class="" {% endif %}><a href="/manage/board/lawinfo/list"> 법률정보</a></li>
+                <li {% if uri contains "/relatenews" %} class="active" {%else%} class="" {% endif %}><a href="/manage/board/relatenews/list"> 관련소식</a></li>
+                <li {% if uri contains "/lawinfo" %} class="active" {%else%} class="" {% endif %}><a href="/manage/board/lawinfo/list"> 법률정보</a></li>
                 <li {% if uri contains "/library" %} class="active" {%else%} class="" {% endif %}><a href="/manage/board/library/list"> 자료실</a></li>
 
                 {#<li {% if uri contains "/task" %} class="active" {%else%} class="" {% endif %}><a href="/community/task"> TASK</a></li>#}
