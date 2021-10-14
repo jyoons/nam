@@ -2,6 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.namandnam.nni.manage.board.library.mapper.LibraryMapper">
 
+	<sql id="where">
+		<where>
+			AND A.DEL_YN = 'N'
+			<if test="boardType != null and boardType != '' ">
+				AND A.BOARD_TYPE = #{boardType}
+			</if>
+			<if test="title != null and title != '' ">
+				AND A.TITLE LIKE CONCAT('%', #{title}, '%')
+			</if>
+		</where>
+	</sql>
+
 	<select id="selectList" resultType="Library">
 		/* LibraryMapper.selectList */
 
@@ -17,15 +29,7 @@
 		, MOD_ID
 		, MOD_DT
 		FROM TBL_BOARD A
-		<where>
-			AND A.DEL_YN = 'N'
-			<if test="boardType != null and boardType != '' ">
-				AND A.BOARD_TYPE = #{boardType}
-			</if>
-			<if test="title != null and title != '' ">
-				AND A.TITLE LIKE CONCAT('%', #{title}, '%')
-			</if>
-		</where>
+		<include refid="where"/>
 		ORDER BY A.IDX DESC
 		LIMIT #{recordCountPerPage, jdbcType=INTEGER} OFFSET #{offsetNo, jdbcType=INTEGER}
 	</select>
@@ -36,15 +40,7 @@
 
 		SELECT COUNT(1)
 		FROM TBL_BOARD A
-		<where>
-			AND A.DEL_YN = 'N'
-			<if test="boardType != null and boardType != '' ">
-				AND A.BOARD_TYPE = #{boardType}
-			</if>
-			<if test="title != null and title != '' ">
-				AND A.TITLE LIKE CONCAT('%', #{title}, '%')
-			</if>
-		</where>
+		<include refid="where"/>
 	</select>
 
 
