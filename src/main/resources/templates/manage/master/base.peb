@@ -1,19 +1,19 @@
-{% include 'fo/inc/config' %}
+{% include 'manage/inc/config' %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    {% include 'fo/inc/head' %}
+    {% include 'manage/inc/head' %}
 {% block head %}{% endblock %}
 </head>
 
 <body>
 <div id="wrap" class="wrap">
 
-    {% include 'fo/inc/header' %}
+    {% include 'manage/inc/header' %}
 
     <div class="container">
         <!-- left Area // -->
-        {% include 'fo/inc/left' %}
+        {% include 'manage/inc/left' %}
         {% block left %}
         {% endblock %}
 
@@ -22,7 +22,7 @@
         {% endblock %}
     </div>
 
-    {% include 'fo/inc/scripts' %}
+    {% include 'manage/inc/scripts' %}
     {% block scripts %}{% endblock %}
 </div>
 </body>

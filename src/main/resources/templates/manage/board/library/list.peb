@@ -42,5 +42,5 @@
     </div>
     {% endblock %}
 {% block scripts %}
-<script type="text/javascript" src="/app/js/manage/library/list.js"></script>
+<script type="text/javascript" src="/app/js/manage/board/library/list.js"></script>
 {% endblock %}
