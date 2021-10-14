@@ -1,0 +1,293 @@
+{#
+===========================================================
+name   : audit_add
+desc   : 감사보고서 등록
+author : dhkim
+since  : 2019.12.26.
+-----------------------------------------------------------
+개정이력 
+-----------------------------------------------------------
+===========================================================
+#}
+
+{% extends "fo/master/base" %}
+
+{% block head %}:
+<script type="text/javascript" src="/ckeditor/ckeditor.js" charset="utf-8"></script>
+{% endblock %}
+
+{% block content %}
+<div class="content">
+	<h1 class="title">{{TEST}}</h1>
+
+	<!-- ### 폼테이블 ### -->
+	<form id="frm" method="post" enctype="multipart/form-data">
+		<div class="tbl-t1">
+			<table>
+				<caption>사업보고서 등록/수정</caption>
+				<colgroup><col style="width:160px;" /><col /></colgroup>
+				
+					<tbody>
+						<!-- title -->
+						<tr>
+							<th scope="row"><span class="icon-required">(필수)</span>제목</th>
+							<td>
+								<input id="frmTitle" name="title" type="text" class="fm-ipt w100" value="{{item.title}}" />
+							</td>
+						</tr>
+						<!-- filea -->
+						<tr>
+							<th scope="row">첨부파일</th>
+							<td id="fileTD">
+								 <!-- 첨부파일 // -->
+						          {% if result.data.params is empty %}
+						          <label class="fm-file w-side" data-filename=""><input id="frmFile" type="file" name="filea" /><span class="btn">파일찾기</span></label>
+						          {% else %}
+						          <div id="file-list" class="pre-list">
+										{% for file in result.data.params %}
+							              	<button type="button" id="btnDelFile" class="btn-itxt" data-btn="del" data-add="{{file.fIdx}}" >{{file.originalFileName}}</button>
+							            {% endfor %}
+							      </div>
+						          {% endif %}
+							</td>
+						</tr>
+						
+						<tr>
+							<th scope="row"><span class="icon-required">(필수)</span>내용</th>
+							<td>
+								<textarea id="frmContent" name="contents" class="fm-ta" style="width: 100%; height: 250px;display:none;">
+									{{item.contents | raw}}
+								</textarea>
+							</td>
+						</tr>
+					</tbody>
+				
+			</table>
+		</div>
+	</form>
+	
+	<div class="btnarea">
+		<div class="side">
+			<!-- <button type="button" class="btn-t-2">목록</button> -->
+			{% if params.idx is not empty  %} 
+			<button type="button" id="btnDel" class="btn-t-2">삭제</button>
+			{% endif %}
+		</div>
+		<button type="reset" class="btn-t-2" id="btnCancel">취소</button>
+		<button type="button" class="btn-t-2 c1" id="btnReg">
+		{% if params.idx is not empty  %} 
+			수정
+		{% else %}
+			저장
+		{% endif %}
+		</button>
+	</div>
+	
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+	$(function(){
+		
+		console.log( '{{TEST}}' );	
+		
+		CKEDITOR.replace( 'frmContent' , {
+			width:'100%',
+			height:'200px',
+			filebrowserImageUploadUrl: '/file/editorImageUpload.do?a=1'
+		});
+		CKEDITOR.on('dialogDefinition', function( ev ){
+			var dialogName = ev.data.name;
+			var dialogDefinition = ev.data.definition;
+		  
+			switch (dialogName) {
+				case 'image': //Image Properties dialog
+					//dialogDefinition.removeContents('info');
+					dialogDefinition.removeContents('Link');
+					dialogDefinition.removeContents('advanced');
+					break;
+			}
+		});
+		
+		if( '{{params.idx}}' != null && '{{params.idx}}' !='' ){
+			setViewData();	
+		}
+		
+		init();
+	});
+	
+	var delList = [];
+	var validItems = {'#frmTitle':'제목을 입력하세요'};
+	
+	function setViewData(){
+		$("#frmTitle").val( decodeValue('{{result.data.item.title}}') );
+		
+	}
+	
+	/**
+	 * 초기화
+	 */
+	function init() {
+		fnAddEventListener();
+	}
+
+	function fnAddEventListener() {
+
+		$('#btnCancel').click(function(){
+			fnGoIndex();
+		});
+		
+		// 
+		$('#btnReg').click(function(e) {
+			
+			if( '{{params.idx}}' != null && '{{params.idx}}' !='' ){
+				updData();	
+			}else{
+				regData();
+			}
+		});
+		
+		$('#btnDel').click(function(e) {
+			
+			fnDelete('{{params.idx}}')
+			
+		});
+		
+		// 파일 삭제 이벤트
+		$('#btnDelFile').click(function(e) {
+			
+			//todo 삭제 할건지 확인 팝업 필요.
+			
+			delList.push( $(this).attr('data-add')  );  
+			$('#file-list').remove();
+			
+			var apdTag = '<label class="fm-file w-side" data-filename=""><input id="frmFile" type="file" name="filea" /><span class="btn">파일찾기</span></label>';
+			$('#fileTD').append(apdTag);
+		});
+		
+ 	}
+
+
+	/**
+	 * 파일 업로드 및 저장
+	 */
+	function regData() {
+		
+		$commUtil.fnUpdateContent("frmContent");
+		
+		if( $commUtil.fnCheckBoolContent("frmContent") ) {
+			alert("내용을 입력하세요.");
+			CKEDITOR.instances["frmContent"].focus();
+			return false;
+		}
+		
+		if( $commUtil.fnJsValidation(validItems) ){
+			$('#frm').ajaxForm({
+			    url: '/sample/addData.do',
+			    enctype: 'multipart/form-data',
+			    beforeSubmit: function(data,form,option){
+			    	
+			    },
+			    error : function(){
+			    	
+			    },
+			    success: function(rtn) {
+// 			    	location.reload();
+// 			    	alert("저장되었습니다.");
+// 			    	fnGoIndex();
+			    }
+			});
+			$('#frm').submit();
+		}
+	}
+	
+	
+	function updData() {
+		
+		if( $commUtil.fnJsValidation(validItems) ){
+		
+// 			var chkBool = false;
+				
+// 			if( $('input:radio[name=showyn]:checked').val() != '{{result.data.item.showyn}}'){
+// 				chkBool = true;
+// 			}
+			
+// 			if( delList.length > 0 ||  ( $("#frmFile").val() != undefined && $("#frmFile").val().trim() != "" )  ){
+// 				chkBool = true;	
+// 			}
+			
+			$commUtil.fnUpdateContent("frmContent");
+			
+			if( fnCheckBoolContent("frmContent") ) {
+				alert("내용을 입력하세요.");
+				CKEDITOR.instances["frmContent"].focus();
+				return false;
+			}
+			
+			if(confirm('수정 하시겠습니까?')){
+				
+				$('#frm').ajaxForm({
+				    url: 'upd.act',
+				    enctype: 'multipart/form-data',
+				    data: {
+				    	idx : '{{params.idx}}',
+				    	delList : delList
+				    },
+				    traditional : 	true,
+				    beforeSubmit: function(data,form,option){
+				    	
+				    },
+				    error : function(){
+				    	
+				    },
+				    success: function(rtn) {
+				    	fnGoIndex();
+				    }
+				});
+				$('#frm').submit();
+			
+			}
+			
+		}
+		  
+	}
+	
+	
+	function fnDelete( delIdx ){
+		
+		$commUtil.fnConfirmDialog('삭제하시겠습니까?').then(function(response){
+			if(response.value){
+				
+				var delChks = [];
+				delChks[0] = delIdx;
+				
+				var param = {
+					delList : delChks
+				};
+				
+				$.ajax({
+		            url         :   "delList.act",
+		            dataType    :   "json",
+		            type        :   "post",
+		            traditional : 	true,
+		            data        :   param,
+		            success     :   function(retVal){
+		            	fnGoIndex();
+		            },
+		            error       :   function(request, status, error){
+		                console.log("AJAX_ERROR");
+		            }
+		        });
+			}
+		});
+		
+	}
+	
+	function fnGoIndex(){
+		ref.go("/invest/{{path}}/index");
+	}
+
+</script>
+
+{% endblock %}

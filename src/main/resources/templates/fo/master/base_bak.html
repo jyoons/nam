@@ -1,0 +1,28 @@
+{% include 'fo/inc/config' %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	{% include 'fo/inc/head' %}
+	{% block head %}{% endblock %}
+</head>
+
+<body>
+<div class="skip"><a href="#main-section"><span>본문바로가기</span></a></div>
+<div id="wrap" class="wrap">
+  <div class="header">
+    {% include 'fo/inc/header' %}
+  </div>
+  <!-- contents Area // -->
+  {% block content %}
+  {% endblock %}
+ 
+  <!-- // contents Area -->
+  <div class="footer">
+  	
+    {% include 'fo/inc/footer' %}
+  </div>
+  {% include 'fo/inc/scripts' %}
+  {% block scripts %}{% endblock %}
+</div>
+</body>
+</html>

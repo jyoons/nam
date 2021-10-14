@@ -1,0 +1,65 @@
+{% extends "fo/master/base" %}
+    {% block head %}
+    <script type="text/javascript" src="/ckeditor/ckeditor.js" charset="utf-8"></script>
+    {% endblock %}
+    {% block content %}
+    <div class="content">
+        <h1 class="title">게시물 조회</h1>
+
+        <div class="tbl-t1">
+            <table width="100%" class="tbl-t1">
+                <colgroup>
+                    <col width="20%">
+                    <col width="*">
+                </colgroup>
+                <tbody id="tbody">
+                <tr>
+                    <th>카테고리</th>
+                    <td>{{ params.boardTypeNm }}</td>
+                </tr>
+                <tr>
+                    <th>제목</th>
+                    <td>{{ params.title }}</td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td>
+                            {{ params.contents | raw}}
+                    </td>
+                </tr>
+                <tr>
+                    <th>자료 첨부</th>
+                    <td>
+                            {% if params.fileIdx is not null  %}
+                            <a href="/file/download.do?fileIdx={{ params.fileIdx }}" target="_blank">{{ params.fileName }}</a>
+                            {% endif %}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <input id="thisIdx" type="hidden" value="{{ params.idx }}" />
+
+            <div class="btnarea">
+
+                <div class="side">
+                    <button type="reset" id="btnBack" class="btn-t-2">뒤로가기</button>
+                    {% if checkAuth('CM06D02C01', 2) or params.uIdx != '' %}
+                        <button type="button" id="btnDel" class="btn-t-2 c1">삭제</button>
+                    {% endif %}
+                </div>
+                {% if checkAuth('CM06D02C01', 2)  or params.uIdx != '' %}
+                    <button type="button" class="btn-t-2" id="btnReg">수정</button>
+                {% endif %}
+
+                {% if params.dltYn != "Y" %}
+                    <button type="button" class="btn-t-2 c1" id="btnReply">답글 달기</button>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+{% block scripts %}
+<script type="text/javascript" src="/app/js/community/board_view.js"></script>
+{% endblock %}

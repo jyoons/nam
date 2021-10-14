@@ -1,0 +1,16 @@
+<div class="aside">
+    <ul class="navi">
+        <li {% if uri contains "/manage/main" %} class="active" {%else%} class="" {% endif %}>
+            <a href="/manage/main" class="dep-1">Main Dashboard</a>
+        </li>
+
+        <li {% if uri contains "/manage/relatenews" %} class="active" {%else%} class="" {% endif %}>
+            <a href="#" class="dep-1">관련소식 <span class="toggle">열기/닫기</span></a>
+            <ul class="sub">
+                <li {% if uri contains "/notice" %} class="active" {%else%} class="" {% endif %}><a href="/manage/relatenews/notice/list"> 공지</a></li>
+
+                {#<li {% if uri contains "/task" %} class="active" {%else%} class="" {% endif %}><a href="/community/task"> TASK</a></li>#}
+            </ul>
+        </li>
+    </ul>
+</div>

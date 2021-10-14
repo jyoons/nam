@@ -1,0 +1,68 @@
+
+<div>
+    <p class="txt-cnt">총 <em>{{result.data.params.totalRecordCount is null ? '0' : result.data.params.totalRecordCount}}</em>건</p>
+    <div class="tbl-t1">
+        <table class="over-x">
+            <caption>게시글 목록</caption>
+            <colgroup>
+                <col style="width:5%"/>
+                <col style="width:6%"/>
+                <col/>
+                <col style="width:10%"/>
+                <col style="width:10%"/>
+                <col style="width:18%"/>
+            </colgroup>
+            <thead>
+            <tr>
+                <th scope="col"><input type="checkbox" id="chkMaster"></th>
+                <th scope="col">NO</th>
+                <th scope="col">게시글 제목</th>
+                <th scope="col">작성자</th>
+                <th scope="col">카테고리</th>
+                <th scope="col">등록일</th>
+            </tr>
+            </thead>
+            <tbody>
+                    {% if result.data.item is empty() %}
+                <tr>
+                    <td colspan="6" class="nodata">검색된 데이터가 없습니다.</td>
+                </tr>
+                    {% else %}
+                    {% for item in result.data.item %}
+                        {% set no = result.data.params.totalRecordCount - (result.data.params.currentPageNo - 1) * result.data.params.recordCountPerPage - loop.index %}
+                    <tr>
+                        <td><input type="checkbox" value="{{item.idx}}"></td>
+                        <td>{{no}}</td>
+                        <td class="tit">
+                            <a href="./post?idx={{item.idx}}">
+                                    {% if item.code equals "공지" %}
+                                    <strong>{{item.title | replace({" " : "&nbsp"}) | raw}}</strong>
+                                    {% else %}
+                                    {{item.title | replace({" " : "&nbsp"}) | raw}}
+                                    {% endif %}
+                            </a>
+                        </td>
+                        <td>{{item.regId}}</td>
+                        <td>{{item.boardType}}</td>
+                        <td>{{item.regDt}}</td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="btnarea">
+        {% if result.data.params.totalRecordCount > 0 %}
+            <!-- paging // -->
+            {% include "fo/inc/pagination" %}
+            <!-- // paging -->
+        {% endif %}
+        <button type="button" id="prcenter-del" class="btn-t-2">삭제</button>
+        <a href="./regPost" id="prcenter-add" class="btn-t-2 c1">등록</a>
+    </div>
+
+</div>
+{% block scripts %}
+<script type="text/javascript" src="/app/js/community/board_list.js"></script>
+{% endblock %}

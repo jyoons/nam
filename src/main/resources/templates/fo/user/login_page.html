@@ -1,0 +1,97 @@
+{% extends "fo/master/login_base" %}
+
+{% block content %}
+
+<div class="content">
+	<div class="wrap login-wrap">
+	  <div class="mid">
+	    <h1><span>ADMIN LOGIN</span></h1>
+	    <form method="post" name="loginFrm" id="loginFrm" autocomplete="off">
+	    <input type="hidden" name="sKeyId" id="sKeyId">
+	      <fieldset>
+	        <legend>LOGIN FORM</legend>
+	        <label>
+	          <span>ID</span>
+	          <input type="text" class="fm-ipt" name="mngrId" id="imb_id" placeholder="관리자ID" autocomplete="off" value=""/>
+	        </label>
+	        <label>
+	          <span>PASSWORD</span>
+	          <input type="password" class="fm-ipt" name="pswrd" id="imb_pass" placeholder="비밀번호" autocomplete="off" value=""/>
+	        </label>
+	
+	        <button type="button" class="btn-t-2 c1" onclick="fnLogin();return false;" id="loginBtn">로그인</button>
+	      </fieldset>
+	      <!--  <p class="ps">* 문의사항은 관리자 권한신청 담당자(02.2055.5356)에게 문의 바랍니다.</p> -->
+	    </form>
+	  </div>
+	</div>
+</div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+	$(function(){
+		init();
+	});
+	
+	/**
+	 * 초기화
+	 */
+	function init() {
+		$("#imb_pass").keypress(function(e) {
+			if (e.which == 13) {
+				fnLogin();
+			}
+		});
+	}
+	
+	function fnLogin(){
+		var expdate = new Date();
+		if( $("#imb_id").val() == '' ){
+			alert('아이디를 입력하세요.');
+			$("#imb_id").focus();
+			return;
+		}
+		if( $("#imb_pass").val() == '' ){
+			alert('비밀번호를 입력하세요.');
+			$("#imb_pass").focus();
+			return;
+		}
+
+		$("#loginBtn").prop("disabled", true);
+		var url = '/user/login.act';
+	  	var params = $("#loginFrm").serialize();
+	  	//fnBlockUiStart();
+		$.ajax({
+			type: 'POST',
+			url: url,
+			data: params,
+			success: function(result) {
+				//fnBlockUiSop();
+				if(result.success == false) {
+					var msg = result.message;
+					msg = msg.replace("\\r\\n", "\r\n");
+					alert(msg);
+					$("#loginBtn").prop("disabled", false);
+					return;
+				} else {
+					if (result.sKeyId != '') {
+						location.href = '/';
+						return;
+					}
+				}
+			},
+			error : function(){
+				fnBlockUiSop();
+				alert('로그인 중 오류가 발생했습니다.');
+				$("#loginBtn").prop("disabled", false);
+				return;
+			}
+		});
+	}
+	
+</script>
+
+{% endblock %}

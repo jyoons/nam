@@ -1,0 +1,23 @@
+{% include 'fo/inc/config' %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	{% include 'fo/inc/head' %}
+	{% block head %}{% endblock %}
+</head>
+
+<body>
+<div id="wrap" class="wrap">
+	
+	<div class="container">
+		<!-- left Area // -->
+	 	<!-- contents Area // -->
+	 	{% block content %}
+	 	{% endblock %}
+	</div>
+
+	{% include 'fo/inc/scripts' %}
+  	{% block scripts %}{% endblock %}
+</div>  
+</body>
+</html>

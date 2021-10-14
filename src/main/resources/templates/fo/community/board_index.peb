@@ -1,0 +1,44 @@
+{% extends "fo/master/base" %}
+
+    {% block content %}
+    <div class="content">
+        <h1 class="title">커뮤니티</h1>
+
+        <div class="cont">
+
+            <form id="listFrm" name="listFrm">
+                <input type="hidden" id="list-currentPageNo" name="currentPageNo" value="{{ params.currentPageNo is null ? '1' : params.currentPageNo }}" />
+                <input type="hidden" id="list-searchCtgy" name="code" value="{{ params.code }}" />
+                <input type="hidden" id="list-searchKeyword" name="title" value="{{ params.title }}" />
+            </form>
+        </div>
+
+        <span id="js-list"></span>
+
+
+        <!-- ### 검색영역 ### -->
+        <div style="text-align: center;">
+            <fieldset>
+                <legend>검색</legend>
+                <div class="fm-row">
+            <span class="fm-item">
+                <select id="f-searchCtgy-sel" class="fm-sel" title="검색조건">
+                    <option value="" selected="selected">전체</option>
+                    <option value="01">공지</option>
+                    <option value="03">제안</option>
+                    <option value="04">세미나/교육</option>
+                    <option value="05">기업동향</option>
+                </select>
+            </span>
+                    <input id="searchKeyword" class="fm-ipt w2" type="text" name="text"/>
+                    <button type="button" id="btnSearch" class="btn-t">검색</button>
+                </div>
+
+            </fieldset>
+        </div>
+
+    </div>
+    {% endblock %}
+{% block scripts %}
+<script type="text/javascript" src="/app/js/community/board_index.js"></script>
+{% endblock %}

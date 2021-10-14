@@ -1,0 +1,91 @@
+
+<div>
+	
+	<div class="colgroup">
+		<div class="col">
+			<a href="/community" class="title">공지사항</a>
+			<div class="tbl-t1">
+				<table>
+					<caption>공지사항</caption>
+					<colgroup>
+						<col style="width:80px;"/>
+						<col style="width:200px;"/>
+						<col style="width:100px;"/>
+						<col style="width:150px;"/>
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">NO</th>
+							<th scope="col">제목</th>
+							<th scope="col">작성자</th>
+							<th scope="col">등록일</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% if result.data.item is empty() %}
+						<tr>
+							<td colspan="4" class="nodata">검색된 데이터가 없습니다.</td>
+						</tr>
+						{% else %}
+						{% for item in result.data.item %}
+						{% set no = result.data.comm.totalRecordCount - (result.data.comm.currentPageNo - 1) * result.data.comm.recordCountPerPage - loop.index %}
+						<tr>
+							<td>{{no}}</td>
+							<td><a href="/post?idx={{item.idx}}">{{item.title}}</a></td>
+							<td>{{item.uName}}</td>
+							<td>{{item.reg}}</td>
+						</tr>
+						{% endfor %}
+						{% endif %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="col">
+			<a href="/qna/list" class="title">Q&A </a>
+			<div class="tbl-t1">
+				<table>
+					<caption>Q&A</caption>
+					<colgroup>
+						<col style="width:80px;"/>
+						<col style="width:200px;"/>
+						<col style="width:100px;"/>
+						<col style="width:150px;"/>
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">NO</th>
+							<th scope="col">제목</th>
+							<th scope="col">등록일</th>
+							<th scope="col">상태</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% if result.data.items is empty() %}
+						<tr>
+							<td colspan="4" class="nodata">검색된 데이터가 없습니다.</td>
+						</tr>
+						{% else %}
+						{% for item in result.data.items %}
+						{% set no = result.data.qna.totalRecordCount - (result.data.qna.currentPageNo - 1) * result.data.qna.recordCountPerPage - loop.index %}
+						<tr>
+							<td>{{no}}</td>
+							<td><a href="/qna/post?idx={{item.idx}}">{{item.inquiry}}</a></td>
+							<td>{{item.reg}}</td>
+							<td>
+								{% if item.typ == 'NA' %}
+								미처리
+								{% else %}
+								처리 완료
+								{% endif %}
+							</td>
+						</tr>
+						{% endfor %}
+						{% endif %}
+					</tbody>
+				</table>
+			</div>
+		</div>		
+	</div>
+	
+</div>

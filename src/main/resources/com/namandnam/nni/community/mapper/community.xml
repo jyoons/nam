@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.namandnam.nni.community.mapper.CommunityMapper">
+
+	<select id="selectList" resultType="Community">
+		/* CommunityMapper.slist selectList */
+		
+			SELECT IDX
+				, BOARD_TYPE
+				, BOARD_CTGY
+				, TITLE
+				, CONTENTS
+				, VIEW_CNT
+				, DEL_YN
+				, REG_ID
+				, REG_DT
+				, MOD_ID
+				, MOD_DT
+			   FROM TBL_BOARD A
+		       <where>
+		       		AND A.DEL_YN = 'N'
+		       		<if test="boardType != null and boardType != '' ">
+						AND A.BOARD_TYPE = #{boardType}
+					</if>
+					<if test="title != null and title != '' ">
+						AND A.TITLE LIKE CONCAT('%', #{title}, '%')
+					</if>
+		       </where>
+		       ORDER BY A.IDX DESC
+		       LIMIT #{recordCountPerPage, jdbcType=INTEGER} OFFSET #{offsetNo, jdbcType=INTEGER}
+	</select>
+	
+	
+	<select id="selectListCnt" parameterType="Community" resultType="Integer">
+	/* CommunityMapper.slist selectListCnt */
+	
+			SELECT COUNT(1)
+			  FROM TBL_BOARD A
+		       <where>
+		       		AND A.DEL_YN = 'N'
+		       		<if test="boardType != null and boardType != '' ">
+						AND A.BOARD_TYPE = #{boardType}
+					</if>
+					<if test="title != null and title != '' ">
+						AND A.TITLE LIKE CONCAT('%', #{title}, '%')
+					</if>
+		       </where>
+	</select>
+	
+	
+	<select id="selectOne" parameterType="String" resultType="Community">
+		SELECT A.IDX
+			   ,BOARD_TYPE
+			   ,CASE WHEN BOARD_TYPE = '00' THEN '공지'
+					WHEN BOARD_TYPE = '01' THEN 'FAQ'
+					WHEN BOARD_TYPE = '02' THEN '자료실'
+					WHEN BOARD_TYPE = '03' THEN 'NEWS'
+		            ELSE '' END 							AS BOARD_TYPE_NM
+		       ,IF(A.DEL_YN='N', A.TITLE, '삭제된 글입니다.')  	as TITLE 
+		       ,IF(A.DEL_YN='N', A.CONTENTS, '삭제된 글입니다.') as CONTENTS
+		       ,A.DEL_YN
+		       ,IF(A.DEL_YN='N', B.IDX, '')   			 	as FILE_IDX
+		       ,IF(A.DEL_YN='N', B.ORGNL_FILE_NAME, '')   	as FILE_NAME
+		  FROM TBL_BOARD A 
+		  LEFT JOIN TBL_FILE B 
+		    ON A.IDX = B.TBL_IDX 
+		   AND B.TBL_CTGRY = 'BOARD'
+		<where>
+				AND A.IDX = #{idx}
+		</where>
+	</select>
+	
+	
+	<insert id="insertNewPost" parameterType="Community">
+		INSERT INTO TBL_BOARD
+			( 	
+				BOARD_TYPE
+				<if test="boardCtgy != null and boardCtgy != '' ">
+				, BOARD_CTGY
+				</if>
+				, TITLE
+				, CONTENTS
+				, DEL_YN
+				, REG_ID
+				, REG_DT
+			)
+			VALUES(
+				#{boardType}
+				<if test="boardCtgy != null and boardCtgy != '' ">
+				, #{boardCtgy}
+				</if>
+				, #{title}
+				, #{contents}
+				, 'N'
+				, #{regId}
+				, CURRENT_TIMESTAMP())
+				
+		<selectKey keyProperty="idx" resultType="String" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	
+	
+	<insert id="insertReply" parameterType="Community">
+		INSERT INTO TBL_BOARD 
+		            (CODE, 
+		             PRNTS_IDX, 
+		             REPLY_IDX, 
+		             DEPTH, 
+		             SORT, 
+		             TITLE, 
+		             CONTENTS, 
+		             OPEN_DT) 
+		SELECT A.CODE, 
+		       IF(A.PRNTS_IDX = 0, A.IDX, A.PRNTS_IDX) AS PRNTS_IDX, 
+		       A.IDX, 
+		       A.DEPTH + 1                             AS DEPTH, 
+		       B.SORT + 1                              AS SORT, 
+		       #{title}                              AS TITLE, 
+		       #{contents}                              AS CONTENTS, 
+		       CURRENT_TIMESTAMP()                   AS OPEN_DT 
+		FROM   TBL_BOARD A,
+		       TBL_BOARD B
+		<where>
+			<if test="replyIdx != null and replyIdx != '' ">
+				AND  A.IDX = #{replyIdx}
+			    AND (B.REPLY_IDX = #{replyIdx}
+                  OR B.REPLY_IDX = 0 ) 	
+			</if>
+		</where>
+		ORDER BY B.SORT DESC
+		LIMIT 1;
+		<selectKey keyProperty="idx" resultType="String" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	
+	<update id="updateHitCnt" parameterType="String">
+		UPDATE TBL_BOARD
+		SET
+			   VIEW_CNT = IFNULL(VIEW_CNT, 0) + 1
+		<where>
+			<if test="idx != null and idx != '' ">
+				AND  IDX = #{idx} 		
+			</if>
+		</where>
+	</update>
+	
+	<update id="deletePost" parameterType="java.util.List">
+			UPDATE TBL_BOARD
+			SET
+				   DEL_YN = 'Y'
+			<where>
+				AND IDX IN 
+				<foreach collection="list" item="idx" index="index" separator="," open="(" close=")">
+                    #{idx}
+                </foreach>
+			</where>
+	</update>
+	
+	<update id="updatePost" parameterType="Community">
+			UPDATE TBL_BOARD
+			SET
+				   BOARD_TYPE = #{boardType}
+				   ,TITLE = #{title}
+				   ,CONTENTS = #{contents}
+				   ,MOD_ID = #{modId}
+				   ,MOD_DT = CURRENT_TIMESTAMP()
+			<where>
+				AND  IDX = #{idx}
+			</where>
+	</update>
+</mapper>

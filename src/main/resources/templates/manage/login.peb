@@ -1,0 +1,57 @@
+{% extends "manage/master/login_base" %}
+
+{% block content %}
+
+{#<div class="content">
+    <h1 class="title">login</h1>
+    준비중입니다.
+</div>#}
+
+<div id="login">
+    <div class="title">
+        <h1>남앤드남인터내셔널 <span>관리자모드</span></h1>
+        <p>관리자 <span>로그인 후</span> 이용가능합니다.<br />
+            관리자 권한이 없으신 분은 최상위관리자에게 승인받으신 후 이용하실 수 있습니다.</p>
+    </div>
+    <div class="login">
+        <form name="board" id="board" method="post" action="/manage/include/login.jsp" onsubmit="return loginCheck();">
+            <fieldset>
+                <legend>관리자모드 로그인</legend>
+                <div class="bgBox">
+                    <div class="infoBox">
+                        <dl>
+                            <dt>
+                                <label for="id"><img src="/img/id_icon.png" alt=""></label>
+                            </dt>
+                            <dd>
+                                <input type="text" id="id" name="id" value="" title="아이디를 입력해주세요." style="ime-mode:inactive"/>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="password"><img class="password_icon" src="/img/password_icon.png" alt=""></label>
+                            </dt>
+                            <dd>
+                                <input type="password" id="password" name="password" value="" title="비밀번호를 입력해주세요." />
+                            </dd>
+                        </dl>
+                    </div>
+                    <!-- //infoBox -->
+                    <input type="submit" alt="로그인" class="loginBtn" title="" value="로그인" />
+                </div>
+                <!-- //bgBox -->
+                <div class="joinList">
+                    <label for="reg" class="b_nor_c"><input type="checkbox" name="reg" id="reg"/> <i></i> 아이디 저장</label>
+                </div>
+                <!-- //joinList -->
+                <input type="hidden" name="url" id="url" value="/manage/board/popup/index.jsp"/>
+                <input type="hidden" name="param" id="param" value=""/>
+            </fieldset>
+        </form>
+    </div>
+    <div class="footer">
+        Copyrights (c) 2013 <a href="http://www.vizensoft.com" target="_blank">VIZENSOFT</a>. All Rights Reserved.
+    </div>
+</div>
+
+{% endblock %}
