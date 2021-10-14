@@ -1,5 +1,5 @@
 
-var $noticeView = {	
+var $libraryView = {
 	/**
 	 * 초기화
 	 */
@@ -8,10 +8,10 @@ var $noticeView = {
 	},
 
 	fnAddEventListener : function () {
-		$('#btnReply').click( function() { $noticeView.replyData(); });
-		$('#btnReg').click( function() { $noticeView.updData();	});
-		$('#btnDel').click( function() { $noticeView.delData( $("#thisIdx").val() ); });
-		$('#btnBack').click( function() { $noticeView.fnGoIndex(); });
+		$('#btnReply').click( function() { $libraryView.replyData(); });
+		$('#btnReg').click( function() { $libraryView.updData();	});
+		$('#btnDel').click( function() { $libraryView.delData( $("#thisIdx").val() ); });
+		$('#btnBack').click( function() { $libraryView.fnGoIndex(); });
  	},
 	
 	
@@ -33,7 +33,7 @@ var $noticeView = {
 				    
 				    success: function(data) {
 				    	if (data.success) {
-				    		$noticeView.fnGoIndex();
+							$libraryView.fnGoIndex();
 					    } else {
 					    	alert(data.message);
 					    }
@@ -54,7 +54,7 @@ var $noticeView = {
 		var array = new Array();
 		array.push(data);
 
-		$noticeView.createFrm("Post", "frm", "./editPost", array);
+		$libraryView.createFrm("Post", "frm", "./editPost", array);
 		document.frm.submit();
 	},
 	
@@ -65,8 +65,8 @@ var $noticeView = {
 		
 		var array = new Array();
 		array.push(data);
-		
-		$noticeView.createFrm("Post", "frm", "./regPost", array);
+
+		$libraryView.createFrm("Post", "frm", "./regPost", array);
 		document.frm.submit();
 	},
 	
@@ -95,5 +95,5 @@ var $noticeView = {
 };	
 	
 $(function(){
-	$noticeView.init();
+	$libraryView.init();
 });

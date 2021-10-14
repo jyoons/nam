@@ -1,4 +1,4 @@
-var $noticeReg = {
+var $libraryReg = {
 	
 	validItems : {'#frmTitle':'제목을 입력하세요'},
 	
@@ -17,14 +17,14 @@ var $noticeReg = {
 	fnAddEventListener : function () {
 
 		$('#btnCancel').click(function(){
-			$noticeReg.fnGoIndex();
+			$libraryReg.fnGoIndex();
 		});
 		
 		$('#btnReg').click(function(e) {
 			if ( $("#btnReg").text().trim() == '수정' ) {
-				$noticeReg.updData();	
+				$libraryReg.updData();
 			} else {
-				$noticeReg.regData();
+				$libraryReg.regData();
 			}
 		});
  	},
@@ -35,7 +35,7 @@ var $noticeReg = {
 	 */
 	regData : function() {
 		let targetUrl;
-		if( $commUtil.fnJsValidation( $noticeReg.validItems) ){
+		if( $commUtil.fnJsValidation( $libraryReg.validItems) ){
 			
 			$commUtil.fnUpdateContent("frmCntnt");
 			
@@ -97,7 +97,7 @@ var $noticeReg = {
 					    	if (data.success) {
 						    	location.reload();
 						    	alert("저장되었습니다.");
-						    	$noticeReg.fnGoIndex();
+								$libraryReg.fnGoIndex();
 					    	} else {
 					    		alert(data.message);
 					    	}
@@ -111,7 +111,7 @@ var $noticeReg = {
 	
 	
 	updData : function () {
-		if( $commUtil.fnJsValidation($noticeReg.validItems) ){
+		if( $commUtil.fnJsValidation($libraryReg.validItems) ){
 			
 			$commUtil.fnUpdateContent("frmCntnt");
 			
@@ -167,7 +167,7 @@ var $noticeReg = {
 					    	if (data.success) {
 						    	location.reload();
 						    	alert("저장되었습니다.");
-						    	$noticeReg.fnGoIndex();
+								$libraryReg.fnGoIndex();
 					    	} else {
 					    		alert(data.message);
 					    	}
@@ -206,9 +206,9 @@ $(function(){
 		});
 		
 		if( $("#frmTitle").val() != null && $("#frmTitle").val() !='' ){
-			$noticeReg.setViewData();	
+			$libraryReg.setViewData();
 		}
-		
-		$noticeReg.init();
+
+	$libraryReg.init();
 	});
 

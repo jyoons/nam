@@ -1,4 +1,4 @@
-var $notice = {	
+var $libraryList = {
 	
 	 $list : $('#js-list'), // 리스트 영역
 	
@@ -15,8 +15,8 @@ var $notice = {
 	fnAddEventListener : function() {
 		this.fnSearch();
 		$("#btnSearch").click(function(){
-			$notice.setForm();
-			$notice.fnSearch();
+			$libraryList.setForm();
+			$libraryList.fnSearch();
 	    });
 	},
 	
@@ -38,14 +38,14 @@ var $notice = {
 		    data: $('#listFrm').serialize(),
 		    dataType: 'html',
 		    success: function(data) {
-				
-				$notice.$list.empty();
-		    	$notice.$list.html(data);
+
+				$libraryList.$list.empty();
+				$libraryList.$list.html(data);
 		    	
 				$('.paging a').off("click").on("click", function(e) {
 					e.preventDefault();
 					$('#listFrm #list-currentPageNo').val(this.rel);
-					$notice.fnSearch();
+					$libraryList.fnSearch();
 				});
 			},
 		    error: function(request, status, error) {
@@ -57,5 +57,5 @@ var $notice = {
 };
 
 $(function(){
-	$notice.init();
+	$libraryList.init();
 });

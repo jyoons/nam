@@ -1,4 +1,4 @@
-var $noticeList = {
+var $libraryListData = {
 	
 	/**
 	 * 초기화
@@ -16,7 +16,7 @@ var $noticeList = {
 	    });
 		
 		$("#prcenter-del").click(function() {
-			$noticeList.fnDel();
+			$libraryListData.fnDel();
 		});
 	},
 	
@@ -61,5 +61,5 @@ var $noticeList = {
 };	
 	
 $(function(){
-	$noticeList.init();
+	$libraryListData.init();
 });

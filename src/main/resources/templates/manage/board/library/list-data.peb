@@ -64,5 +64,5 @@
 
 </div>
 {% block scripts %}
-<script type="text/javascript" src="/app/js/manage/relatenews/notice/notice_list.js"></script>
+<script type="text/javascript" src="/app/js/manage/board/library/list-data.js"></script>
 {% endblock %}
