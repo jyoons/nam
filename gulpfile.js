@@ -122,7 +122,7 @@ function scssCompile(){
 			.pipe(scss(scssOptions.normal).on('error', scss.logError))
 			.pipe(dest(paths.styles.dest), { sourcemaps:  true })
 			.pipe(minificss())
-			.pipe(rename('common.min.css'))
+			.pipe(rename({ suffix: '.min' }))
 			.pipe(dest(paths.styles.dest), { sourcemaps:  true })
 			.pipe(browserSync.reload({stream: true}) );
 };
