@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+// ---------------------------------------------------------------
+// 프로젝트 전체에 적용되는 변수에 대해 정의합니다.
+// 컴포넌트 갯수 만큼 실행되기 때문에 변수에 대해서만 정의 해야 합니다.
+// vue.config.js 또는 webpack.config.js에 설정합니다.
+// ---------------------------------------------------------------
+
+// Fonts
+$font-family: "Roboto", "NotoSansKR", "맑은 고딕", "돋음", dotum, sans-serif;
+
+$font-light: 200;
+$font-regular: 300;
+$font-medium: 500;
+$font-bold: 700;
+
+$font-default-size: 62.5%;
+
+// Colors
+$white: #fff;
+$black: #000;
+
+$bg-primary: #0153eb;
+$bg-white: #fff;
+$bg-dark: #292f36;
+$bg-light: #f6f7fb;
+
+$text-primary: #0153eb;
+$text-white: #fff;
+$text-light: #737373;
+$text-gray: #444;
+$text-dark: #000;
+
+$border-primary: #0153eb;
+$border-dark: #292f36;
+$border-gray: #444;
+$border-light: #e0e4ea;
+
+// Button colors
+$btn-primary:#0153eb;
+$btn-primary-hover: #d90206;
+$btn-primary-text: #fff;
+
+$btn-secondary:#424959;
+$btn-secondary-hover: #282f37;
+$btn-secondary-text: #fff;
+
+$btn-white:#fff;
+$btn-white-hover: #e0e4ea;
+
+$btn-gray:#929292;
+$btn-gray-hover: #737373;
+
+$btn-navy:#424959;
+$btn-navy-hover: #282f37;
+
+$btn-disabled-dark: #d2d2d2;
+$btn-disabled-light: #eceff2;

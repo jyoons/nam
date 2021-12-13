@@ -1,0 +1,61 @@
+        <!-- header -->
+        <header class="headerWrap">
+            <div class="innerWrap">
+                <div>
+                    <h1 class="logo">
+                        <a href="#" >
+                        </a>
+                    </h1>
+                    <div class="btnArea">
+					가나다
+                    </div>
+					<!-- gnb -->
+					<nav>
+                        <ul id="gnbLst" class="gnbWrap">
+                            <li>
+                                <a href="#">ABOUT<span></span></a>
+								<!-- 오직 if문만 사용 가능 else문 x -->
+								@@if(pageMain === true){
+								<div>ddd</div>
+								}
+								<ul class="dep2Gnb">
+									<!--
+										`+ 'arrGnb'[i] +` 이 부분 작은 따옴표 아님, 백틱임!!(숫자 1 왼쪽 꺼)
+									-->
+									@@for (let i = 0; i < arr.length; i++) {
+									<li><a href="#">`+ arr[i] +`</a></li>
+								}
+                                </ul>
+                                </li>
+                                <li>
+                                <a href="#">MENBER<span></span></a>
+                                <ul class="dep2Gnb">
+                                    <li><a href="#">회원사 안내</a></li>
+                                    <li><a href="#">회원제도</a></li>
+                                </ul>
+                                </li>
+                                <li>
+                                <a href="#">NEWS<span></span></a>
+                                <ul class="dep2Gnb">
+                                    <li><a href="#">공지사항</a></li>
+                                    <li><a href="#">행사 및 공고</a></li>
+                                    <li><a href="#">보도자료</a></li>
+                                    <li><a href="#">자료실</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="langSel">
+                            <li class="on"><a href="javascript:;;">KO</a></li>
+                            <li class="langBar"><span class="l"></span></li>
+                            <li><a href="javascript:;;">EN</a></li>
+                        </ul>
+                        <div class="btnArea">
+                            <button class="btnGnbClose">전체메뉴 닫기</button>
+                        </div>
+                    </div>                        
+                </nav>
+                <!-- gnb -->
+            </div>
+            <div class="subMenuWrap"></div>
+        </header>
+        <!-- //header -->

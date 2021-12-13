@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+// 공통
+@import "base/font-family";
+@import "base/variables";
+@import "base/mixins";
+@import "base/reset";
+// @import "base/helpers";
+
+/* layouts */
+@import "layouts/layout";
+@import "layouts/gnb";
+@import "layouts/header";
+@import "layouts/footer";
+
+
+
+@include response('tablet'){
+    body{
+        background:#f0f;
+    }
+}
+@include response('mobile') {
+    body{
+        background:#FFF;
+    }
+}
