@@ -1,8 +1,0 @@
-<div class="header">
-    <a href="/manage" class="logo"><span class="ci">남앤드남인터내셔널 관리자</span></a>
-    <span class="util">
-		{#<span class="item user"><strong><a href="#" >{{userName}}</a></strong></span>#}
-		<span class="item user"><strong><a href="http://nni.namandnam.com/" >홈페이지 바로가기</a></strong></span>
-		<span class="item user"><strong><a href="#" >LOGOUT</a></strong></span>
-	</span>
-</div>

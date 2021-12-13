@@ -1,6 +1,0 @@
-<div class="header">
-    <a href="/manage" class="logo"><span class="ci">REFLEXION</span></a>
-    <span class="util">
-		<span class="item user"><strong><a href="#" >user test {{userName}}</a></strong></span>
-	</span>
-</div>
