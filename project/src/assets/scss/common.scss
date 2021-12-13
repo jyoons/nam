@@ -17,7 +17,7 @@
 
 @include response('tablet'){
     body{
-        background:#f0f;
+        background:#f00;
     }
 }
 @include response('mobile') {
