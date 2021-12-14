@@ -1,25 +1,111 @@
 @charset "UTF-8";
 
 .gnb{
-    // position:absolute;
-    // top:0;
-    // right:0;
-    // &-btn{
-    //     position:absolute;
-    //     width:4.8rem;
-    //     height:4.8rem;
-    //     padding:0.4rem;
-    //     background:#f00;
-    //     &>i{
-    //         position:absolute;
-    //         top:0;
-    //         left:0;
-    //         padding:0; 
-    //         margin:0;
-    //         width:4rem;
-    //         height:2px;
-    //         background:#111;
+    position:fixed;
+    top:0;
+    right:0;
+    width:100%;
+    max-width:117rem;
+    height:100%;
+    background:#274B48;
+    overflow:hidden;
+    .gnb-wrap{
+        position:relative;
+        width:100%;
+        height:100%;
+    }
+    .gnb-close{
+        position:absolute;
+        top:6rem;
+        right:6rem;
+        width:4.8rem;
+        height:4.8rem;
+        background:url('/assets/images/common/btn_menu_close.svg') 0 0 no-repeat;
+        background-size: 4.8rem 4.8rem; 
+    }
+    .gnb-footer{
+        position:absolute;
+        width:100%; 
+        height:20rem;
+        bottom:0;
+        background:#FFF;
+        display:flex;
+        padding:0 0 0 11rem;
+        align-items: center;
+        &>div{
+            flex:0 0 50%; 
+        }
+        .gnb-footer__lang{
+            display:flex;
+            &>li{
+                margin-right:4.8rem;
+                &>a{
+                    display:block;
+                    @include fontSize('medi');
+                    &.on, &:hover{
+                        border-bottom:2px solid #111;
+                    }
+                }
+            }
+            &>li:last-child{
+                margin-right:0;
+            }
+        }
+    }
+}
+.gnb-list-wrap{
+    position:relative;
+    width:100%;
+    height:calc(100% - 20rem);
+    padding:19rem 11.2rem;           
+    overflow-y:auto;
+    .gnb-1depth{
+        position:relative;
+        &__items{
+            & + .gnb-1depth__items{
+                margin-top:7rem;
+            }
+            a{
+                color:#6C918E;
+                @include fontSize('xlg');
+                font-weight:500;
+            }
+            &.on{
+                .gnb-2depth{
+                    display:block;
+                }
+            }
+        }
+    }
+    
+    .gnb-2depth{
+        display:none;
+        position:absolute;
+        top:1rem; 
+        left:34rem;;
+
+        &__items{
+            a{
+                color:#FFF;
+                font-size:2.4rem;
+                font-weight:700;
+                line-height:3.6rem;
+            }
            
-    //     }
-    // }
+        }      
+    }
+}
+.gnb-icon{
+    display:flex;
+    align-items: center;
+    i.onlineCounselling{
+        display:block;
+        width:4.8rem;
+        height:4.8rem;
+        background:url('/assets/images/common/ico_cs.svg') 0 0 no-repeat;
+        background-size: 4.8rem 4.8rem;
+    }
+    i + span{
+        margin-left:2.4rem;
+    }
 }
