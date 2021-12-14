@@ -2,20 +2,26 @@
 @font-face {
   font-family: "Pretendard";
   font-weight: 400;
-  font-display: swap;
-  src: url("/asset/css/webfonts/Pretendard-Regular.woff") format("woff");
+  font-style: normal;
+  src: url("/assets/css/webfonts/Pretendard-Regular.woff") format("woff");
 }
 @font-face {
   font-family: "Pretendard";
   font-weight: 500;
-  font-display: swap;
-  src: url("/asset/css/webfonts/Pretendard-Medium.woff") format("woff");
+  font-style: normal;
+  src: url("/assets/css/webfonts/Pretendard-Medium.woff") format("woff");
 }
 @font-face {
   font-family: "Pretendard";
   font-weight: 700;
+  font-style: normal;
+  src: url("/assets/css/webfonts/Pretendard-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 300;
   font-display: swap;
-  src: url("/asset/css/webfonts/Pretendard-Bold.woff") format("woff");
+  src: url("/assets/css/webfonts/Pretendard-Light.woff") format("woff");
 }
 /* response */
 * {
@@ -142,6 +148,31 @@ address, i {
   font-style: normal;
 }
 
+/* skip nav */
+#navSkip {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 999;
+}
+#navSkip a {
+  position: absolute;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  line-height: 1;
+}
+#navSkip a:hover, #navSkip a:focus, #navSkip a:active {
+  display: block;
+  z-index: 10;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  background: #333;
+  color: #fff;
+}
+
 /* layouts */
 html {
   line-height: normal;
@@ -152,15 +183,53 @@ html {
 body {
   position: relative;
   font-family: "Pretendard", "맑은 고딕", "돋음", dotum, sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 2rem;
   color: #222;
   line-height: 1.57;
   letter-spacing: -0.5px;
   margin: 0;
   -webkit-text-size-adjust: none;
-  background: #f00;
-  font-weight: bold;
+}
+
+.header-wrap {
+  position: relative;
+  width: 100%;
+  height: 4.3rem;
+  background: #CCC;
+  padding: 6rem;
+}
+.header-wrap .logo {
+  position: absolute;
+  top: 5rem;
+  left: 6rem;
+  width: 11rem;
+  height: 7rem;
+  font-weight: 300;
+}
+.header-wrap .logo img {
+  width: 100%;
+}
+.header-wrap .gnb-btn {
+  position: absolute;
+  top: 6rem;
+  right: 6rem;
+  width: 4.8rem;
+  height: 4.8rem;
+  padding: 0.4rem;
+  background: #f0f;
+}
+.header-wrap .gnb-btn > i {
+  position: relative;
+  display: block;
+  padding: 0;
+  margin: 1rem 0 0 0;
+  width: 4rem;
+  height: 2px;
+  background: #111;
+}
+.header-wrap .gnb-btn > i:first-child {
+  margin-top: 0.6rem;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
