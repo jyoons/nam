@@ -196,7 +196,7 @@ body {
   position: relative;
   width: 100%;
   height: 15rem;
-  background: #CCC;
+  border-bottom: 1px solid #f00;
 }
 .header-wrap .logo {
   position: absolute;
@@ -204,7 +204,6 @@ body {
   left: 7rem;
   width: 11rem;
   height: 3.5rem;
-  background: #f0f;
 }
 .header-wrap .logo img {
   width: 100%;
@@ -216,7 +215,6 @@ body {
   width: 4.8rem;
   height: 4.8rem;
   padding: 0.4rem;
-  background: #f0f;
 }
 .header-wrap .gnb-btn > i {
   position: relative;
@@ -229,6 +227,34 @@ body {
 }
 .header-wrap .gnb-btn > i:first-child {
   margin-top: 0.8rem;
+}
+.header-wrap .lang-select {
+  position: absolute;
+  top: 4.5rem;
+  right: 12.8rem;
+}
+
+/*header select*/
+.select-wrap {
+  position: relative;
+  display: inline-block;
+}
+.select-wrap .select-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3.6rem;
+  padding: 1.4rem 6.5rem 1.4rem 3rem;
+  background: url("/assets/images/common/btn_gnb_global_open_b.svg") calc(100% - 3rem) center no-repeat;
+  background-size: 2.4rem 2.4rem;
+}
+.select-wrap .select-list-wrap {
+  display: none;
+  position: absolute;
+  width: 100%;
+}
+.select-wrap .select-list-wrap .select-list__items > button {
+  display: block;
+  padding: 1rem;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {

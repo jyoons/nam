@@ -5,14 +5,13 @@
         position:relative; 
         width:100%;
         height:15rem;
-        background:#CCC;
+        border-bottom:1px solid #f00;
         & .logo{
             position:absolute;
             top:5.8rem;
             left:7rem;
             width:11rem;
             height:3.5rem;
-            background:#f0f;
             img{
                 width:100%;
             }
@@ -24,7 +23,6 @@
             width:4.8rem;
             height:4.8rem;
             padding:0.4rem;
-            background:#f0f;
             &>i{
                 position:relative;
                 display:block;
@@ -36,6 +34,37 @@
             }
             &>i:first-child{
                 margin-top:.8rem;
+            }
+        }
+        .lang-select{
+            position:absolute;
+            top:4.5rem;
+            right:12.8rem;
+        }
+    }
+}
+/*header select*/
+.select-wrap{
+    position:relative;
+    display:inline-block;
+    & .select-title{
+        @include fontSize('lg');
+        padding:1.4rem 6.5rem 1.4rem 3rem;
+        background:url('/assets/images/common/btn_gnb_global_open_b.svg') calc(100% - 3rem) center no-repeat;
+        background-size:2.4rem 2.4rem;
+    } 
+    .select-list-wrap{
+        display:none;
+        position:absolute;
+        width:100%;
+        // background:rgba(0, 0, 0, 0.2);
+        // padding:1.4rem 6.5rem 1.4rem 3rem;
+        .select-list{
+            &__items{                
+                &>button{
+                    display:block;
+                    padding:1rem;
+                }
             }
         }
     }

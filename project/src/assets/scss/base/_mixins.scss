@@ -64,6 +64,8 @@
         font-size:1.4rem;
     }@else if $size == "lg" {
         font-size:2rem;
+        font-weight:700;
+        line-height:3.6rem;
     }@else if $size == "xlg" {
         font-size:2.5rem;
     }
