@@ -1,9 +1,12 @@
 @charset "UTF-8";
 
+/* gnb */
 .gnb{
+    // display:none;
     position:fixed;
     top:0;
     right:0;
+    z-index:50;
     width:100%;
     max-width:117rem;
     height:100%;
@@ -65,19 +68,48 @@
             & + .gnb-1depth__items{
                 margin-top:7rem;
             }
-            a{
+            &>a{
+                position:relative;
+                display:inline-block;
                 color:#6C918E;
                 @include fontSize('xlg');
                 font-weight:500;
+                &:after{
+                        content: ''; 
+                        position:absolute;
+                        left:0;
+                        bottom:0;                      
+                        width:0;
+                        height:1px;
+                        background:#FFF;
+                        transition:all 0.2s ease-in;                    
+                }               
+                &:hover{
+                    color:#FFF;                   
+                    &:after{
+                        width:100%;                       
+                    }
+                }
             }
             &.on{
+                &>a{
+                    color:#FFF;
+                    &:after{
+                        content: '';
+                        position:absolute;
+                        left:0;
+                        bottom:0;
+                        width:100%;
+                        height:1px;
+                        background:#FFF;
+                    }
+                }
                 .gnb-2depth{
                     display:block;
                 }
             }
         }
-    }
-    
+    }    
     .gnb-2depth{
         display:none;
         position:absolute;
@@ -85,13 +117,18 @@
         left:34rem;;
 
         &__items{
+            & + .gnb-2depth__items{
+                margin-top:2rem;
+            }
             a{
                 color:#FFF;
                 font-size:2.4rem;
-                font-weight:700;
+                font-weight:400;
                 line-height:3.6rem;
-            }
-           
+                &.on, &:hover{
+                    font-weight:700;
+                }
+            }         
         }      
     }
 }
@@ -108,4 +145,12 @@
     i + span{
         margin-left:2.4rem;
     }
+}
+
+/*lnb*/
+.lnb-wrap{
+    width:100%;
+    max-width:133.6rem;
+    margin:0 auto;
+    background:#CCC;
 }

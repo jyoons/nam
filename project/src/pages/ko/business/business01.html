@@ -9,7 +9,10 @@
     <body>
         <div id="wrap" class="business">
             <div id="navSkip"><a href="#container">본문으로 바로가기</a></div>
-            @@include('./pages/ko/include/header.html')
+            @@include('./pages/ko/include/header.html',{
+                    gnbLocation : 'business',
+                    lnbLocation : 'business'
+            })
             <div id="container">
             </div>
         </div>
