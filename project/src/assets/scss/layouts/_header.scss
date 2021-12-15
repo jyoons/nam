@@ -46,12 +46,13 @@
 /*header select*/
 .select-wrap{
     position:relative;
-    display:inline-block;
+    display:inline-block;   
     & .select-title{
         @include fontSize('lg');
         padding:1.4rem 6.5rem 1.4rem 3rem;
         background:url('/assets/images/common/btn_gnb_global_open_b.svg') calc(100% - 3rem) center no-repeat;
         background-size:2.4rem 2.4rem;
+        cursor: pointer;
     } 
     .select-list-wrap{
         display:none;
