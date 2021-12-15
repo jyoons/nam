@@ -205,6 +205,7 @@ body {
 
 /* gnb */
 .gnb {
+  display: none;
   position: fixed;
   top: 0;
   right: 0;
@@ -419,6 +420,13 @@ body {
 .select-wrap .select-list-wrap .select-list__items > a {
   display: block;
   padding: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 133.6rem;
+  margin: 0 auto;
+  background: #CCC;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
