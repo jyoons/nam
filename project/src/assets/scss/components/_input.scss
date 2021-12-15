@@ -1,11 +1,11 @@
 @charset "UTF-8";
 .components{
     .guideTit{
-        margin-top: 20px;
-        border-top: 1px solid #ccc;
+        margin-top: 2rem;
+        border-top: 0.1rem solid #ccc;
     }
     .guideBox{
-        padding: 10px 0;
+        padding: 1rem 0;
     }
 }
 // input 검색폼
@@ -13,23 +13,24 @@
     label{
         display: inline-block;
         position: relative;
-        width: 420px;
-        height: 60px;
+        width: 42rem;
+        height: 6rem;
         input{
             width: 100%;
             height: 100%;
             outline: none;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 0.1rem solid #ddd;
             font-family: 'Pretendard';
             font-size: 1.8rem;
+            padding-right: 2.4rem;
             &::placeholder{
                 color: #bbb;
             }
         }
         button{
             position: absolute;
-            width: 24px;
-            height: 24px;
+            width: 2.4rem;
+            height: 2.4rem;
             right: 0;
             top: 50%;
             transform: translateY(-50%);
@@ -42,7 +43,7 @@
 
 // 페이징
 .paging{
-    height: 36px;
+    height: 3.6rem;
     &::after{
         content: '';
         display: block;
@@ -52,41 +53,56 @@
         float: left;
         a{
             display: inline-block;
-            line-height: 36px;
-            padding: 0 2px;
-            margin-left: 40px;
+            line-height: 3.6rem;
+            padding: 0 0.2rem;
+            margin-left: 4rem;
             font-size: 2rem;
             color: #bbb;
             &.active{
                 font-weight: bold;
                 color: #111;
-                border-bottom: 2px solid #111;
+                border-bottom: 0.2rem solid #111;
             }
             &.arr{
                 padding: 0;
                 font-size: 0;
-                width: 36px;
-                height: 36px;
+                width: 3.6rem;
+                height: 3.6rem;
                 margin-left: 0;
                 &.first{
                     background: url(/assets/images/common/btn_page_prev_double.svg) no-repeat center;
-                    margin-right: 6px;
+                    margin-right: 0.6rem;
                 }
                 &.prev{
                     background: url(/assets/images/common/btn_page_prev.svg) no-repeat center;
-                    margin-right: 10px;
+                    margin-right: 1rem;
                 }
                 &.next{
                     background: url(/assets/images/common/btn_page_prev.svg) no-repeat center;
-                    margin-left: 50px;
+                    margin-left: 5rem;
                     transform: rotate(180deg);
                 }
                 &.last{
                     background: url(/assets/images/common/btn_page_prev_double.svg) no-repeat center;
-                    margin-left: 6px;
+                    margin-left: 0.6rem;
                     transform: rotate(180deg);
                 }
             }
         }
     }
+}
+
+// 파일첨부 input
+input#attachFile{
+    display: none;
+}
+.attachFile{
+    display: inline-block;
+    width: 13.6rem;
+    height: 4.8rem;
+    padding: 1.2rem 0 0 5.4rem;
+    border: 0.1rem solid $gray6;
+    background: url(/assets/images/common/ico_plus.svg) no-repeat 2.8rem center;
+    cursor: pointer;
+    font-size: 1.6rem;
 }
