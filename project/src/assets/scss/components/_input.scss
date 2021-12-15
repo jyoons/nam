@@ -1,1 +1,92 @@
 @charset "UTF-8";
+.components{
+    .guideTit{
+        margin-top: 20px;
+        border-top: 1px solid #ccc;
+    }
+    .guideBox{
+        padding: 10px 0;
+    }
+}
+// input 검색폼
+.searchForm{
+    label{
+        display: inline-block;
+        position: relative;
+        width: 420px;
+        height: 60px;
+        input{
+            width: 100%;
+            height: 100%;
+            outline: none;
+            border-bottom: 1px solid #ddd;
+            font-family: 'Pretendard';
+            font-size: 1.8rem;
+            &::placeholder{
+                color: #bbb;
+            }
+        }
+        button{
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0;
+            background: url(/assets/images/common/btn_input_search.svg) no-repeat center;
+            cursor: pointer;
+        }
+    }
+}
+
+// 페이징
+.paging{
+    height: 36px;
+    &::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    li{
+        float: left;
+        a{
+            display: inline-block;
+            line-height: 36px;
+            padding: 0 2px;
+            margin-left: 40px;
+            font-size: 2rem;
+            color: #bbb;
+            &.active{
+                font-weight: bold;
+                color: #111;
+                border-bottom: 2px solid #111;
+            }
+            &.arr{
+                padding: 0;
+                font-size: 0;
+                width: 36px;
+                height: 36px;
+                margin-left: 0;
+                &.first{
+                    background: url(/assets/images/common/btn_page_prev_double.svg) no-repeat center;
+                    margin-right: 6px;
+                }
+                &.prev{
+                    background: url(/assets/images/common/btn_page_prev.svg) no-repeat center;
+                    margin-right: 10px;
+                }
+                &.next{
+                    background: url(/assets/images/common/btn_page_prev.svg) no-repeat center;
+                    margin-left: 50px;
+                    transform: rotate(180deg);
+                }
+                &.last{
+                    background: url(/assets/images/common/btn_page_prev_double.svg) no-repeat center;
+                    margin-left: 6px;
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}

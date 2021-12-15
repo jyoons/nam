@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>component</title>
+        <link rel="stylesheet" href="/assets/css/common.css">
+        <link rel="stylesheet" href="/assets/css/contents.css">
+        <script src="/assets/js/lib/jquery-1.12.4.min.js"></script>
+    </head>
+    <body>
+        <div class="components">
+            <!-- input 검색폼 -->
+            <h2 class="guideTit">input - 검색</h2>
+            <div class="guideBox">
+                <div class="searchForm">
+                    <label>
+                        <input type="text" placeholder="검색어를 입력하세요">
+                        <button>검색</button>
+                    </label>
+                </div>
+            </div>
+            <!-- 게시판 탭메뉴 -->
+            <h2 class="guideTit">게시판 탭메뉴</h2>
+            <div class="guideBox">
+                <div class="tabWrap">
+                    <ul>
+                        <li><a href="#" class="on">전체</a></li>
+                        <li><a href="#">시행규칙</a></li>
+                        <li><a href="#">고시</a></li>
+                        <li><a href="#">개정 법률안</a></li>
+                        <li><a href="#">입법,행정예고</a></li>
+                        <li><a href="#">법령</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 페이징 -->
+            <h2 class="guideTit">페이징</h2>
+            <div class="guideBox">
+                <ul class="paging">
+                    <li><a href="#" class="arr first">첫번째 페이지로 이동</a></li>
+                    <li><a href="#" class="arr prev">이전 페이지로 이동</a></li>
+                    <!-- active 클래스 : 활성화 -->
+                    <li><a href="#" class="active">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#" class="arr next">다음 페이지로 이동</a></li>
+                    <li><a href="#" class="arr last">마지막 페이지로 이동</a></li>
+                </ul>
+            </div>
+            <!-- 게시판 리스트 -->
+            <h2 class="guideTit">게시판 리스트</h2>
+            <div class="guideBox">
+                <div class="boardWrap">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <span class="numbering">1,073</span>
+                                <p class="boardTit">(보도자료) 민관 손잡고 화학물질저감 우수제품 11개 선정</p>
+                                <p class="date">2020.07.21</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        // 게시판 탭메뉴
+        $('.tabWrap ul li').on('click',function(){
+            $(this).find('a').addClass('on').parents('li').siblings().find('a').removeClass('on');
+        });
+
+        // 페이징 임시 스크립트
+        $('.paging li a').on('click',function(){
+            $(this).addClass('active').parents('li').siblings().find('a').removeClass('active');
+            if($(this).hasClass('arr')){
+                $('.arr').removeClass('active');
+            }
+        });
+    </script>
+</html>
