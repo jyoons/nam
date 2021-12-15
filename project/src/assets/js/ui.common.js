@@ -9,43 +9,44 @@ const uiCommon = (function (uiCommon, $window) {
 
 uiCommon.lnb = {
   init: () => {
-    uiCommon.lnb.setDefault();
+    uiCommon.lnb.setDefault('.lnb');
   },
-  setDefault: () => {
-    let el = $('.lnb');
-    let elPos = el.attr('data-lnb');
-    let elString = elPos.split(',');
-    let targetD1 = elString[0];
-    let targetD2 = elString[1];
-    let targetD3 = elString[2];
-
-    // $('.lnb-1depth.select-wrap .select-list-wrap, .lnb-2depth.select-wrap .select-list-wrap').css({'display':'block'});
-    $('.lnb-1depth.select-wrap .select-list-wrap .select-list__items.' + targetD1).addClass('on');
-    $('.lnb-2depth.select-wrap .select-list-wrap .select-list.' + targetD1).css({'display':'block'});
-    $('.lnb-2depth.select-wrap .select-list__items').eq(targetD2).addClass('on');
-    $('.lnb-3depth.select-wrap .select-list__items').eq(targetD3).addClass('on');
-    // $('.lnb-3depth.select-wrap .select-list-wrap .select-list .select-list__items').eq(targetD2).addClass('on');
+  setDefault: (elem) => {
+    let el = $(elem);
+    if(el.length > 0){
+      let elPos = el.attr('data-lnb');
+      let elString = elPos.split(',');
+      let targetD1 = elString[0];
+      let targetD2 = elString[1];
+      let targetD3 = elString[2];  
+      // $('.lnb-1depth.select-wrap .select-list-wrap, .lnb-2depth.select-wrap .select-list-wrap').css({'display':'block'});
+      $('.lnb-1depth .select-list-wrap .select-list__items.' + targetD1).addClass('on');
+      $('.lnb-2depth .select-list-wrap .select-list.' + targetD1).css({'display':'block'});
+      $('.lnb-2depth .select-list__items').eq(targetD2).addClass('on');
+      $('.lnb-3depth .select-list__items').eq(targetD3).addClass('on');
+      // $('.lnb-3depth.select-wrap .select-list-wrap .select-list .select-list__items').eq(targetD2).addClass('on');
+    }   
   }
 }
 
 uiCommon.select = {
   init: () => {
-    uiCommon.select.setDefault();
-    uiCommon.select.event();
+    uiCommon.select.setDefault('.select-wrap');
+    uiCommon.select.event('.select-title');
   },
-  setDefault: () => {
-    let el = $('.select-wrap');
-    $('.select-wrap').each(function(i){
-        let title = $('.select-wrap').eq(i).find('.select-list__items.on').children('a').text();
-        $('.select-wrap').eq(i).find('.select-title').text(title);
+  setDefault: (elem) => {
+    let el = $(elem);
+    el.each(function(i){
+        let title = el.eq(i).find('.select-list__items.on').children('a').text();
+        el.eq(i).find('.select-title').text(title);
     });
   },
-  event : () =>{
-    let target = $('.select-title');
+  event : (elem) =>{
+    let target = $(elem);
     target.on('click', function(){
       let _this = $(this);
       if(_this.hasClass('is-active')){
-        close()
+        close();
       }else{
         open();
       }
@@ -62,7 +63,6 @@ uiCommon.select = {
         target.next('.select-list-wrap').slideUp(200);
       }     
     });
-
   }
 }
 uiCommon.init();

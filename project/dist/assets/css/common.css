@@ -261,13 +261,14 @@ body {
   background-size: 2.4rem 2.4rem;
   cursor: pointer;
 }
-.select-wrap .select-list-wrap {
+
+.select-list-wrap {
   display: none;
   position: absolute;
   width: 100%;
   background: rgba(0, 0, 0, 0.2);
 }
-.select-wrap .select-list-wrap .select-list__items > a {
+.select-list-wrap .select-list__items > a {
   display: block;
   padding: 1rem;
 }
