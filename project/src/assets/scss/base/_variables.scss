@@ -17,42 +17,31 @@ $font-bold: 700;
 $font-default-size: 62.5%;
 
 // Colors
-$white: #fff;
-$black: #000;
+// grayscale
+$white : #070707;
+$gray1: #F8F8F8;
+$gray2: #eeeeee;
+$gray3: #dddddd;
+$gray4: #bbbbbb;
+$gray5: #999999;
+$gray6: #666666;
+$gray7: #333333;
+$gray8: #111111;
 
-$bg-primary: #0153eb;
-$bg-white: #fff;
-$bg-dark: #292f36;
-$bg-light: #f6f7fb;
+// accent
+$accent: #25867D;
 
-$text-primary: #0153eb;
-$text-white: #fff;
-$text-light: #737373;
-$text-gray: #444;
-$text-dark: #000;
+// primary
+$green1: #E7F5F4;
+$green2: #90B7B3;
+$green3: #6C918E;
+$green4: #527773;
+$green5: #274b48;
+$green6: #002321;
 
-$border-primary: #0153eb;
-$border-dark: #292f36;
-$border-gray: #444;
-$border-light: #e0e4ea;
-
-// Button colors
-$btn-primary:#0153eb;
-$btn-primary-hover: #d90206;
-$btn-primary-text: #fff;
-
-$btn-secondary:#424959;
-$btn-secondary-hover: #282f37;
-$btn-secondary-text: #fff;
-
-$btn-white:#fff;
-$btn-white-hover: #e0e4ea;
-
-$btn-gray:#929292;
-$btn-gray-hover: #737373;
-
-$btn-navy:#424959;
-$btn-navy-hover: #282f37;
-
-$btn-disabled-dark: #d2d2d2;
-$btn-disabled-light: #eceff2;
+// secondary
+$grayGreen1: #F5FAF8;
+$grayGreen2: #EEF5F2;
+$grayGreen3: #d7eae1;
+$grayGreen4: #4D936B;
+$grayGreen5: #326F5E;
