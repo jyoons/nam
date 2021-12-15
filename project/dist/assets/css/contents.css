@@ -2,4 +2,111 @@
 /* 공통 */
 /* response */
 /* component */
+.components .guideTit {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+}
+.components .guideBox {
+  padding: 10px 0;
+}
+
+.searchForm label {
+  display: inline-block;
+  position: relative;
+  width: 420px;
+  height: 60px;
+}
+.searchForm label input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border-bottom: 1px solid #ddd;
+  font-family: "Pretendard";
+  font-size: 1.8rem;
+}
+.searchForm label input::placeholder {
+  color: #bbb;
+}
+.searchForm label button {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0;
+  background: url(/assets/images/common/btn_input_search.svg) no-repeat center;
+  cursor: pointer;
+}
+
+.paging {
+  height: 36px;
+}
+.paging::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.paging li {
+  float: left;
+}
+.paging li a {
+  display: inline-block;
+  line-height: 36px;
+  padding: 0 2px;
+  margin-left: 40px;
+  font-size: 2rem;
+  color: #bbb;
+}
+.paging li a.active {
+  font-weight: bold;
+  color: #111;
+  border-bottom: 2px solid #111;
+}
+.paging li a.arr {
+  padding: 0;
+  font-size: 0;
+  width: 36px;
+  height: 36px;
+  margin-left: 0;
+}
+.paging li a.arr.first {
+  background: url(/assets/images/common/btn_page_prev_double.svg) no-repeat center;
+  margin-right: 6px;
+}
+.paging li a.arr.prev {
+  background: url(/assets/images/common/btn_page_prev.svg) no-repeat center;
+  margin-right: 10px;
+}
+.paging li a.arr.next {
+  background: url(/assets/images/common/btn_page_prev.svg) no-repeat center;
+  margin-left: 50px;
+  transform: rotate(180deg);
+}
+.paging li a.arr.last {
+  background: url(/assets/images/common/btn_page_prev_double.svg) no-repeat center;
+  margin-left: 6px;
+  transform: rotate(180deg);
+}
+
+.tabWrap ul::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.tabWrap ul li {
+  float: left;
+  padding: 0 20px;
+}
+.tabWrap ul li a {
+  display: inline-block;
+  padding-bottom: 4px;
+  font-size: 2rem;
+  font-family: "Pretendard";
+}
+.tabWrap ul li a.on {
+  font-weight: bold;
+  border-bottom: 2px solid #111;
+}
+
 /*business*/

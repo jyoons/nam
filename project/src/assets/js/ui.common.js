@@ -2,9 +2,16 @@
 
 const uiCommon = (function (uiCommon, $window) {
   uiCommon.init = function () {
-    console.log('test test111');
+    uiCommon.gnb.init();
+
+
   };
 
-  uiCommon.init();
-  return uiCommon;
+uiCommon.gnb = {
+  init: () => {
+
+  }
+}
+uiCommon.init();
+return uiCommon;
 })(window.uiCommon || {}, $(window));

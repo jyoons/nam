@@ -19,7 +19,7 @@
 
     </head>
     <body>
-        <div id="wrap" class="main">
+        <div id="wrap" class="wrap main">
             <div id="navSkip"><a href="#container">본문으로 바로가기</a></div>
             <header id="header" class="header">
     <div class="header-wrap">
@@ -46,7 +46,7 @@
             <div class="gnb-wrap">
                 <div class="gnb-list-wrap">
                     <ul class="gnb-list gnb-1depth">
-                        <li class="gnb-1depth__items on">
+                        <li class="gnb-1depth__items business">
                             <a href="javascript:void(0)">업무분야</a>
                             <ul class="gnb-list gnb-2depth">
                                 <li class="gnb-2depth__items"><a href="javascript:void(0)">업무 소개</a></li>
@@ -57,7 +57,7 @@
                                 <li class="gnb-2depth__items"><a href="javascript:void(0)">GHS/CLP/SDS</a></li>
                             </ul>
                         </li>
-                        <li class="gnb-1depth__items">
+                        <li class="gnb-1depth__items notice">
                             <a href="javascript:void(0)">소식&자료</a>
                             <ul class="gnb-list gnb-2depth">
                                 <li class="gnb-2depth__items"><a href="javascript:void(0)">관련 소식</a></li>
@@ -66,14 +66,14 @@
                                 <li class="gnb-2depth__items"><a href="javascript:void(0)">관련 사이트</a></li>
                             </ul>
                         </li>
-                        <li class="gnb-1depth__items">
+                        <li class="gnb-1depth__items customer">
                             <a href="javascript:void(0)">고객센터</a>
                             <ul class="gnb-list gnb-2depth">
                                 <li class="gnb-2depth__items"><a href="javascript:void(0)">온라인 상담</a></li>
                                 <li class="gnb-2depth__items"><a href="javascript:void(0)">FAQ</a></li>
                             </ul>
                         </li>
-                        <li class="gnb-1depth__items">
+                        <li class="gnb-1depth__items company">
                             <a href="javascript:void(0)">회사 소개</a>
                             <ul class="gnb-list gnb-2depth">
                                 <li class="gnb-2depth__items"><a href="javascript:void(0)">회사 개요</a></li>
@@ -101,25 +101,77 @@
             </div>           
         </div>
     </div>
-    <div class="lnb-wrap" data-lnb = business,0,0>
-        <div class="home">HOME</div> 
-        <div class="lnb-2depth select-wrap">
-            <div class="select-title">업무 분야</div>
-            <div class="select-list-wrap">
-                <ul class="select-list">
-                    <li class="select-list__items"><button>업무 분야 1</button></li>
-                    <li class="select-list__items"><button>업무 분야 2</button></li>
-                </ul>
+    <div class="lnb lnb-wrap" data-lnb = business,0,0>
+        <div class="lnb-inner">
+            <div class="home"><a href="javascript:void(0)"><span class="hidden">HOME</span></a></div> 
+            <div class="lnb-2depth select-wrap">
+                <div class="select-title">업무 분야</div>
+                <div class="select-list-wrap">
+                    <ul class="select-list business"><!-- 업무 분야 -->
+                        <li class="select-list__items"><a href="javascript:void(0)">업무 소개</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">화평법</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">화관법</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">화학제품안전법</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">국외물질규제</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">GHS/CLP/SDS</a></li>
+                    </ul>
+                    <ul class="select-list notice"><!-- 소식&자료 -->
+                        <li class="select-list__items"><a href="javascript:void(0)">관련 소식</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">법률정보</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">자료실</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">관련 사이트</a></li>
+                    </ul>
+                    <ul class="select-list customer"><!-- 고객센터 -->
+                        <li class="select-list__items"><a href="javascript:void(0)">온라인 상담</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">FAQ</a></li>
+                    </ul>
+                    <ul class="select-list company"><!-- 회사 소개 -->
+                        <li class="select-list__items"><a href="javascript:void(0)">회사 개요</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">회사 연혁</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">관계사</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">사회공헌</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">오시는길</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="lnb-3depth">
-            <div class="select-wrap">
+            <div class="lnb-3depth select-wrap">
                 <div class="select-title">업무 소개</div>
                 <div class="select-list-wrap">
-                    <ul class="select-list">
-                        <li class="select-list__items"><button>업무 소개1</button></li>
-                        <li class="select-list__items"><button>업무 소개2</button></li>
-                        <li class="select-list__items"><button>업무 소개3</button></li>
+                    <ul class="select-list"><!-- 업무분야 | 화평법 -->
+                        <li class="select-list__items"><a href="javascript:void(0)">OVERVIEW</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">기존 화학물질 사전신고</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">기존 화학물질 등록</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">등록 대상 기존 화학물질 등록</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">화학물질 등록 신고ㆍ면제 확인</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">화학물질 등록 자료 준비</a></li>
+                    </ul>
+                    <ul class="select-list"><!-- 업무분야 | 화관법 -->
+                        <li class="select-list__items"><a href="javascript:void(0)">OVERVIEW</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">화학물질 확인명세서 제출 및 유해화학물질 수출입 인허가</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">유해화학물질 영업허가</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">화학물질 통계조사 및 유해화학물질 취급 실적 보고</a></li>
+                    </ul>
+                    <ul class="select-list"><!-- 업무분야 | 화학제품안전법 -->
+                        <li class="select-list__items"><a href="javascript:void(0)">생활화학제품</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">살생물물질</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">살생물물품</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">살생물처리제품</a></li>
+                    </ul>
+                    <ul class="select-list"><!-- 업무분야 | 국외물질규제 -->
+                        <li class="select-list__items"><a href="javascript:void(0)">OVERVIEW</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">유럽 EU REACH</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">일본 CSCL</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">미국 TSCA</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">대만 TCSCA</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">중국 China REACH</a></li>
+                    </ul>
+                    <ul class="select-list"><!-- 업무분야 | GHS/CLP/SDS -->
+                        <li class="select-list__items"><a href="javascript:void(0)">OVERVIEW</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">MSDS 서비스</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">해외 SDS 서비스</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">미국 TSCA</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">대만 TCSCA</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">MSDS 자동 작성 프로그램</a></li>
                     </ul>
                 </div>
             </div>
