@@ -217,6 +217,10 @@ body {
   left: 7rem;
   width: 11rem;
   height: 3.5rem;
+  background-image: url("/assets/images/common/gnb_logo_color.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 11rem 3.5rem;
 }
 .header-wrap .logo img {
   width: 100%;
@@ -257,7 +261,9 @@ body {
   font-weight: 700;
   line-height: 3.6rem;
   padding: 1.4rem 6.5rem 1.4rem 3rem;
-  background: url("/assets/images/common/btn_gnb_global_open_b.svg") calc(100% - 3rem) center no-repeat;
+  background-image: url("/assets/images/common/btn_gnb_global_open_b.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 3rem) center;
   background-size: 2.4rem 2.4rem;
   cursor: pointer;
 }

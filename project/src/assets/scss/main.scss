@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+@import "base/variables";
+@import "base/mixins";
+
+.wrap.main{
+    .header{
+        .logo{
+            background-image:url('/assets/images/common/gnb_logo_white.svg');
+        }
+        .gnb-btn{
+            &>i{background:$white;}
+        }
+        .select-title{
+            color:$white;
+            background-image:url('/assets/images/common/btn_gnb_global_open_w.svg');
+            // background-repeat: no-repeat;
+            // background-position: calc(100% - 3rem) center;
+        }
+    }
+}

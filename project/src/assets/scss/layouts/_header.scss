@@ -6,17 +6,22 @@
         width:100%;
         height:15rem;
         border-bottom:1px solid $gray2;
-        & .logo{
+        .logo{
             position:absolute;
             top:5.8rem;
             left:7rem;
             width:11rem;
             height:3.5rem;
+            // background:url('/assets/images/common/gnb_logo_color.svg') center center no-repeat;
+            background-image:url('/assets/images/common/gnb_logo_color.svg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size:11rem 3.5rem;
             img{
                 width:100%;
             }
         }
-        & .gnb-btn{
+        .gnb-btn{
             position:absolute; 
             top:5rem;
             right:7rem;
@@ -47,10 +52,13 @@
 .select-wrap{
     position:relative;
     display:inline-block;   
-    & .select-title{
+    .select-title{
         @include fontSize('lg');
         padding:1.4rem 6.5rem 1.4rem 3rem;
-        background:url('/assets/images/common/btn_gnb_global_open_b.svg') calc(100% - 3rem) center no-repeat;
+        // background:url('/assets/images/common/btn_gnb_global_open_b.svg') calc(100% - 3rem) center no-repeat;
+        background-image:url('/assets/images/common/btn_gnb_global_open_b.svg');
+        background-repeat: no-repeat;
+        background-position: calc(100% - 3rem) center;
         background-size:2.4rem 2.4rem;
         cursor: pointer;
         // max-width:400px;
