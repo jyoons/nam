@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+
+.dimmed{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0, 0, 0,  0.6);
+}
 /* gnb */
 .gnb{
     // display:none;
@@ -62,18 +71,18 @@
     position:relative;
     width:100%;
     height:calc(100% - 20rem);
-    padding:18rem 11.2rem;           
+    padding:18rem 11.2rem 7rem 11.2rem;      
     overflow-y:auto;
     .gnb-1depth{
         position:relative;
         &__items{
             & + .gnb-1depth__items{
-                margin-top:6rem;
+                margin-top:7rem;
             }
             &>a{
                 position:relative;
                 display:inline-block;
-                color:#6C918E;
+                color:$green3;
                 @include fontSize('xlg');
                 font-weight:500;
                 &:after{
@@ -83,11 +92,11 @@
                         bottom:0;                      
                         width:0;
                         height:1px;
-                        background:#FFF;
+                        background:$white;
                         transition:all 0.2s ease-in;                    
                 }               
                 &:hover{
-                    color:#FFF;                   
+                    color:$white;                   
                     &:after{
                         width:100%;                       
                     }
@@ -95,7 +104,7 @@
             }
             &.on{
                 &>a{
-                    color:#FFF;
+                    color:$white;
                     &:after{
                         content: '';
                         position:absolute;
@@ -103,7 +112,7 @@
                         bottom:0;
                         width:100%;
                         height:1px;
-                        background:#FFF;
+                        background:$white;
                     }
                 }
                 .gnb-2depth{
@@ -128,7 +137,7 @@
                 }               
             }
             a{
-                color:#FFF;
+                color:$white;
                 font-size:2.4rem;
                 font-weight:400;
                 line-height:3.6rem;
@@ -156,7 +165,7 @@
 /*lnb*/
 .lnb-wrap{
     width:100%;
-    border-bottom:1px solid #EEE;
+    border-bottom:1px solid $gray2;
     &>.lnb-inner{
         width:100%;
         max-width:139.6rem;

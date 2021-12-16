@@ -5,7 +5,37 @@
 .btnWrap {
   display: inline-block;
 }
-.btnWrap button.btnTop {
+.btnWrap .btn {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  min-width: 17rem;
+  height: 4.8rem;
+  line-height: 4.8rem;
+  border: 0.1rem solid #dddddd;
+  color: #111111;
+  font-family: "Pretendard";
+  font-size: 1.6rem;
+  text-align: center;
+  cursor: pointer;
+}
+.btnWrap .large {
+  min-width: 32rem;
+}
+.btnWrap .btnGreen {
+  background: #25867D;
+  border: none;
+  color: #FFFFFF;
+}
+.btnWrap button.disabled,
+.btnWrap button:disabled {
+  background: #F8F8F8;
+  color: #8d8d8d;
+}
+.btnWrap .confirm {
+  min-width: 38.4rem;
+}
+.btnWrap .btnTop {
   width: 6rem;
   height: 6rem;
   background: url(/assets/images/common/btn_top.svg) no-repeat center;
@@ -13,41 +43,34 @@
   font-size: 0;
   cursor: pointer;
 }
-.btnWrap .btnHover {
-  display: inline-block;
-  width: 10rem;
-  height: 10rem;
-}
-.btnWrap .btnHover img {
-  width: 100%;
-  height: 100%;
-}
-.btnWrap .viewMore {
-  display: inline-block;
-  width: 10rem;
-  height: 10rem;
-}
-.btnWrap .viewMore img {
-  width: 100%;
-  height: 100%;
-}
 .btnWrap .print {
-  width: 17rem;
-  height: 4.8rem;
-  font-size: 1.6rem;
   padding-left: 7.4rem;
-  border: 1px solid #dddddd;
   background: url(/assets/images/common/ico_print.svg) no-repeat 4.2rem center;
-  cursor: pointer;
   text-align: left;
+}
+.btnWrap .btnList {
+  min-width: 21rem;
+  height: 6.4rem;
+  line-height: 6.4rem;
+  font-size: 2rem;
+}
+.btnWrap .submit {
+  min-width: 21rem;
+  height: 8rem;
+  line-height: 8rem;
+  font-size: 2rem;
 }
 
 .components .guideTit {
   margin-top: 2rem;
-  border-top: 0.1rem solid #ccc;
+  border-top: 0.1rem solid #eeeeee;
 }
 .components .guideBox {
   padding: 1rem 0;
+}
+.components .inner {
+  width: 133.6rem;
+  margin: 0 auto;
 }
 
 .searchForm label {
@@ -60,24 +83,44 @@
   width: 100%;
   height: 100%;
   outline: none;
-  border-bottom: 0.1rem solid #ddd;
+  border-bottom: 0.1rem solid #dddddd;
   font-family: "Pretendard";
   font-size: 1.8rem;
-  padding-right: 2.4rem;
+  padding-right: 7rem;
+}
+.searchForm label input::-ms-clear, .searchForm label input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.searchForm label input::-webkit-search-decoration, .searchForm label input::-webkit-search-cancel-button, .searchForm label input::-webkit-search-results-button, .searchForm label input::-webkit-search-results-decoration {
+  display: none;
 }
 .searchForm label input::placeholder {
-  color: #bbb;
+  color: #bbbbbb;
+}
+.searchForm label input:focus {
+  border-color: #999999;
+}
+.searchForm label input:focus::placeholder {
+  color: #eeeeee;
 }
 .searchForm label button {
   position: absolute;
+  top: 50%;
+  right: 0;
   width: 2.4rem;
   height: 2.4rem;
-  right: 0;
-  top: 50%;
   transform: translateY(-50%);
   font-size: 0;
   background: url(/assets/images/common/btn_input_search.svg) no-repeat center;
   cursor: pointer;
+}
+.searchForm label button.btnClear {
+  right: 4.4rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: url(/assets/images/common/btn_search_clear.svg) no-repeat center;
 }
 
 .paging {
@@ -97,12 +140,12 @@
   padding: 0 0.2rem;
   margin-left: 4rem;
   font-size: 2rem;
-  color: #bbb;
+  color: #bbbbbb;
 }
 .paging li a.active {
   font-weight: bold;
-  color: #111;
-  border-bottom: 0.2rem solid #111;
+  color: #111111;
+  border-bottom: 0.2rem solid #111111;
 }
 .paging li a.arr {
   padding: 0;
@@ -142,7 +185,9 @@ input#attachFile {
   border: 0.1rem solid #666666;
   background: url(/assets/images/common/ico_plus.svg) no-repeat 2.8rem center;
   cursor: pointer;
+  font-family: "Pretendard";
   font-size: 1.6rem;
+  color: #111111;
 }
 
 .tabWrap ul::after {
@@ -162,13 +207,43 @@ input#attachFile {
 }
 .tabWrap ul li a.on {
   font-weight: bold;
-  border-bottom: 0.2rem solid #111;
+  border-bottom: 0.2rem solid #111111;
 }
 
 .btnWrap {
   display: inline-block;
 }
-.btnWrap button.btnTop {
+.btnWrap .btn {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  min-width: 17rem;
+  height: 4.8rem;
+  line-height: 4.8rem;
+  border: 0.1rem solid #dddddd;
+  color: #111111;
+  font-family: "Pretendard";
+  font-size: 1.6rem;
+  text-align: center;
+  cursor: pointer;
+}
+.btnWrap .large {
+  min-width: 32rem;
+}
+.btnWrap .btnGreen {
+  background: #25867D;
+  border: none;
+  color: #FFFFFF;
+}
+.btnWrap button.disabled,
+.btnWrap button:disabled {
+  background: #F8F8F8;
+  color: #8d8d8d;
+}
+.btnWrap .confirm {
+  min-width: 38.4rem;
+}
+.btnWrap .btnTop {
   width: 6rem;
   height: 6rem;
   background: url(/assets/images/common/btn_top.svg) no-repeat center;
@@ -176,33 +251,60 @@ input#attachFile {
   font-size: 0;
   cursor: pointer;
 }
-.btnWrap .btnHover {
-  display: inline-block;
-  width: 10rem;
-  height: 10rem;
-}
-.btnWrap .btnHover img {
-  width: 100%;
-  height: 100%;
-}
-.btnWrap .viewMore {
-  display: inline-block;
-  width: 10rem;
-  height: 10rem;
-}
-.btnWrap .viewMore img {
-  width: 100%;
-  height: 100%;
-}
 .btnWrap .print {
-  width: 17rem;
-  height: 4.8rem;
-  font-size: 1.6rem;
   padding-left: 7.4rem;
-  border: 1px solid #dddddd;
   background: url(/assets/images/common/ico_print.svg) no-repeat 4.2rem center;
-  cursor: pointer;
   text-align: left;
+}
+.btnWrap .btnList {
+  min-width: 21rem;
+  height: 6.4rem;
+  line-height: 6.4rem;
+  font-size: 2rem;
+}
+.btnWrap .submit {
+  min-width: 21rem;
+  height: 8rem;
+  line-height: 8rem;
+  font-size: 2rem;
+}
+
+.boardWrap ul {
+  border-top: 0.2rem solid #111111;
+}
+.boardWrap ul li {
+  padding: 4.8rem;
+  border-bottom: 0.1rem solid #dddddd;
+}
+.boardWrap ul li a {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  font-family: "Pretendard";
+}
+.boardWrap ul li a span {
+  padding-top: 0.8rem;
+  font-size: 1.6rem;
+  color: #666666;
+}
+.boardWrap ul li a .boardTit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 104.9rem;
+  font-size: 2.4rem;
+  color: #111111;
+}
+.boardWrap ul li:hover {
+  background: #f5faf8;
+}
+.boardWrap ul li:hover a span {
+  color: #25867d;
+}
+.boardWrap ul li:hover a .boardTit {
+  color: #25867d;
 }
 
 /*business*/

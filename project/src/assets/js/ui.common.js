@@ -7,38 +7,47 @@ const uiCommon = (function (uiCommon, $window) {
     uiCommon.select.init();
   };
 
-  uiCommon.gnb = {
-    init: function(){
-      uiCommon.gnb.setDefault('.gnb');
-      uiCommon.gnb.event('.gnb', '.gnb-btn', '.gnb-close');
-    },
-    setDefault:(elem) => {
-      let el = $(elem);
-      let elPos = el.attr('data-gnb');
-      let elString = elPos.split(',');
-      $('.gnb-1depth__items.'+ elString[0]).addClass('on');
-      $('.gnb-1depth__items.'+ elString[0]).find('.gnb-2depth__items').eq(elString[1]).addClass('on');
+uiCommon.gnb = {
+  init: function(){
+    uiCommon.gnb.setDefault('.gnb');
+    uiCommon.gnb.event('.gnb', '.gnb-btn', '.gnb-close');
+  },
+  setDefault:(elem) => {
+    let el = $(elem);
+    let elPos = el.attr('data-gnb');
+    let elString = elPos.split(',');
+    $('.gnb-1depth__items').removeClass('on');
+    $('.gnb-1depth__items.'+ elString[0]).addClass('on');
+    $('.gnb-1depth__items.'+ elString[0]).find('.gnb-2depth__items').eq(elString[1]).addClass('on');
 
-    },
-    event:(elem, target1, target2) => {
-      let tl1 = gsap.timeline({});
-      let tl2 = gsap.timeline({});
-      $(target1).on('click', function(){
-        tl1.to(elem, {duration:0.6, right:0, ease: "power3"});   
-      });
-      $(target2).on('click', function(){
-        tl1.to(elem, {duration:0.6, right:'-100%', ease: "power3"});   
-      });
-      uiCommon.gnb.itemEvent('.gnb-1depth__items');
-    },
-    itemEvent:(target) => {
-      $(target + '>a').on('click', function(){
-          let _this = $(this);
-          $(target).removeClass('on');
-          _this.parents('.gnb-1depth__items').addClass('on');
-      });
-    }
+  },
+  event:(elem, target1, target2) => {
+    let tl1 = gsap.timeline();
+    let tl2 = gsap.timeline();
+    $(target1).on('click', function(){
+      uiCommon.gnb.open('.gnb'); 
+    });
+    $(target2).on('click', function(){
+      uiCommon.gnb.close();      
+    });
+    uiCommon.gnb.itemEvent('.gnb-1depth__items');
+  },
+  close:() => {
+    $('.dimmed').remove();
+    gsap.to('.gnb', {duration:0.6, right:'-100%', ease: "power3"});   
+  },
+  open:(elem) => {
+    $('body').append("<div class='dimmed' onclick='uiCommon.gnb.close()'></div>");
+    gsap.to(elem, {duration:0.6, right:0, ease: "power3"});   
+  },
+  itemEvent:(target) => {
+    $(target + '>a').on('click', function(){
+        let _this = $(this);
+        $(target).removeClass('on');
+        _this.parents('.gnb-1depth__items').addClass('on');
+    });
   }
+}
 
 uiCommon.lnb = {
   init: () => {
@@ -49,6 +58,7 @@ uiCommon.lnb = {
     if(el.length > 0){
       let elPos = el.attr('data-lnb');
       let elString = elPos.split(',');
+      $('.lnb-1depth .select-list__items, .lnb-2depth .select-list__items').removeClass('on');
       $('.lnb-1depth .select-list-wrap .select-list__items.' + elString[0]).addClass('on');
       $('.lnb-2depth .select-list-wrap .select-list.' + elString[0]).css({'display':'block'});
       $('.lnb-2depth .select-list__items').eq(elString[1]).addClass('on');

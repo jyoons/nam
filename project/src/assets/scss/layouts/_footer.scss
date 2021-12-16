@@ -1,6 +1,48 @@
 @charset "UTF-8";
 
-// ---------------------------------------------------------------
-// Layouts > Footer
-// ---------------------------------------------------------------
-
+.footer{
+    padding:4rem 0 8rem;
+    .footer-wrap{
+        width:100%;
+        max-width:139.6rem;
+        margin:0 auto;
+        padding:0 3rem;
+    }
+    .footer-menu + .footer-info{
+        margin-top:2.4rem;
+    }
+    .footer-info{
+        color:$gray5;
+        @include fontSize('medi');
+        display:flex;
+        .footer-info__address + .footer-info__tel{
+            margin-left:3rem;
+        }
+        .footer-info__tel + .footer-info__fax{
+            margin-left:2rem;
+        }
+        & + .footer-copylight{
+            margin-top:1.6rem;
+            text-align:left;
+        }
+    }
+    .footer-copylight{
+        text-align:right;
+        color:$gray5;
+        @include fontSize('medi');
+    }
+}
+.footer-menuList{
+    display:flex;
+    align-items: center;
+    &__items{
+        & + .footer-menuList__items{
+            margin-left:3rem;
+        }
+        &>a{
+            @include fontSize('medi');
+            font-weight:700;
+            color:$gray8;
+        }
+    }
+}

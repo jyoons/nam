@@ -16,27 +16,36 @@ var uiCommon = function (uiCommon, $window) {
       var el = $(elem);
       var elPos = el.attr('data-gnb');
       var elString = elPos.split(',');
+      $('.gnb-1depth__items').removeClass('on');
       $('.gnb-1depth__items.' + elString[0]).addClass('on');
       $('.gnb-1depth__items.' + elString[0]).find('.gnb-2depth__items').eq(elString[1]).addClass('on');
     },
     event: function event(elem, target1, target2) {
-      var tl1 = gsap.timeline({});
-      var tl2 = gsap.timeline({});
+      var tl1 = gsap.timeline();
+      var tl2 = gsap.timeline();
       $(target1).on('click', function () {
-        tl1.to(elem, {
-          duration: 0.6,
-          right: 0,
-          ease: "power3"
-        });
+        uiCommon.gnb.open('.gnb');
       });
       $(target2).on('click', function () {
-        tl1.to(elem, {
-          duration: 0.6,
-          right: '-100%',
-          ease: "power3"
-        });
+        uiCommon.gnb.close();
       });
       uiCommon.gnb.itemEvent('.gnb-1depth__items');
+    },
+    close: function close() {
+      $('.dimmed').remove();
+      gsap.to('.gnb', {
+        duration: 0.6,
+        right: '-100%',
+        ease: "power3"
+      });
+    },
+    open: function open(elem) {
+      $('body').append("<div class='dimmed' onclick='uiCommon.gnb.close()'></div>");
+      gsap.to(elem, {
+        duration: 0.6,
+        right: 0,
+        ease: "power3"
+      });
     },
     itemEvent: function itemEvent(target) {
       $(target + '>a').on('click', function () {
@@ -58,6 +67,7 @@ var uiCommon = function (uiCommon, $window) {
       if (el.length > 0) {
         var elPos = el.attr('data-lnb');
         var elString = elPos.split(',');
+        $('.lnb-1depth .select-list__items, .lnb-2depth .select-list__items').removeClass('on');
         $('.lnb-1depth .select-list-wrap .select-list__items.' + elString[0]).addClass('on');
         $('.lnb-2depth .select-list-wrap .select-list.' + elString[0]).css({
           'display': 'block'
