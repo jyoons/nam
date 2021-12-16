@@ -1,8 +1,49 @@
 @charset "UTF-8";
 .btnWrap{
     display: inline-block;
+
+    // 170*48 버튼 공통 스타일
+    .btn{
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        min-width: 17rem;
+        height: 4.8rem;
+        line-height: 4.8rem;
+        border: 0.1rem solid $gray3; //defalt border
+        color: $gray8;
+        font-family: 'Pretendard';
+        font-size: 1.6rem;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    // 320*48 버튼 공통 스타일
+    .large {
+        min-width: 32rem;
+    }
+    
+    // 버튼 그린 색상
+    .btnGreen {
+        background: $accent;
+        border: none;
+        color: $white;
+    }
+
+    //버튼 비활성화
+    button.disabled,
+    button:disabled{
+        background: $gray1;
+        color: #8d8d8d;
+    } 
+
+    // 팝업 확인 버튼 스타일
+    .confirm {
+        min-width: 38.4rem;
+    }
+
     // 탑 버튼
-    button.btnTop{
+    .btnTop{
         width: 6rem;
         height: 6rem;
         background: url(/assets/images/common/btn_top.svg) no-repeat center;
@@ -12,36 +53,47 @@
     }
     
     // 컨텐츠 호버 버튼
-    .btnHover{
-        display: inline-block;
-        width: 10rem;
-        height: 10rem;
-        img{
-            width: 100%;
-            height: 100%;
-        }
-    }
+    // .btnHover{
+    //     display: inline-block;
+    //     width: 10rem;
+    //     height: 10rem;
+    //     img{
+    //         width: 100%;
+    //         height: 100%;
+    //     }
+    // }
     
     // 더보기 버튼
-    .viewMore{
-        display: inline-block;
-        width: 10rem;
-        height: 10rem;
-        img {
-            width: 100%;
-            height: 100%;
-        }
-    }
+    // .viewMore{
+    //     display: inline-block;
+    //     width: 10rem;
+    //     height: 10rem;
+    //     img {
+    //         width: 100%;
+    //         height: 100%;
+    //     }
+    // }
 
     // 프린트 버튼
     .print{
-        width: 17rem;
-        height: 4.8rem;
-        font-size: 1.6rem;
         padding-left: 7.4rem;
-        border: 1px solid $gray3;
         background: url(/assets/images/common/ico_print.svg) no-repeat 4.2rem center;
-        cursor: pointer;
         text-align: left;
+    }
+
+    // 목록 버튼
+    .btnList {
+        min-width: 21rem;
+        height: 6.4rem;
+        line-height: 6.4rem;
+        font-size: 2rem;
+    }
+
+    // 제출 버튼
+    .submit{
+        min-width: 21rem;
+        height: 8rem;
+        line-height: 8rem;
+        font-size: 2rem;
     }
 }
