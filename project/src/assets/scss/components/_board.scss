@@ -1,22 +1,29 @@
 @charset "UTF-8";
 
-.boardWrap{
-    ul{
+.board-wrap {
+    .board-list {
         border-top: 0.2rem solid $gray8;
-        li{
-            padding: 4.8rem;
+        .board-list__item {
+            padding: 4.8rem 0;
             border-bottom: 0.1rem solid $gray3;
             a{
                 display: flex;
                 align-content: center;
                 justify-content: space-between;
                 font-family: 'Pretendard';
-                span{
-                    padding-top: 0.8rem;
+                .board-num {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 13rem;
                     font-size: 1.6rem;
                     color: $gray6;
+                    text-align: center;
+                    &.board-date{
+                        width: 15.6rem;
+                    }
                 }
-                .boardTit{
+                .board-title {
                     @include ellipsis2;
                     width: 104.9rem;
                     font-size: 2.4rem;
@@ -26,10 +33,10 @@
             &:hover{
                 background: #f5faf8;
                 a{
-                    span {
+                    .board-num {
                         color: #25867d;
                     }
-                    .boardTit {
+                    .board-title {
                         color: #25867d;
                     }
                 }

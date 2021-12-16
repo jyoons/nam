@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
 // 게시판 탭메뉴
-.tabWrap{
-    ul{
+.tab-wrap {
+    .tab-list {
         &::after{
             content: '';
             display: block;
             clear: both;
         }
-        li{
+        .tab-list__item {
             float: left;
             padding: 0 2rem;
             a{
