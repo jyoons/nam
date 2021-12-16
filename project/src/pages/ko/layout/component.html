@@ -29,13 +29,6 @@
                                 <button class="search-btn btn-search">검색</button>
                             </label>
                         </div>
-                        <div class="input-search">
-                            <label class="input-search__label">
-                                <input type="search" placeholder="검색어를 입력하세요" class="input1">
-                                <button class="search-btn btn-clear">전체삭제</button>
-                                <button class="search-btn btn-search">검색</button>
-                            </label>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -100,18 +93,6 @@
                     <div class="btn-wrap">
                         <button class="btn-top">위로 가기</button>
                     </div>
-                    <!-- 컨텐츠 호버 버튼 -->
-                    <!-- <div class="btn-wrap">
-                        <a href="#" class="btnHover">
-                            <img src="/assets/images/common/hover_contents_circle.svg" alt="">
-                        </a>
-                    </div> -->
-                    <!-- 더보기 버튼 -->
-                    <!-- <div class="btn-wrap">
-                        <a href="#" class="viewMore">
-                            <img src="/assets/images/common/hover_list_circle.svg" alt="">
-                        </a>
-                    </div> -->
                     <!-- 파일첨부 input -->
                     <div class="btn-wrap btn-input-wrap btn-has-icon">
                         <label for="btn-attach1" class="btn-input-wrap__file btn-has-icon__parent">
@@ -143,6 +124,13 @@
                     <div class="btn-wrap">
                         <button class="btn btn-disabled btn-submit">제출하기</button>
                     </div>
+                    <!-- 링크 버튼 -->
+                    <!-- <div class="btn-wrap">
+                        <button class="btn btn-link btn-has-icon__parent">
+                            <i class="btn-icon icon-link"><img src="/assets/images/common/ico_next.svg" alt="바로가기"></i>
+                            바로가기
+                        </button>
+                    </div> -->
                 </div>
             </div>
 
@@ -231,7 +219,7 @@
         </div>
     </body>
     <script>
-        let component = {
+        const component = {
             init: function(){
                 component.search();
                 component.boardTap();
@@ -244,20 +232,40 @@
 
                 btnClear.hide();
                 searchInput.on('keyup focus',function(){
-                    if($(this).val() != ''){
-                        $(this).siblings('.btn-clear').show();
-                    }else{
+                    $(this).siblings('.btn-clear').show();
+                    if($(this).val().length == 0){
                         $(this).siblings('.btn-clear').hide();
+                    }else{
+                        $(this).siblings('.btn-clear').show();
                     }
                 })
 
-                $('.btn-clear').on('mousedown',function(){
-                    $(this).siblings('.input1').val('').focus();
-                    $(this).hide();
+                // $('.btn-clear').on('mousedown',function(){
+                //     $(this).siblings('.input1').val('').focus();
+                //     $(this).hide();
+                // });
+
+                // searchInput.blur(function(){
+                // $(this).siblings('.btn-clear').hide();
+                // });
+                searchInput.on('blur',function(){
+                    let $this = $(this);
+                    setTimeout(function(){
+                        if($this.siblings('.btn-clear').is(':focus')){
+                    }else{
+                        $this.siblings('.btn-clear').hide();
+                    }
+                    }, 200);
                 });
 
-                searchInput.blur(function(){
-                $(this).siblings('.btn-clear').hide();
+                btnClear.on('blur',function(){
+                    let $this = $(this);
+                    $this.hide();
+                });
+
+                btnClear.on('click',function(){
+                    $(this).siblings('.input1').val('').focus();
+                    $(this).hide();
                 });
 
             },

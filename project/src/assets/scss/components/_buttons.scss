@@ -23,6 +23,12 @@
                     width: 2.4rem;
                     height: 2.4rem;
                 }
+                // &.icon-link {
+                //     left: 50%;
+                //     transform: translatex(-50%);
+                //     width: 2.4rem;
+                //     height: 2.4rem;
+                // }
             }
         }
         
@@ -101,4 +107,14 @@
         line-height: 8rem;
         font-size: 2rem;
     }
+
+    // 링크 버튼
+    // .btn-link{
+    //     width: 5.4rem;
+    //     height: 5.4rem;
+    //     min-width: auto;
+    //     border-radius: 50%;
+    //     font-size: 0;
+    //     border: none;
+    // }
 }
