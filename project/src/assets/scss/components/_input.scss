@@ -2,19 +2,69 @@
 
 // input 검색폼
 .input-wrap{
-    .input-search {
-        .input-search__label {
-            display: inline-block;
-            position: relative;
-            width: 42rem;
-            height: 6rem;
-            .input1 {
+    .input-half{
+        width: 50%;
+        .input-text{
+            width: 45.4rem;
+            &.input-half__full{
                 width: 100%;
-                height: 100%;
-                outline: none;
-                border-bottom: 0.1rem solid $gray3;
-                font-family: 'Pretendard';
+                .input-text__wrap{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .input-text{
+        display: flex;
+        align-items: center;
+        position: relative;
+    
+        .input-plain {
+            width: 100%;
+            min-width: 30rem;
+            min-height: 5rem;
+            outline: none;
+            font-family: 'Pretendard';
+            font-size: 1.8rem;
+            border: 1px solid $gray3;
+            color: $gray8;
+            padding: 0 1.8rem;
+    
+            &::placeholder {
                 font-size: 1.8rem;
+                color: $gray4;
+            }
+    
+            &:focus {
+                border-color: $gray5;
+                &::placeholder {
+                    color: $gray2;
+                }
+            }
+        }
+        // email input
+        &.input-email{
+            width: 81.4rem;
+            .input-text__wrap{
+                display: flex;
+            }
+            .input-text__email{
+                width: 30rem;
+                
+            }
+            .input-email__at{
+                display: inline-block;
+                margin: 0 1.6rem;
+                height: 5rem;
+                line-height: 5rem;
+            }
+        }
+    
+        // clear 버튼 인풋
+        &.input-text-clear {
+            .input-clear {
+                border: initial;
+                border-bottom: 1px solid $gray3;
                 padding-right: 7rem;
     
                 &::-ms-clear,
@@ -30,16 +80,31 @@
                 &::-webkit-search-results-decoration {
                     display: none;
                 }
-                &::placeholder{
-                    color: $gray4;
-                }
-                &:focus{
-                    border-color: $gray5;
-                    &::placeholder{
-                        color: $gray2;
-                    }
-                }
             }
+    
+            // 검색어 삭제버튼
+            .btn-clear {
+                position: absolute;
+                top: 50%;
+                right: 4.4rem;
+                width: 2.4rem;
+                height: 2.4rem;
+                transform: translateY(-50%);
+                font-size: 0;
+                background: url(/assets/images/common/btn_search_clear.svg) no-repeat center;
+                cursor: pointer;
+            }
+        }
+    
+        // 검색 인풋
+        &.input-text-search {
+            width: 42rem;
+            .input-search {
+                min-width: 42rem;
+                min-height: 6rem;
+                padding: 0;
+            }
+
             .search-btn {
                 position: absolute;
                 top: 50%;
@@ -50,36 +115,112 @@
                 font-size: 0;
                 background: url(/assets/images/common/btn_input_search.svg) no-repeat center;
                 cursor: pointer;
-    
-                // 검색어 삭제버튼
-                &.btn-clear {
-                    // display: none;
-                    right: 4.4rem;
-                    width: 2.4rem;
-                    height: 2.4rem;
-                    background: url(/assets/images/common/btn_search_clear.svg) no-repeat center;
-                }
             }
+        }
+
+        // textarea
+        &.input-textarea {
+            width: 100%;
+            align-items: unset;
+            .input-text__wrap{
+                width: 100%;
+            }
+            .input-textarea__textbox{
+                min-height: 36rem;
+                padding: 1.8rem;
+                font-size: 1.8rem;
+            }
+        }
+
+    }
+
+    // 체크박스
+    .input-wrap__check{
+        
+        .input-check{
+            display: none;
+        }
+        .input-check:checked{
+            & + .checkbox-text::before{
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        .checkbox-text{
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            &::before{
+                content: '';
+                display: inline-block;
+                opacity: 0;
+                visibility: hidden;
+                width: 2.4rem;
+                height: 2.4rem;
+                margin-right: 0.8rem;
+                background: url(/assets/images/common/checkbox_after.svg) no-repeat center center;
+            }
+        }
+    }
+}
+.input-title {
+    display: inline-block;
+    font-size: 1.8rem;
+    color: $gray8;
+    width: 15.4rem;
+
+    &.input-required {
+        &::after {
+            content: '*';
+            display: inline-block;
+            font-size: 1.8rem;
+            color: $accent;
+            margin-left: 0.4rem;
+        }
+    }
+}
+// select
+.select-with-title {
+    display: flex;
+    align-items: center;
+}
+
+.select-wrap {
+    display: inline-block;
+
+    .select1 {
+        min-width: 31rem;
+        min-height: 5rem;
+        font-family: 'Pretendard';
+        font-size: 1.8rem;
+        color: $gray8;
+        border: 1px solid $gray3;
+        padding: 0 1.8rem;
+        background-image: url('/assets/images/common/btn_gnb_global_open_b.svg');
+        background-repeat: no-repeat;
+        background-position: calc(100% - 2rem) center;
+        background-size: 2.4rem 2.4rem;
+
+        // 612*50 select
+        &.select-lg {
+            min-width: 61.2rem;
         }
     }
 }
 
 // 페이징
 .paging-wrap{
+    display: flex;
     .paging-list{
+        display: flex;
+        justify-content: space-between;
+        width: 22.2rem;
         height: 3.6rem;
-        &::after{
-            content: '';
-            display: block;
-            clear: both;
-        }
         .paging-list__item {
-            float: left;
             a{
                 display: inline-block;
                 line-height: 3.6rem;
                 padding: 0 0.2rem;
-                margin-left: 4rem;
                 font-size: 2rem;
                 color: $gray4;
                 &.active{
@@ -87,32 +228,33 @@
                     color: $gray8;
                     border-bottom: 0.2rem solid $gray8;
                 }
-                &.btn-arr {
-                    padding: 0;
-                    font-size: 0;
-                    width: 3.6rem;
-                    height: 3.6rem;
-                    margin-left: 0;
-                    &.first{
-                        background: url(/assets/images/common/btn_page_prev_double.svg) no-repeat center;
-                        margin-right: 0.6rem;
-                    }
-                    &.prev{
-                        background: url(/assets/images/common/btn_page_prev.svg) no-repeat center;
-                        margin-right: 1rem;
-                    }
-                    &.next{
-                        background: url(/assets/images/common/btn_page_prev.svg) no-repeat center;
-                        margin-left: 5rem;
-                        transform: rotate(180deg);
-                    }
-                    &.last{
-                        background: url(/assets/images/common/btn_page_prev_double.svg) no-repeat center;
-                        margin-left: 0.6rem;
-                        transform: rotate(180deg);
-                    }
-                }
             }
+        }
+    }
+    .btn-arr {
+        display: inline-block;
+        padding: 0;
+        font-size: 0;
+        width: 3.6rem;
+        height: 3.6rem;
+        margin-left: 0;
+        &.first{
+            background: url(/assets/images/common/btn_page_prev_double.svg) no-repeat center;
+            margin-right: 0.6rem;
+        }
+        &.prev{
+            background: url(/assets/images/common/btn_page_prev.svg) no-repeat center;
+            margin-right: 5rem;
+        }
+        &.next{
+            background: url(/assets/images/common/btn_page_prev.svg) no-repeat center;
+            margin-left: 5rem;
+            transform: rotate(180deg);
+        }
+        &.last{
+            background: url(/assets/images/common/btn_page_prev_double.svg) no-repeat center;
+            margin-left: 0.6rem;
+            transform: rotate(180deg);
         }
     }
 }
@@ -124,13 +266,14 @@
     }
     .btn-input-wrap__file {
         display: inline-block;
-        width: 13.6rem;
-        height: 4.8rem;
+        min-width: 13.6rem;
+        min-height: 4.8rem;
         padding: 1.2rem 0 0 5.4rem;
-        border: 0.1rem solid $gray6;
+        border: 1px solid $gray6;
         cursor: pointer;
         font-family: 'Pretendard';
         font-size: 1.6rem;
         color: $gray8;
     }
 }
+
