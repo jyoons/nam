@@ -1,14 +1,5 @@
 @charset "UTF-8";
 
-
-.dimmed{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0, 0, 0,  0.6);
-}
 /* gnb */
 .gnb{
     // display:none;
@@ -55,7 +46,7 @@
                 margin-right:4.8rem;
                 &>a{
                     display:block;
-                    @include fontSize('medi');
+                    @include fontSize('fontS02');
                     &.on, &:hover{
                         border-bottom:2px solid #111;
                     }
@@ -83,7 +74,8 @@
                 position:relative;
                 display:inline-block;
                 color:$green3;
-                @include fontSize('xlg');
+                @include fontSize('fontS09');
+                line-height:7.2rem;
                 font-weight:500;
                 &:after{
                         content: ''; 

@@ -57,27 +57,66 @@
 }
 
 @mixin fontSize($size) {
-    @if $size == "sm" {
+    // @if $size == "sm" {
+    //     font-size:1.2rem;
+    //     line-height:1.4rem;
+    // }@else if $size == "regular" {
+    //     font-size:1.4rem;
+    //     font-weight:400;
+    // }@else if $size == "medi" {
+    //     font-size:1.6rem;
+    //     font-weight:400;
+    //     line-height:2.4rem;
+    // }@else if $size == "medi2" {
+    //     font-size:1.8rem;
+    //     font-weight:500; 
+    //     line-height:2.4rem;
+    // }@else if $size == "lg" {
+    //     font-size:2rem;
+    //     font-weight:700;
+    //     line-height:3.6rem;
+    // }@else if $size == "xlg" {
+    //     font-size:4.8rem;
+    //     font-weight:700;
+    //     line-height:7.2rem;
+    // }
+    @if $size == "fontS01" {
         font-size:1.2rem;
-        line-height:1.4rem;
-    }@else if $size == "regular" {
+        line-height:1.8rem;
+    }@else if $size == "fontS01" {
         font-size:1.4rem;
-        font-weight:400;
-    }@else if $size == "medi" {
+        line-height:2.1rem;
+    }@else if $size == "fontS02" {
         font-size:1.6rem;
-        font-weight:400;
         line-height:2.4rem;
-    }@else if $size == "medi2" {
+    }@else if $size == "fontS03" {
         font-size:1.8rem;
-        font-weight:500;
-        line-height:2.4rem;
-    }@else if $size == "lg" {
+        line-height:2.7rem;
+    }@else if $size == "fontS04" {
         font-size:2rem;
-        font-weight:700;
+        line-height:3rem;
+    }@else if $size == "fontS05" {
+        font-size:2.4rem;
         line-height:3.6rem;
-    }@else if $size == "xlg" {
-        font-size:4.8rem;
+    }@else if $size == "fontS06" {
+        font-size:2.4rem;
+        line-height:3.6rem;
+        font-weight:500;
+    }@else if $size == "fontS07" {
+        font-size:2.8rem;
+        line-height:4.2rem;
         font-weight:700;
-        line-height:7.2rem;
+    }@else if $size == "fontS08" {
+        font-size:3.2rem;
+        line-height:4.8rem;
+        font-weight:700;
+    }@else if $size == "fontS09" {
+        font-size:4.8rem;
+        line-height:6rem;
+        font-weight:700;
+    }@else if $size == "fontS10" {
+        font-size:6rem;
+        line-height:7.5rem;
+        font-weight:700;
     }
 }

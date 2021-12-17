@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
-    <head>
-        <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<meta name="description" content="남앤드남, 남앤드남인터내셔널">
-<meta name="keywords" content="남앤드남, 남앤드남인터내셔널, 환경컨설팅, 환경컨설팅 서비스, 화평법, 화관법">
-<meta name="format-detection" content="telephone=no">
-<meta property="og:type" content="website">
-<meta property="og:title" content="남앤드남인터내셔널">
-<meta property="og:description" content="남앤드남, 남앤드남인터내셔널, 환경컨설팅, 환경컨설팅 서비스">
-<meta property="og:url" content="">
-<title>남앤드남 | 업무분야 | 화평법</title>
-<link href="/assets/css/common.css" rel="stylesheet">
-<link href="/assets/css/contents.css" rel="stylesheet">
-
-    </head>
-    <body>
-        <div id="wrap" class="wrap business">
-            <div id="navSkip"><a href="#container">본문으로 바로가기</a></div>
-            <!-- header -->
+<!-- header -->
 <header id="header" class="header">
     <div class="header-wrap">
         <h1 class="logo">
@@ -40,7 +19,7 @@
         <div class="gnb-btn">
             <i></i><i></i><i></i>
         </div>
-        <div class="gnb" data-gnb = business,0,0>
+        <div class="gnb" data-gnb = @@gnbLocation>
             <button class="gnb-close"><span class="hidden">닫기</span></button>          
             <div class="gnb-wrap">
                 <div class="gnb-list-wrap">
@@ -100,8 +79,8 @@
             </div>           
         </div>
     </div>
-    
-    <div class="lnb lnb-wrap" data-lnb = business,0,0>
+    @@if(lnbLocation != 'none'){
+    <div class="lnb lnb-wrap" data-lnb = @@lnbLocation>
         <div class="lnb-inner">
             <div class="home"><a href="javascript:void(0)"><span class="hidden">HOME</span></a></div> 
             <div class="lnb-1depth select-wrap">
@@ -188,33 +167,6 @@
             </div>
         </div>
     </div>
-    
+    }
 </header>
 <!--// header -->
-            <!-- container -->
-            <div id="container" class="container">
-                <div class="container-wrap">
-                    <div class="container-header">
-                        <div class="container-header__title">
-                            <div class="title">온라인<br>상담</div>
-                            <div class="text">궁금하신 점에 대해 문의 주시면<br>성심 성의껏 답변 드리도록 하겠습니다</div>
-                        </div>
-                        <div class="container-header__img">
-                            <img src="/assets/images/common/img_main_bg.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--// container -->
-            <div id="footer" class="footer">
-    <div class="footer-wrap">
-
-        <div class="footer-copylight">©Copyright 2021 NAM & NAM international. All Rights Reserved.</div>
-    </div>
-</div>
-        </div>
-        <script src="/assets/js/lib/jquery.import.js"></script>
-
-
-    </body>
-</html> 

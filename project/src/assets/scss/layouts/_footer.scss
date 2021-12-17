@@ -13,7 +13,7 @@
     }
     .footer-info{
         color:$gray5;
-        @include fontSize('medi');
+        @include fontSize('fontS02');
         display:flex;
         .footer-info__address + .footer-info__tel{
             margin-left:3rem;
@@ -29,7 +29,7 @@
     .footer-copylight{
         text-align:right;
         color:$gray5;
-        @include fontSize('medi');
+        @include fontSize('fontS02');
     }
 }
 .footer-menuList{
@@ -40,7 +40,7 @@
             margin-left:3rem;
         }
         &>a{
-            @include fontSize('medi');
+            @include fontSize('fontS02');
             font-weight:700;
             color:$gray8;
         }
