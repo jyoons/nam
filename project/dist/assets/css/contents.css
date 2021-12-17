@@ -33,7 +33,7 @@
   min-width: 17rem;
   height: 4.8rem;
   line-height: 4.8rem;
-  border: 0.1rem solid #dddddd;
+  border: 1px solid #dddddd;
   color: #111111;
   font-family: "Pretendard";
   font-size: 1.6rem;
@@ -82,39 +82,92 @@
   font-size: 2rem;
 }
 
-.input-wrap .input-search .input-search__label {
-  display: inline-block;
-  position: relative;
-  width: 42rem;
-  height: 6rem;
+.input-wrap .input-half {
+  width: 50%;
 }
-.input-wrap .input-search .input-search__label .input1 {
+.input-wrap .input-half .input-text {
+  width: 45.4rem;
+}
+.input-wrap .input-half .input-text.input-half__full {
   width: 100%;
-  height: 100%;
+}
+.input-wrap .input-half .input-text.input-half__full .input-text__wrap {
+  width: 100%;
+}
+.input-wrap .input-text {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.input-wrap .input-text .input-plain {
+  width: 100%;
+  min-width: 30rem;
+  min-height: 5rem;
   outline: none;
-  border-bottom: 0.1rem solid #dddddd;
   font-family: "Pretendard";
   font-size: 1.8rem;
+  border: 1px solid #dddddd;
+  color: #111111;
+  padding: 0 1.8rem;
+}
+.input-wrap .input-text .input-plain::placeholder {
+  font-size: 1.8rem;
+  color: #bbbbbb;
+}
+.input-wrap .input-text .input-plain:focus {
+  border-color: #999999;
+}
+.input-wrap .input-text .input-plain:focus::placeholder {
+  color: #eeeeee;
+}
+.input-wrap .input-text.input-email {
+  width: 81.4rem;
+}
+.input-wrap .input-text.input-email .input-text__wrap {
+  display: flex;
+}
+.input-wrap .input-text.input-email .input-text__email {
+  width: 30rem;
+}
+.input-wrap .input-text.input-email .input-email__at {
+  display: inline-block;
+  margin: 0 1.6rem;
+  height: 5rem;
+  line-height: 5rem;
+}
+.input-wrap .input-text.input-text-clear .input-clear {
+  border: initial;
+  border-bottom: 1px solid #dddddd;
   padding-right: 7rem;
 }
-.input-wrap .input-search .input-search__label .input1::-ms-clear, .input-wrap .input-search .input-search__label .input1::-ms-reveal {
+.input-wrap .input-text.input-text-clear .input-clear::-ms-clear, .input-wrap .input-text.input-text-clear .input-clear::-ms-reveal {
   display: none;
   width: 0;
   height: 0;
 }
-.input-wrap .input-search .input-search__label .input1::-webkit-search-decoration, .input-wrap .input-search .input-search__label .input1::-webkit-search-cancel-button, .input-wrap .input-search .input-search__label .input1::-webkit-search-results-button, .input-wrap .input-search .input-search__label .input1::-webkit-search-results-decoration {
+.input-wrap .input-text.input-text-clear .input-clear::-webkit-search-decoration, .input-wrap .input-text.input-text-clear .input-clear::-webkit-search-cancel-button, .input-wrap .input-text.input-text-clear .input-clear::-webkit-search-results-button, .input-wrap .input-text.input-text-clear .input-clear::-webkit-search-results-decoration {
   display: none;
 }
-.input-wrap .input-search .input-search__label .input1::placeholder {
-  color: #bbbbbb;
+.input-wrap .input-text.input-text-clear .btn-clear {
+  position: absolute;
+  top: 50%;
+  right: 4.4rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  transform: translateY(-50%);
+  font-size: 0;
+  background: url(/assets/images/common/btn_search_clear.svg) no-repeat center;
+  cursor: pointer;
 }
-.input-wrap .input-search .input-search__label .input1:focus {
-  border-color: #999999;
+.input-wrap .input-text.input-text-search {
+  width: 42rem;
 }
-.input-wrap .input-search .input-search__label .input1:focus::placeholder {
-  color: #eeeeee;
+.input-wrap .input-text.input-text-search .input-search {
+  min-width: 42rem;
+  min-height: 6rem;
+  padding: 0;
 }
-.input-wrap .input-search .input-search__label .search-btn {
+.input-wrap .input-text.input-text-search .search-btn {
   position: absolute;
   top: 50%;
   right: 0;
@@ -125,29 +178,93 @@
   background: url(/assets/images/common/btn_input_search.svg) no-repeat center;
   cursor: pointer;
 }
-.input-wrap .input-search .input-search__label .search-btn.btn-clear {
-  right: 4.4rem;
+.input-wrap .input-text.input-textarea {
+  width: 100%;
+  align-items: unset;
+}
+.input-wrap .input-text.input-textarea .input-text__wrap {
+  width: 100%;
+}
+.input-wrap .input-text.input-textarea .input-textarea__textbox {
+  min-height: 36rem;
+  padding: 1.8rem;
+  font-size: 1.8rem;
+}
+.input-wrap .input-wrap__check .input-check {
+  display: none;
+}
+.input-wrap .input-wrap__check .input-check:checked + .checkbox-text::before {
+  opacity: 1;
+  visibility: visible;
+}
+.input-wrap .input-wrap__check .checkbox-text {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+}
+.input-wrap .input-wrap__check .checkbox-text::before {
+  content: "";
+  display: inline-block;
+  opacity: 0;
+  visibility: hidden;
   width: 2.4rem;
   height: 2.4rem;
-  background: url(/assets/images/common/btn_search_clear.svg) no-repeat center;
+  margin-right: 0.8rem;
+  background: url(/assets/images/common/checkbox_after.svg) no-repeat center center;
 }
 
+.input-title {
+  display: inline-block;
+  font-size: 1.8rem;
+  color: #111111;
+  width: 15.4rem;
+}
+.input-title.input-required::after {
+  content: "*";
+  display: inline-block;
+  font-size: 1.8rem;
+  color: #25867D;
+  margin-left: 0.4rem;
+}
+
+.select-with-title {
+  display: flex;
+  align-items: center;
+}
+
+.select-wrap {
+  display: inline-block;
+}
+.select-wrap .select1 {
+  min-width: 31rem;
+  min-height: 5rem;
+  font-family: "Pretendard";
+  font-size: 1.8rem;
+  color: #111111;
+  border: 1px solid #dddddd;
+  padding: 0 1.8rem;
+  background-image: url("/assets/images/common/btn_gnb_global_open_b.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 2rem) center;
+  background-size: 2.4rem 2.4rem;
+}
+.select-wrap .select1.select-lg {
+  min-width: 61.2rem;
+}
+
+.paging-wrap {
+  display: flex;
+}
 .paging-wrap .paging-list {
+  display: flex;
+  justify-content: space-between;
+  width: 22.2rem;
   height: 3.6rem;
-}
-.paging-wrap .paging-list::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.paging-wrap .paging-list .paging-list__item {
-  float: left;
 }
 .paging-wrap .paging-list .paging-list__item a {
   display: inline-block;
   line-height: 3.6rem;
   padding: 0 0.2rem;
-  margin-left: 4rem;
   font-size: 2rem;
   color: #bbbbbb;
 }
@@ -156,27 +273,28 @@
   color: #111111;
   border-bottom: 0.2rem solid #111111;
 }
-.paging-wrap .paging-list .paging-list__item a.btn-arr {
+.paging-wrap .btn-arr {
+  display: inline-block;
   padding: 0;
   font-size: 0;
   width: 3.6rem;
   height: 3.6rem;
   margin-left: 0;
 }
-.paging-wrap .paging-list .paging-list__item a.btn-arr.first {
+.paging-wrap .btn-arr.first {
   background: url(/assets/images/common/btn_page_prev_double.svg) no-repeat center;
   margin-right: 0.6rem;
 }
-.paging-wrap .paging-list .paging-list__item a.btn-arr.prev {
+.paging-wrap .btn-arr.prev {
   background: url(/assets/images/common/btn_page_prev.svg) no-repeat center;
-  margin-right: 1rem;
+  margin-right: 5rem;
 }
-.paging-wrap .paging-list .paging-list__item a.btn-arr.next {
+.paging-wrap .btn-arr.next {
   background: url(/assets/images/common/btn_page_prev.svg) no-repeat center;
   margin-left: 5rem;
   transform: rotate(180deg);
 }
-.paging-wrap .paging-list .paging-list__item a.btn-arr.last {
+.paging-wrap .btn-arr.last {
   background: url(/assets/images/common/btn_page_prev_double.svg) no-repeat center;
   margin-left: 0.6rem;
   transform: rotate(180deg);
@@ -187,10 +305,10 @@
 }
 .btn-input-wrap .btn-input-wrap__file {
   display: inline-block;
-  width: 13.6rem;
-  height: 4.8rem;
+  min-width: 13.6rem;
+  min-height: 4.8rem;
   padding: 1.2rem 0 0 5.4rem;
-  border: 0.1rem solid #666666;
+  border: 1px solid #666666;
   cursor: pointer;
   font-family: "Pretendard";
   font-size: 1.6rem;
@@ -248,7 +366,7 @@
   min-width: 17rem;
   height: 4.8rem;
   line-height: 4.8rem;
-  border: 0.1rem solid #dddddd;
+  border: 1px solid #dddddd;
   color: #111111;
   font-family: "Pretendard";
   font-size: 1.6rem;
@@ -302,7 +420,7 @@
 }
 .board-wrap .board-list .board-list__item {
   padding: 4.8rem 0;
-  border-bottom: 0.1rem solid #dddddd;
+  border-bottom: 1px solid #dddddd;
 }
 .board-wrap .board-list .board-list__item a {
   display: flex;

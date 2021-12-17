@@ -17,20 +17,132 @@
     <body>
         <div class="components">
 
-            <!-- input 검색폼 -->
+            <!-- input -->
+            <div class="inner">
+                <h2 class="guideTit">input</h2>
+                <div class="guideBox">
+                    <!-- 기본 인풋 50% -->
+                    <div class="input-wrap">
+                        <div class="input-half">
+                            <div class="input-text">
+                                <div class="input-text__label">
+                                    <label for="input1" class="input-title input-required">이름</label>
+                                </div>
+                                <div class="input-text__wrap">
+                                    <input type="text" id="input1" placeholder="이름을 입력해주세요" class="input-plain">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 기본 인풋 50% -->
+                    <div class="input-wrap">
+                        <div class="input-half">
+                            <div class="input-text">
+                                <div class="input-text__label">
+                                    <label for="input2" class="input-title input-required">연락처</label>
+                                </div>
+                                <div class="input-text__wrap">
+                                    <input type="text" id="input2" placeholder="하이픈(-)을 빼고 입력해주세요" class="input-plain">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 이메일 인풋 -->
+                    <div class="input-wrap">
+                        <div class="input-text input-email">
+                            <div class="input-text__label">
+                                <label for="input3" class="input-title input-required">이메일</label>
+                            </div>
+                            <div class="input-text__wrap">
+                                <input type="text" id="input3" placeholder="example" class="input-plain input-text__email">
+                                <span class="input-email__at">@</span>
+                                <div class="select-wrap">
+                                    <!-- <div class="select-title">직접입력</div> -->
+                                    <select name="email" id="email1" class="select1">
+                                        <option value="직접입력">직접입력</option>
+                                        <option value="naver">naver.com</option>
+                                        <option value="daum">daum.net</option>
+                                        <option value="gmail">gmail.com</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 기본 인풋 50% full-->
+                    <div class="input-wrap">
+                        <div class="input-half">
+                            <div class="input-text input-half__full">
+                                <div class="input-text__label">
+                                    <label for="input5" class="input-title">관련 URL</label>
+                                </div>
+                                <div class="input-text__wrap">
+                                    <input type="text" id="input5" placeholder="https://" class="input-plain">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- textarea -->
+                    <div class="input-wrap">
+                        <div class="input-text input-textarea">
+                            <div class="input-text__label">
+                                <label for="input4" class="input-title input-required">내용</label>
+                            </div>
+                            <div class="input-text__wrap">
+                                <textarea name="textarea" id="input4" placeholder="최소 10자 이상 입력해주세요" class="input-plain input-textarea__textbox"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 체크박스 -->
+            <div class="inner">
+                <h2 class="guideTit">체크박스</h2>
+                <div class="guideBox">
+                    <div class="input-wrap">
+                        <div class="input-wrap__check">
+                            <input type="checkbox" id="check1" name="check" value="y" checked class="input-check">
+                            <label for="check1" class="checkbox-text">동의합니다</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 검색 -->
             <div class="inner">
                 <h2 class="guideTit">input - 검색</h2>
                 <div class="guideBox">
                     <div class="input-wrap">
-                        <div class="input-search">
-                            <label class="input-search__label">
-                                <input type="search" placeholder="검색어를 입력하세요" class="input1">
-                                <button class="search-btn btn-clear">전체삭제</button>
-                                <button class="search-btn btn-search">검색</button>
-                            </label>
+                        <div class="input-text input-text-search input-text-clear">
+                            <label for="input2"></label>
+                            <input type="search" id="input2" placeholder="검색어를 입력하세요" class="input-plain input-search input-clear">
+                            <button class="btn-clear">전체삭제</button>
+                            <button class="search-btn btn-search">검색</button>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- select -->
+            <div class="inner">
+                <h2 class="guideTit">select</h2>
+                    <div class="select-with-title">
+                        <div class="input-title input-required">상담분야</div>
+                        <div class="select-wrap">
+                            <select name="email" id="email1" class="select1 select-lg">
+                                <option value="상담분야를 선택하세요">상담분야를 선택하세요</option>
+                                <option value="">분야1</option>
+                                <option value="">분야2</option>
+                                <option value="">분야3</option>
+                            </select>
+                        </div>
+                    </div>
             </div>
 
             <!-- 게시판 탭메뉴 -->
@@ -39,6 +151,7 @@
                 <div class="guideBox">
                     <div class="tab-wrap">
                         <ul class="tab-list">
+                            <!-- 활성화 시 on 클래스 추가 -->
                             <li class="tab-list__item"><a href="javascript:void(0)" class="on">전체</a></li>
                             <li class="tab-list__item"><a href="javascript:void(0)">시행규칙</a></li>
                             <li class="tab-list__item"><a href="javascript:void(0)">고시</a></li>
@@ -49,23 +162,25 @@
                     </div>
                 </div>
             </div>
+
+
             <!-- 페이징 -->
             <div class="inner">
                 <h2 class="guideTit">페이징</h2>
                 <div class="guideBox">
                     <div class="paging-wrap">
+                        <a href="javascript:void(0)" class="btn-arr first">첫번째 페이지로 이동</a>
+                        <a href="javascript:void(0)" class="btn-arr prev">이전 페이지로 이동</a>
                         <ul class="paging-list">
-                            <li class="paging-list__item"><a href="javascript:void(0)" class="btn-arr first">첫번째 페이지로 이동</a></li>
-                            <li class="paging-list__item"><a href="javascript:void(0)" class="btn-arr prev">이전 페이지로 이동</a></li>
-                            <!-- active 클래스 : 활성화 -->
+                            <!-- 활성화 시 active 클래스 추가 -->
                             <li class="paging-list__item"><a href="javascript:void(0)" class="active">1</a></li>
                             <li class="paging-list__item"><a href="javascript:void(0)">2</a></li>
                             <li class="paging-list__item"><a href="javascript:void(0)">3</a></li>
                             <li class="paging-list__item"><a href="javascript:void(0)">4</a></li>
                             <li class="paging-list__item"><a href="javascript:void(0)">5</a></li>
-                            <li class="paging-list__item"><a href="javascript:void(0)" class="btn-arr next">다음 페이지로 이동</a></li>
-                            <li class="paging-list__item"><a href="javascript:void(0)" class="btn-arr last">마지막 페이지로 이동</a></li>
                         </ul>
+                        <a href="javascript:void(0)" class="btn-arr next">다음 페이지로 이동</a>
+                        <a href="javascript:void(0)" class="btn-arr last">마지막 페이지로 이동</a>
                     </div>
                 </div>
             </div>
@@ -227,7 +342,7 @@
             },
             search : function() {
                 // 검색 스크립트
-                let searchInput = $('.input-wrap .input1'),
+                let searchInput = $('.input-wrap .input-clear'),
                     btnClear = $('.input-wrap .btn-clear');
 
                 btnClear.hide();
@@ -240,14 +355,6 @@
                     }
                 })
 
-                // $('.btn-clear').on('mousedown',function(){
-                //     $(this).siblings('.input1').val('').focus();
-                //     $(this).hide();
-                // });
-
-                // searchInput.blur(function(){
-                // $(this).siblings('.btn-clear').hide();
-                // });
                 searchInput.on('blur',function(){
                     let $this = $(this);
                     setTimeout(function(){
@@ -264,26 +371,11 @@
                 });
 
                 btnClear.on('click',function(){
-                    $(this).siblings('.input1').val('').focus();
+                    $(this).siblings('.input-clear').val('').focus();
                     $(this).hide();
                 });
 
             },
-            boardTap :function() {
-                // 게시판 탭메뉴
-                $('.tab-wrap .tab-list__item').on('click',function(){
-                    $(this).find('a').addClass('on').parents('.tab-list__item').siblings().find('a').removeClass('on');
-                });
-            },
-            paging : function() {
-                // 페이징 임시 스크립트
-                $('.paging-wrap .paging-list__item a').on('click',function(){
-                    $(this).addClass('active').parents('.paging-list__item').siblings().find('a').removeClass('active');
-                    if($(this).hasClass('btn-arr')){
-                        $('.btn-arr').removeClass('active');
-                    }
-                });
-            }
         }
         component.init();
     </script>

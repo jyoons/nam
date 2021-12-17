@@ -30,16 +30,14 @@ body {
   background:rgba(0, 0, 0,  0.6);
 }
 .container{
-  width:100%;
-  max-width:139.6rem;
-  padding:0 3rem;
-  margin:0 auto;
+  width:100%; 
 }
 .container-header{
   position:relative;
-  padding-top:16rem;
-  padding-bottom:40rem;
+  padding:16rem 3rem 40rem 3rem;
   display:flex;
+  max-width:139.6rem;
+  margin:0 auto;
   justify-content:space-between;
   &__title{
     font-size:12rem;
@@ -56,7 +54,21 @@ body {
 .container-header-fixImg{
   position:fixed;
   width:100%;
+  max-width:1740px;
+  height:460px;
+  overflow:hidden;
   left:0;
   top:0;
   z-index:-1;
+  img{
+    max-width: none;
+    position:absolute;
+    top : -770px;
+  }
+}
+.container-contents{
+  width:100%;
+  // max-width:139.6rem;
+  // margin:0 auto;
+  background:$white;
 }

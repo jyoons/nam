@@ -209,16 +209,14 @@ body {
 
 .container {
   width: 100%;
-  max-width: 139.6rem;
-  padding: 0 3rem;
-  margin: 0 auto;
 }
 
 .container-header {
   position: relative;
-  padding-top: 16rem;
-  padding-bottom: 40rem;
+  padding: 16rem 3rem 40rem 3rem;
   display: flex;
+  max-width: 139.6rem;
+  margin: 0 auto;
   justify-content: space-between;
 }
 .container-header__title {
@@ -237,9 +235,22 @@ body {
 .container-header-fixImg {
   position: fixed;
   width: 100%;
+  max-width: 1740px;
+  height: 460px;
+  overflow: hidden;
   left: 0;
   top: 0;
   z-index: -1;
+}
+.container-header-fixImg img {
+  max-width: none;
+  position: absolute;
+  top: -770px;
+}
+
+.container-contents {
+  width: 100%;
+  background: #FFFFFF;
 }
 
 .header-wrap {
@@ -545,6 +556,7 @@ body {
 
 .footer {
   padding: 4rem 0 8rem;
+  background: #FFFFFF;
 }
 .footer .footer-wrap {
   width: 100%;

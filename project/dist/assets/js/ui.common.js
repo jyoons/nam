@@ -14,6 +14,18 @@ var uiCommon = function (uiCommon, $window) {
       var h2 = $('.container-header').outerHeight();
       var h3 = Number($('.container-header').css('padding-bottom').replace(/[^-\d\.]/g, ''));
       $('.container-header-fixImg').css('top', h1 + h2 - h3 - 60);
+      $(window).on('scroll', function () {
+        // console.log($(this).scrolltop());
+        // gsap('.container-header-fixImg')
+        var _thisTop = $(window).scrollTop();
+
+        console.log(_thisTop);
+        gsap.to('.container-header-fixImg', {
+          duration: 0,
+          y: -(_thisTop * 0.6),
+          ease: "power1"
+        });
+      });
     }
   };
   uiCommon.gnb = {
