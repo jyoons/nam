@@ -5,7 +5,20 @@ const uiCommon = (function (uiCommon, $window) {
     uiCommon.gnb.init();
     uiCommon.lnb.init();
     uiCommon.select.init();
+    uiCommon.titImg.init();
   };
+
+
+  uiCommon.titImg = {
+    init: function(){
+      let h1 = $('.header').outerHeight();
+      let h2 = $('.container-header').outerHeight();
+      let h3 = Number($('.container-header').css('padding-bottom').replace(/[^-\d\.]/g,''));
+      $('.container-header-fixImg').css('top', (h1 + h2 - h3 - 60));
+    },
+
+  }
+
 
 uiCommon.gnb = {
   init: function(){
@@ -33,12 +46,18 @@ uiCommon.gnb = {
     uiCommon.gnb.itemEvent('.gnb-1depth__items');
   },
   close:() => {
-    $('.dimmed').remove();
-    gsap.to('.gnb', {duration:0.6, right:'-100%', ease: "power3"});   
+    // $('.dimmed').remove();
+    gsap.to('.pc_gnbImage', {duration:0.4, left:'50%', ease: "power1"});  
+    gsap.to('.gnb', {duration:0.6, right:'-100%', ease: "power2", delay:0.3});
+    $('.logo').removeClass('active-menu');   
+
   },
   open:(elem) => {
-    $('body').append("<div class='dimmed' onclick='uiCommon.gnb.close()'></div>");
-    gsap.to(elem, {duration:0.6, right:0, ease: "power3"});   
+    // $('body').append("<div class='dimmed' onclick='uiCommon.gnb.close()'></div>");
+    gsap.to(elem, {duration:0.4, right:0, ease: "power2"});  
+    gsap.to('.pc_gnbImage', {duration:0.6, left:0, ease: "power2", delay:0.3});
+    $('.logo').addClass('active-menu');
+    gsap.to('.logo', {duration:0.4, opacity:1, ease: "power2", delay:0.2});
   },
   itemEvent:(target) => {
     $(target + '>a').on('click', function(){

@@ -5,8 +5,17 @@ var uiCommon = function (uiCommon, $window) {
     uiCommon.gnb.init();
     uiCommon.lnb.init();
     uiCommon.select.init();
+    uiCommon.titImg.init();
   };
 
+  uiCommon.titImg = {
+    init: function init() {
+      var h1 = $('.header').outerHeight();
+      var h2 = $('.container-header').outerHeight();
+      var h3 = Number($('.container-header').css('padding-bottom').replace(/[^-\d\.]/g, ''));
+      $('.container-header-fixImg').css('top', h1 + h2 - h3 - 60);
+    }
+  };
   uiCommon.gnb = {
     init: function init() {
       uiCommon.gnb.setDefault('.gnb');
@@ -32,19 +41,39 @@ var uiCommon = function (uiCommon, $window) {
       uiCommon.gnb.itemEvent('.gnb-1depth__items');
     },
     close: function close() {
-      $('.dimmed').remove();
+      // $('.dimmed').remove();
+      gsap.to('.pc_gnbImage', {
+        duration: 0.4,
+        left: '50%',
+        ease: "power1"
+      });
       gsap.to('.gnb', {
         duration: 0.6,
         right: '-100%',
-        ease: "power3"
+        ease: "power2",
+        delay: 0.3
       });
+      $('.logo').removeClass('active-menu');
     },
     open: function open(elem) {
-      $('body').append("<div class='dimmed' onclick='uiCommon.gnb.close()'></div>");
+      // $('body').append("<div class='dimmed' onclick='uiCommon.gnb.close()'></div>");
       gsap.to(elem, {
-        duration: 0.6,
+        duration: 0.4,
         right: 0,
-        ease: "power3"
+        ease: "power2"
+      });
+      gsap.to('.pc_gnbImage', {
+        duration: 0.6,
+        left: 0,
+        ease: "power2",
+        delay: 0.3
+      });
+      $('.logo').addClass('active-menu');
+      gsap.to('.logo', {
+        duration: 0.4,
+        opacity: 1,
+        ease: "power2",
+        delay: 0.2
       });
     },
     itemEvent: function itemEvent(target) {

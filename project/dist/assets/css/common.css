@@ -199,6 +199,7 @@ body {
 
 .dimmed {
   position: fixed;
+  z-index: 49;
   top: 0;
   left: 0;
   width: 100%;
@@ -206,25 +207,41 @@ body {
   background: rgba(0, 0, 0, 0.6);
 }
 
-.container-wrap {
+.container {
   width: 100%;
   max-width: 139.6rem;
+  padding: 0 3rem;
   margin: 0 auto;
-  padding: 12rem 3rem;
 }
 
-.container-header__title {
+.container-header {
+  position: relative;
+  padding-top: 16rem;
+  padding-bottom: 40rem;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  background: #CCC;
 }
-.container-header__title > .title {
+.container-header__title {
   font-size: 12rem;
   font-weight: 700;
   line-height: 14.4rem;
   letter-spacing: -1rem;
 }
+.container-header__text {
+  margin-top: 3rem;
+  font-size: 2rem;
+  line-height: 3rem;
+  text-align: right;
+}
+
+.container-header-fixImg {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
 .header-wrap {
   position: relative;
   width: 100%;
@@ -237,13 +254,20 @@ body {
   left: 7rem;
   width: 11rem;
   height: 3.5rem;
+  z-index: 60;
   background-image: url("/assets/images/common/gnb_logo_color.svg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 11rem 3.5rem;
+  transition: all 1s ease;
 }
 .header-wrap .logo img {
   width: 100%;
+}
+.header-wrap .logo.active-menu {
+  opacity: 0;
+  background-image: url("/assets/images/common/gnb_logo_white.svg");
+  transition: opacity 600ms ease;
 }
 .header-wrap .gnb-btn {
   position: absolute;
@@ -315,15 +339,29 @@ body {
   right: -100%;
   z-index: 50;
   width: 100%;
-  max-width: 117rem;
   height: 100%;
-  background: #274B48;
   overflow: hidden;
 }
-.gnb .gnb-wrap {
-  position: relative;
+.gnb .pc_gnbImage {
+  position: absolute;
+  right: auto;
+  left: 50%;
+  top: 0;
   width: 100%;
   height: 100%;
+  background-image: url("/assets/images/common/menu_left_img.jpg");
+  background-position: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.gnb .gnb-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 117rem;
+  width: 100%;
+  height: 100%;
+  background: #274B48;
 }
 .gnb .gnb-close {
   position: absolute;

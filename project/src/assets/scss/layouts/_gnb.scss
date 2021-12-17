@@ -8,14 +8,30 @@
     right:-100%;
     z-index:50;
     width:100%;
-    max-width:117rem;
+    // max-width:117rem;
     height:100%;
-    background:#274B48;
+    
     overflow:hidden;
-    .gnb-wrap{
-        position:relative;
+    .pc_gnbImage{
+        position:absolute;
+        right:auto;
+        left:50%; // 초기셋팅
+        top:0;
         width:100%;
         height:100%;
+        background-image:url('/assets/images/common/menu_left_img.jpg');
+        background-position: 0;
+        background-size: contain;
+        background-repeat:no-repeat;
+    }
+    .gnb-wrap{
+        position:absolute;
+        top:0;
+        right:0;
+        max-width:117rem;
+        width:100%;
+        height:100%;
+        background:#274B48;
     }
     .gnb-close{
         position:absolute;
