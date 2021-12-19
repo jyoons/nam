@@ -57,7 +57,7 @@
 }
 
 @mixin fontSize($size) {
-    @if $size == "fontS01" {
+    @if $size == "fontS00" {
         font-size:1.2rem;
         line-height:1.8rem;
     }@else if $size == "fontS01" {

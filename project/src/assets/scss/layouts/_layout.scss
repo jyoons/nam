@@ -14,11 +14,14 @@ body {
     font-family: "Pretendard", "맑은 고딕", "돋음", dotum, sans-serif;
     font-weight:400;
     font-size: 1.6rem;
+    font-weight:400;
     color: $gray8;
     line-height: 1.57;
     letter-spacing: 0px;
     margin: 0;
     -webkit-text-size-adjust: none;
+    width:100%;
+    overflow-x: hidden;
 }
 .dimmed{
   position:fixed;
@@ -34,28 +37,50 @@ body {
 }
 .container-header{
   position:relative;
-  padding:16rem 3rem 40rem 3rem;
+  padding:16rem 3rem 10rem 3rem;
+  &.container-header-img{
+    padding-bottom:40rem;
+  }
   display:flex;
   max-width:139.6rem;
   margin:0 auto;
   justify-content:space-between;
-  &__title{
+  overflow:hidden;
+  &__title{  
     font-size:12rem;
     font-weight:700;
-    line-height:14.4rem;
+    line-height:12.2rem;
     letter-spacing: -1rem;
+    color:$gray8;
+    &>div{
+      position:relative;
+      height:12.2rem;
+      overflow:hidden;
+      &>span{
+        position:relative;
+        display:block;
+        top:100%;
+      }
+      & + div{
+        margin-top:2.4rem;
+      }
     }
+  }
   &__text{
+    position:relative;
+    opacity:0;
+    right:-10%;
     margin-top:3rem;
     @include fontSize('fontS04');
     text-align:right;
+    color:$gray7;
   }
 }
 .container-header-fixImg{
   position:fixed;
   width:100%;
-  max-width:1740px;
-  height:460px;
+  max-width:174rem;
+  height:46rem;
   overflow:hidden;
   left:0;
   top:0;
@@ -63,12 +88,10 @@ body {
   img{
     max-width: none;
     position:absolute;
-    top : -770px;
+    top : -77rem;
   }
 }
 .container-contents{
   width:100%;
-  // max-width:139.6rem;
-  // margin:0 auto;
   background:$white;
 }

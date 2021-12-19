@@ -13,16 +13,310 @@
 @import "layouts/gnb";
 @import "layouts/footer";
 
-
-
-
 @include response('tablet'){
-    body{
-        background:#f00;
+    /*header*/
+   .header{   
+        &-wrap{
+            width:100%;
+            height:12rem;
+            .logo{
+                top:4.2rem;
+                left:3.2rem;
+                width:98px;
+                height:32px;
+                background-size:98px 32px;
+            }
+            .gnb-btn{
+                top:3.8rem;
+                right:3.2rem;
+                width:3.6rem;
+                height:3.6rem;
+                &>i{              
+                    margin:0.8rem 0 0 0;          
+                }
+                &>i:first-child{margin-top:.7rem;}
+            }
+            .lang-select{
+                top:3rem;
+                right:7.8rem;
+            }
+        }
+    }
+    .select-wrap{
+        .select-title{
+            @include fontSize('fontS03');
+            padding:1.4rem 6rem 1.4rem 3rem;
+            max-width:400px;
+            @include ellipsis;
+            &:after{
+                right:2.5rem;
+            }
+        }
+    }
+    .select-list-wrap{
+        @include fontSize('fontS02');
+        .select-list{
+            &__items{                
+                &>a{
+                    padding:1.8rem 3.2rem;
+                }
+            }
+        }
+    }
+    /*LNB*/
+    .lnb-wrap{
+        &>.lnb-inner{
+            height:6rem;         
+        }
+        .home{
+            &>a{
+                width:2rem;
+                height:2rem;
+                background-size: 2rem;
+            }            
+            & + .select-wrap{margin-left:2.4rem;}
+        }
+    }
+    .lnb{
+        .select-wrap{
+            & .select-title{
+                @include fontSize('fontS02');                   
+                padding: 2rem 5rem 2rem 1rem;
+                &:after{right:1rem;}
+            }
+            & + .select-wrap{margin-left:1.2rem;}
+        }
+    }
+    /*GNB*/
+    .gnb{
+        .pc_gnbImage{display:none;}
+        .gnb-close{
+            top:3.6rem;
+            right:3rem;
+            width:4.2rem;
+            height:4.2rem;
+            background-size: 4.2rem 4.2rem; 
+        }
+        .gnb-footer{
+            height:19rem;
+            padding:0 3.2rem;
+            justify-content: center;
+            .gnb-footer__lang{
+                display:flex;
+                &>li{
+                    margin-right:3rem;
+                }
+            }
+        }        
+    }
+    .gnb-list-wrap{
+        top:15rem;
+        height:calc(100% - 19rem - 15rem);
+        padding:0 5rem 6.5rem 5rem;      
+        .gnb-1depth{
+            &__items{
+                & + .gnb-1depth__items{margin-top:5rem;}
+                &>a{
+                    font-size:4rem;
+                    line-height:5rem;
+                }
+            }
+        }    
+        .gnb-2depth{
+            left:30rem;
+            &__items{
+                & + .gnb-2depth__items{margin-top:1.2rem;}
+                a{
+                    @include fontSize('fontS04');
+                }         
+            }      
+        }
     }
 }
+
 @include response('mobile') {
-    body{
-        background:#FFF;
+   /*header*/
+   .header{   
+        &-wrap{
+            width:100%;
+            height:8rem;
+            .logo{
+                top:2.8rem;
+                left:3.2rem;
+                width:78px;
+                height:26px;
+                background-size:78px 26px;
+            }
+            .gnb-btn{
+                top:2.2rem;
+                right:3.2rem;
+                width:3rem;
+                height:3rem;
+                &>i{              
+                    margin:0.6rem 0 0 0;      
+                }
+                &>i:first-child{margin-top:.6rem;}
+            }
+            .lang-select{display:none;}
+        }
+    }
+    .select-list-wrap{       
+        border:none;
+        border-bottom:1px solid $gray3;
+        background:$white;
+        @include fontSize('fontS01');
+        .select-list{
+            &__items{                
+                &>a{
+                    display:block;
+                    padding:1.6rem 3.2rem;
+                }
+            }
+        }
+    }
+    /*LNB*/
+    .lnb-wrap{
+        &>.lnb-inner{
+            height:auto;
+            flex-wrap: wrap;
+            padding:0 3.2rem;            
+        }
+        .home{
+            display:none;
+            & + .select-wrap{margin-left:0;}
+        }
+    }
+    .lnb{
+        .select-wrap{
+            flex:0 0 calc(50% - 8px);
+            width:calc(50% - 8px);
+            height:4.8rem;
+            &.lnb-3depth{
+                flex:0 0 100%;
+                width:100%;
+                &.lnb-3depth:after{
+                    content:'';
+                    position:absolute;
+                    top:0;
+                    left:-3.2rem;
+                    width:100vw;
+                    height:1px;
+                    background:$gray2;
+                }            
+            }         
+            & .select-title{
+                font-size:1.4rem;
+                line-height:2.4rem;
+                padding:1.2rem 4rem 1.2rem 0rem;
+                max-width:100%;
+                @include ellipsis;
+                &:after{right:0;}
+            }
+            & + .select-wrap{margin-left:0rem;}
+            &.lnb-2depth {
+                margin-left:16px;
+                .select-list-wrap{margin-left:calc(-100% - 3.2rem - 16px);}
+            }
+            .select-list-wrap{
+                width:100vw;
+                margin-left:-3.2rem;
+            }
+        }
+    }
+    /*GNB*/
+    .gnb{
+        .pc_gnbImage{display:none;}
+        .gnb-close{
+            top:2rem;
+            right:3rem;
+            width:3.6rem;
+            height:3.6rem;
+            background-size: 3.6rem 3.6rem; 
+        }
+        .gnb-footer{
+            height:18rem;
+            bottom:0;
+            background:#FFF;
+            display:flex;
+            padding:0 0 0 11rem;
+            align-items: center;
+            &>div{
+                flex:0 0 50%; 
+            }
+            .gnb-footer__lang{
+                display:flex;
+                &>li{
+                    margin-right:4.8rem;
+                    &>a{
+                        display:block;
+                        @include fontSize('fontS02');
+                        &.on, &:hover{
+                            border-bottom:2px solid #111;
+                        }
+                    }
+                }
+                &>li:last-child{
+                    margin-right:0;
+                }
+            }
+        }
+        .gnb-footer{
+            height:17.8rem;
+            display:block;
+            padding:4rem 2.8rem;
+            .gnb-footer__lang{
+                &>li{
+                    margin-right:2rem;
+                    &>a{
+                        @include fontSize('fontS01');
+                    }
+                }
+            }
+        }
+        .gnb-footer__menu +  .gnb-footer__lang{margin-top:3.6rem;}
+    }
+    .gnb-list-wrap{
+        top:12rem;
+        height:calc(100% - 17.8rem - 12rem);
+        padding:0 3.2rem 6rem 3.2rem;      
+        .gnb-1depth{
+            position:relative;
+            &__items{
+                & + .gnb-1depth__items{margin-top:2rem;}
+                &>a{
+                    @include fontSize('fontS05');
+                    font-weight:500;
+                    &:after{display:none;} 
+                }
+                &.on{
+                    &>a{
+                        &:after{display:none;}  
+                    }
+                }
+            }
+        }    
+        .gnb-2depth{
+            position:relative;
+            top:0; 
+            left:2.8rem;
+            margin-top:2.6rem;
+            padding-bottom:0.6rem;
+            &__items{
+                & + .gnb-2depth__items{margin-top:1.2rem;}
+                a{
+                    font-size:1.6rem;
+                    line-height:2rem;   
+                }         
+            }      
+        }
+    }
+    .gnb-icon{
+        @include fontSize('fontS05');
+        i.onlineCounselling{
+            width:3.6rem;
+            height:3.6rem;
+            background-size: 3.6rem 3.6rem;
+        }
+        i + span{margin-left:1rem;}
     }
 }

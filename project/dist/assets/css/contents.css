@@ -82,43 +82,23 @@
   font-size: 2rem;
 }
 
-.input-wrap .input-half {
-  width: 50%;
+input[type=text]::-ms-clear {
+  display: none;
 }
-.input-wrap .input-half .input-text {
+
+.input-wrap .input-text {
   width: 45.4rem;
 }
-.input-wrap .input-half .input-text.input-half__full {
+.input-wrap .input-text.input-half__full {
   width: 100%;
 }
-.input-wrap .input-half .input-text.input-half__full .input-text__wrap {
+.input-wrap .input-text.input-half__full .input-text__wrap {
   width: 100%;
 }
 .input-wrap .input-text {
   display: flex;
   align-items: center;
   position: relative;
-}
-.input-wrap .input-text .input-plain {
-  width: 100%;
-  min-width: 30rem;
-  min-height: 5rem;
-  outline: none;
-  font-family: "Pretendard";
-  font-size: 1.8rem;
-  border: 1px solid #dddddd;
-  color: #111111;
-  padding: 0 1.8rem;
-}
-.input-wrap .input-text .input-plain::placeholder {
-  font-size: 1.8rem;
-  color: #bbbbbb;
-}
-.input-wrap .input-text .input-plain:focus {
-  border-color: #999999;
-}
-.input-wrap .input-text .input-plain:focus::placeholder {
-  color: #eeeeee;
 }
 .input-wrap .input-text.input-email {
   width: 81.4rem;
@@ -136,7 +116,7 @@
   line-height: 5rem;
 }
 .input-wrap .input-text.input-text-clear .input-clear {
-  border: initial;
+  border: none;
   border-bottom: 1px solid #dddddd;
   padding-right: 7rem;
 }
@@ -211,6 +191,40 @@
   height: 2.4rem;
   margin-right: 0.8rem;
   background: url(/assets/images/common/checkbox_after.svg) no-repeat center center;
+}
+
+.input-default {
+  width: 100%;
+  min-width: 30rem;
+  min-height: 5rem;
+  outline: none;
+  font-family: "Pretendard";
+  font-size: 1.8rem;
+  border: 1px solid #dddddd;
+  color: #111111;
+  padding: 0 1.8rem;
+}
+.input-default::placeholder {
+  font-size: 1.8rem;
+  color: #bbbbbb;
+}
+.input-default:-ms-input-placeholder {
+  color: #bbbbbb;
+}
+.input-default::-ms-input-placeholder {
+  color: #bbbbbb;
+}
+.input-default:focus {
+  border-color: #999999;
+}
+.input-default:focus::placeholder {
+  color: #eeeeee;
+}
+.input-default:focus:-ms-input-placeholder {
+  color: #eeeeee;
+}
+.input-default:focus::-ms-input-placeholder {
+  color: #eeeeee;
 }
 
 .input-title {
