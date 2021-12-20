@@ -1,6 +1,14 @@
 @charset "UTF-8";
 
-.header{   
+.header{
+    transition: background-color 0.4s linear;
+    &.is-scroll, &.is-gnbOpen{
+        background:$white;
+        transition: background-color 0.4s linear;
+    }
+    position:fixed;
+    z-index:30;
+    width:100%;
     &-wrap{
         position:relative; 
         width:100%;

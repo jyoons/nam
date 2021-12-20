@@ -2,6 +2,7 @@
 
 var uiCommon = function (uiCommon, $window) {
   uiCommon.init = function () {
+    uiCommon.header.init();
     uiCommon.gnb.init();
     uiCommon.lnb.init();
     uiCommon.select.init();
@@ -9,73 +10,75 @@ var uiCommon = function (uiCommon, $window) {
     uiCommon.titText.init();
   };
 
-  uiCommon.titImg = {
+  uiCommon.header = {
     init: function init() {
-      uiCommon.titImg.setDefault();
-      uiCommon.titImg.event();
+      this.event();
+      this.setDefault();
     },
     setDefault: function setDefault() {
-      var h1 = $('.header').outerHeight();
-      var h2 = $('.container-header').outerHeight();
-      var h3 = Number($('.container-header').css('padding-bottom').replace(/[^-\d\.]/g, ''));
-      $('.container-header-fixImg').css('top', h1 + h2 - h3 - 45);
-    },
-    event: function event() {
-      $(window).on('scroll', function () {
-        var _thisTop = $(window).scrollTop();
-
-        gsap.to('.container-header-fixImg', {
-          duration: 0,
-          y: -(_thisTop * 0.86),
-          ease: "power1"
-        });
-        gsap.to('.container-header-fixImg>img', {
-          duration: 0,
-          y: _thisTop * 0.4,
-          ease: "power1"
-        });
-      });
-    }
-  };
-  uiCommon.titText = {
-    init: function init() {
-      uiCommon.titText.event();
-    },
-    event: function event() {
-      var tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".container-header__title",
-          toggleActions: "restart none restart none"
-        }
+      var headerH = $('.header').outerHeight();
+      $('.container').css('padding-top', headerH);
+      var winScroll = $(window).scrollTop();
+      gsap.to('.header-wrap', {
+        duration: 0.1,
+        marginTop: 0,
+        ease: 'power3'
       });
 
-      function text1(name) {
-        var textLen = $('.container-header__title>div').length;
-
-        for (var i = 1; i < textLen + 1; i++) {
-          name.to('.container-header__title>div:nth-child(' + i + ')>span', {
-            duration: 0.5,
-            top: 0,
-            opacity: 1,
-            ease: 'power1',
-            delay: (i - 1) * 0.2
-          }, 0);
-        }
+      if (winScroll > 0) {
+        gsap.set('.header-wrap', {
+          backgroundColor: '#FFF'
+        });
       }
+    },
+    event: function event() {
+      var lastScroll = 0;
 
-      tl.add(text1(tl));
-      tl.to('.container-header__text', {
+      var _this = this;
+
+      $(window).on('scroll', function () {
+        var thisScroll = $(this).scrollTop();
+
+        if (thisScroll > 0) {
+          $('.header').addClass('is-scroll');
+
+          if (thisScroll < lastScroll) {
+            //up
+            _this.scrollUp();
+          } else {
+            //down
+            _this.scrollDown();
+          }
+        } else {
+          $('.header').removeClass('is-scroll');
+        }
+
+        lastScroll = thisScroll;
+      });
+    },
+    scrollDown: function scrollDown() {
+      var lnbLen = $('.lnb').length;
+
+      if (lnbLen > 0) {
+        gsap.to('.header-wrap', {
+          duration: 0,
+          marginTop: -$('.header-wrap').outerHeight(),
+          ease: 'power3'
+        });
+      }
+    },
+    scrollUp: function scrollUp() {
+      gsap.to('.header-wrap', {
         duration: 0.4,
-        right: 0,
-        opacity: 1,
-        ease: 'power1'
+        marginTop: 0,
+        ease: 'power3'
       });
     }
   };
   uiCommon.gnb = {
     init: function init() {
-      uiCommon.gnb.setDefault('.gnb');
-      uiCommon.gnb.event('.gnb', '.gnb-btn', '.gnb-close');
+      this.setDefault('.gnb');
+      this.event('.gnb', '.gnb-btn', '.gnb-close');
     },
     setDefault: function setDefault(elem) {
       var el = $(elem);
@@ -103,7 +106,6 @@ var uiCommon = function (uiCommon, $window) {
       uiCommon.gnb.itemEvent('.gnb-1depth__items');
     },
     close: function close(elem) {
-      // $('.dimmed').remove();
       gsap.to(elem, {
         duration: 0.6,
         right: '-100%',
@@ -128,9 +130,25 @@ var uiCommon = function (uiCommon, $window) {
         left: '50%',
         ease: "power1"
       });
+      var wScrollTop = $('.wrap').scrollTop();
+      $('body, .wrap').removeClass('scrollOff');
+      $(window).scrollTop(wScrollTop);
+
+      if ($('.header').hasClass('is-gnbOpen')) {
+        $('.header').hasClass('is-gnbOpen');
+        gsap.to('.header-wrap', {
+          duration: 0.01,
+          marginTop: 0,
+          ease: 'power1'
+        });
+      }
+
+      ;
     },
     open: function open(elem) {
-      // $('body').append("<div class='dimmed' onclick='uiCommon.gnb.close()'></div>");
+      var wScrollTop = $(window).scrollTop();
+      $('body').addClass('scrollOff');
+      $('.wrap').addClass('scrollOff').scrollTop(wScrollTop);
       gsap.to(elem, {
         duration: 0.4,
         right: 0,
@@ -153,6 +171,17 @@ var uiCommon = function (uiCommon, $window) {
         ease: "power2",
         delay: 0.3
       });
+
+      if ($('.header').hasClass('is-scroll')) {
+        $('.header').addClass('is-gnbOpen');
+        gsap.to('.header-wrap', {
+          duration: 0.01,
+          marginTop: 0,
+          ease: 'power1'
+        });
+      }
+
+      ;
     },
     itemEvent: function itemEvent(target) {
       $(target + '>a').on('click', function () {
@@ -210,6 +239,69 @@ var uiCommon = function (uiCommon, $window) {
           $('.lnb-3depth .select-list__items').eq(elString[2]).addClass('on');
         }
       }
+    }
+  };
+  uiCommon.titImg = {
+    init: function init() {
+      this.setDefault();
+      this.event();
+    },
+    setDefault: function setDefault() {
+      var h1 = $('.header').outerHeight();
+      var h2 = $('.container-header').outerHeight();
+      var h3 = Number($('.container-header').css('padding-bottom').replace(/[^-\d\.]/g, ''));
+      $('.container-header-fixImg').css('top', h1 + h2 - h3 - 45);
+    },
+    event: function event() {
+      $(window).on('scroll', function () {
+        var _thisTop = $(window).scrollTop();
+
+        gsap.to('.container-header-fixImg', {
+          duration: 0,
+          y: -(_thisTop * 0.86),
+          ease: "power1"
+        });
+        gsap.to('.container-header-fixImg>img', {
+          duration: 0,
+          y: _thisTop * 0.4,
+          ease: "power1"
+        });
+      });
+    }
+  };
+  uiCommon.titText = {
+    init: function init() {
+      this.event();
+    },
+    event: function event() {
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".container-header__title",
+          toggleActions: "restart none restart none"
+        }
+      });
+
+      function text1(name) {
+        var textLen = $('.container-header__title>div').length;
+
+        for (var i = 1; i < textLen + 1; i++) {
+          name.to('.container-header__title>div:nth-child(' + i + ')>span', {
+            duration: 0.4,
+            top: 0,
+            opacity: 1,
+            ease: 'power1',
+            delay: (i - 1) * 0.2
+          }, 0.2);
+        }
+      }
+
+      tl.add(text1(tl));
+      tl.to('.container-header__text', {
+        duration: 0.4,
+        right: 0,
+        opacity: 1,
+        ease: 'power1'
+      }, 0.6);
     }
   };
   uiCommon.select = {

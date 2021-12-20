@@ -1,4 +1,16 @@
 /* response */
+.wrap.main .header.is-scroll .logo {
+  background-image: url("/assets/images/common/gnb_logo_color.svg");
+}
+.wrap.main .header.is-scroll .gnb-btn > i {
+  background: #111111;
+}
+.wrap.main .header.is-scroll .select-title {
+  color: #111111;
+}
+.wrap.main .header.is-scroll .select-title:after {
+  background-image: url("/assets/images/common/btn_gnb_global_open_b.svg");
+}
 .wrap.main .header .logo {
   background-image: url("/assets/images/common/gnb_logo_white.svg");
 }
@@ -7,5 +19,7 @@
 }
 .wrap.main .header .select-title {
   color: #FFFFFF;
+}
+.wrap.main .header .select-title:after {
   background-image: url("/assets/images/common/btn_gnb_global_open_w.svg");
 }
