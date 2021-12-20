@@ -442,8 +442,11 @@
                     <!-- 토스트 팝업 -->
                     <h2 class="guideTit">토스트 팝업</h2>
                     <div class="guideBox">
+                        <div class="btn-wrap btn-toast">
+                            <button class="btn btn-green">확인</button>
+                        </div>
                         <div class="pop-wrap pop-toast">
-
+                            <div class="pop-text">토스트 팝업입니다. </div>
                         </div>
                     </div>
 
@@ -456,6 +459,7 @@
             init: function(){
                 component.search();
                 component.faq();
+                component.toastPopup();
             },
             search : function() {
                 // 검색 스크립트
@@ -501,6 +505,14 @@
                 });
 
             },
+            toastPopup : function() {
+                $('.btn-toast').on('click',function(){
+                    $(this).siblings('.pop-toast').addClass('show');
+                    setTimeout(() =>{
+                        $(this).siblings('.pop-toast').removeClass('show');
+                    },2000)
+                });
+            }
         }
         component.init();
     </script>

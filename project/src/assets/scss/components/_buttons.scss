@@ -155,4 +155,15 @@
             }
         }
     }
+    // 토스트 팝업
+    &.pop-toast{
+        box-shadow: none;
+        opacity: 0;
+        transform: translateY(10%);
+        transition: all 0.7s;
+        &.show{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 }
