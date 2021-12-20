@@ -33,6 +33,8 @@
         @include fontSize('fontS02');
     }
 }
+.footer-menu.pc{display:block;}
+.footer-menu.mobile{display:none;}
 .footer-menuList{
     display:flex;
     align-items: center;

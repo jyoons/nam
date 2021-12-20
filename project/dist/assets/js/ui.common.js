@@ -16,20 +16,17 @@ var uiCommon = function (uiCommon, $window) {
       this.setDefault();
     },
     setDefault: function setDefault() {
-      var headerH = $('.header').outerHeight();
-      $('.container').css('padding-top', headerH);
-      var winScroll = $(window).scrollTop();
+      // let headerH = $('.header').outerHeight();
+      // $('.container').css('padding-top', headerH);
+      setTimeout(function () {
+        var headerH = $('.header').outerHeight();
+        $('.container').css('padding-top', headerH);
+      }, 100);
       gsap.to('.header-wrap', {
         duration: 0.1,
         marginTop: 0,
         ease: 'power3'
       });
-
-      if (winScroll > 0) {
-        gsap.set('.header-wrap', {
-          backgroundColor: '#FFF'
-        });
-      }
     },
     event: function event() {
       var lastScroll = 0;
@@ -54,6 +51,9 @@ var uiCommon = function (uiCommon, $window) {
         }
 
         lastScroll = thisScroll;
+      });
+      $(window).on('resize', function () {
+        _this.setDefault();
       });
     },
     scrollDown: function scrollDown() {
@@ -135,7 +135,7 @@ var uiCommon = function (uiCommon, $window) {
       $(window).scrollTop(wScrollTop);
 
       if ($('.header').hasClass('is-gnbOpen')) {
-        $('.header').hasClass('is-gnbOpen');
+        $('.header').removeClass('is-gnbOpen');
         gsap.to('.header-wrap', {
           duration: 0.01,
           marginTop: 0,
@@ -243,22 +243,29 @@ var uiCommon = function (uiCommon, $window) {
   };
   uiCommon.titImg = {
     init: function init() {
-      this.setDefault();
-      this.event();
+      var contlen = $('.container-header-fixImg').length;
+
+      if (contlen > 0) {
+        this.setDefault();
+        this.event();
+      }
     },
     setDefault: function setDefault() {
       var h1 = $('.header').outerHeight();
       var h2 = $('.container-header').outerHeight();
       var h3 = Number($('.container-header').css('padding-bottom').replace(/[^-\d\.]/g, ''));
-      $('.container-header-fixImg').css('top', h1 + h2 - h3 - 45);
+      var h4 = Number($('.container-header').css('margin-bottom').replace(/[^-\d\.]/g, ''));
+      $('.container-header-fixImg').css('top', h1 + h2 - h3 + h4);
     },
     event: function event() {
+      var _this = this;
+
       $(window).on('scroll', function () {
         var _thisTop = $(window).scrollTop();
 
         gsap.to('.container-header-fixImg', {
           duration: 0,
-          y: -(_thisTop * 0.86),
+          y: -(_thisTop * 1.2),
           ease: "power1"
         });
         gsap.to('.container-header-fixImg>img', {
@@ -266,6 +273,11 @@ var uiCommon = function (uiCommon, $window) {
           y: _thisTop * 0.4,
           ease: "power1"
         });
+      });
+      $(window).on('resize', function () {
+        setTimeout(function () {
+          _this.setDefault();
+        }, 100);
       });
     }
   };
@@ -286,10 +298,10 @@ var uiCommon = function (uiCommon, $window) {
 
         for (var i = 1; i < textLen + 1; i++) {
           name.to('.container-header__title>div:nth-child(' + i + ')>span', {
-            duration: 0.4,
+            duration: 0.6,
             top: 0,
             opacity: 1,
-            ease: 'power1',
+            ease: 'power3',
             delay: (i - 1) * 0.2
           }, 0.2);
         }
@@ -298,9 +310,9 @@ var uiCommon = function (uiCommon, $window) {
       tl.add(text1(tl));
       tl.to('.container-header__text', {
         duration: 0.4,
-        right: 0,
+        top: 0,
         opacity: 1,
-        ease: 'power1'
+        ease: 'power3'
       }, 0.6);
     }
   };
