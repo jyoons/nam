@@ -4,11 +4,22 @@
 input[type="text"]::-ms-clear {
     display: none;
 }
+// required 표시
+.input-required {
+    .input-title::after{
+        @include fontSize('fontS03');
+        content: '*';
+        display: inline-block;
+        color: $accent;
+        margin-left: 0.4rem;
+    }
+}    
+
 .input-wrap{
-    // .input-half{
-    //     width: 50%;
-    // }
     .input-text{
+        display: flex;
+        align-items: center;
+        position: relative;
         width: 45.4rem;
         &.input-half__full{
             width: 100%;
@@ -16,11 +27,6 @@ input[type="text"]::-ms-clear {
                 width: 100%;
             }
         }
-    }
-    .input-text{
-        display: flex;
-        align-items: center;
-        position: relative;
     
         // email input
         &.input-email{
@@ -28,7 +34,7 @@ input[type="text"]::-ms-clear {
             .input-text__wrap{
                 display: flex;
             }
-            .input-text__email{
+            .input-default{
                 width: 30rem;
                 
             }
@@ -42,11 +48,8 @@ input[type="text"]::-ms-clear {
     
         // clear 버튼 인풋
         &.input-text-clear {
-            .input-clear {
-                border: none;
-                border-bottom: 1px solid $gray3;
-                padding-right: 7rem;
-    
+            .input-default {
+                padding-right: 5rem;
                 &::-ms-clear,
                 &::-ms-reveal {
                     display: none;
@@ -66,7 +69,7 @@ input[type="text"]::-ms-clear {
             .btn-clear {
                 position: absolute;
                 top: 50%;
-                right: 4.4rem;
+                right: 1.8rem;
                 width: 2.4rem;
                 height: 2.4rem;
                 transform: translateY(-50%);
@@ -79,12 +82,20 @@ input[type="text"]::-ms-clear {
         // 검색 인풋
         &.input-text-search {
             width: 42rem;
-            .input-search {
+            .input-default {
+                border: none;
+                border-bottom: 1px solid $gray3;
                 min-width: 42rem;
                 min-height: 6rem;
-                padding: 0;
+                padding-left: 0;
+                padding-right: 7rem;
+                &:focus{
+                    border-color: $gray5;
+                }
             }
-
+            .btn-clear {
+                right: 4.4rem;
+            }
             .search-btn {
                 position: absolute;
                 top: 50%;
@@ -105,10 +116,10 @@ input[type="text"]::-ms-clear {
             .input-text__wrap{
                 width: 100%;
             }
-            .input-textarea__textbox{
+            .input-default{
+                @include fontSize('fontS03');
                 min-height: 36rem;
                 padding: 1.8rem;
-                font-size: 1.8rem;
             }
         }
 
@@ -121,24 +132,49 @@ input[type="text"]::-ms-clear {
             display: none;
         }
         .input-check:checked{
-            & + .checkbox-text::before{
-                opacity: 1;
-                visibility: visible;
+            & + .checkbox-text .checkbox-icon{
+                background: $accent;
+                &::before{
+                    width: 0.8rem;
+                    opacity: 1;
+                }
             }
         }
         .checkbox-text{
+            @include fontSize('fontS04');
             display: flex;
             align-items: center;
-            font-size: 2rem;
-            &::before{
-                content: '';
+            position: relative;
+            padding-left: 3.2rem;
+            .checkbox-icon{
                 display: inline-block;
-                opacity: 0;
-                visibility: hidden;
+                position: absolute;
+                left: 0;
+                background: $white;
+                border: 1px solid #ddd;
                 width: 2.4rem;
                 height: 2.4rem;
-                margin-right: 0.8rem;
-                background: url(/assets/images/common/checkbox_after.svg) no-repeat center center;
+                transition: all 0.2s;
+                &::before{
+                    content: '';
+                    opacity: 0;
+                    display: inline-block;
+                    position: absolute;
+                    left: 0.6rem;
+                    top: 0.6rem;
+                    width: 0;
+                    height: 0.4rem;
+                    border: 0.2rem solid $white;
+                    border-top: 0;
+                    border-right: 0;
+                    transform: rotate(-45deg);
+                    transition: all 0.3s;
+                }
+            }
+            .check-icon{
+                display: inline-block;
+                background: red;
+                position: absolute;
             }
         }
     }
@@ -146,18 +182,18 @@ input[type="text"]::-ms-clear {
 
 // 기본 인풋 박스
 .input-default {
+    @include fontSize('fontS03');
     width: 100%;
     min-width: 30rem;
     min-height: 5rem;
     outline: none;
     font-family: 'Pretendard';
-    font-size: 1.8rem;
     border: 1px solid $gray3;
     color: $gray8;
     padding: 0 1.8rem;
 
     &::placeholder {
-        font-size: 1.8rem;
+        @include fontSize('fontS03');
         color: $gray4;
     }
     &:-ms-input-placeholder {
@@ -185,21 +221,31 @@ input[type="text"]::-ms-clear {
     }
 }
 .input-title {
+    @include fontSize('fontS03');
     display: inline-block;
-    font-size: 1.8rem;
     color: $gray8;
     width: 15.4rem;
+}
 
-    &.input-required {
-        &::after {
-            content: '*';
-            display: inline-block;
-            font-size: 1.8rem;
-            color: $accent;
-            margin-left: 0.4rem;
+// 인풋에러
+.input-error{
+    .input-text__wrap{
+        position: relative;
+        .input-default{
+            border-color: $error;
+        }
+        .input-error__message{
+            @include fontSize('fontS00');
+            display: block;
+            position: absolute;
+            top: 100%;
+            z-index: 1;
+            color: $error;
+            // margin-top: 0.8rem;
         }
     }
 }
+
 // select
 .select-with-title {
     display: flex;
@@ -210,10 +256,10 @@ input[type="text"]::-ms-clear {
     display: inline-block;
 
     .select1 {
+        @include fontSize('fontS03');
         min-width: 31rem;
         min-height: 5rem;
         font-family: 'Pretendard';
-        font-size: 1.8rem;
         color: $gray8;
         border: 1px solid $gray3;
         padding: 0 1.8rem;
@@ -239,10 +285,10 @@ input[type="text"]::-ms-clear {
         height: 3.6rem;
         .paging-list__item {
             a{
+                @include fontSize('fontS04');
                 display: inline-block;
                 line-height: 3.6rem;
                 padding: 0 0.2rem;
-                font-size: 2rem;
                 color: $gray4;
                 &.active{
                     font-weight: bold;
@@ -286,6 +332,7 @@ input[type="text"]::-ms-clear {
         display: none;
     }
     .btn-input-wrap__file {
+        @include fontSize('fontS02');
         display: inline-block;
         min-width: 13.6rem;
         min-height: 4.8rem;
@@ -293,7 +340,6 @@ input[type="text"]::-ms-clear {
         border: 1px solid $gray6;
         cursor: pointer;
         font-family: 'Pretendard';
-        font-size: 1.6rem;
         color: $gray8;
     }
 }

@@ -1,6 +1,7 @@
 @charset "UTF-8";
 .btn-wrap {
     display: inline-block;
+    text-align: center;
     // icon 있는 버튼
     &.btn-has-icon {
         .btn-has-icon__parent {
@@ -34,9 +35,9 @@
         
     }
 
-
     // 170*48 버튼 공통 스타일
     .btn{
+        @include fontSize('fontS02');
         display: inline-block;
         position: relative;
         overflow: hidden;
@@ -46,7 +47,6 @@
         border: 1px solid $gray3; //defalt border
         color: $gray8;
         font-family: 'Pretendard';
-        font-size: 1.6rem;
         text-align: center;
         cursor: pointer;
     }
@@ -54,6 +54,15 @@
     // 320*48 버튼 공통 스타일
     .btn-lg {
         min-width: 32rem;
+    }
+
+    // 팝업 확인 버튼 스타일
+    &.btn-confirm {
+        display: block;
+        margin: 0 auto;
+        .btn {
+            min-width: 38.4rem;
+        }
     }
     
     // 버튼 그린 색상
@@ -71,10 +80,6 @@
         cursor: default;
     } 
 
-    // 팝업 확인 버튼 스타일
-    .btn-confirm {
-        min-width: 38.4rem;
-    }
 
     // 탑 버튼
     .btn-top {
@@ -94,27 +99,60 @@
 
     // 목록 버튼
     .btn-list {
+        @include fontSize('fontS04');
         min-width: 21rem;
         height: 6.4rem;
         line-height: 6.4rem;
-        font-size: 2rem;
     }
 
     // 제출 버튼
     .btn-submit {
+        @include fontSize('fontS04');
         min-width: 21rem;
         height: 8rem;
         line-height: 8rem;
-        font-size: 2rem;
     }
 
-    // 링크 버튼
-    // .btn-link{
-    //     width: 5.4rem;
-    //     height: 5.4rem;
-    //     min-width: auto;
-    //     border-radius: 50%;
-    //     font-size: 0;
-    //     border: none;
-    // }
+}
+
+// 서브 모달 팝업
+.pop-wrap{
+    display: inline-block;
+    max-width: 42.4rem;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%,-50%);
+    box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.08);
+    background: $white;
+    padding: 3.4rem 2rem 2rem;
+    .pop-title{
+        @include fontSize('fontS06');
+        font-weight: 700;
+        color: $gray8;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .pop-text{
+        @include fontSize('fontS03');
+        color: $gray6;
+        padding-bottom: 6rem;
+        max-width: 36rem;
+    }
+    // 기본 텍스트 팝업
+    &.pop-ty01{
+        .pop-text{
+            text-align: center;
+        }
+    }
+    // 리스트 팝업
+    &.pop-ty02{
+        .pop-text{
+            @include fontSize('fontS01');
+            padding-bottom: 3rem;
+            .pop-list:not(:first-of-type){
+                margin-top: 3rem;
+            }
+        }
+    }
 }

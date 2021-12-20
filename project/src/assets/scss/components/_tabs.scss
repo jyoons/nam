@@ -1,25 +1,27 @@
 @charset "UTF-8";
 
 // 게시판 탭메뉴
-.tab-wrap {
-    .tab-list {
-        &::after{
-            content: '';
-            display: block;
-            clear: both;
-        }
-        .tab-list__item {
-            float: left;
-            padding: 0 2rem;
-            a{
-                display: inline-block;
-                padding-bottom: 0.4rem;
-                font-size: 2rem;
-                font-family: 'Pretendard';
-                &.on{
-                    font-weight: bold;
-                    border-bottom: 0.2rem solid $gray8;
-                }
+.tab-list {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 0;
+    &::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .tab-list__item {
+        display: inline-block;
+        padding: 0 2rem;
+        a{
+            @include fontSize('fontS04');
+            display: inline-block;
+            padding-bottom: 0.4rem;
+            font-family: 'Pretendard';
+            &.on{
+                font-weight: bold;
+                border-bottom: 0.2rem solid $gray8;
             }
         }
     }
