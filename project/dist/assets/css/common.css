@@ -682,14 +682,6 @@ body {
   line-height: 2.4rem;
 }
 
-.footer-menu.pc {
-  display: block;
-}
-
-.footer-menu.mobile {
-  display: none;
-}
-
 .footer-menuList {
   display: flex;
   align-items: center;
@@ -826,39 +818,15 @@ body {
     line-height: 3rem;
   }
 
-  /*container
-      .container-header{
-          padding:9rem 3.2rem;
-          &.container-header-img{
-              margin-bottom:9rem;
-              padding-bottom:23.6rem;
-              .container-header__title{  
-                  font-size:4.8rem;
-                  line-height:5rem;
-              }
-              .container-header__text{margin-top:4.8rem;}
-          }
-          &__title{  
-              font-size:6rem;
-              line-height:7rem;
-              letter-spacing: 0;
-              &>div{
-                  & + div{margin-top:1rem;}
-              }
-              & + .container-header__text{margin-top:6rem;}
-          }
-          &__text{
-              &.pc{display:block;}
-              &.mobile{display:none;}
-              width:70%;
-              opacity:0;
-              left:30%;
-              top:10%;
-              margin-top:6rem;
-              @include fontSize('fontS02');
-          }
-      }
-  */
+  /*FOOTER*/
+  .footer {
+    padding: 3rem 0 8rem;
+  }
+  .footer .footer-wrap {
+    padding: 0 3.2rem;
+  }
+
+  /*container*/
   .container-header {
     padding: 10rem 3.2rem 10rem 3.2rem;
   }
@@ -1120,7 +1088,6 @@ body {
     margin-top: 2.4rem;
   }
   .footer .footer-info {
-    color: #999999;
     font-size: 1.4rem;
     line-height: 2.1rem;
     display: block;
@@ -1137,7 +1104,7 @@ body {
     display: inline-flex;
   }
   .footer .footer-info + .footer-copylight {
-    margin-top: 2.4rem;
+    margin-top: 2rem;
   }
   .footer .footer-copylight {
     text-align: left;
@@ -1145,20 +1112,19 @@ body {
     line-height: 2.1rem;
   }
 
-  .footer-menu.pc {
-    display: none;
+  .footer-menuList {
+    flex-wrap: wrap;
   }
-
-  .footer-menu.mobile {
-    display: block;
+  .footer-menuList__items {
+    margin-right: 2rem;
   }
-
   .footer-menuList__items + .footer-menuList__items {
-    margin-left: 2.4rem;
+    margin-left: 0rem;
   }
   .footer-menuList__items > a {
     font-size: 1.4rem;
     line-height: 2.1rem;
+    line-height: 3rem;
   }
 
   /*container*/
