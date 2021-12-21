@@ -196,3 +196,16 @@ button:disabled{
         }
     }
 }
+
+@include response('mobile') {
+    // 탑 버튼
+    .btn-top {
+        width: 4.8rem;
+        height: 4.8rem;
+        background-image: url(/assets/images/common/btn_top.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        background-color: #2A2F35;
+    }
+}

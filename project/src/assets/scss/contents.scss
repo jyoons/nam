@@ -11,3 +11,19 @@
 @import "components/board";
 @import "components/accordion";
 
+.container-contents-wrap{
+// 서브페이지 게시판 헤더
+    .board-list-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3.2rem;
+    }
+    // 서브페이지 게시판 페이징
+    .paging-wrap{
+        justify-content: center;
+        margin-top: 6rem;
+    }
+}
+
+
