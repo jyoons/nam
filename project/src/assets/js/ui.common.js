@@ -8,6 +8,7 @@ const uiCommon = (function (uiCommon, $window) {
     uiCommon.select.init();
     uiCommon.titImg.init();
     uiCommon.titText.init();
+    uiCommon.goTop.init();
   };
 
 
@@ -240,6 +241,31 @@ uiCommon.select = {
       _this.parents('.select-list-wrap').find(elem2).removeClass('on');
       _this.closest(elem2).addClass('on');
       _this.parents('.select-wrap').find('.select-title').removeClass('is-active').text($(this).text());
+    });
+  }
+}
+uiCommon.goTop = {
+  init: function(){
+    this.event('.goTop');
+    this.setDefault();
+  },
+  setDefault:function(){
+    let scrollTop = $(window).scrollTop();
+    let h = $('.header').outerHeight();
+    console.log(h, scrollTop);
+  },
+  event:function(elem){
+    let h = $('.header').outerHeight();
+    $(window).on('scroll', function(){
+      let scrollTop = $(window).scrollTop();
+      if(h<scrollTop){
+        gsap.to('.goTop', {duration:0.6, opacity:1, rotationY: '360', transformOrigin:'center center', ease:'power3'})
+      }else{
+        gsap.to('.goTop', {duration:0.6, opacity:0, rotationY: '0', ease:'power3'})
+      }
+    });
+    $(elem).on('click', function(){
+      $('body, html').animate({scrollTop:0}, 1000);
     });
   }
 }
