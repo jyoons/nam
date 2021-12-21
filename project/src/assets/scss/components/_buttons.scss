@@ -1,131 +1,148 @@
 @charset "UTF-8";
-.btn-wrap {
-    display: inline-block;
-    text-align: center;
-    // icon 있는 버튼
-    &.btn-has-icon {
-        .btn-has-icon__parent {
-            position: relative;
-            .btn-icon{
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                &>img {
-                    width: 100%;
-                }
+// icon 있는 버튼
+.btn-has-icon {
+    .btn-has-icon__parent {
+        position: relative;
+        .btn-icon{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            &>img {
+                width: 100%;
+            }
 
-                &.icon-attach {
-                    left: 2.8rem;
-                    width: 1.8rem;
-                    height: 1.8rem;
-                }
-                &.icon-print{
-                    left: 4.2rem;
-                    width: 2.4rem;
-                    height: 2.4rem;
-                }
-                // &.icon-link {
-                //     left: 50%;
-                //     transform: translatex(-50%);
-                //     width: 2.4rem;
-                //     height: 2.4rem;
-                // }
+            &.icon-attach {
+                left: 2.8rem;
+                width: 1.8rem;
+                height: 1.8rem;
+            }
+            &.icon-print{
+                left: 4.2rem;
+                width: 2.4rem;
+                height: 2.4rem;
             }
         }
-        
-    }
-
-    // 170*48 버튼 공통 스타일
-    .btn{
-        @include fontSize('fontS02');
-        display: inline-block;
-        position: relative;
-        overflow: hidden;
-        min-width: 17rem;
-        height: 4.8rem;
-        line-height: 4.8rem;
-        border: 1px solid $gray3; //defalt border
-        color: $gray8;
-        font-family: 'Pretendard';
-        text-align: center;
-        cursor: pointer;
-    }
-
-    // 320*48 버튼 공통 스타일
-    .btn-lg {
-        min-width: 32rem;
-    }
-
-    // 팝업 확인 버튼 스타일
-    &.btn-confirm {
-        display: block;
-        margin: 0 auto;
-        .btn {
-            min-width: 38.4rem;
-        }
     }
     
-    // 버튼 그린 색상
-    .btn-green {
-        background: $accent;
-        border: none;
-        color: $white;
-    }
-
-    //버튼 비활성화
-    .btn-disabled,
-    button:disabled{
-        background: $gray1;
-        color: #8d8d8d;
-        cursor: default;
-    } 
-
-
-    // 탑 버튼
-    .btn-top {
-        width: 6rem;
-        height: 6rem;
-        background-image: url(/assets/images/common/btn_top.svg);
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: contain;
-        background-color: #2A2F35;
-        font-size: 0;
-        cursor: pointer;
-    }
-    
-    // 프린트 버튼
-    .btn-print {
-        padding-left: 7.4rem;
-        text-align: left;
-    }
-
-    // 목록 버튼
-    .btn-list {
-        @include fontSize('fontS04');
-        min-width: 21rem;
-        height: 6.4rem;
-        line-height: 6.4rem;
-        border: 1px solid $gray6;
-    }
-
-    // 자세히보기 버튼
-    .btn-more{
-        @include fontSize('fontS03');
-        min-width: 38.4rem;
-        height: 6rem;
-        font-weight: 500;
-    }
-
-    // 제출 버튼
-    .btn-submit {
-        @include fontSize('fontS04');
-        min-width: 21rem;
-        height: 8rem;
-        line-height: 8rem;
-    }
-
 }
+
+// 170*48 버튼 공통 스타일
+.btn{
+    @include fontSize('fontS02');
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    min-width: 17rem;
+    height: 4.8rem;
+    line-height: 4.8rem;
+    border: 1px solid $gray3; //defalt border
+    color: $gray8;
+    font-family: 'Pretendard';
+    text-align: center;
+    
+}
+
+// 320*48 버튼 공통 스타일
+.btn-lg {
+    min-width: 32rem;
+}
+
+// 팝업 확인 버튼 스타일
+.btn-confirm {
+    display: block;
+    margin: 0 auto;
+    .btn {
+        min-width: 38.4rem;
+    }
+}
+
+// 버튼 그린 색상
+.btn-green {
+    background: $accent;
+    border: none;
+    color: $white;
+}
+
+//버튼 비활성화
+.btn-disabled,
+button:disabled{
+    background: $gray1;
+    color: #8d8d8d;
+    cursor: default;
+} 
+
+
+// 탑 버튼
+.btn-top {
+    width: 6rem;
+    height: 6rem;
+    background-image: url(/assets/images/common/btn_top.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    background-color: #2A2F35;
+    
+}
+
+// 링크 버튼
+.btn-contents-hover{
+    display: inline-block;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background-color: #2A2F35;
+    background-image: url(/assets/images/common/hover_contents_circle.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+.btn-link{
+    display: inline-block;
+    width: 5.4rem;
+    height: 5.4rem;
+    border-radius: 50%;
+    background-color: $white;
+    background-image: url(/assets/images/common/btn_link.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    &:hover{
+        background-color: $accent;
+        background-image: url(/assets/images/common/btn_link_hover.svg);
+    }
+}
+
+// 프린트 버튼
+.btn-print {
+    padding-left: 7.4rem;
+    text-align: left;
+}
+
+// 목록 버튼
+.btn-list {
+    @include fontSize('fontS04');
+    min-width: 21rem;
+    height: 6.4rem;
+    line-height: 6.4rem;
+    border: 1px solid $gray6;
+}
+
+// 자세히보기 버튼
+.btn-more{
+    @include fontSize('fontS03');
+    min-width: 38.4rem;
+    height: 6rem;
+    font-weight: 500;
+}
+
+// 제출 버튼
+.btn-submit {
+    @include fontSize('fontS04');
+    min-width: 21rem;
+    height: 8rem;
+    line-height: 8rem;
+}
+
 
 // 서브 모달 팝업
 .pop-wrap{
