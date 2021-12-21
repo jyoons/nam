@@ -51,19 +51,10 @@
     position:fixed;
     width:6rem;
     height:6rem;
-    bottom:3rem; 
-    right:3rem;
+    bottom:7rem; 
+    right:7rem;
     z-index:29;
     opacity:0;
     -webkit-transform-style: preserve-3d; 
     transform-style: preserve-3d; perspective:1000px;
-    button{
-        width:6rem;
-        height:6rem;
-        background-image: url(/assets/images/common/btn_top.svg);
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: contain;
-        background-color: #2A2F35;
-    }
 }
