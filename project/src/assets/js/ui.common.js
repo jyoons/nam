@@ -277,10 +277,8 @@ uiCommon.accordion = {
       let _thisParents = $(this).parents('.accordion-wrap');
       if(_this.hasClass('is-active')){//close
         close();
-        console.log('close');
       }else{//open
         open();
-        console.log('open');
       }      
       function open(){
         _thisParents.find('.accordion__items').removeClass('is-active');

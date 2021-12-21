@@ -426,11 +426,9 @@ var uiCommon = function (uiCommon, $window) {
         if (_this.hasClass('is-active')) {
           //close
           close();
-          console.log('close');
         } else {
           //open
           open();
-          console.log('open');
         }
 
         function open() {
