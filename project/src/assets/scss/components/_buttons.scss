@@ -85,8 +85,11 @@
     .btn-top {
         width: 6rem;
         height: 6rem;
-        background: url(/assets/images/common/btn_top.svg) no-repeat center;
+        background-image: url(/assets/images/common/btn_top.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
         background-size: contain;
+        background-color: #2A2F35;
         font-size: 0;
         cursor: pointer;
     }
@@ -103,6 +106,15 @@
         min-width: 21rem;
         height: 6.4rem;
         line-height: 6.4rem;
+        border: 1px solid $gray6;
+    }
+
+    // 자세히보기 버튼
+    .btn-more{
+        @include fontSize('fontS03');
+        min-width: 38.4rem;
+        height: 6rem;
+        font-weight: 500;
     }
 
     // 제출 버튼
