@@ -583,3 +583,67 @@ input[type=text]::-ms-clear {
 .board-wrap.board-type02 .board-list__item:hover {
   background: #FFFFFF;
 }
+
+.accordion-wrap {
+  border-top: 2px solid #111111;
+}
+.accordion__items {
+  border-bottom: 1px solid #ddd;
+}
+.accordion__items.is-active .accordion__items__title {
+  color: #25867D;
+}
+.accordion__items.is-active .accordion__items__title:after {
+  transform: translateY(-50%) rotate(180deg);
+}
+.accordion__items__title {
+  position: relative;
+  display: block;
+  padding: 4.8rem 12.4rem;
+  color: #111111;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+}
+.accordion__items__title:hover, .accordion__items__title.on {
+  color: #25867D;
+}
+.accordion__items__title:before {
+  content: "Q";
+  position: absolute;
+  top: 5rem;
+  left: 4rem;
+  font-size: 2rem;
+  line-height: 3rem;
+}
+.accordion__items__title:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 6.8rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  background-image: url("/assets/images/common/btn_gnb_global_open_b.svg");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  transition: transform 0.4s ease;
+}
+.accordion__items__conts {
+  position: relative;
+  display: none;
+  background: #F8F8F8;
+  padding: 4.8rem 12.4rem;
+}
+.accordion__items__conts:before {
+  content: "A";
+  position: absolute;
+  top: 5rem;
+  left: 4rem;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #111111;
+}
+.accordion__items__conts .accordion__items-inner {
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+}

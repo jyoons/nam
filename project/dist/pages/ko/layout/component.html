@@ -249,6 +249,7 @@
                                         <p class="board-title">(보도자료) 민관 손잡고 화학물질저감 우수제품 11개 선정</p>
                                         <span class="board-num board-date">2020.07.21</span>
                                     </a>
+                                    <div></div>
                                 </li>
                                 <li class="board-list__item">
                                     <a href="javascript:void(0)">
@@ -328,7 +329,41 @@
                     <!-- faq 게시판 -->
                     <h2 class="guideTit">faq 게시판</h2>
                     <div class="guideBox">
-                        <div class="board-wrap board-type02">
+                        <div class="accordion-wrap">
+                            <ul class="accordion-list">
+                                <li class="accordion__items">
+                                    <a href="javascript:void(0)" class="accordion__items__title">
+                                        <div>기존화학물질 사전신고 톤수 산정 기준</div>
+                                    </a>
+                                    <div class="accordion__items__conts">
+                                       <div class="accordion__items-inner">
+                                            내용 내용 내용 내용 내용 내용 내용 내용 내용 내용
+                                       </div>
+                                    </div>
+                                </li>
+                                <li class="accordion__items">
+                                    <a href="javascript:void(0)" class="accordion__items__title">
+                                        <div>영업비밀의 이유로 정보를 제공하지 않을 경우 정보 제공을 요구할 수 있는 법적 근거</div>
+                                    </a>
+                                    <div class="accordion__items__conts">
+                                       <div class="accordion__items-inner">
+                                            내용 내용 내용 내용 내용 내용 내용 내용 내용 내용
+                                       </div>
+                                    </div>
+                                </li> 
+                                <li class="accordion__items">
+                                    <a href="javascript:void(0)" class="accordion__items__title">
+                                        <div>기화평법에 따른 사전신고 및 등록시 연간 톤수 산정기준에 톤수 기준이 실제 제 조·수입량인지, 아니면 화학물질확인명세서나 확인증명서상에 신고된 톤수인지 궁금합니다.</div>
+                                    </a>
+                                    <div class="accordion__items__conts">
+                                       <div class="accordion__items-inner">
+                                            내용 내용 내용 내용 내용 내용 내용 내용 내용 내용
+                                       </div>
+                                    </div>
+                                </li>                                                                                 
+                            </ul>
+                        </div>
+                        <!-- <div class="board-wrap board-type02">
                             <ul class="board-list">
                                 <li class="board-list__item">
                                     <a href="javascript:void(0)">
@@ -371,7 +406,7 @@
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- 서브 모달 팝업 -->
@@ -454,7 +489,7 @@
         const component = {
             init: function(){
                 component.search();
-                component.faq();
+                component.accordion();
                 component.toastPopup();
                 component.emailText();
             },
@@ -494,13 +529,28 @@
                 });
 
             },
-            faq : function() {
-                // faq 게시판
-                $('.board-type02 .board-list__item').on('click',function(){
-                    $(this).find('.faq-wrap').slideToggle();
-                    // $(this).children('.faq-wrap').css({display: 'flex'});
+            accordion : function() {
+                $('.accordion__items__title').on('click', function(){
+                    let _this = $(this).parents('.accordion__items');
+                    let _thisParents = $(this).parents('.accordion-wrap');
+                    if(_this.hasClass('is-active')){//close
+                        close();
+                        console.log('close');
+                    }else{//open
+                        open();
+                        console.log('open');
+                    }      
+                    function open(){
+                        _thisParents.find('.accordion__items').removeClass('is-active');
+                        _thisParents.find('.accordion__items__conts').slideUp(200);
+                        _this.addClass('is-active');
+                        _this.find('.accordion__items__conts').slideDown(200);
+                    }
+                    function close(){        
+                        _this.removeClass('is-active');
+                        _thisParents.find('.accordion__items__conts').slideUp(200);    
+                    }     
                 });
-
             },
             toastPopup : function() {
                 $('.btn-toast').on('click',function(){

@@ -1,1 +1,65 @@
 @charset "UTF-8";
+
+.accordion{
+    &-wrap{
+        border-top:2px solid $gray8;
+    }
+    &__items{
+        border-bottom:1px solid #ddd;
+        &.is-active{
+            .accordion__items__title{
+                color : $accent;
+                &:after{
+                    transform:translateY(-50%) rotate(180deg);
+                }
+            }
+        }     
+    }
+    &__items__title{
+        position:relative;
+        display:block;
+        padding:4.8rem 12.4rem;
+        color:$gray8;
+        @include fontSize('fontS05');
+        &:hover, &.on{
+            color : $accent;
+        }
+        &:before{
+            content:'Q';
+            position:absolute;
+            top:5rem;
+            left:4rem;
+            @include fontSize('fontS04');
+        }
+        &:after{
+            content:'';
+            position:absolute;
+            top:50%;
+            transform: translateY(-50%);
+            right:6.8rem;
+            width:2.4rem;
+            height:2.4rem;
+            background-image: url('/assets/images/common/btn_gnb_global_open_b.svg');
+            background-position: 0 0;
+            background-repeat: no-repeat;
+            transition:transform 0.4s ease;
+        }
+    }
+    &__items__conts{
+        position:relative;
+        display:none;
+        background:$gray1;
+        padding:4.8rem 12.4rem;
+        &:before{
+            content:'A';
+            position:absolute;
+            top:5rem;
+            left:4rem;
+            @include fontSize('fontS04');
+            color:$gray8;
+        }
+        .accordion__items-inner{
+            @include fontSize('fontS03');
+        }
+    }
+}

@@ -9,6 +9,7 @@ var uiCommon = function (uiCommon, $window) {
     uiCommon.titImg.init();
     uiCommon.titText.init();
     uiCommon.goTop.init();
+    uiCommon.accordion.init();
   };
 
   uiCommon.header = {
@@ -382,7 +383,6 @@ var uiCommon = function (uiCommon, $window) {
     setDefault: function setDefault() {
       var scrollTop = $(window).scrollTop();
       var h = $('.header').outerHeight();
-      console.log(h, scrollTop);
     },
     event: function event(elem) {
       var h = $('.header').outerHeight();
@@ -410,6 +410,44 @@ var uiCommon = function (uiCommon, $window) {
         $('body, html').animate({
           scrollTop: 0
         }, 1000);
+      });
+    }
+  };
+  uiCommon.accordion = {
+    init: function init() {
+      this.event('.accordion__items__title');
+    },
+    event: function event(elem) {
+      $(elem).on('click', function () {
+        var _this = $(this).parents('.accordion__items');
+
+        var _thisParents = $(this).parents('.accordion-wrap');
+
+        if (_this.hasClass('is-active')) {
+          //close
+          close();
+          console.log('close');
+        } else {
+          //open
+          open();
+          console.log('open');
+        }
+
+        function open() {
+          _thisParents.find('.accordion__items').removeClass('is-active');
+
+          _thisParents.find('.accordion__items__conts').slideUp(200);
+
+          _this.addClass('is-active');
+
+          _this.find('.accordion__items__conts').slideDown(200);
+        }
+
+        function close() {
+          _this.removeClass('is-active');
+
+          _thisParents.find('.accordion__items__conts').slideUp(200);
+        }
       });
     }
   };
