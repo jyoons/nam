@@ -183,18 +183,22 @@
             @include fontSize('fontS03');
         }
     }
-    // .container-header-fixImg{
-    //     height:70rem;
-    //     overflow:hidden;
-    //     img{
-    //         width:100%;
-    //         min-width:494px;
-    //         max-width:765px;
-    //         top :-20rem;
-    //     }
-    //}
+    .container-header-fixImg{
+        position:fixed;
+        width:100%;
+        max-width:174rem;
+        height:70rem;
+        overflow:hidden;
+        left:0;
+        top:0;
+        z-index:-1;
+        img{
+            min-width:76.5rem;
+            max-width:110rem;
+            top : -30rem;
+        }
+    }
 }
-
 @include response('mobile') {
    /*header*/
    .header{   

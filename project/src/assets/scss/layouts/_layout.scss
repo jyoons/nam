@@ -68,6 +68,7 @@ body {
         position:relative;
         display:block;
         top:100%;
+        opacity:0;
       }
       & + div{margin-top:2.6rem;}
     }

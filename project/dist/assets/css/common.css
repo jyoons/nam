@@ -251,6 +251,7 @@ body {
   position: relative;
   display: block;
   top: 100%;
+  opacity: 0;
 }
 .container-header__title > div + div {
   margin-top: 2.6rem;
@@ -295,6 +296,7 @@ body {
 }
 
 .header {
+  background: #FFFFFF;
   transition: background-color 0.4s linear;
   position: fixed;
   z-index: 30;
@@ -877,6 +879,22 @@ body {
     left: 40%;
     font-size: 1.8rem;
     line-height: 2.7rem;
+  }
+
+  .container-header-fixImg {
+    position: fixed;
+    width: 100%;
+    max-width: 174rem;
+    height: 70rem;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+  .container-header-fixImg img {
+    min-width: 76.5rem;
+    max-width: 110rem;
+    top: -30rem;
   }
 }
 @media (min-width: 320px) and (max-width: 765px) {

@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 .header{
+    background:$white;
     transition: background-color 0.4s linear;
     &.is-scroll, &.is-gnbOpen{
         background:$white;
