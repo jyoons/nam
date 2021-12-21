@@ -234,6 +234,9 @@ body {
   margin-bottom: 12rem;
   padding-bottom: 46rem;
 }
+.container-header.container-header-img .container-header__text {
+  margin-top: 0;
+}
 .container-header__title {
   font-size: 12rem;
   font-weight: 700;
@@ -263,6 +266,7 @@ body {
   opacity: 0;
   top: 10%;
   left: 50%;
+  margin-top: 12rem;
   font-size: 2rem;
   line-height: 3rem;
   text-align: left;

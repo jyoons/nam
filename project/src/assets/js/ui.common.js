@@ -141,7 +141,7 @@ uiCommon.lnb = {
       $('.lnb-1depth .select-list__items, .lnb-2depth .select-list__items').removeClass('on');
       $('.lnb-1depth .select-list-wrap .select-list__items.' + elString[0]).addClass('on');
       $('.lnb-2depth .select-list-wrap .select-list.' + elString[0]).css({'display':'block'});
-      $('.lnb-2depth .select-list__items').eq(elString[1]).addClass('on');
+      $('.lnb-2depth .select-list-wrap .select-list.' + elString[0] + ' .select-list__items').eq(elString[1]).addClass('on');
       if(elString[0] == 'business'){
         $('.lnb-3depth').css({'display':'block'});
         $('.lnb-3depth .select-list').eq(elString[2]).css({'display':'block'});
@@ -265,8 +265,7 @@ uiCommon.goTop = {
       }
     });
     $(elem).on('click', function(){
-      $('body, html').animate({scrollTop:0}, 1000);
-    });
+      $('body, html').animate({scrollTop:0}, 1000);});
   }
 }
 

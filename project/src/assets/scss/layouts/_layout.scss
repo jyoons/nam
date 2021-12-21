@@ -47,6 +47,7 @@ body {
   &.container-header-img{
     margin-bottom:12rem;
     padding-bottom:46rem;
+    .container-header__text{margin-top:0;}
   }
   position:relative;
   max-width:139.6rem;
@@ -81,6 +82,7 @@ body {
     opacity:0;
     top:10%;
     left:50%;
+    margin-top:12rem;
     @include fontSize('fontS04');
     text-align:left;
     color:$gray7;

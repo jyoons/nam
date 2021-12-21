@@ -234,7 +234,7 @@ var uiCommon = function (uiCommon, $window) {
         $('.lnb-2depth .select-list-wrap .select-list.' + elString[0]).css({
           'display': 'block'
         });
-        $('.lnb-2depth .select-list__items').eq(elString[1]).addClass('on');
+        $('.lnb-2depth .select-list-wrap .select-list.' + elString[0] + ' .select-list__items').eq(elString[1]).addClass('on');
 
         if (elString[0] == 'business') {
           $('.lnb-3depth').css({
