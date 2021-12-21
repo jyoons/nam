@@ -225,6 +225,9 @@ var uiCommon = function (uiCommon, $window) {
       if (el.length > 0) {
         var elPos = el.attr('data-lnb');
         var elString = elPos.split(',');
+        $('.lnb-1depth, .lnb-2depth').css({
+          'display': 'block'
+        });
         $('.lnb-1depth .select-list__items, .lnb-2depth .select-list__items').removeClass('on');
         $('.lnb-1depth .select-list-wrap .select-list__items.' + elString[0]).addClass('on');
         $('.lnb-2depth .select-list-wrap .select-list.' + elString[0]).css({
@@ -233,6 +236,9 @@ var uiCommon = function (uiCommon, $window) {
         $('.lnb-2depth .select-list__items').eq(elString[1]).addClass('on');
 
         if (elString[0] == 'business') {
+          $('.lnb-3depth').css({
+            'display': 'block'
+          });
           $('.lnb-3depth .select-list').eq(elString[2]).css({
             'display': 'block'
           });

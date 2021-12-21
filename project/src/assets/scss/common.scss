@@ -132,6 +132,67 @@
             }      
         }
     }
+    /*container
+    .container-header{
+        padding:9rem 3.2rem;
+        &.container-header-img{
+            margin-bottom:9rem;
+            padding-bottom:23.6rem;
+            .container-header__title{  
+                font-size:4.8rem;
+                line-height:5rem;
+            }
+            .container-header__text{margin-top:4.8rem;}
+        }
+        &__title{  
+            font-size:6rem;
+            line-height:7rem;
+            letter-spacing: 0;
+            &>div{
+                & + div{margin-top:1rem;}
+            }
+            & + .container-header__text{margin-top:6rem;}
+        }
+        &__text{
+            &.pc{display:block;}
+            &.mobile{display:none;}
+            width:70%;
+            opacity:0;
+            left:30%;
+            top:10%;
+            margin-top:6rem;
+            @include fontSize('fontS02');
+        }
+    }
+*/
+    .container-header{
+        padding:10rem 3.2rem 10rem 3.2rem;
+        &.container-header-img{
+            margin-bottom:11rem;
+            padding-bottom:40rem;
+        }
+        &__title{  
+            font-size:9rem;
+            line-height:10rem;
+            letter-spacing: -0.5rem;
+            &>div + div{margin-top:1.4rem;}
+        }
+        &__text{
+            width:60%;    
+            left:40%;
+            @include fontSize('fontS03');
+        }
+    }
+    // .container-header-fixImg{
+    //     height:70rem;
+    //     overflow:hidden;
+    //     img{
+    //         width:100%;
+    //         min-width:494px;
+    //         max-width:765px;
+    //         top :-20rem;
+    //     }
+    //}
 }
 
 @include response('mobile') {
@@ -379,9 +440,7 @@
             font-size:6rem;
             line-height:7rem;
             letter-spacing: 0;
-            &>div{
-                & + div{margin-top:1rem;}
-            }
+            &>div + div{margin-top:1rem;}
             & + .container-header__text{margin-top:6rem;}
         }
         &__text{
@@ -394,22 +453,15 @@
             margin-top:6rem;
             @include fontSize('fontS02');
         }
-      }
-      .container-header-fixImg{
-        position:fixed;
-        max-width:174rem;
+    }
+    .container-header-fixImg{
         height:70rem;
         overflow:hidden;
-        left:0;
-        top:0;
-        z-index:-1;
         img{
-          width:100%;
-          min-width:494px;
-          max-width:765px;
-          max-width: none;
-          position:absolute;
-          top :-20rem;
+            width:100%;
+            min-width:494px;
+            max-width:765px;
+            top :-20rem;
         }
-      }
+    }
 }

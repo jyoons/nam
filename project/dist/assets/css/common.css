@@ -3,19 +3,19 @@
   font-family: "Pretendard";
   font-weight: 400;
   font-style: normal;
-  src: url("/assets/css/webfonts/Pretendard-Regular.woff") format("woff");
+  src: url("/assets/css/webfonts/Pretendard-Regular.woff2") format("woff2"), url("/assets/css/webfonts/Pretendard-Regular.woff") format("woff");
 }
 @font-face {
   font-family: "Pretendard";
   font-weight: 500;
   font-style: normal;
-  src: url("/assets/css/webfonts/Pretendard-Medium.woff") format("woff");
+  src: url("/assets/css/webfonts/Pretendard-Medium.woff2") format("woff2"), url("/assets/css/webfonts/Pretendard-Medium.woff") format("woff");
 }
 @font-face {
   font-family: "Pretendard";
   font-weight: 700;
   font-style: normal;
-  src: url("/assets/css/webfonts/Pretendard-Bold.woff") format("woff");
+  src: url("/assets/css/webfonts/Pretendard-Bold.woff2") format("woff2"), url("/assets/css/webfonts/Pretendard-Bold.woff") format("woff");
 }
 /* response */
 * {
@@ -637,7 +637,10 @@ body {
   white-space: nowrap;
 }
 
-.lnb-2depth .select-list, .lnb-3depth .select-list {
+.lnb-2depth.select-wrap, .lnb-3depth.select-wrap {
+  display: none;
+}
+.lnb-2depth.select-wrap .select-list, .lnb-3depth.select-wrap .select-list {
   display: none;
 }
 
@@ -819,6 +822,61 @@ body {
   .gnb-list-wrap .gnb-2depth__items a {
     font-size: 2rem;
     line-height: 3rem;
+  }
+
+  /*container
+      .container-header{
+          padding:9rem 3.2rem;
+          &.container-header-img{
+              margin-bottom:9rem;
+              padding-bottom:23.6rem;
+              .container-header__title{  
+                  font-size:4.8rem;
+                  line-height:5rem;
+              }
+              .container-header__text{margin-top:4.8rem;}
+          }
+          &__title{  
+              font-size:6rem;
+              line-height:7rem;
+              letter-spacing: 0;
+              &>div{
+                  & + div{margin-top:1rem;}
+              }
+              & + .container-header__text{margin-top:6rem;}
+          }
+          &__text{
+              &.pc{display:block;}
+              &.mobile{display:none;}
+              width:70%;
+              opacity:0;
+              left:30%;
+              top:10%;
+              margin-top:6rem;
+              @include fontSize('fontS02');
+          }
+      }
+  */
+  .container-header {
+    padding: 10rem 3.2rem 10rem 3.2rem;
+  }
+  .container-header.container-header-img {
+    margin-bottom: 11rem;
+    padding-bottom: 40rem;
+  }
+  .container-header__title {
+    font-size: 9rem;
+    line-height: 10rem;
+    letter-spacing: -0.5rem;
+  }
+  .container-header__title > div + div {
+    margin-top: 1.4rem;
+  }
+  .container-header__text {
+    width: 60%;
+    left: 40%;
+    font-size: 1.8rem;
+    line-height: 2.7rem;
   }
 }
 @media (min-width: 320px) and (max-width: 765px) {
@@ -1128,20 +1186,13 @@ body {
   }
 
   .container-header-fixImg {
-    position: fixed;
-    max-width: 174rem;
     height: 70rem;
     overflow: hidden;
-    left: 0;
-    top: 0;
-    z-index: -1;
   }
   .container-header-fixImg img {
     width: 100%;
     min-width: 494px;
     max-width: 765px;
-    max-width: none;
-    position: absolute;
     top: -20rem;
   }
 }

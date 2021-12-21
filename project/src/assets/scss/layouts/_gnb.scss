@@ -234,7 +234,8 @@
         }
     }
 }
-.lnb-2depth, .lnb-3depth{
+.lnb-2depth.select-wrap, .lnb-3depth.select-wrap{
+    display:none;
     .select-list{
         display:none;
     }
