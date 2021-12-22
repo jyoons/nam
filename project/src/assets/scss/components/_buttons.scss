@@ -1,5 +1,72 @@
 @charset "UTF-8";
-// icon 있는 버튼
+
+.btns{
+    position: relative;
+    min-width: 17rem;
+    height: 4.8rem;
+    border:1px solid $gray3;
+    background:$white;
+    text-align:center;
+    @include fontSize('fontS02');
+    font-weight:500;
+    &:disabled{
+        background: $gray1;
+        color: #8d8d8d;
+        cursor: default;
+    }
+    &.c-green{
+        color:$white;
+        background:$accent;
+        border:0;
+    }
+    &.w-md{
+        min-width:21rem;
+    }
+    &.w-lg{
+        min-width:32rem;
+    }
+    &.w-xlg{
+        min-width:38.4rem;
+    }
+    &.h-lg{
+        height:6rem;
+        @include fontSize('fontS03');
+    }
+    &.h-xlg{
+        height:6.4rem;
+        @include fontSize('fontS04');
+    }
+    &.h-xxlg{
+        height:8rem;
+        @include fontSize('fontS04');
+        font-weight:700;
+    }
+    &.b-gray{
+        border-color: $gray6;;
+    }
+    &.icon{
+        display:inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight:400;
+        i{
+            width:2.4rem;
+            height:2.4rem;
+            background-size: 2.4rem 2.4rem;
+            background-position:0 0;
+            background-repeat: no-repeat;
+            & + em{margin-left:0.8rem;}
+            &.i-print{
+                background-image: url('/assets/images/common/ico_print.svg');
+            }
+            &.i-list{
+                background-image: url('/assets/images/common/ico_list.svg');
+            }
+        }
+        em{font-style: normal;}       
+    }
+}
+// file add
 .btn-has-icon {
     .btn-has-icon__parent {
         position: relative;
@@ -10,7 +77,6 @@
             &>img {
                 width: 100%;
             }
-
             &.icon-attach {
                 left: 2.8rem;
                 width: 1.8rem;
@@ -22,57 +88,33 @@
                 height: 2.4rem;
             }
         }
+    }    
+}
+/*file download*/
+.btn-download{
+    color:$gray6;
+    @include fontSize('fontS03');
+    display:inline-flex;   
+    i{
+        width:2.4rem;
+        height:2.4rem;
+        flex:0 0 2.4rem;
+        background-image: url('/assets/images/common/btn_gnb_global_open_b.svg');
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size:2.4rem 2.4rem;
+        & + span{
+            margin-left:1rem;
+            text-decoration:underline;
+        }
     }
-    
-}
-
-// 170*48 버튼 공통 스타일
-.btn{
-    @include fontSize('fontS02');
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-    min-width: 17rem;
-    height: 4.8rem;
-    line-height: 4.8rem;
-    border: 1px solid $gray3; //defalt border
-    color: $gray8;
-    text-align: center;
-}
-
-// 320*48 버튼 공통 스타일
-.btn-lg {
-    min-width: 32rem;
-}
-
-// 버튼 가운데정렬
-.btn-center {
+} 
+// btn wrap
+.btn-wrap{
     display: flex;
     justify-content: center;
 }
-
-// 팝업 확인 버튼 스타일
-.btn-confirm {
-    min-width: 38.4rem;
-}
-
-// 버튼 그린 색상
-.btn-green {
-    background: $accent;
-    border: none;
-    color: $white;
-}
-
-//버튼 비활성화
-.btn-disabled,
-button:disabled{
-    background: $gray1;
-    color: #8d8d8d;
-    cursor: default;
-} 
-
-
-// 탑 버튼
+// go top
 .btn-top {
     width: 6rem;
     height: 6rem;
@@ -80,8 +122,7 @@ button:disabled{
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
-    background-color: #2A2F35;
-    
+    background-color: #2A2F35;   
 }
 
 // 링크 버튼
@@ -111,56 +152,6 @@ button:disabled{
         background-image: url(/assets/images/common/btn_link_hover.svg);
     }
 }
-
-// 프린트 버튼
-.btn-print {
-    padding-left: 7.4rem;
-    text-align: left;
-}
-
-// 목록 버튼
-.btn-list {
-    @include fontSize('fontS04');
-    min-width: 21rem;
-    height: 6.4rem;
-    line-height: 6.4rem;
-    border: 1px solid $gray6;
-    &.icon{
-        display:inline-flex;
-        align-items: center;
-        justify-content: center;
-        color:$gray8;
-        i{
-            width:2.4rem;
-            height:2.4rem;
-            background-repeat: no-repeat;
-            background-position: 0 0;
-            background-size:2.4rem 2.4rem;
-            margin-right:0.8rem;
-            &.iconList{
-                background-image: url('/assets/images/common/ico_list.svg');
-            }
-        }
-    }
-}
-
-// 자세히보기 버튼
-.btn-more{
-    @include fontSize('fontS03');
-    min-width: 38.4rem;
-    height: 6rem;
-    font-weight: 500;
-}
-
-// 제출 버튼
-.btn-submit {
-    @include fontSize('fontS04');
-    min-width: 21rem;
-    height: 8rem;
-    line-height: 8rem;
-}
-
-
 // 서브 모달 팝업
 .pop-wrap{
     display: inline-block;
@@ -213,26 +204,22 @@ button:disabled{
         }
     }
 }
-/*file download*/
-.btn-download{
-    color:$gray6;
-    @include fontSize('fontS03');
-    display:inline-flex;   
-    i{
-        width:2.4rem;
-        height:2.4rem;
-        flex:0 0 2.4rem;
-        background-image: url('/assets/images/common/btn_gnb_global_open_b.svg');
-        background-repeat: no-repeat;
-        background-position: 0 0;
-        background-size:2.4rem 2.4rem;
-        & + span{
-            margin-left:1rem;
-            text-decoration:underline;
+
+@include response('tablet') {
+    .btns{
+        &.h-lg{
+            height:5.8rem;
+            @include fontSize('fontS03');
+        }
+        &.h-xlg{
+            height:5.8rem;
+            @include fontSize('fontS03');
+        }
+        &.h-xxlg{
+            height:7rem;
+            @include fontSize('fontS03');
         }
     }
-}
-@include response('tablet') {
      // 목록 버튼
      .btn-list {
         @include fontSize('fontS03');
@@ -258,10 +245,19 @@ button:disabled{
         display:block;
         width:100%;
     }
-    // 목록 버튼
-    .btn-list {
-        @include fontSize('fontS02');
-        height: 5.2rem;
+    .btns{
+        &.h-lg{
+            height:5.6rem;
+            @include fontSize('fontS02');
+        }
+        &.h-xlg{
+            height:5.2rem;
+            @include fontSize('fontS02');
+        }
+        &.h-xxlg{
+            height:6rem;
+            @include fontSize('fontS02');
+        }
     }
     // 탑 버튼
     .btn-top {

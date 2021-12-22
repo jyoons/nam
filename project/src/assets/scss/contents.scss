@@ -60,7 +60,7 @@
     }
     /*list detail*/
     .board-detail-wrap{padding-top:10rem;}
-    .board-detail-conts + .btn-center{margin-top:6rem;}
+    .board-detail-conts + .btn-wrap{margin-top:6rem;}
 }
 
 @include response('tablet') {
@@ -76,7 +76,7 @@
         }
         /*list detail*/
         .board-detail-wrap{padding-top:7rem;}
-        .board-detail-conts + .btn-center{margin-top:5rem;}
+        .board-detail-conts + .btn-wrap{margin-top:5rem;}
     }
 }
 
@@ -95,6 +95,6 @@
         }
         /*list detail*/
         .board-detail-wrap{padding-top:0;}
-        .board-detail-conts + .btn-center{margin-top:4rem;}
+        .board-detail-conts + .btn-wrap{margin-top:4rem;}
     }
 }
