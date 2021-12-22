@@ -87,6 +87,7 @@ caption {
 
 textarea {
   resize: none;
+  font-family: "Pretendard", "맑은 고딕", "돋음", dotum, sans-serif;
 }
 
 form {
@@ -98,6 +99,7 @@ input {
   -webkit-appearance: none;
   appearance: none;
   border-radius: 0px;
+  font-family: "Pretendard", "맑은 고딕", "돋음", dotum, sans-serif;
 }
 
 select {
@@ -124,6 +126,7 @@ button {
   -webkit-appearance: none;
   outline: none;
   cursor: pointer;
+  font-family: "Pretendard", "맑은 고딕", "돋음", dotum, sans-serif;
 }
 
 pre {
@@ -280,7 +283,7 @@ body {
 }
 
 .container-header-fixImg {
-  position: fixed;
+  position: absolute;
   width: 100%;
   max-width: 174rem;
   height: 70rem;
@@ -891,9 +894,6 @@ body {
   }
 
   .container-header-fixImg {
-    position: fixed;
-    width: 100%;
-    max-width: 174rem;
     height: 70rem;
     overflow: hidden;
     left: 0;

@@ -34,7 +34,6 @@
   line-height: 4.8rem;
   border: 1px solid #dddddd;
   color: #111111;
-  font-family: "Pretendard";
   text-align: center;
 }
 
@@ -200,44 +199,44 @@ input[type=text]::-ms-clear {
   margin-left: 0.4rem;
 }
 
-.input-wrap .input-text {
+.input-text {
   display: flex;
   align-items: flex-start;
   position: relative;
   width: 100%;
 }
-.input-wrap .input-text.input-half__full {
+.input-text.input-half__full {
   width: 100%;
 }
-.input-wrap .input-text.input-half__full .input-text__wrap {
+.input-text.input-half__full .input-text__wrap {
   width: 100%;
 }
-.input-wrap .input-text.input-email {
+.input-text.input-email {
   width: 81.4rem;
 }
-.input-wrap .input-text.input-email .input-text__wrap {
+.input-text.input-email .input-text__wrap {
   display: flex;
 }
-.input-wrap .input-text.input-email .input-text__wrap.input-text-clear .btn-clear {
+.input-text.input-email .input-text__wrap.input-text-clear .btn-clear {
   right: 3.4rem;
 }
-.input-wrap .input-text.input-email .input-default {
+.input-text.input-email .input-default {
   width: 30rem;
 }
-.input-wrap .input-text.input-email .input-email-at {
+.input-text.input-email .input-email-at {
   display: inline-block;
   margin: 0 1.6rem;
   height: 5rem;
   line-height: 5rem;
 }
-.input-wrap .input-text.input-email .input-email-text {
+.input-text.input-email .input-email-text {
   display: none;
   margin-right: 1.6rem;
 }
-.input-wrap .input-text.input-email .input-email-text.show {
+.input-text.input-email .input-email-text.show {
   display: block;
 }
-.input-wrap .input-text.input-text-search .input-default {
+.input-text.input-text-search .input-default {
   border: none;
   border-bottom: 1px solid #dddddd;
   min-width: 42rem;
@@ -245,15 +244,15 @@ input[type=text]::-ms-clear {
   padding-left: 0;
   padding-right: 7rem;
 }
-.input-wrap .input-text.input-text-search .input-default:focus {
+.input-text.input-text-search .input-default:focus {
   border-color: #999999;
 }
-.input-wrap .input-text.input-text-search .btn-clear {
+.input-text.input-text-search .btn-clear {
   top: 50%;
   right: 4.4rem;
   transform: translateY(-50%);
 }
-.input-wrap .input-text.input-text-search .search-btn {
+.input-text.input-text-search .search-btn {
   position: absolute;
   top: 50%;
   right: 0;
@@ -262,30 +261,31 @@ input[type=text]::-ms-clear {
   transform: translateY(-50%);
   background: url(/assets/images/common/btn_input_search.svg) no-repeat center;
 }
-.input-wrap .input-text.input-textarea {
+.input-text.input-textarea {
   width: 100%;
   align-items: unset;
 }
-.input-wrap .input-text.input-textarea .input-text__wrap {
+.input-text.input-textarea .input-text__wrap {
   width: 100%;
 }
-.input-wrap .input-text.input-textarea .input-default {
+.input-text.input-textarea .input-default {
   font-size: 1.8rem;
   line-height: 2.7rem;
   min-height: 36rem;
   padding: 1.8rem;
 }
-.input-wrap .input-wrap__check .input-check {
+
+.input-wrap__check .input-check {
   display: none;
 }
-.input-wrap .input-wrap__check .input-check:checked + .checkbox-text .checkbox-icon {
+.input-wrap__check .input-check:checked + .checkbox-text .checkbox-icon {
   background: #25867D;
 }
-.input-wrap .input-wrap__check .input-check:checked + .checkbox-text .checkbox-icon::before {
+.input-wrap__check .input-check:checked + .checkbox-text .checkbox-icon::before {
   width: 0.8rem;
   opacity: 1;
 }
-.input-wrap .input-wrap__check .checkbox-text {
+.input-wrap__check .checkbox-text {
   font-size: 2rem;
   line-height: 3rem;
   display: flex;
@@ -293,7 +293,7 @@ input[type=text]::-ms-clear {
   position: relative;
   padding-left: 3.2rem;
 }
-.input-wrap .input-wrap__check .checkbox-text .checkbox-icon {
+.input-wrap__check .checkbox-text .checkbox-icon {
   display: inline-block;
   position: absolute;
   left: 0;
@@ -303,7 +303,7 @@ input[type=text]::-ms-clear {
   height: 2.4rem;
   transition: all 0.2s;
 }
-.input-wrap .input-wrap__check .checkbox-text .checkbox-icon::before {
+.input-wrap__check .checkbox-text .checkbox-icon::before {
   content: "";
   opacity: 0;
   display: inline-block;
@@ -312,13 +312,13 @@ input[type=text]::-ms-clear {
   top: 0.6rem;
   width: 0;
   height: 0.4rem;
-  border: 0.2rem solid #FFFFFF;
+  border: 2px solid #FFFFFF;
   border-top: 0;
   border-right: 0;
   transform: rotate(-45deg);
   transition: all 0.3s;
 }
-.input-wrap .input-wrap__check .checkbox-text .check-icon {
+.input-wrap__check .checkbox-text .check-icon {
   display: inline-block;
   background: red;
   position: absolute;
@@ -331,7 +331,6 @@ input[type=text]::-ms-clear {
   min-width: 30rem;
   min-height: 5rem;
   outline: none;
-  font-family: "Pretendard";
   border: 1px solid #dddddd;
   color: #111111;
   padding: 0 1.8rem;
@@ -424,7 +423,6 @@ input[type=text]::-ms-clear {
   line-height: 2.7rem;
   min-width: 31rem;
   min-height: 5rem;
-  font-family: "Pretendard";
   color: #bbbbbb;
   border: 1px solid #dddddd;
   padding: 0 1.8rem;
@@ -451,13 +449,13 @@ input[type=text]::-ms-clear {
   min-height: 4.8rem;
   padding: 1.2rem 0 0 5.4rem;
   border: 1px solid #666666;
-  font-family: "Pretendard";
   color: #111111;
   text-align: left;
 }
 
 .tab-list {
   overflow-x: auto;
+  overflow-y: hidden;
   white-space: nowrap;
   font-size: 0;
 }

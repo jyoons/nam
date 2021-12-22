@@ -174,8 +174,8 @@ uiCommon.titImg = {
     let _this = this;
     $(window).on('scroll', function(){
       var _thisTop = $(window).scrollTop();
-      gsap.to('.container-header-fixImg', {duration:0, y:-(_thisTop * 1.2), ease: "power1"});  
-      gsap.to('.container-header-fixImg>img', {duration:0, y:(_thisTop * 0.4), ease: "power1"});
+      gsap.to('.container-header-fixImg', {duration:0, x:0, y:-(_thisTop * 0.2), ease: "power1"});  
+      gsap.to('.container-header-fixImg>img', {duration:0, x:0, y:(_thisTop * 0.4), ease: "power1"});
     });
     $(window).on('resize', function(){
       setTimeout(function(){

@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-// ---------------------------------------------------------------
-// Layouts > Layout
-// ---------------------------------------------------------------
-
 html {
     line-height: normal;
     -webkit-text-size-adjust: 100%;
@@ -89,7 +85,7 @@ body {
   }
 }
 .container-header-fixImg{
-  position:fixed;
+  position:absolute;
   width:100%;
   max-width:174rem;
   height:70rem;
