@@ -33,9 +33,27 @@
                     <div class="container-contents-wrap">
                         <div class="board-list-wrap">
                             <div class="board-list-header">
-                                tablist + 검색
+                                <div class="tab-listWrap">
+                                    <ul class="tab-list">
+                                        <!-- 활성화 시 on 클래스 추가 -->
+                                        <li class="tab-list__item"><a href="javascript:void(0)" class="on">전체</a></li>
+                                        <li class="tab-list__item"><a href="javascript:void(0)">화평법</a></li>
+                                        <li class="tab-list__item"><a href="javascript:void(0)">화관법</a></li>
+                                        <li class="tab-list__item"><a href="javascript:void(0)">화학제품안전법</a></li>
+                                        <li class="tab-list__item"><a href="javascript:void(0)">국외물질규제</a></li>
+                                        <li class="tab-list__item"><a href="javascript:void(0)">GHS/CLP/SDS</a></li>
+                                        <li class="tab-list__item"><a href="javascript:void(0)">기타</a></li>
+                                    </ul>
+                                </div>
+                                <div class="input-wrap">
+                                    <div class="input-text input-text-search input-text-clear">
+                                        <label for="input2"></label>
+                                        <input type="search" id="input2" placeholder="검색어를 입력하세요" class="input-default">
+                                        <button class="btn-clear"><span class="hidden">전체삭제</span></button>
+                                        <button class="search-btn btn-search"><span class="hidden">검색</span></button>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- list contents -->
                             <div class="board-list-conts">
                                 <!-- 검색 결과 없을 때 -->
                                 <div class="no-result">
@@ -78,15 +96,24 @@
                                     </ul>
                                 </div>
                                 <!--// accordion -->
-                            </div>
-                            <!-- list contents -->
-                            <div>
-                                pagination
+                                <div class="paging-wrap">
+                                    <a href="javascript:void(0)" class="btn-arr first"><span class="hidden">첫번째 페이지로 이동</span></a>
+                                    <a href="javascript:void(0)" class="btn-arr prev"><span class="hidden">이전 페이지로 이동</span></a>
+                                    <ul class="paging-list">
+                                        <!-- 활성화 시 active 클래스 추가 -->
+                                        <li class="paging-list__item"><a href="javascript:void(0)" class="active">1</a></li>
+                                        <li class="paging-list__item"><a href="javascript:void(0)">2</a></li>
+                                        <li class="paging-list__item"><a href="javascript:void(0)">3</a></li>
+                                        <li class="paging-list__item"><a href="javascript:void(0)">4</a></li>
+                                        <li class="paging-list__item"><a href="javascript:void(0)">5</a></li>
+                                    </ul>
+                                    <a href="javascript:void(0)" class="btn-arr next"><span class="hidden">다음 페이지로 이동</span></a>
+                                    <a href="javascript:void(0)" class="btn-arr last"><span class="hidden">마지막 페이지로 이동</span></a>
+                                </div>                          
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <!--// container contents -->
             </div>
             <!--// container -->
