@@ -265,8 +265,6 @@ input[type="text"]::-ms-clear {
 }
 
 .select-wrap {
-    display: inline-block;
-
     .select1 {
         @include fontSize('fontS03');
         min-width: 31rem;

@@ -25,13 +25,38 @@
         }
     }
     /* privacy */
-    .privacy-wrap{
+    .privacy{
         @include fontSize('fontS02');
         border: 1px solid $gray3;
         padding: 3rem;
         color: $gray5;
         height: 22.3rem;
         overflow-y: auto;
+        margin-top: 2.4rem;
+    }
+    /* info icon */
+    .icon-info{
+        display: inline-block;
+        margin-right: 0.6rem;
+    }
+    /* attach file-list */
+    .file-wrap{
+        background: $gray1;
+        padding: 2.2rem 1.5rem;
+    }
+    .file-list{
+        &__name{
+            @include fontSize('fontS02');
+            color: $gray5;            
+        }
+        &__btn{
+            width: 2.4rem;
+            height: 2.4rem;
+            background-image:url('/assets/images/common/btn_input_delete.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size:2.4rem;
+        }
     }
 }
 

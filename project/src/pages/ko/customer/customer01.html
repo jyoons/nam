@@ -41,16 +41,18 @@
                             <div class="layout-wrap-header">
                                 <p class="layout-wrap-header__title">개인정보처리방침 동의</p>
                             </div>
-                            <div class="layout-wrap-conts">
-                                <span class="required input-layout-title">필수적 개인정보 수집 및 이용에 대한 동의 (필수)</span>
-                                <div class="input-wrap-check">
-                                    <input type="checkbox" id="check1" name="check" value="y" class="input-check">
-                                    <label for="check1" class="checkbox-text">
-                                        <span class="checkbox-icon"></span>
-                                        동의합니다
-                                    </label>
+                            <div class="layout-wrap-conts layout-wrap-conts-privacy">
+                                <div class="layout-wrap-conts__header">
+                                    <span class="required input-layout-title">필수적 개인정보 수집 및 이용에 대한 동의 (필수)</span>
+                                    <div class="input-wrap-check">
+                                        <input type="checkbox" id="check1" name="check" value="y" class="input-check">
+                                        <label for="check1" class="checkbox-text">
+                                            <span class="checkbox-icon"></span>
+                                            동의합니다
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="privacy-wrap">
+                                <div class="privacy">
                                     남앤드남 인터내셔널은 온라인 상담 서비스 제공을 위해 개인정보보호법 제 15조 및 제22조에 따라 귀하의 동의를 받고자 합니다.
                                     <br><br>
                                     [개인정보 수집 및 이용 동의]<br>
@@ -98,7 +100,7 @@
                                             <input type="text" id="input3" placeholder="example" class="input-default">
                                             <span class="input-email-at">@</span>
                                         </div>
-                                        <div class="input-text-clear input-error">
+                                        <div class="input-text__wrap input-text-clear input-error">
                                             <input type="text" id="input3-1" placeholder="직접입력" class="input-default input-email-text show">
                                             <button class="btn-clear"><span class="hidden">전체삭제</span></button>
                                             <div class="input-error__message">Message</div>
@@ -114,7 +116,10 @@
                                         </div>
                                     </div>        
                                 </div>
-                                <p>문의하신 질문의 답변은 기재한 이메일로 답변 드리니 정확한 이메일을 입력해주세요.</p>
+                                <p>
+                                    <i class="icon-info"><img src="/assets/images/common/ico_table_info.svg" alt=""></i>
+                                    문의하신 질문의 답변은 기재한 이메일로 답변 드리니 정확한 이메일을 입력해주세요.
+                                </p>
                             </div>
                         </div>
 
@@ -156,10 +161,22 @@
                                         파일첨부
                                     </label>
                                     <input type="file" id="btn-attach1">
-                                </div>
+                                    <div class="file-wrap">
+                                        <p class="file-list">
+                                            <span class="file-list__name">개정사유서(화학물질관리법 시행 규칙 일부개정령안).hwp</span>
+                                            <button class="file-list__btn"><span class="hidden">삭제</span></button>
+                                        </p>
+                                        <p class="file-list">
+                                            <span class="file-list__name">추가 문서.hwp</span>
+                                            <button class="file-list__btn"><span class="hidden">삭제</span></button>
+                                        </p>
                                     </div>
+                                </div>
+                            </div>
                         </div>
-
+                        <div class="btn-center">
+                            <button class="btn btn-green btn-submit">제출하기</button>
+                        </div>
                     </div>
                 </div>
 

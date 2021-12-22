@@ -45,13 +45,15 @@
     min-width: 32rem;
 }
 
+// 버튼 가운데정렬
+.btn-center {
+    display: flex;
+    justify-content: center;
+}
+
 // 팝업 확인 버튼 스타일
 .btn-confirm {
-    display: block;
-    margin: 0 auto;
-    .btn {
-        min-width: 38.4rem;
-    }
+    min-width: 38.4rem;
 }
 
 // 버튼 그린 색상
