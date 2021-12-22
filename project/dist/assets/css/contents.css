@@ -114,6 +114,23 @@ button:disabled {
   line-height: 6.4rem;
   border: 1px solid #666666;
 }
+.btn-list.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+}
+.btn-list.icon i {
+  width: 2.4rem;
+  height: 2.4rem;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 2.4rem 2.4rem;
+  margin-right: 0.8rem;
+}
+.btn-list.icon i.iconList {
+  background-image: url("/assets/images/common/ico_list.svg");
+}
 
 .btn-more {
   font-size: 1.8rem;
@@ -187,7 +204,7 @@ button:disabled {
   width: 2.4rem;
   height: 2.4rem;
   flex: 0 0 2.4rem;
-  background-image: url(/assets/images/common/btn_gnb_global_open_b.svg);
+  background-image: url("/assets/images/common/btn_gnb_global_open_b.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 2.4rem 2.4rem;
@@ -198,6 +215,12 @@ button:disabled {
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  .btn-list {
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+    height: 5.8rem;
+  }
+
   /*file download*/
   .btn-download {
     font-size: 1.6rem;
@@ -215,6 +238,17 @@ button:disabled {
   }
 }
 @media (min-width: 320px) and (max-width: 765px) {
+  .m-btnBlock {
+    display: block;
+    width: 100%;
+  }
+
+  .btn-list {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    height: 5.2rem;
+  }
+
   .btn-top {
     width: 4.8rem;
     height: 4.8rem;
@@ -1188,6 +1222,9 @@ input[type=text]::-ms-clear {
 .container-contents-wrap .board-detail-wrap {
   padding-top: 10rem;
 }
+.container-contents-wrap .board-detail-conts + .btn-center {
+  margin-top: 6rem;
+}
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .container-contents-wrap {
@@ -1204,6 +1241,9 @@ input[type=text]::-ms-clear {
   }
   .container-contents-wrap .board-detail-wrap {
     padding-top: 7rem;
+  }
+  .container-contents-wrap .board-detail-conts + .btn-center {
+    margin-top: 5rem;
   }
 }
 @media (min-width: 320px) and (max-width: 765px) {
@@ -1223,5 +1263,8 @@ input[type=text]::-ms-clear {
   }
   .container-contents-wrap .board-detail-wrap {
     padding-top: 0;
+  }
+  .container-contents-wrap .board-detail-conts + .btn-center {
+    margin-top: 4rem;
   }
 }

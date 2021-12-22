@@ -125,6 +125,23 @@ button:disabled{
     height: 6.4rem;
     line-height: 6.4rem;
     border: 1px solid $gray6;
+    &.icon{
+        display:inline-flex;
+        align-items: center;
+        justify-content: center;
+        color:$gray8;
+        i{
+            width:2.4rem;
+            height:2.4rem;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size:2.4rem 2.4rem;
+            margin-right:0.8rem;
+            &.iconList{
+                background-image: url('/assets/images/common/ico_list.svg');
+            }
+        }
+    }
 }
 
 // 자세히보기 버튼
@@ -205,7 +222,7 @@ button:disabled{
         width:2.4rem;
         height:2.4rem;
         flex:0 0 2.4rem;
-        background-image: url(/assets/images/common/btn_gnb_global_open_b.svg);
+        background-image: url('/assets/images/common/btn_gnb_global_open_b.svg');
         background-repeat: no-repeat;
         background-position: 0 0;
         background-size:2.4rem 2.4rem;
@@ -216,6 +233,11 @@ button:disabled{
     }
 }
 @include response('tablet') {
+     // 목록 버튼
+     .btn-list {
+        @include fontSize('fontS03');
+        height: 5.8rem;
+    }
     /*file download*/
     .btn-download{
         @include fontSize('fontS02');
@@ -232,6 +254,15 @@ button:disabled{
     }
 }
 @include response('mobile') {
+    .m-btnBlock{//mobile block
+        display:block;
+        width:100%;
+    }
+    // 목록 버튼
+    .btn-list {
+        @include fontSize('fontS02');
+        height: 5.2rem;
+    }
     // 탑 버튼
     .btn-top {
         width: 4.8rem;
