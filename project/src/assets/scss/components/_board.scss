@@ -2,7 +2,7 @@
 
 .board-wrap {
     .board-list {
-        border-top: 0.2rem solid $gray8;
+        border-top: 2px solid $gray8;
         .board-list__item {
             padding: 4.8rem 0;
             border-bottom: 1px solid $gray3;
@@ -11,7 +11,6 @@
                 align-content: center;
                 align-items: center;
                 justify-content: space-between;
-                font-family: 'Pretendard';
                 .board-num {
                     @include fontSize('fontS02');
                     display: flex;
@@ -44,22 +43,152 @@
             }
         }
     }
-
-    // faq 게시판
-    &.board-type02{
-        .faq-wrap {
-            display: none;
-            background: $gray1;
-            // display: flex;
-            justify-content: space-between;
-            align-content: center;
-            align-items: center;
-            margin-bottom: -4.8rem;
-        }
-        .board-list__item{
-            &:hover{
-                background: $white;
+}
+/*paging*/
+.paging-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:6rem;
+    .paging-list{
+        display: flex;
+        justify-content: space-between;
+        padding:0 2.6rem;
+        .paging-list__item {
+            a{                
+                @include fontSize('fontS04');
+                // display: inline-block;
+                line-height: 3.6rem;
+                margin:0 2rem;
+                color: $gray4;
+                &.active{
+                    font-weight:700;
+                    color: $gray8;
+                    border-bottom: 2px solid $gray8;
+                }
             }
+        }
+    }
+    .btn-arr {
+        // display: inline-block;
+        width: 3.6rem;
+        height: 3.6rem;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size:3.6rem 3.6rem;
+        & + .btn-arr{margin-left:0.6rem;}
+        &.first{
+            background-image: url(/assets/images/common/btn_page_prev_double.svg);
+        }
+        &.prev{
+            background-image: url(/assets/images/common/btn_page_prev.svg);
+        }
+        &.next{
+            background-image: url(/assets/images/common/btn_page_prev.svg);
+            transform: rotate(180deg);
+        }
+        &.last{
+            background-image: url(/assets/images/common/btn_page_prev_double.svg);
+            transform: rotate(180deg);
+        }
+    }
+}
+@include response('tablet'){
+    /*board list*/
+    .board-wrap {
+        .board-list {         
+            .board-list__item {
+                padding: 3.8rem 1rem 3.8rem 0;
+                a{
+                    flex-wrap:wrap;
+                    .board-num {
+                        width:7rem;
+                        display:inline-flex;
+                        @include fontSize('fontS01');
+                        &.board-date{
+                            width:100%;
+                            flex:0 0 100%;
+                            display:block;
+                            width:auto;
+                            text-align:right;
+                        }
+                    }
+                    .board-title {
+                        width:calc(100% - 7rem);
+                        @include fontSize('fontS04');
+                        & + .board-date{margin-top:1rem;}
+                    }
+                }
+            }
+        }
+    }
+    /*paging*/
+    .paging-wrap{
+        margin-top:5rem;
+        .paging-list{
+            padding:0 1.8rem;
+            .paging-list__item {
+                a{                
+                    @include fontSize('fontS03');
+                    margin:0 1.6rem;
+                }
+            }
+        }
+        .btn-arr {
+            width:3rem;
+            height: 3rem;
+            background-size:3rem 3rem;
+        }
+    }  
+}
+
+@include response('mobile') {
+    /*board list*/
+    .board-wrap {
+        .board-list {
+            .board-list__item {
+                padding: 2.8rem 0.8rem;
+                a{
+                    display:block;
+                    .board-num {
+                        @include fontSize('fontS00');
+                        display:block;
+                        width:100%;
+                        color: $gray8;
+                        text-align:left;
+                        &.board-date{
+                            width:auto;
+                            color: $gray6;
+                        }
+                        & + .board-title{margin-top:1rem;}
+                    }
+                    .board-title {
+                        @include fontSize('fontS02');
+                        font-weight:500;
+                        width:100%;
+                        & + .board-date{margin-top:1.4rem;}
+                    }
+                }
+            }
+        }
+    }
+    /*paging*/
+    .paging-wrap{
+        margin-top:4rem;
+        .paging-list{
+            padding:0 1rem;
+            .paging-list__item {
+                a{                
+                    @include fontSize('fontS02');
+                    margin:0 1rem;
+                }
+            }
+        }
+        .btn-arr {
+            width: 2.4rem;
+            height: 2.4rem;
+            background-size:2.4rem 2.4rem;
+            & + .btn-arr{margin-left:0.4rem;}
         }
     }
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>component | button</title>
+        <link rel="stylesheet" href="/assets/css/common.css">
+        <link rel="stylesheet" href="/assets/css/contents.css">
+    </head>
+    <body>
+        <button class="btn btn-green">확인</button>
+        <!-- 확인 버튼 large -->
+        <button class="btn btn-lg btn-green">확인</button>
+        <!-- 팝업 확인 -->
+        <div class="btn-confirm">
+            <button class="btn">확인</button>
+        </div>
+
+
+        <button class="btn-top"><span class="hidden">위로 가기</span></button>
+
+        <!-- 파일첨부 input -->
+        <div class="btn-input-wrap btn-has-icon">
+            <label for="btn-attach1" class="btn-input-wrap__file btn-has-icon__parent">
+                <i class="btn-icon icon-attach">
+                    <img src="/assets/images/common/ico_plus.svg" alt="파일첨부">
+                </i>
+                파일첨부
+            </label>
+            <input type="file" id="btn-attach1">
+        </div>
+
+        <!-- 프린트 버튼 -->
+        <div class="btn-has-icon">
+            <button class="btn btn-print btn-has-icon__parent">
+                <i class="btn-icon icon-print"><img src="/assets/images/common/ico_print.svg"
+                        alt="파일첨부"></i>
+                인쇄하기
+            </button>
+        </div>
+
+        <!-- 초기화 버튼 -->
+        <button class="btn btn-reset">초기화</button>
+        <!-- 목록 버튼 -->
+        <button class="btn btn-list">목록</button>
+        <!-- 자세히보기 버튼 -->
+        <button class="btn btn-more">자세히 보기</button>
+        <!-- 제출 버튼 -->
+        <button class="btn btn-green btn-submit">제출하기</button>
+        <!-- 제출 버튼 -->
+        <button class="btn btn-disabled btn-submit">제출하기</button>
+    </div>
+
+    <h2 class="guideTit">링크 버튼</h2>
+    <div class="guideBox">
+        <a href="javascript:void(0)" class="btn-contents-hover"><span class="hidden">바로가기</span></a>
+        <a href="javascript:void(0)" class="btn-link"><span class="hidden">바로가기</span></a>
+    </div>
+
+        <script src="/assets/js/lib/jquery.import.js"></script>
+    </body>
+</html>

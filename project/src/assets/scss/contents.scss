@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* 공통 */
+/* common */
 @import "base/variables";
 @import "base/mixins";
 
@@ -11,19 +11,47 @@
 @import "components/board";
 @import "components/accordion";
 
+
 .container-contents-wrap{
-// 서브페이지 게시판 헤더
+    /*tab + search header*/
     .board-list-header{
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 3.2rem;
-    }
-    // 서브페이지 게시판 페이징
-    .paging-wrap{
-        justify-content: center;
-        margin-top: 6rem;
+        .input-wrap{
+            flex: 0 0 4.2rem;
+        }
     }
 }
 
+@include response('tablet') {
+    .container-contents-wrap{
+        /*tab + search header*/
+        .board-list-header{
+            display: block;
+            margin-bottom: 3.2rem;
+            .input-wrap{             
+               width:42rem;
+                margin-top:3.2rem;
+            }
+        }
+    }
+}
 
+@include response('mobile') {
+    .container-contents-wrap{
+        /*tab + search header*/
+        .board-list-header{
+            display: block;
+            margin-bottom:2rem;
+            .input-wrap{
+                margin-top:3.2rem;
+                .input-default{
+                    min-width:100%;
+                }
+            }
+        }
+    }
+}

@@ -20,7 +20,8 @@ input[type="text"]::-ms-clear {
         display: flex;
         align-items: flex-start;
         position: relative;
-        width: 45.4rem;
+        // width: 45.4rem;
+        width:100%;
         &.input-half__full{
             width: 100%;
             .input-text__wrap{
@@ -57,12 +58,10 @@ input[type="text"]::-ms-clear {
                     display: block;
                 }
             }
-        }
-    
-    
+        }    
         // 검색 인풋
         &.input-text-search {
-            width: 42rem;
+            // width: 42rem;
             .input-default {
                 border: none;
                 border-bottom: 1px solid $gray3;
@@ -298,57 +297,6 @@ input[type="text"]::-ms-clear {
         }
     }
 }
-
-// 페이징
-.paging-wrap{
-    display: flex;
-    .paging-list{
-        display: flex;
-        justify-content: space-between;
-        width: 22.2rem;
-        height: 3.6rem;
-        .paging-list__item {
-            a{
-                @include fontSize('fontS04');
-                display: inline-block;
-                line-height: 3.6rem;
-                padding: 0 0.2rem;
-                color: $gray4;
-                &.active{
-                    font-weight: bold;
-                    color: $gray8;
-                    border-bottom: 0.2rem solid $gray8;
-                }
-            }
-        }
-    }
-    .btn-arr {
-        display: inline-block;
-        padding: 0;
-        width: 3.6rem;
-        height: 3.6rem;
-        margin-left: 0;
-        &.first{
-            background: url(/assets/images/common/btn_page_prev_double.svg) no-repeat center;
-            margin-right: 0.6rem;
-        }
-        &.prev{
-            background: url(/assets/images/common/btn_page_prev.svg) no-repeat center;
-            margin-right: 5rem;
-        }
-        &.next{
-            background: url(/assets/images/common/btn_page_prev.svg) no-repeat center;
-            margin-left: 5rem;
-            transform: rotate(180deg);
-        }
-        &.last{
-            background: url(/assets/images/common/btn_page_prev_double.svg) no-repeat center;
-            margin-left: 0.6rem;
-            transform: rotate(180deg);
-        }
-    }
-}
-
 // 파일첨부 input
 .btn-input-wrap {
     input {
@@ -367,4 +315,3 @@ input[type="text"]::-ms-clear {
         text-align: left;
     }
 }
-

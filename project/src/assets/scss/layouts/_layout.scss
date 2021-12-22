@@ -102,6 +102,9 @@ body {
     position:absolute;
     top : -77rem;
   }
+  & + .container-contents{
+    padding-top:12rem;
+  }
 }
 .container-contents{
   width:100%;
@@ -110,5 +113,17 @@ body {
 .container-contents-wrap{
   max-width:139.6rem;
   margin:0 auto;
-  padding:0 3rem;
+  padding:0 3rem 12rem 3rem;
+}
+.no-result{
+  padding:28rem 3rem 16rem;
+  border-top:2px solid $gray8;
+  border-bottom:1px solid $gray3;
+  text-align:center;
+  @include fontSize('fontS04');
+  color:$gray5;
+  background-image:url('/assets/images/common/ico_no_result.svg');
+  background-repeat: no-repeat;
+  background-position: center 15.6rem;
+  background-size:12rem;
 }

@@ -294,6 +294,9 @@ body {
   position: absolute;
   top: -77rem;
 }
+.container-header-fixImg + .container-contents {
+  padding-top: 12rem;
+}
 
 .container-contents {
   width: 100%;
@@ -303,7 +306,21 @@ body {
 .container-contents-wrap {
   max-width: 139.6rem;
   margin: 0 auto;
-  padding: 0 3rem;
+  padding: 0 3rem 12rem 3rem;
+}
+
+.no-result {
+  padding: 28rem 3rem 16rem;
+  border-top: 2px solid #111111;
+  border-bottom: 1px solid #dddddd;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #999999;
+  background-image: url("/assets/images/common/ico_no_result.svg");
+  background-repeat: no-repeat;
+  background-position: center 15.6rem;
+  background-size: 12rem;
 }
 
 .header {
@@ -864,7 +881,7 @@ body {
     letter-spacing: -0.5rem;
   }
   .container-header__title > div + div {
-    margin-top: 1.4rem;
+    margin-top: 1rem;
   }
   .container-header__text {
     width: 60%;
@@ -887,6 +904,21 @@ body {
     min-width: 76.5rem;
     max-width: 110rem;
     top: -30rem;
+  }
+  .container-header-fixImg + .container-contents {
+    padding-top: 8rem;
+  }
+
+  .container-contents-wrap {
+    padding: 0 3.2rem 10rem 3.2rem;
+  }
+
+  .no-result {
+    padding: 24rem 3rem 12rem;
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+    color: #999999;
+    background-position: center 11rem;
   }
 }
 @media (min-width: 320px) and (max-width: 765px) {
@@ -1179,7 +1211,7 @@ body {
     letter-spacing: 0;
   }
   .container-header__title > div + div {
-    margin-top: 1rem;
+    margin-top: 0.6rem;
   }
   .container-header__title + .container-header__text {
     margin-top: 6rem;
@@ -1209,5 +1241,21 @@ body {
     min-width: 494px;
     max-width: 765px;
     top: -20rem;
+  }
+  .container-header-fixImg + .container-contents {
+    padding-top: 4.8rem;
+  }
+
+  .container-contents-wrap {
+    padding: 0 3.2rem 6rem 3.2rem;
+  }
+
+  /*no result*/
+  .no-result {
+    padding: 20rem 2rem 6rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: #999999;
+    background-position: center 6rem;
   }
 }

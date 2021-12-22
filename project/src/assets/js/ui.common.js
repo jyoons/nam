@@ -61,8 +61,11 @@ uiCommon.header = {
 }
 uiCommon.gnb = {
   init: function(){
-    this.setDefault('.gnb');
-    this.event('.gnb', '.gnb-btn', '.gnb-close');
+    let gnbLen = $('.gnb').length;
+    if(gnbLen > 0){
+      this.setDefault('.gnb');
+      this.event('.gnb', '.gnb-btn', '.gnb-close');
+    }   
   },
   setDefault:(elem) => {
     let el = $(elem);

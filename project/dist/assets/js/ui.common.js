@@ -79,8 +79,12 @@ var uiCommon = function (uiCommon, $window) {
   };
   uiCommon.gnb = {
     init: function init() {
-      this.setDefault('.gnb');
-      this.event('.gnb', '.gnb-btn', '.gnb-close');
+      var gnbLen = $('.gnb').length;
+
+      if (gnbLen > 0) {
+        this.setDefault('.gnb');
+        this.event('.gnb', '.gnb-btn', '.gnb-close');
+      }
     },
     setDefault: function setDefault(elem) {
       var el = $(elem);
