@@ -58,6 +58,10 @@
             background-size:2.4rem;
         }
     }
+    /*list detail*/
+    .board-detail-wrap{
+        padding-top:10rem;
+    }
 }
 
 @include response('tablet') {
@@ -70,6 +74,10 @@
                width:42rem;
                 margin-top:3.2rem;
             }
+        }
+        /*list detail*/
+        .board-detail-wrap{
+            padding-top:7rem;
         }
     }
 }
@@ -86,6 +94,10 @@
                     min-width:100%;
                 }
             }
+        }
+        /*list detail*/
+        .board-detail-wrap{
+            padding-top:0;
         }
     }
 }

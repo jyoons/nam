@@ -196,7 +196,41 @@ button:disabled{
         }
     }
 }
-
+/*file download*/
+.btn-download{
+    color:$gray6;
+    @include fontSize('fontS03');
+    display:inline-flex;   
+    i{
+        width:2.4rem;
+        height:2.4rem;
+        flex:0 0 2.4rem;
+        background-image: url(/assets/images/common/btn_gnb_global_open_b.svg);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size:2.4rem 2.4rem;
+        & + span{
+            margin-left:1rem;
+            text-decoration:underline;
+        }
+    }
+}
+@include response('tablet') {
+    /*file download*/
+    .btn-download{
+        @include fontSize('fontS02');
+        background-size:2rem 2rem;
+        i{
+            width:2rem;
+            height:2rem;
+            flex:0 0 2rem;
+            background-size:2rem 2rem;
+            & + span{
+                margin-left:1rem;
+            }
+        }
+    }
+}
 @include response('mobile') {
     // 탑 버튼
     .btn-top {
@@ -207,5 +241,18 @@ button:disabled{
         background-position: center center;
         background-size: contain;
         background-color: #2A2F35;
+    }
+    /*file download*/
+    .btn-download{
+        @include fontSize('fontS01');
+        i{
+            width:1.6rem;
+            height:1.6rem;
+            flex:0 0 1.6rem;
+            background-size:1.6rem 1.6rem;
+            & + span{
+                margin-left:0.8rem;
+            }
+        }
     }
 }

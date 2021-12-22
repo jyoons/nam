@@ -100,6 +100,7 @@ input {
   appearance: none;
   border-radius: 0px;
   font-family: "Pretendard", "맑은 고딕", "돋음", dotum, sans-serif;
+  background: none;
 }
 
 select {
@@ -108,6 +109,7 @@ select {
   appearance: none;
   outline: 0;
   cursor: pointer;
+  font-family: "Pretendard", "맑은 고딕", "돋음", dotum, sans-serif;
 }
 
 select::-ms-expand {
@@ -324,6 +326,39 @@ body {
   background-repeat: no-repeat;
   background-position: center 15.6rem;
   background-size: 12rem;
+}
+
+.layout-wrap + .layout-wrap {
+  margin-top: 8rem;
+}
+
+.layout-wrap-header__title {
+  font-size: 3.2rem;
+  line-height: 4.8rem;
+  font-weight: 700;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 3rem;
+}
+
+.layout-wrap-conts {
+  padding: 3rem 0;
+  border-top: 2px solid #000;
+  border-bottom: 1px solid #eeeeee;
+}
+.layout-wrap-conts__header {
+  display: flex;
+  justify-content: space-between;
+}
+.layout-wrap-conts-privacy {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.input-layout-title {
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #111111;
 }
 
 .header {
