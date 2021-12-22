@@ -15,148 +15,145 @@ input[type="text"]::-ms-clear {
     }
 }    
 
-.input-wrap{
-    .input-text{
-        display: flex;
-        align-items: flex-start;
-        position: relative;
-        // width: 45.4rem;
-        width:100%;
-        &.input-half__full{
+.input-text{
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    width:100%;
+    &.input-half__full{
+        width: 100%;
+        .input-text__wrap{
             width: 100%;
-            .input-text__wrap{
-                width: 100%;
-            }
         }
-    
-        // email input
-        &.input-email{
-            width: 81.4rem;
-            .input-text__wrap{
-                display: flex;
-                // 이메일에 btn-clear 붙는 경우
-                &.input-text-clear{
-                    .btn-clear{
-                        right: 3.4rem;
-                    }
-                }
-            }
-            .input-default{
-                width: 30rem;
-                
-            }
-            .input-email-at{
-                display: inline-block;
-                margin: 0 1.6rem;
-                height: 5rem;
-                line-height: 5rem;
-            }
-            .input-email-text{
-                display: none;
-                margin-right: 1.6rem;
-                &.show{
-                    display: block;
-                }
-            }
-        }    
-        // 검색 인풋
-        &.input-text-search {
-            // width: 42rem;
-            .input-default {
-                border: none;
-                border-bottom: 1px solid $gray3;
-                min-width: 42rem;
-                min-height: 6rem;
-                padding-left: 0;
-                padding-right: 7rem;
-                &:focus{
-                    border-color: $gray5;
-                }
-            }
-            .btn-clear {
-                top: 50%;
-                right: 4.4rem;
-                transform: translateY(-50%);
-            }
-            .search-btn {
-                position: absolute;
-                top: 50%;
-                right: 0;
-                width: 2.4rem;
-                height: 2.4rem;
-                transform: translateY(-50%);
-                background: url(/assets/images/common/btn_input_search.svg) no-repeat center;
-                
-            }
-        }
-
-        // textarea
-        &.input-textarea {
-            width: 100%;
-            align-items: unset;
-            .input-text__wrap{
-                width: 100%;
-            }
-            .input-default{
-                @include fontSize('fontS03');
-                min-height: 36rem;
-                padding: 1.8rem;
-            }
-        }
-
     }
-            
-    // 체크박스
-    .input-wrap__check{
-        
-        .input-check{
-            display: none;
-        }
-        .input-check:checked{
-            & + .checkbox-text .checkbox-icon{
-                background: $accent;
-                &::before{
-                    width: 0.8rem;
-                    opacity: 1;
-                }
-            }
-        }
-        .checkbox-text{
-            @include fontSize('fontS04');
+
+    // email input
+    &.input-email{
+        width: 81.4rem;
+        .input-text__wrap{
             display: flex;
-            align-items: center;
-            position: relative;
-            padding-left: 3.2rem;
-            .checkbox-icon{
-                display: inline-block;
-                position: absolute;
-                left: 0;
-                background: $white;
-                border: 1px solid #ddd;
-                width: 2.4rem;
-                height: 2.4rem;
-                transition: all 0.2s;
-                &::before{
-                    content: '';
-                    opacity: 0;
-                    display: inline-block;
-                    position: absolute;
-                    left: 0.6rem;
-                    top: 0.6rem;
-                    width: 0;
-                    height: 0.4rem;
-                    border: 0.2rem solid $white;
-                    border-top: 0;
-                    border-right: 0;
-                    transform: rotate(-45deg);
-                    transition: all 0.3s;
+            // 이메일에 btn-clear 붙는 경우
+            &.input-text-clear{
+                .btn-clear{
+                    right: 3.4rem;
                 }
             }
-            .check-icon{
-                display: inline-block;
-                background: red;
-                position: absolute;
+        }
+        .input-default{
+            width: 30rem;
+            
+        }
+        .input-email-at{
+            display: inline-block;
+            margin: 0 1.6rem;
+            height: 5rem;
+            line-height: 5rem;
+        }
+        .input-email-text{
+            display: none;
+            margin-right: 1.6rem;
+            &.show{
+                display: block;
             }
+        }
+    }    
+    // 검색 인풋
+    &.input-text-search {
+        // width: 42rem;
+        .input-default {
+            border: none;
+            border-bottom: 1px solid $gray3;
+            min-width: 42rem;
+            min-height: 6rem;
+            padding-left: 0;
+            padding-right: 7rem;
+            &:focus{
+                border-color: $gray5;
+            }
+        }
+        .btn-clear {
+            top: 50%;
+            right: 4.4rem;
+            transform: translateY(-50%);
+        }
+        .search-btn {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 2.4rem;
+            height: 2.4rem;
+            transform: translateY(-50%);
+            background: url(/assets/images/common/btn_input_search.svg) no-repeat center;
+            
+        }
+    }
+
+    // textarea
+    &.input-textarea {
+        width: 100%;
+        align-items: unset;
+        .input-text__wrap{
+            width: 100%;
+        }
+        .input-default{
+            @include fontSize('fontS03');
+            min-height: 36rem;
+            padding: 1.8rem;
+        }
+    }
+
+}
+        
+// 체크박스
+.input-wrap__check{
+    
+    .input-check{
+        display: none;
+    }
+    .input-check:checked{
+        & + .checkbox-text .checkbox-icon{
+            background: $accent;
+            &::before{
+                width: 0.8rem;
+                opacity: 1;
+            }
+        }
+    }
+    .checkbox-text{
+        @include fontSize('fontS04');
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding-left: 3.2rem;
+        .checkbox-icon{
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            background: $white;
+            border: 1px solid #ddd;
+            width: 2.4rem;
+            height: 2.4rem;
+            transition: all 0.2s;
+            &::before{
+                content: '';
+                opacity: 0;
+                display: inline-block;
+                position: absolute;
+                left: 0.6rem;
+                top: 0.6rem;
+                width: 0;
+                height: 0.4rem;
+                border: 2px solid $white;
+                border-top: 0;
+                border-right: 0;
+                transform: rotate(-45deg);
+                transition: all 0.3s;
+            }
+        }
+        .check-icon{
+            display: inline-block;
+            background: red;
+            position: absolute;
         }
     }
 }
@@ -168,7 +165,6 @@ input[type="text"]::-ms-clear {
     min-width: 30rem;
     min-height: 5rem;
     outline: none;
-    font-family: 'Pretendard';
     border: 1px solid $gray3;
     color: $gray8;
     padding: 0 1.8rem;
@@ -279,7 +275,6 @@ input[type="text"]::-ms-clear {
         @include fontSize('fontS03');
         min-width: 31rem;
         min-height: 5rem;
-        font-family: 'Pretendard';
         color: $gray4;
         border: 1px solid $gray3;
         padding: 0 1.8rem;
@@ -309,8 +304,6 @@ input[type="text"]::-ms-clear {
         min-height: 4.8rem;
         padding: 1.2rem 0 0 5.4rem;
         border: 1px solid $gray6;
-        
-        font-family: 'Pretendard';
         color: $gray8;
         text-align: left;
     }
