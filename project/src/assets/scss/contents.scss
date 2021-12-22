@@ -24,6 +24,15 @@
             flex: 0 0 4.2rem;
         }
     }
+    /* privacy */
+    .privacy-wrap{
+        @include fontSize('fontS02');
+        border: 1px solid $gray3;
+        padding: 3rem;
+        color: $gray5;
+        height: 22.3rem;
+        overflow-y: auto;
+    }
 }
 
 @include response('tablet') {

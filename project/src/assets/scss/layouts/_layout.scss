@@ -123,3 +123,20 @@ body {
   background-position: center 15.6rem;
   background-size:12rem;
 }
+.layout-wrap-header{
+  &__title{
+    @include fontSize('fontS08');
+    font-weight: 700;
+    color: $gray8;
+    margin-bottom: 3rem;
+  }
+}
+.layout-wrap-conts{
+  padding: 3rem 0;
+  border-top: 2px solid #000;
+  border-bottom: 1px solid $gray2;
+}
+.input-layout-title{
+  @include fontSize('fontS04');
+  color: $gray8;
+}

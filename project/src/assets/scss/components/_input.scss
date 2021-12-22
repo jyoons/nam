@@ -1,65 +1,35 @@
 @charset "UTF-8";
 
-// input 검색폼
 input[type="text"]::-ms-clear {
     display: none;
 }
 // required 표시
-.input-required {
-    .input-title::after{
+.required {
+    &::after{
         @include fontSize('fontS03');
         content: '*';
         display: inline-block;
         color: $accent;
         margin-left: 0.4rem;
     }
-}    
-
+}
+.type02{
+    display: flex;
+    .input-text{
+        width: 50%;
+    }
+}
+.input-text__wrap{
+    position: relative;
+}
 .input-text{
     display: flex;
     align-items: flex-start;
     position: relative;
     width:100%;
-    &.input-half__full{
-        width: 100%;
-        .input-text__wrap{
-            width: 100%;
-        }
-    }
 
-    // email input
-    &.input-email{
-        width: 81.4rem;
-        .input-text__wrap{
-            display: flex;
-            // 이메일에 btn-clear 붙는 경우
-            &.input-text-clear{
-                .btn-clear{
-                    right: 3.4rem;
-                }
-            }
-        }
-        .input-default{
-            width: 30rem;
-            
-        }
-        .input-email-at{
-            display: inline-block;
-            margin: 0 1.6rem;
-            height: 5rem;
-            line-height: 5rem;
-        }
-        .input-email-text{
-            display: none;
-            margin-right: 1.6rem;
-            &.show{
-                display: block;
-            }
-        }
-    }    
     // 검색 인풋
     &.input-text-search {
-        // width: 42rem;
         .input-default {
             border: none;
             border-bottom: 1px solid $gray3;
@@ -87,26 +57,54 @@ input[type="text"]::-ms-clear {
             
         }
     }
+}
 
-    // textarea
-    &.input-textarea {
+// textarea
+.input-textarea {
+    display: flex;
+    align-items: flex-start;
+    .input-text__wrap{
         width: 100%;
-        align-items: unset;
-        .input-text__wrap{
-            width: 100%;
-        }
-        .input-default{
-            @include fontSize('fontS03');
-            min-height: 36rem;
-            padding: 1.8rem;
+    }
+    .input-default{
+        @include fontSize('fontS03');
+        min-height: 36rem;
+        padding: 1.8rem;
+        width: 100%;
+    }
+}
+// email input
+.input-email {
+    width: 100%;
+    .input-text__wrap {
+        display: flex;
+
+        // 이메일에 btn-clear 붙는 경우
+        &.input-text-clear {
+            .btn-clear {
+                right: 3.4rem;
+            }
         }
     }
+    .input-email-at {
+        display: inline-block;
+        margin: 0 1.6rem;
+        height: 5rem;
+        line-height: 5rem;
+    }
 
+    .input-email-text {
+        display: none;
+        margin-right: 1.6rem;
+
+        &.show {
+            display: block;
+        }
+    }
 }
-        
 // 체크박스
-.input-wrap__check{
-    
+.input-wrap-check{
+    display: inline-block;
     .input-check{
         display: none;
     }
@@ -143,7 +141,7 @@ input[type="text"]::-ms-clear {
                 top: 0.6rem;
                 width: 0;
                 height: 0.4rem;
-                border: 2px solid $white;
+                border: 0.2rem solid $white;
                 border-top: 0;
                 border-right: 0;
                 transform: rotate(-45deg);
@@ -161,7 +159,6 @@ input[type="text"]::-ms-clear {
 // 기본 인풋 박스
 .input-default {
     @include fontSize('fontS03');
-    width: 100%;
     min-width: 30rem;
     min-height: 5rem;
     outline: none;
@@ -201,7 +198,7 @@ input[type="text"]::-ms-clear {
     @include fontSize('fontS03');
     display: inline-block;
     color: $gray8;
-    width: 15.4rem;
+    width: 30%;
     padding-top: 1.5rem;
 }
 
@@ -231,7 +228,6 @@ input[type="text"]::-ms-clear {
         width: 2.4rem;
         height: 2.4rem;
         background: url(/assets/images/common/btn_search_clear.svg) no-repeat center;
-        
     }
 }
 
@@ -306,5 +302,6 @@ input[type="text"]::-ms-clear {
         border: 1px solid $gray6;
         color: $gray8;
         text-align: left;
+        cursor: pointer;
     }
 }

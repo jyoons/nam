@@ -25,24 +25,17 @@
                     <h2 class="guideTit">input</h2>
                     <div class="guideBox">
                         <!-- 기본 인풋 50% -->
-                        <div class="input-wrap">
-                            <div class="input-text input-required">
-                                <div class="input-text__label">
-                                    <label for="input1" class="input-title">이름</label>
-                                </div>
+                        <div class="input-wrap type02">
+                            <div class="input-text">
+                                <label for="input1" class="input-title required">이름</label>
                                 <div class="input-text__wrap input-text-clear input-error">
                                     <input type="text" id="input1" placeholder="이름을 입력해주세요" class="input-default">
                                     <button class="btn-clear"><span class="hidden">전체삭제</span></button>
                                     <div class="input-error__message">Message</div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 기본 인풋 50% -->
-                        <div class="input-wrap">
-                            <div class="input-text input-required">
-                                <div class="input-text__label">
-                                    <label for="input2" class="input-title">연락처</label>
-                                </div>
+                            <div class="input-text">
+                                <label for="input2" class="input-title required">연락처</label>
                                 <div class="input-text__wrap input-text-clear">
                                     <input type="text" id="input2" placeholder="하이픈(-)을 빼고 입력해주세요" class="input-default">
                                     <button class="btn-clear"><span class="hidden">전체삭제</span></button>
@@ -51,15 +44,13 @@
                         </div>
                         <!-- 이메일 인풋 -->
                         <div class="input-wrap">
-                            <div class="input-text input-email input-required">
-                                <div class="input-text__label">
-                                    <label for="input3" class="input-title">이메일</label>
-                                </div>
+                            <div class="input-text input-email">
                                 <div class="input-text__wrap">
+                                    <label for="input3" class="input-title required">이메일</label>
                                     <input type="text" id="input3" placeholder="example" class="input-default">
                                     <span class="input-email-at">@</span>
                                 </div>
-                                <div class="input-text__wrap input-text-clear input-error">
+                                <div class="input-text-clear input-error">
                                     <input type="text" id="input3-1" placeholder="직접입력" class="input-default input-email-text show">
                                     <button class="btn-clear"><span class="hidden">전체삭제</span></button>
                                     <div class="input-error__message">Message</div>
@@ -77,23 +68,17 @@
                         </div>
                         <!-- 기본 인풋 50% full-->
                         <div class="input-wrap">
-                            <div class="input-half">
-                                <div class="input-text input-half__full">
-                                    <div class="input-text__label">
-                                        <label for="input5" class="input-title">관련 URL</label>
-                                    </div>
-                                    <div class="input-text__wrap">
-                                        <input type="text" id="input5" placeholder="https://" class="input-default">
-                                    </div>
+                            <div class="input-text">
+                                <label for="input5" class="input-title">관련 URL</label>
+                                <div class="input-text__wrap">
+                                    <input type="text" id="input5" placeholder="https://" class="input-default">
                                 </div>
                             </div>
                         </div>
                         <!-- textarea -->
                         <div class="input-wrap">
-                            <div class="input-text input-textarea input-required">
-                                <div class="input-text__label">
-                                    <label for="input4" class="input-title">내용</label>
-                                </div>
+                            <div class="input-textarea">
+                                <label for="input4" class="input-title required">내용</label>
                                 <div class="input-text__wrap">
                                     <textarea name="textarea" id="input4" placeholder="최소 10자 이상 입력해주세요" class="input-default"></textarea>
                                 </div>
@@ -105,7 +90,7 @@
                     <h2 class="guideTit">체크박스</h2>
                     <div class="guideBox">
                         <div class="input-wrap">
-                            <div class="input-wrap__check">
+                            <div class="input-wrap-check">
                                 <input type="checkbox" id="check1" name="check" value="y" class="input-check">
                                 <label for="check1" class="checkbox-text">
                                     <span class="checkbox-icon"></span>
@@ -131,8 +116,8 @@
                     <!-- select -->
                     <h2 class="guideTit">select</h2>
                     <div class="guideBox">
-                        <div class="select-with-title input-required">
-                            <div class="input-title">상담분야</div>
+                        <div class="select-with-title">
+                            <div class="input-title required">상담분야</div>
                             <div class="select-wrap input-error">
                                 <select name="email" id="email1" class="select1 select-lg">
                                     <option value="상담분야를 선택하세요">상담분야를 선택하세요</option>
