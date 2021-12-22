@@ -3,6 +3,7 @@
 .tab-list {
     // width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
     white-space: nowrap;
     font-size: 0;
     .tab-list__item {
