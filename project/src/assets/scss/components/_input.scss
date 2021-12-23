@@ -3,7 +3,7 @@
 input[type="text"]::-ms-clear {
     display: none;
 }
-// required 표시
+// required
 .required {
     &::after{
         @include fontSize('fontS03');
@@ -19,6 +19,9 @@ input[type="text"]::-ms-clear {
         width: 50%;
     }
 }
+.input-wrap{
+    margin-bottom: 3rem;
+}
 .input-text__wrap{
     position: relative;
 }
@@ -27,50 +30,31 @@ input[type="text"]::-ms-clear {
     align-items: flex-start;
     position: relative;
     width:100%;
-
-    // 검색 인풋
-    &.input-text-search {
-        .input-default {
-            border: none;
-            border-bottom: 1px solid $gray3;
-            min-width: 42rem;
-            min-height: 6rem;
-            padding-left: 0;
-            padding-right: 7rem;
-            &:focus{
-                border-color: $gray5;
-            }
-        }
-        .btn-clear {
-            top: 50%;
-            right: 4.4rem;
-            transform: translateY(-50%);
-        }
-        .search-btn {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            width: 2.4rem;
-            height: 2.4rem;
-            transform: translateY(-50%);
-            background: url(/assets/images/common/btn_input_search.svg) no-repeat center;
-            
-        }
-    }
 }
 
 // textarea
 .input-textarea {
     display: flex;
     align-items: flex-start;
+    margin-bottom: 3rem;
     .input-text__wrap{
-        width: 100%;
+        width: 118.2rem;
     }
     .input-default{
         @include fontSize('fontS03');
         min-height: 36rem;
         padding: 1.8rem;
         width: 100%;
+    }
+    .textarea-limit{
+        @include fontSize('fontS02');
+        position: absolute;
+        right: 2rem;
+        bottom: 2rem;
+        color: $gray5;
+        span{
+            color: $accent;
+        }
     }
 }
 // email input
@@ -79,7 +63,6 @@ input[type="text"]::-ms-clear {
     .input-text__wrap {
         display: flex;
 
-        // 이메일에 btn-clear 붙는 경우
         &.input-text-clear {
             .btn-clear {
                 right: 3.4rem;
@@ -102,7 +85,7 @@ input[type="text"]::-ms-clear {
         }
     }
 }
-// 체크박스
+// checkbox
 .input-wrap-check{
     display: inline-block;
     .input-check{
@@ -148,19 +131,14 @@ input[type="text"]::-ms-clear {
                 transition: all 0.3s;
             }
         }
-        .check-icon{
-            display: inline-block;
-            background: red;
-            position: absolute;
-        }
     }
 }
 
-// 기본 인풋 박스
+// default
 .input-default {
     @include fontSize('fontS03');
     min-width: 30rem;
-    min-height: 5rem;
+    height: 5rem;
     outline: none;
     border: 1px solid $gray3;
     color: $gray8;
@@ -191,18 +169,21 @@ input[type="text"]::-ms-clear {
         &::-ms-input-placeholder {
             color: $gray2;
         }
-
+    }
+    &.w-lg{
+        min-width: 53.8rem;
+        height: 6rem;
     }
 }
 .input-title {
     @include fontSize('fontS03');
     display: inline-block;
     color: $gray8;
-    width: 30%;
+    width: 15.4rem;
     padding-top: 1.5rem;
 }
 
-// clear 버튼 인풋
+// clear
 .input-text-clear{
     .input-default {
         padding-right: 5rem;
@@ -231,7 +212,37 @@ input[type="text"]::-ms-clear {
     }
 }
 
-// 인풋에러
+// search
+.input-text-search {
+    .input-default {
+        border: none;
+        border-bottom: 1px solid $gray3;
+        min-width: 42rem;
+        min-height: 6rem;
+        padding-left: 0;
+        padding-right: 7rem;
+        &:focus{
+            border-color: $gray5;
+        }
+    }
+    .btn-clear {
+        top: 50%;
+        right: 4.4rem;
+        transform: translateY(-50%);
+    }
+    .search-btn {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 2.4rem;
+        height: 2.4rem;
+        transform: translateY(-50%);
+        background: url(/assets/images/common/btn_input_search.svg) no-repeat center;
+        
+    }
+}
+
+// error
 .input-error__message{
     display: none;
 }
@@ -246,10 +257,6 @@ input[type="text"]::-ms-clear {
         display: block;
         color: $error;
         margin-top: 1rem;
-        // display: block;
-        // position: absolute;
-        // top: 100%;
-        // margin-top: 0.8rem;
     }
     &.select-wrap{
         .select1{
@@ -262,20 +269,42 @@ input[type="text"]::-ms-clear {
 .select-with-title {
     display: flex;
     align-items: flex-start;
+    margin-bottom: 3rem;
 }
 
+.select-box{
+    position: relative;
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 1.4rem;
+        transform: translateY(-50%);
+        width: 2.4rem;
+        height: 2.4rem;
+        background-image: url('/assets/images/common/btn_gnb_global_open_b.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transition: transform 0.4s ease;
+        transform-origin: 50% 50%;
+
+    }
+    &.is-active{
+        &::after{
+            transform: translateY(-50%) rotate(180deg);
+        }
+    }
+}
 .select-wrap {
     .select1 {
         @include fontSize('fontS03');
         min-width: 31rem;
-        min-height: 5rem;
+        height: 5rem;
         color: $gray4;
         border: 1px solid $gray3;
         padding: 0 1.8rem;
-        background-image: url('/assets/images/common/btn_gnb_global_open_b.svg');
-        background-repeat: no-repeat;
-        background-position: calc(100% - 2rem) center;
-        background-size: 2.4rem 2.4rem;
 
         // 612*50 select
         &.select-lg {
@@ -286,8 +315,11 @@ input[type="text"]::-ms-clear {
         }
     }
 }
-// 파일첨부 input
+// file add
 .btn-input-wrap {
+    font-size: 0;
+    margin-top: 3rem;
+    display: flex;
     input {
         display: none;
     }
@@ -302,4 +334,225 @@ input[type="text"]::-ms-clear {
         text-align: left;
         cursor: pointer;
     }
+}
+
+@include response('mobile'){
+    // common.scss 에 옮겨야함 *****
+    /* layout-wrap */
+    .layout-wrap {
+        &+& {
+            margin-top: 6rem;
+        }
+    }
+
+    .layout-wrap-header {
+        &__title {
+            @include fontSize('fontS05');
+            margin-bottom: 2rem;
+        }
+    }
+
+    .layout-wrap-conts {
+        padding: 2rem 0;
+        &-privacy {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+
+    .input-layout-title {
+        @include fontSize('fontS01');
+    }
+    // ///// common.scss에 옮겨야함 *****
+
+    // checkbox
+    .input-wrap-check{
+        .checkbox-text{
+            @include fontSize('fontS01');
+        }
+    }
+    .input-wrap{
+        margin-bottom: 2rem;
+    }
+    .type02{
+        display: block;
+        .input-text{
+            width: 100%;
+            &:not(:first-of-type){
+                margin-top: 2rem;
+            }
+        }
+    }    
+    .input-text{
+        display: block;
+        width:100%;
+    }    
+    // textarea
+    .input-textarea {
+        display: block;
+        margin-bottom: 2rem;
+        .input-text__wrap{
+            width: 100%;
+        }
+        .input-default{
+            @include fontSize('fontS01');
+            min-height: 16rem;
+            padding: 1.2rem;
+            width: 100%;
+        }
+        .textarea-limit{
+            @include fontSize('fontS00');
+            right: 0;
+            top: -3rem;
+            color: $gray8;
+        }    
+    }
+    // email input
+    .input-email {
+        width: 100%;
+        .input-text__wrap {
+            display: block;
+            margin-bottom: 0.8rem;
+            &.input-text-clear {
+                .btn-clear {
+                    right: 1.2rem;
+                }
+            }
+        }
+        .input-email-at {
+            display: none;
+        }
+
+        .input-email-text {
+            display: none;
+            margin-right: 0;
+        }
+    }
+    // default
+    .input-default {
+        @include fontSize('fontS01');
+        width: 100%;
+        min-width: auto;
+        height: 4rem;
+        padding: 0 1.2rem;
+
+        &::placeholder {
+            @include fontSize('fontS01');
+        }
+        &.w-lg{
+            min-width: 100%;
+            height: 4rem;
+        }
+    }
+    .input-title {
+        @include fontSize('fontS01');
+        color: $gray8;
+        width: 100%;
+        padding-top: 0;
+        margin-bottom: 0.8rem;
+    }
+    // clear
+    .input-text-clear{
+        .input-default {
+            padding-right: 3.2rem;
+        }
+        // 검색어 삭제버튼
+        .btn-clear {
+            position: absolute;
+            top: 1rem;
+            right: 1.2rem;
+            width: 2rem;
+            height: 2rem;
+            background-size: contain;
+        }
+    }
+    // search
+    .input-text-search {
+        .input-default {
+            @include fontSize('fontS02');
+            border: 1px solid $gray3;
+            min-width: 100%;
+            min-height: 4rem;
+            padding-left: 1.2rem;
+            padding-right: 7.5rem;
+            &::placeholder{@include fontSize('fontS02')}
+        }
+        .btn-clear {
+            top: 50%;
+            right: 4.5rem;
+            transform: translateY(-50%);
+        }
+        .search-btn {
+            position: absolute;
+            top: 50%;
+            right: 1.2rem;
+            width: 2.4rem;
+            height: 2.4rem;
+            transform: translateY(-50%);
+            background: url(/assets/images/common/btn_input_search.svg) no-repeat center;
+        }
+    }
+    // error
+    .input-error{
+        .input-error__message{
+            margin-top: 0.8rem;
+        }
+    }
+
+    // select
+    .select-with-title {
+        display: block;
+        margin-bottom: 2rem;
+    }
+    .select-box{
+        position: relative;
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 1.4rem;
+            transform: translateY(-50%);
+            width: 2.4rem;
+            height: 2.4rem;
+            background-image: url('/assets/images/common/btn_gnb_global_open_b.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            transition: transform 0.4s ease;
+            transform-origin: 50% 50%;
+    
+        }
+        &.is-active{
+            &::after{
+                transform: translateY(-50%) rotate(180deg);
+            }
+        }
+    }    
+    .select-wrap {
+        .select1 {
+            @include fontSize('fontS01');
+            min-width: 100%;
+            height: 4rem;
+            padding: 0 1.8rem;
+
+            // 612*50 select
+            &.select-lg {
+                min-width: 100%;
+            }
+        }
+    }
+    // file add
+    .btn-input-wrap {
+        margin-top: 2rem;
+        display: block;
+        .btn-input-wrap__file {
+            @include fontSize('fontS02');
+            display: block;
+            min-width: 100%;
+            min-height: 5.2rem;
+            padding: 1.4rem 0 0 13.4rem;
+        }
+    }
+
 }

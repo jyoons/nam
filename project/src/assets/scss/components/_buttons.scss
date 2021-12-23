@@ -282,4 +282,20 @@
             }
         }
     }
+    // file add
+    .btn-has-icon {
+        .btn-has-icon__parent {
+            .btn-icon{
+                &.icon-attach {
+                    left: 10.8rem;
+                }
+                &.icon-print{
+                    left: 4.2rem;
+                    width: 2.4rem;
+                    height: 2.4rem;
+                }
+            }
+        }    
+    }
+
 }
