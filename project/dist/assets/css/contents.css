@@ -832,6 +832,14 @@ input[type=text]::-ms-clear {
   overflow-y: hidden;
   white-space: nowrap;
   font-size: 0;
+  scrollbar-width: thin;
+  scrollbar-color: #ddd #eee;
+  scrollbar-arrow-color: #eee;
+  scrollbar-Face-Color: #ddd;
+  scrollbar-Track-Color: #eee;
+  scrollbar-DarkShadow-Color: #eee;
+  scrollbar-Highlight-Color: #eee;
+  scrollbar-Shadow-Color: #eee;
 }
 .tab-list .tab-list__item {
   display: inline-block;
@@ -843,6 +851,7 @@ input[type=text]::-ms-clear {
 .tab-list .tab-list__item a {
   font-size: 2rem;
   line-height: 3rem;
+  position: relative;
   display: inline-block;
   padding-bottom: 0.4rem;
   color: #666666;
@@ -850,7 +859,34 @@ input[type=text]::-ms-clear {
 .tab-list .tab-list__item a.on {
   color: #111111;
   font-weight: 700;
-  border-bottom: 2px solid #111111;
+}
+.tab-list .tab-list__item a.on:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #111111;
+}
+.tab-list::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+.tab-list::-webkit-scrollbar-thumb {
+  background: #bbb;
+}
+.tab-list::-webkit-scrollbar-track {
+  background: #eee;
+}
+.tab-list:-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.dv-mobile .tab-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -1483,7 +1519,7 @@ input[type=text]::-ms-clear {
   margin-bottom: 3.2rem;
 }
 .container-contents-wrap .board-list-header .input-wrap {
-  flex: 0 0 4.2rem;
+  flex: 0 0 42rem;
 }
 .container-contents-wrap .privacy {
   font-size: 1.6rem;

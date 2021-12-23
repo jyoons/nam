@@ -14,17 +14,42 @@
         }
         a{
             @include fontSize('fontS04');
+            position:relative;
             display: inline-block;
             padding-bottom: 0.4rem;
             color:$gray6;
             &.on{
                 color:$gray8;
                 font-weight:700;
-                border-bottom: 2px solid $gray8;
+                &:after{
+                    content:'';
+                    position:absolute;
+                    bottom:0;
+                    left:0;
+                    width:100%;
+                    height:2px;
+                    background:$gray8;
+                }
             }
         }
     }
+    //scrollbar custom
+    scrollbar-width: thin;
+    scrollbar-color: #ddd #eee;
+    scrollbar-arrow-color: #eee;
+    scrollbar-Face-Color: #ddd;
+    scrollbar-Track-Color: #eee;
+    scrollbar-DarkShadow-Color: #eee;
+    scrollbar-Highlight-Color: #eee;
+    scrollbar-Shadow-Color: #eee;
+    //chrome
+    &::-webkit-scrollbar{width:2px; height:2px;}
+    &::-webkit-scrollbar-thumb{background:#bbb;}
+    &::-webkit-scrollbar-track{background:#eee;}   
+    &:-webkit-scrollbar{width:0; height:0;}
 }
+.dv-mobile .tab-list::-webkit-scrollbar{width:0; height:0;}
+
 @include response('tablet') {
     /*tab menu*/
     .tab-listWrap{

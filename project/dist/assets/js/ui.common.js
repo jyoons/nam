@@ -2,6 +2,7 @@
 
 var uiCommon = function (uiCommon, $window) {
   uiCommon.init = function () {
+    uiCommon.mobileCheck.init();
     uiCommon.header.init();
     uiCommon.gnb.init();
     uiCommon.lnb.init();
@@ -12,6 +13,25 @@ var uiCommon = function (uiCommon, $window) {
     uiCommon.accordion.init();
   };
 
+  uiCommon.mobileCheck = {
+    init: function init() {
+      this.setDefault();
+    },
+    setDefault: function setDefault() {
+      var mobile_filter = new Array('iPhone', 'iPod', 'iPad', 'Android', 'BlackBerry', 'Windows Phone', 'Windows CE', 'LG', 'MOT', 'SAMSUNG', 'SonyEricsson', 'Nokia');
+      var isMobile = false;
+
+      for (var i in mobile_filter) {
+        if (navigator.userAgent.match(mobile_filter[i]) != null) {
+          isMobile = true;
+        }
+      }
+
+      if (isMobile) {
+        $('body').addClass('dv-mobile');
+      }
+    }
+  };
   uiCommon.header = {
     init: function init() {
       this.event();
@@ -29,7 +49,6 @@ var uiCommon = function (uiCommon, $window) {
         marginTop: 0,
         ease: 'power1'
       });
-      console.log('scrollset');
     },
     event: function event() {
       var lastScroll = 0;
@@ -45,13 +64,9 @@ var uiCommon = function (uiCommon, $window) {
           if (thisScroll < lastScroll) {
             //up
             _this.scrollUp();
-
-            console.log('scroll-up');
           } else {
             //down
             _this.scrollDown();
-
-            console.log('scroll-down');
           }
         } else {
           $('.header').removeClass('is-scroll');
@@ -337,7 +352,6 @@ var uiCommon = function (uiCommon, $window) {
 
         var winW = $(window).width();
         var stateW = 768;
-        console.log(winW);
 
         if (_this.hasClass('is-active')) {
           close();
@@ -428,7 +442,7 @@ var uiCommon = function (uiCommon, $window) {
       $(elem).on('click', function () {
         $('body, html').animate({
           scrollTop: 0
-        }, 1000);
+        }, 600);
       });
     }
   };
