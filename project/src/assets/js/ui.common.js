@@ -26,18 +26,22 @@ uiCommon.header = {
     $('.container').css('padding-top', headerH);
     }, 100);
     gsap.to('.header-wrap', {duration:0.1, marginTop:0, ease:'power1'});
+    console.log('scrollset');
   },
   event:function(){
     let lastScroll = 0;
     let _this = this;
     $(window).on('scroll', function(){
+     
       var thisScroll = $(this).scrollTop();
       if(thisScroll > 0){
         $('.header').addClass('is-scroll');
         if(thisScroll < lastScroll){//up
           _this.scrollUp();
+          console.log('scroll-up');
         }else{//down
           _this.scrollDown();
+          console.log('scroll-down');
         }
       }else{
         $('.header').removeClass('is-scroll');
@@ -90,30 +94,31 @@ uiCommon.gnb = {
   },
   close:(elem) => {
     gsap.to(elem, {duration:0.6, right:'-100%', ease: "power2", delay:0.3});
-    gsap.to('.active-menu',{duration:0.4, x:-30, ease: "power2", onComplete:function(){
-      $('.logo').removeClass('active-menu');
-      gsap.to('.logo', {duration:1, x:0, ease: "power2"});
-    }});
+    gsap.to('.gnb-logo', {duration:0.4, opacity:0, ease: "power2"}); 
     gsap.to('.pc_gnbImage', {duration:0.4, left:'50%', ease: "power1"}); 
     let wScrollTop = $('.wrap').scrollTop();
+    let hh = $('.header-wrap').outerHeight();
     $('body, .wrap').removeClass('scrollOff');
     $(window).scrollTop(wScrollTop);
+    setTimeout(function(){
+      $(window).scrollTop(wScrollTop - hh);
+    }, 10);
+    $('.header-wrap').css('margin-top' , 0);
     if($('.header').hasClass('is-gnbOpen')){
-      $('.header').removeClass('is-gnbOpen')
-      gsap.to('.header-wrap', {duration:0.01, marginTop:0, ease:'power1'});
+      $('.header').removeClass('is-gnbOpen');
     };
   },
   open:(elem) => {
     let wScrollTop = $(window).scrollTop();
     $('body').addClass('scrollOff');
     $('.wrap').addClass('scrollOff').scrollTop(wScrollTop);
-    gsap.to(elem, {duration:0.4, right:0, ease: "power2"});  
-    $('.logo').addClass('active-menu');
-    gsap.fromTo('.active-menu',{x:-30, opacity:0}, {duration:0.6, x:0, opacity:1, ease: "power2", delay:0.4}); 
-    gsap.to('.pc_gnbImage', {duration:0.6, left:0, ease: "power2", delay:0.3});
+
+    gsap.to(elem, {duration:0.4, right:0, ease: "power2"});
+    gsap.to('.pc_gnbImage', {duration:0.4, left:0, ease: "power2", delay:0.3});
+    gsap.to('.gnb-logo', {duration:0.6, opacity:1, ease: "power2", delay:0.4}); 
     if($('.header').hasClass('is-scroll')){
-      $('.header').addClass('is-gnbOpen')
-      gsap.to('.header-wrap', {duration:0.01, marginTop:0, ease:'power1'});
+      $('.header').addClass('is-gnbOpen');
+      gsap.to('.header-wrap', {duration:0.6, marginTop:0, ease:'power1'});
     };
   },
   itemEvent:(target) => {

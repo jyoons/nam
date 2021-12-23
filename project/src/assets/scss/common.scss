@@ -27,6 +27,11 @@
         left:0;
         top:0;
     }
+    .gnb{
+        .gnb-logo{left:3.2rem;}
+        .pc_gnbImage{width:20%;}
+        .gnb-wrap{width:80%;}
+    }
 }
 @include response('tablet'){
     /*header*/
@@ -113,6 +118,14 @@
     }
     /*GNB*/
     .gnb{
+        .gnb-logo{
+            top:4.2rem;
+            left:3.2rem;
+            width:98px;
+            height:32px;
+            background-size:98px 32px;
+        }
+        .gnb-wrap{width:100%;}
         .pc_gnbImage{display:none;}
         .gnb-close{
             top:3.6rem;
@@ -122,11 +135,10 @@
             background-size: 4.2rem 4.2rem; 
         }
         .gnb-footer{
-            height:19rem;
+            height:17rem;
             padding:0 3.2rem;
             justify-content: center;
             .gnb-footer__lang{
-                display:flex;
                 &>li{
                     margin-right:3rem;
                 }
@@ -135,7 +147,7 @@
     }
     .gnb-list-wrap{
         top:15rem;
-        height:calc(100% - 19rem - 15rem);
+        height:calc(100% - 17rem - 15rem);
         padding:0 5rem 6.5rem 5rem;      
         .gnb-1depth{
             &__items{
@@ -155,6 +167,16 @@
                 }         
             }      
         }
+    }
+    .gnb-icon{
+        @include fontSize('fontS07');
+        font-weight: 400;
+        i.onlineCounselling{
+            width:4.5rem;
+            height:4.5rem;
+            background-size: 4.5rem 4.5rem;
+        }
+        i + span{margin-left:2.2rem;}
     }
     /*FOOTER*/
     .footer{
@@ -303,6 +325,14 @@
     }
     /*GNB*/
     .gnb{
+        .gnb-logo{
+            top:2.8rem;
+            left:3.2rem;
+            width:78px;
+            height:26px;
+            background-size:78px 26px;
+        }
+        .gnb-wrap{width:100%;}
         .pc_gnbImage{display:none;}
         .gnb-close{
             top:2rem;
@@ -321,27 +351,11 @@
             &>div{
                 flex:0 0 50%; 
             }
-            .gnb-footer__lang{
-                display:flex;
-                &>li{
-                    margin-right:4.8rem;
-                    &>a{
-                        display:block;
-                        @include fontSize('fontS02');
-                        &.on, &:hover{
-                            border-bottom:2px solid #111;
-                        }
-                    }
-                }
-                &>li:last-child{
-                    margin-right:0;
-                }
-            }
         }
         .gnb-footer{
-            height:17.8rem;
-            display:block;
-            padding:4rem 2.8rem;
+            height:9.2rem;
+            justify-content: space-between;
+            padding:0 3.2rem;
             .gnb-footer__lang{
                 &>li{
                     margin-right:2rem;
@@ -351,7 +365,6 @@
                 }
             }
         }
-        .gnb-footer__menu +  .gnb-footer__lang{margin-top:3.6rem;}
     }
     .gnb-list-wrap{
         top:12rem;
@@ -375,6 +388,7 @@
         }    
         .gnb-2depth{
             position:relative;
+            width:fit-content;
             top:0; 
             left:2.8rem;
             margin-top:2.6rem;
@@ -389,13 +403,13 @@
         }
     }
     .gnb-icon{
-        @include fontSize('fontS05');
+        @include fontSize('fontS02');
         i.onlineCounselling{
-            width:3.6rem;
-            height:3.6rem;
-            background-size: 3.6rem 3.6rem;
+            width:2.2rem;
+            height:2.2rem;
+            background-size:2.2rem 2.2rem;
         }
-        i + span{margin-left:1rem;}
+        i + span{margin-left:0.8rem;}
     }
     /*FOOTER*/
     .wrap.main .footer{padding-top:0;}

@@ -56,12 +56,14 @@
                                     <div class="input-error__message">Message</div>
                                 </div>
                                 <div class="select-wrap input-error">
-                                    <select name="email" id="email1" class="select1">
-                                        <option value="직접입력" class="input-email-show">직접입력</option>
-                                        <option value="naver">naver.com</option>
-                                        <option value="daum">daum.net</option>
-                                        <option value="gmail">gmail.com</option>
-                                    </select>
+                                    <div class="select-box">
+                                        <select name="email" id="email1" class="select1">
+                                            <option value="직접입력" class="input-email-show">직접입력</option>
+                                            <option value="naver">naver.com</option>
+                                            <option value="daum">daum.net</option>
+                                            <option value="gmail">gmail.com</option>
+                                        </select>
+                                    </div>
                                     <div class="input-error__message">Message</div>
                                 </div>
                             </div>
@@ -71,7 +73,7 @@
                             <div class="input-text">
                                 <label for="input5" class="input-title">관련 URL</label>
                                 <div class="input-text__wrap">
-                                    <input type="text" id="input5" placeholder="https://" class="input-default">
+                                    <input type="text" id="input5" placeholder="https://" class="input-default w-lg">
                                 </div>
                             </div>
                         </div>
@@ -81,6 +83,7 @@
                                 <label for="input4" class="input-title required">내용</label>
                                 <div class="input-text__wrap">
                                     <textarea name="textarea" id="input4" placeholder="최소 10자 이상 입력해주세요" class="input-default"></textarea>
+                                    <span class="textarea-limit">(<span>0</span>/500)</span>
                                 </div>
                             </div>
                         </div>
@@ -119,12 +122,14 @@
                         <div class="select-with-title">
                             <div class="input-title required">상담분야</div>
                             <div class="select-wrap input-error">
-                                <select name="email" id="email1" class="select1 select-lg">
-                                    <option value="상담분야를 선택하세요">상담분야를 선택하세요</option>
-                                    <option value="">분야1</option>
-                                    <option value="">분야2</option>
-                                    <option value="">분야3</option>
-                                </select>
+                                <div class="select-box">
+                                    <select name="email" id="email1" class="select1 select-lg">
+                                        <option value="상담분야를 선택하세요">상담분야를 선택하세요</option>
+                                        <option value="">분야1</option>
+                                        <option value="">분야2</option>
+                                        <option value="">분야3</option>
+                                    </select>
+                                </div>
                                 <div class="input-error__message">Message</div>
                             </div>
                         </div>
@@ -476,7 +481,8 @@
                 component.search();
                 component.accordion();
                 component.toastPopup();
-                component.emailText();
+                component.selectChange();
+                component.selectArrow();
             },
             search : function() {
                 // 검색 스크립트
@@ -545,15 +551,23 @@
                     },2000)
                 });
             },
-            emailText : function() {
-                $('.select-wrap select').change(function(){
-                    console.log($(this).val());
+            selectChange : function() {
+                $('.select-wrap .select1').change(function(){
                     if($(this).val() === '직접입력'){
-                    $('.input-email-text').addClass('show');
-                    }else{
-                    $('.input-email-text').removeClass('show');
+                        $('.input-email-text').addClass('show');
+                        if($('.input-email-text').parent('.input-text__wrap').hasClass('input-error')){
+                            $('.input-email-text').siblings('.input-error__message').css({display:'block'});
+                        };
+                    } else{
+                        $('.input-email-text').removeClass('show');
+                        $('.input-email-text').siblings('.input-error__message').css({display:'none'});
                     }
                 });
+            },
+            selectArrow : function() {
+                $('.select-wrap .select1').on('click',function(){
+                    $(this).parent('.select-box').toggleClass('is-active');
+                })
             }
         }
         component.init();

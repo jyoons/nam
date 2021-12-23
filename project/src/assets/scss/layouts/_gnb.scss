@@ -10,24 +10,39 @@
     width:100%;
     height:100%;    
     overflow:hidden;
+    .gnb-logo{
+        position:absolute;
+        top:5.8rem;
+        left:7rem; // 미디어쿼리
+        width:110px;
+        height:35px;
+        z-index:60;
+        background-image:url('/assets/images/common/gnb_logo_white.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size:110px 35px;
+        opacity:0;
+        img{
+            width:100%;
+        }
+    }
     .pc_gnbImage{
         position:absolute;
         right:auto;
         left:50%; // 초기셋팅
         top:0;
-        width:100%;
+        width:35%;
         height:100%;
         background-image:url('/assets/images/common/menu_left_img.jpg');
         background-position: 0;
-        background-size: contain;
+        background-size:750px 1080px;
         background-repeat:no-repeat;
     }
     .gnb-wrap{
         position:absolute;
         top:0;
         right:0;
-        max-width:117rem;
-        width:100%;
+        width:65%;
         height:100%;
         background:$green5;
     }
@@ -47,7 +62,7 @@
     .gnb-footer{
         position:absolute;
         width:100%; 
-        height:20rem;
+        height:18.8rem;
         bottom:0;
         background:#FFF;
         display:flex;
@@ -61,10 +76,20 @@
             &>li{
                 margin-right:4.8rem;
                 &>a{
+                    position:relative;
                     display:block;
                     @include fontSize('fontS02');
                     &.on, &:hover{
-                        border-bottom:2px solid #111;
+                        font-weight:500;
+                    }
+                    &.on:after, &:hover:after{
+                        content:'';
+                        position:absolute;
+                        width:100%;
+                        height:2px;
+                        bottom:0;
+                        left:0;
+                        background:$gray8;
                     }
                 }
             }
@@ -77,8 +102,9 @@
 .gnb-list-wrap{
     position:relative;
     width:100%;
-    height:calc(100% - 20rem);
-    padding:18rem 11.2rem 7rem 11.2rem;      
+    top:10rem;
+    height:calc(100% - 18.8rem - 10rem); //211223
+    padding:8rem 11.2rem 7rem 11.2rem;      
     overflow-y:auto;
     .gnb-1depth{
         position:relative;
@@ -104,8 +130,7 @@
                         transition:all 0.2s ease-in;                    
                 }               
                 &:hover{
-                    color:$white;   
-                
+                    color:$white;                
                     &:after{
                         width:100%;                       
                     }

@@ -6,7 +6,7 @@
 .wrap.main{
     .header{
         background:none;
-        &.is-scroll{
+        &.is-scroll, &.is-gnbOpen{
             background:$white;
             .logo{
                 background-image:url('/assets/images/common/gnb_logo_color.svg');

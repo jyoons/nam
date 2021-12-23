@@ -343,13 +343,10 @@ body {
 }
 
 .layout-wrap-conts {
+  position: relative;
   padding: 3rem 0;
   border-top: 2px solid #000;
   border-bottom: 1px solid #eeeeee;
-}
-.layout-wrap-conts__header {
-  display: flex;
-  justify-content: space-between;
 }
 .layout-wrap-conts-privacy {
   border-bottom: none;
@@ -385,7 +382,7 @@ body {
   left: 7rem;
   width: 110px;
   height: 35px;
-  z-index: 60;
+  z-index: 30;
   background-image: url("/assets/images/common/gnb_logo_color.svg");
   background-repeat: no-repeat;
   background-position: center center;
@@ -394,16 +391,13 @@ body {
 .header-wrap .logo img {
   width: 100%;
 }
-.header-wrap .logo.active-menu {
-  opacity: 0;
-  background-image: url("/assets/images/common/gnb_logo_white.svg");
-}
 .header-wrap .gnb-btn {
   position: absolute;
   top: 5.6rem;
   right: 7rem;
   width: 4rem;
   height: 4rem;
+  cursor: pointer;
 }
 .header-wrap .gnb-btn > i {
   position: relative;
@@ -486,24 +480,39 @@ body {
   height: 100%;
   overflow: hidden;
 }
+.gnb .gnb-logo {
+  position: absolute;
+  top: 5.8rem;
+  left: 7rem;
+  width: 110px;
+  height: 35px;
+  z-index: 60;
+  background-image: url("/assets/images/common/gnb_logo_white.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 110px 35px;
+  opacity: 0;
+}
+.gnb .gnb-logo img {
+  width: 100%;
+}
 .gnb .pc_gnbImage {
   position: absolute;
   right: auto;
   left: 50%;
   top: 0;
-  width: 100%;
+  width: 35%;
   height: 100%;
   background-image: url("/assets/images/common/menu_left_img.jpg");
   background-position: 0;
-  background-size: contain;
+  background-size: 750px 1080px;
   background-repeat: no-repeat;
 }
 .gnb .gnb-wrap {
   position: absolute;
   top: 0;
   right: 0;
-  max-width: 117rem;
-  width: 100%;
+  width: 65%;
   height: 100%;
   background: #274b48;
 }
@@ -523,7 +532,7 @@ body {
 .gnb .gnb-footer {
   position: absolute;
   width: 100%;
-  height: 20rem;
+  height: 18.8rem;
   bottom: 0;
   background: #FFF;
   display: flex;
@@ -540,12 +549,22 @@ body {
   margin-right: 4.8rem;
 }
 .gnb .gnb-footer .gnb-footer__lang > li > a {
+  position: relative;
   display: block;
   font-size: 1.6rem;
   line-height: 2.4rem;
 }
 .gnb .gnb-footer .gnb-footer__lang > li > a.on, .gnb .gnb-footer .gnb-footer__lang > li > a:hover {
-  border-bottom: 2px solid #111;
+  font-weight: 500;
+}
+.gnb .gnb-footer .gnb-footer__lang > li > a.on:after, .gnb .gnb-footer .gnb-footer__lang > li > a:hover:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: #111111;
 }
 .gnb .gnb-footer .gnb-footer__lang > li:last-child {
   margin-right: 0;
@@ -554,8 +573,9 @@ body {
 .gnb-list-wrap {
   position: relative;
   width: 100%;
-  height: calc(100% - 20rem);
-  padding: 18rem 11.2rem 7rem 11.2rem;
+  top: 10rem;
+  height: calc(100% - 18.8rem - 10rem);
+  padding: 8rem 11.2rem 7rem 11.2rem;
   overflow-y: auto;
 }
 .gnb-list-wrap .gnb-1depth {
@@ -796,6 +816,16 @@ body {
     left: 0;
     top: 0;
   }
+
+  .gnb .gnb-logo {
+    left: 3.2rem;
+  }
+  .gnb .pc_gnbImage {
+    width: 20%;
+  }
+  .gnb .gnb-wrap {
+    width: 80%;
+  }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   /*header*/
@@ -877,6 +907,16 @@ body {
   }
 
   /*GNB*/
+  .gnb .gnb-logo {
+    top: 4.2rem;
+    left: 3.2rem;
+    width: 98px;
+    height: 32px;
+    background-size: 98px 32px;
+  }
+  .gnb .gnb-wrap {
+    width: 100%;
+  }
   .gnb .pc_gnbImage {
     display: none;
   }
@@ -888,12 +928,9 @@ body {
     background-size: 4.2rem 4.2rem;
   }
   .gnb .gnb-footer {
-    height: 19rem;
+    height: 17rem;
     padding: 0 3.2rem;
     justify-content: center;
-  }
-  .gnb .gnb-footer .gnb-footer__lang {
-    display: flex;
   }
   .gnb .gnb-footer .gnb-footer__lang > li {
     margin-right: 3rem;
@@ -901,7 +938,7 @@ body {
 
   .gnb-list-wrap {
     top: 15rem;
-    height: calc(100% - 19rem - 15rem);
+    height: calc(100% - 17rem - 15rem);
     padding: 0 5rem 6.5rem 5rem;
   }
   .gnb-list-wrap .gnb-1depth__items + .gnb-1depth__items {
@@ -920,6 +957,21 @@ body {
   .gnb-list-wrap .gnb-2depth__items a {
     font-size: 2rem;
     line-height: 3rem;
+  }
+
+  .gnb-icon {
+    font-size: 2.8rem;
+    line-height: 4.2rem;
+    font-weight: 700;
+    font-weight: 400;
+  }
+  .gnb-icon i.onlineCounselling {
+    width: 4.5rem;
+    height: 4.5rem;
+    background-size: 4.5rem 4.5rem;
+  }
+  .gnb-icon i + span {
+    margin-left: 2.2rem;
   }
 
   /*FOOTER*/
@@ -1086,6 +1138,16 @@ body {
   }
 
   /*GNB*/
+  .gnb .gnb-logo {
+    top: 2.8rem;
+    left: 3.2rem;
+    width: 78px;
+    height: 26px;
+    background-size: 78px 26px;
+  }
+  .gnb .gnb-wrap {
+    width: 100%;
+  }
   .gnb .pc_gnbImage {
     display: none;
   }
@@ -1107,27 +1169,10 @@ body {
   .gnb .gnb-footer > div {
     flex: 0 0 50%;
   }
-  .gnb .gnb-footer .gnb-footer__lang {
-    display: flex;
-  }
-  .gnb .gnb-footer .gnb-footer__lang > li {
-    margin-right: 4.8rem;
-  }
-  .gnb .gnb-footer .gnb-footer__lang > li > a {
-    display: block;
-    font-size: 1.6rem;
-    line-height: 2.4rem;
-  }
-  .gnb .gnb-footer .gnb-footer__lang > li > a.on, .gnb .gnb-footer .gnb-footer__lang > li > a:hover {
-    border-bottom: 2px solid #111;
-  }
-  .gnb .gnb-footer .gnb-footer__lang > li:last-child {
-    margin-right: 0;
-  }
   .gnb .gnb-footer {
-    height: 17.8rem;
-    display: block;
-    padding: 4rem 2.8rem;
+    height: 9.2rem;
+    justify-content: space-between;
+    padding: 0 3.2rem;
   }
   .gnb .gnb-footer .gnb-footer__lang > li {
     margin-right: 2rem;
@@ -1135,9 +1180,6 @@ body {
   .gnb .gnb-footer .gnb-footer__lang > li > a {
     font-size: 1.4rem;
     line-height: 2.1rem;
-  }
-  .gnb .gnb-footer__menu + .gnb-footer__lang {
-    margin-top: 3.6rem;
   }
 
   .gnb-list-wrap {
@@ -1164,6 +1206,7 @@ body {
   }
   .gnb-list-wrap .gnb-2depth {
     position: relative;
+    width: fit-content;
     top: 0;
     left: 2.8rem;
     margin-top: 2.6rem;
@@ -1178,16 +1221,16 @@ body {
   }
 
   .gnb-icon {
-    font-size: 2.4rem;
-    line-height: 3.6rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
   }
   .gnb-icon i.onlineCounselling {
-    width: 3.6rem;
-    height: 3.6rem;
-    background-size: 3.6rem 3.6rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    background-size: 2.2rem 2.2rem;
   }
   .gnb-icon i + span {
-    margin-left: 1rem;
+    margin-left: 0.8rem;
   }
 
   /*FOOTER*/
