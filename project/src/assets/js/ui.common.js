@@ -70,17 +70,21 @@ const uiCommon = (function (uiCommon, $window) {
     scrollDown:function(){
       let lnbLen = $('.lnb').length;
       if(lnbLen > 0){
-        gsap.to('.header-wrap', {duration:0.2, marginTop:-($('.header-wrap').outerHeight()), ease:'power1', complete:function(){
-          gsap.set('.header-wrap', {marginTop:-($('.header-wrap').outerHeight())});
-        }});
-        //gsap.to('.header-wrap', {duration:0, marginTop:-($('.header-wrap').outerHeight()), ease:'power1'});
+        setTimeout(function(){
+          gsap.to('.header-wrap', {duration:0.2, marginTop:-($('.header-wrap').outerHeight()), ease:'power1', complete:function(){
+            gsap.set('.header-wrap', {marginTop:-($('.header-wrap').outerHeight())});
+          }});
+        },10);
+
       }   
     },
     scrollUp:function(){
-      //gsap.to('.header-wrap', {duration:0, marginTop:0, ease:'power1'});
-      gsap.to('.header-wrap', {duration:0.2, marginTop:0, ease:'power1', complete:function(){
-        gsap.set('.header-wrap', {marginTop:0});
-      }});
+      setTimeout(function(){
+        gsap.to('.header-wrap', {duration:0.2, marginTop:0, ease:'power1', complete:function(){
+          gsap.set('.header-wrap', {marginTop:0});
+        }});
+      },10);
+
     }
   }
   uiCommon.gnb = {
@@ -131,9 +135,11 @@ const uiCommon = (function (uiCommon, $window) {
     },
     open:(elem) => {
       let wScrollTop = $(window).scrollTop();
-      $('body').addClass('scrollOff');
-      $('.wrap').addClass('scrollOff').scrollTop(wScrollTop);
-
+      setTimeout(function(){
+        $('body').addClass('scrollOff');
+        $('.wrap').addClass('scrollOff').scrollTop(wScrollTop);
+  
+      }, 400);      
       gsap.to(elem, {duration:0.4, right:0, ease: "power2"});
       gsap.to('.pc_gnbImage', {duration:0.4, left:0, ease: "power2", delay:0.3});
       gsap.to('.gnb-logo', {duration:0.6, opacity:1, ease: "power2", delay:0.4}); 

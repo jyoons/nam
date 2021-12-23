@@ -77,30 +77,33 @@ var uiCommon = function (uiCommon, $window) {
       var lnbLen = $('.lnb').length;
 
       if (lnbLen > 0) {
-        gsap.to('.header-wrap', {
-          duration: 0.2,
-          marginTop: -$('.header-wrap').outerHeight(),
-          ease: 'power1',
-          complete: function complete() {
-            gsap.set('.header-wrap', {
-              marginTop: -$('.header-wrap').outerHeight()
-            });
-          }
-        }); //gsap.to('.header-wrap', {duration:0, marginTop:-($('.header-wrap').outerHeight()), ease:'power1'});
+        setTimeout(function () {
+          gsap.to('.header-wrap', {
+            duration: 0.2,
+            marginTop: -$('.header-wrap').outerHeight(),
+            ease: 'power1',
+            complete: function complete() {
+              gsap.set('.header-wrap', {
+                marginTop: -$('.header-wrap').outerHeight()
+              });
+            }
+          });
+        }, 10);
       }
     },
     scrollUp: function scrollUp() {
-      //gsap.to('.header-wrap', {duration:0, marginTop:0, ease:'power1'});
-      gsap.to('.header-wrap', {
-        duration: 0.2,
-        marginTop: 0,
-        ease: 'power1',
-        complete: function complete() {
-          gsap.set('.header-wrap', {
-            marginTop: 0
-          });
-        }
-      });
+      setTimeout(function () {
+        gsap.to('.header-wrap', {
+          duration: 0.2,
+          marginTop: 0,
+          ease: 'power1',
+          complete: function complete() {
+            gsap.set('.header-wrap', {
+              marginTop: 0
+            });
+          }
+        });
+      }, 10);
     }
   };
   uiCommon.gnb = {
@@ -171,8 +174,10 @@ var uiCommon = function (uiCommon, $window) {
     },
     open: function open(elem) {
       var wScrollTop = $(window).scrollTop();
-      $('body').addClass('scrollOff');
-      $('.wrap').addClass('scrollOff').scrollTop(wScrollTop);
+      setTimeout(function () {
+        $('body').addClass('scrollOff');
+        $('.wrap').addClass('scrollOff').scrollTop(wScrollTop);
+      }, 400);
       gsap.to(elem, {
         duration: 0.4,
         right: 0,

@@ -1184,7 +1184,7 @@ body {
 
   .gnb-list-wrap {
     top: 12rem;
-    height: calc(100% - 17.8rem - 12rem);
+    height: calc(100% - 9.2rem - 12rem);
     padding: 0 3.2rem 6rem 3.2rem;
   }
   .gnb-list-wrap .gnb-1depth {
