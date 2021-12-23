@@ -28,7 +28,7 @@
         } 
     }
     .footer-copylight{
-        text-align:right;
+        text-align:left;
         color:$gray5;
         @include fontSize('fontS02');
     }
@@ -55,6 +55,4 @@
     right:7rem;
     z-index:29;
     opacity:0;
-    -webkit-transform-style: preserve-3d; 
-    transform-style: preserve-3d; perspective:1000px;
 }

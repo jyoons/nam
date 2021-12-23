@@ -87,14 +87,15 @@ body {
 .container-header-fixImg{
   position:absolute;
   width:100%;
-  max-width:174rem;
+  max-width:calc(100% - 7rem);
   height:70rem;
   overflow:hidden;
   left:0;
   top:0;
   z-index:-1;
   img{
-    max-width: none;
+    width:100%;//211223
+    max-width:100%;
     position:absolute;
     top : -77rem;
   }

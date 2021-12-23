@@ -10,7 +10,7 @@
 @import "components/tabs";
 @import "components/board";
 @import "components/accordion";
-
+@import "components/_box";
 
 .container-contents-wrap{
     /*tab + search header*/
@@ -70,7 +70,7 @@
             display: block;
             margin-bottom: 3.2rem;
             .input-wrap{             
-               width:42rem;
+                width:42rem;
                 margin-top:3.2rem;
             }
         }

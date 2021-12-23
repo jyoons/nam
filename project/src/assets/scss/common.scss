@@ -13,6 +13,21 @@
 @import "layouts/gnb";
 @import "layouts/footer";
 
+
+@include response('pc'){
+    .header{   
+        &-wrap{
+            .logo{left:3.2rem;}
+            .gnb-btn{right:3.2rem;}
+            .lang-select{right:7.8rem;}
+        }
+    }
+    .container-header-fixImg{
+        max-width:calc(100% - 3.2rem);
+        left:0;
+        top:0;
+    }
+}
 @include response('tablet'){
     /*header*/
    .header{   
@@ -81,10 +96,19 @@
         .select-wrap{
             & .select-title{
                 @include fontSize('fontS02');                   
-                padding: 2rem 5rem 2rem 1rem;
+                padding: 2rem 5rem 2rem 1.6rem;
                 &:after{right:1rem;}
             }
             & + .select-wrap{margin-left:1.2rem;}
+            .select-list-wrap{//211223
+                .select-list{
+                    &__items{                
+                        &>a{
+                            padding:2rem 3rem 2rem 1.6rem;
+                        }
+                    }
+                }
+            }
         }
     }
     /*GNB*/
@@ -160,10 +184,9 @@
     }
     .container-header-fixImg{
         height:70rem;
-        overflow:hidden;
+        max-width:100%;//211223 수정
         left:0;
-        top:0;
-        z-index:-1;
+        top:0;        
         img{
             min-width:76.5rem;
             max-width:110rem;
@@ -257,7 +280,7 @@
                 line-height:2.4rem;
                 padding:1.2rem 4rem 1.2rem 0rem;
                 max-width:100%;
-                color:$gray5;
+                // color:$gray5; 211223
                 @include ellipsis;
                 &:after{right:0;}
                 &.is-active{color:$gray8;}
@@ -269,8 +292,12 @@
             }
             .select-list-wrap{
                 width:100vw;
-                margin-left:-3.2rem;
-              
+                margin-left:-3.2rem;               
+                .select-list__items{                
+                    &>a{
+                        padding:2rem 3.2rem 2rem 3.2rem;
+                    }
+                }                
             }
         }
     }
@@ -397,7 +424,6 @@
             }
         }
         .footer-copylight{
-            text-align:left;
             @include fontSize('fontS01');
         }
     }
@@ -449,6 +475,7 @@
         }
     }
     .container-header-fixImg{
+        max-width:100%;//211223 수정
         height:70rem;
         overflow:hidden;
         img{

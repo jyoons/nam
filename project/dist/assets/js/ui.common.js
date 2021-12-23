@@ -27,7 +27,7 @@ var uiCommon = function (uiCommon, $window) {
       gsap.to('.header-wrap', {
         duration: 0.1,
         marginTop: 0,
-        ease: 'power3'
+        ease: 'power1'
       });
     },
     event: function event() {
@@ -63,9 +63,9 @@ var uiCommon = function (uiCommon, $window) {
 
       if (lnbLen > 0) {
         gsap.to('.header-wrap', {
-          duration: 0,
+          duration: 0.4,
           marginTop: -$('.header-wrap').outerHeight(),
-          ease: 'power3'
+          ease: 'power1'
         });
       }
     },
@@ -73,7 +73,7 @@ var uiCommon = function (uiCommon, $window) {
       gsap.to('.header-wrap', {
         duration: 0.4,
         marginTop: 0,
-        ease: 'power3'
+        ease: 'power1'
       });
     }
   };
@@ -273,14 +273,9 @@ var uiCommon = function (uiCommon, $window) {
       var _this = this;
 
       $(window).on('scroll', function () {
-        var _thisTop = $(window).scrollTop();
+        var _thisTop = $(window).scrollTop(); //gsap.to('.container-header-fixImg', {duration:0, x:0, y:-(_thisTop * 0.2), ease: "power1"});  
 
-        gsap.to('.container-header-fixImg', {
-          duration: 0,
-          x: 0,
-          y: -(_thisTop * 0.2),
-          ease: "power1"
-        });
+
         gsap.to('.container-header-fixImg>img', {
           duration: 0,
           x: 0,
@@ -302,8 +297,8 @@ var uiCommon = function (uiCommon, $window) {
     event: function event() {
       var tl = gsap.timeline({
         scrollTrigger: {
-          trigger: ".container-header__title",
-          toggleActions: "restart none restart none"
+          trigger: ".container-header__text",
+          toggleActions: "restart reverse restart none"
         }
       });
 
@@ -317,7 +312,7 @@ var uiCommon = function (uiCommon, $window) {
             opacity: 1,
             ease: 'power3',
             delay: (i - 1) * 0.2
-          }, 0.2);
+          }, 0.4);
         }
       }
 
@@ -327,7 +322,7 @@ var uiCommon = function (uiCommon, $window) {
         top: 0,
         opacity: 1,
         ease: 'power3'
-      }, 0.6);
+      }, 1);
     }
   };
   uiCommon.select = {
@@ -348,6 +343,10 @@ var uiCommon = function (uiCommon, $window) {
       target.on('click', function () {
         var _this = $(this);
 
+        var winW = $(window).width();
+        var stateW = 768;
+        console.log(winW);
+
         if (_this.hasClass('is-active')) {
           close();
         } else {
@@ -361,15 +360,34 @@ var uiCommon = function (uiCommon, $window) {
           _this.addClass('is-active');
 
           _this.next('.select-list-wrap').slideDown(200);
+
+          if (winW < 768) {
+            $('.lnb .select-wrap .select-title').css({
+              'color': '#999'
+            });
+
+            _this.css({
+              'color': '#111'
+            });
+          }
         }
 
         function close() {
           target.removeClass('is-active');
           target.next('.select-list-wrap').slideUp(200);
+
+          if (winW < 768) {
+            $('.lnb .select-wrap .select-title').css({
+              'color': '#111'
+            });
+          }
         }
       });
       elem.children('a').on('click', function () {
         var _this = $(this);
+
+        var winW = $(window).width();
+        var stateW = 768;
 
         _this.parents('.select-list-wrap').slideUp(200);
 
@@ -378,6 +396,12 @@ var uiCommon = function (uiCommon, $window) {
         _this.closest(elem2).addClass('on');
 
         _this.parents('.select-wrap').find('.select-title').removeClass('is-active').text($(this).text());
+
+        if (winW < 768) {
+          $('.lnb .select-wrap .select-title').css({
+            'color': '#111'
+          });
+        }
       });
     }
   };
@@ -397,17 +421,14 @@ var uiCommon = function (uiCommon, $window) {
 
         if (h < scrollTop) {
           gsap.to('.goTop', {
-            duration: 0.6,
+            duration: 1,
             opacity: 1,
-            rotationY: '360',
-            transformOrigin: 'center center',
             ease: 'power3'
           });
         } else {
           gsap.to('.goTop', {
-            duration: 0.6,
+            duration: 1,
             opacity: 0,
-            rotationY: '0',
             ease: 'power3'
           });
         }

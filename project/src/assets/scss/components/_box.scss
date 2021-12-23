@@ -1,2 +1,16 @@
 @charset "UTF-8";
 
+.box-list{
+    &-items{
+        background:$gray1;
+        border:1px solid $gray1;
+        a{
+            display:block;
+            padding:5.6rem 4rem 5rem;
+        }
+        .title{
+            @include fontSize('fontS05');
+            color:$gray8;
+        }
+    }
+} 

@@ -26,6 +26,7 @@
                 .board-title {
                     @include ellipsis2;
                     @include fontSize('fontS06');
+                    font-weight:400;
                     width: 104.9rem;
                     color: $gray8;
                 }

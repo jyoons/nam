@@ -231,6 +231,17 @@
         .select-list-wrap{
             width: auto;
             white-space: nowrap;
+            .select-list{//211223
+                &__items{                
+                    &>a{
+                        padding:2rem 3rem 2rem 2rem;
+                        &:hover{
+                            background:$grayGreen1;
+                            color:$accent;
+                        }
+                    }
+                }
+            }
         }
     }
 }
