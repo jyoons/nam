@@ -38,7 +38,8 @@ input[type="text"]::-ms-clear {
     align-items: flex-start;
     margin-bottom: 3rem;
     .input-text__wrap{
-        width: 118.2rem;
+        // width: 118.2rem;
+        flex-grow: 1;
     }
     .input-default{
         @include fontSize('fontS03');
@@ -181,6 +182,7 @@ input[type="text"]::-ms-clear {
     color: $gray8;
     width: 15.4rem;
     padding-top: 1.5rem;
+    flex-grow: 0;
 }
 
 // clear

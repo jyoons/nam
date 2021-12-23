@@ -81,7 +81,10 @@
         top: 3rem;
         right: 0;
     }
-    
+    // .layout-wrap-conts .select-wrap{
+    //     display: block;
+    //     flex-grow: 1;
+    // }
 }
 
 @include response('tablet') {
@@ -98,6 +101,10 @@
         /*list detail*/
         .board-detail-wrap{padding-top:7rem;}
         .board-detail-conts + .btn-wrap{margin-top:5rem;}
+        /* layout detail */
+        // .layout-wrap-conts .select-wrap{
+        //     min-width: auto;
+        // }    
     }
 }
 
