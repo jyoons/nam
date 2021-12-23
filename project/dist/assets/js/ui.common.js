@@ -43,12 +43,7 @@ var uiCommon = function (uiCommon, $window) {
       setTimeout(function () {
         var headerH = $('.header').outerHeight();
         $('.container').css('padding-top', headerH);
-      }, 100);
-      gsap.to('.header-wrap', {
-        duration: 0.1,
-        marginTop: 0,
-        ease: 'power1'
-      });
+      }, 100); //gsap.to('.header-wrap', {duration:0.1, marginTop:0, ease:'power1'});
     },
     event: function event() {
       var lastScroll = 0;
@@ -83,17 +78,28 @@ var uiCommon = function (uiCommon, $window) {
 
       if (lnbLen > 0) {
         gsap.to('.header-wrap', {
-          duration: 0.4,
+          duration: 0.2,
           marginTop: -$('.header-wrap').outerHeight(),
-          ease: 'power1'
-        });
+          ease: 'power1',
+          complete: function complete() {
+            gsap.set('.header-wrap', {
+              marginTop: -$('.header-wrap').outerHeight()
+            });
+          }
+        }); //gsap.to('.header-wrap', {duration:0, marginTop:-($('.header-wrap').outerHeight()), ease:'power1'});
       }
     },
     scrollUp: function scrollUp() {
+      //gsap.to('.header-wrap', {duration:0, marginTop:0, ease:'power1'});
       gsap.to('.header-wrap', {
-        duration: 0.4,
+        duration: 0.2,
         marginTop: 0,
-        ease: 'power1'
+        ease: 'power1',
+        complete: function complete() {
+          gsap.set('.header-wrap', {
+            marginTop: 0
+          });
+        }
       });
     }
   };
@@ -133,7 +139,7 @@ var uiCommon = function (uiCommon, $window) {
     },
     close: function close(elem) {
       gsap.to(elem, {
-        duration: 0.6,
+        duration: 0.4,
         right: '-100%',
         ease: "power2",
         delay: 0.3
