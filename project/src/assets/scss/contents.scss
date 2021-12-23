@@ -34,15 +34,28 @@
         overflow-y: auto;
         margin-top: 2.4rem;
     }
-    /* info icon */
+    /* info */
+    .info-text{
+        @include fontSize('fontS02');
+        color: $gray6;
+    }
+
     .icon-info{
         display: inline-block;
         margin-right: 0.6rem;
+        width: 2.4rem;
+        height: 2.4rem;
+        img{
+            width: 100%;
+        }
     }
+
     /* attach file-list */
     .file-wrap{
         background: $gray1;
         padding: 2.2rem 1.5rem;
+        width: 118.2rem;
+        margin-top: 2rem;
     }
     .file-list{
         &__name{
@@ -61,6 +74,14 @@
     /*list detail*/
     .board-detail-wrap{padding-top:10rem;}
     .board-detail-conts + .btn-wrap{margin-top:6rem;}
+    /* layout detail */
+    .layout-wrap + .btn-wrap{margin-top: 8rem;}
+    .layout-wrap-conts > .input-wrap-check{
+        position: absolute;
+        top: 3rem;
+        right: 0;
+    }
+    
 }
 
 @include response('tablet') {
@@ -96,5 +117,51 @@
         /*list detail*/
         .board-detail-wrap{padding-top:0;}
         .board-detail-conts + .btn-wrap{margin-top:4rem;}
+
+         /* privacy */
+        .privacy{
+            @include fontSize('fontS01');
+            padding: 1.2rem;
+            color: $gray4;
+            height: 16rem;
+            margin-top: 0.8rem;
+        }
+        /* info */
+        .info-text{
+            @include fontSize('fontS00');
+        }
+        .icon-info{
+            display: inline-block;
+            margin-right: 0.4rem;
+            width: 1.8rem;
+            height: 1.8rem;
+        }
+        /* attach file-list */
+        .file-wrap{
+            padding: 1.6rem;
+            width: 100%;
+            margin-top: 2rem;
+        }
+        .file-list{
+            display: flex;
+            justify-content: space-between;
+            &__name{
+                @include fontSize('fontS01');
+                display: block;
+                width: 100%;
+            }
+        }
+        /* layout detail */
+        .layout-wrap + .btn-wrap{
+            margin-top: 3.2rem;
+            .btns{
+                width: 100%;
+            }
+        }
+        .layout-wrap-conts > .input-wrap-check{
+            position: static;
+            margin-top: 1.2rem;
+        }
+        .layout-wrap-conts .select-wrap{display: block;}
     }
 }
