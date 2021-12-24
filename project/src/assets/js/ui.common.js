@@ -42,14 +42,13 @@ const uiCommon = (function (uiCommon, $window) {
       setTimeout(function(){
         let headerH = $('.header').outerHeight();
       $('.container').css('padding-top', headerH);
-      }, 100);
+      }, 10);
       //gsap.to('.header-wrap', {duration:0.1, marginTop:0, ease:'power1'});
     },
     event:function(){
       let lastScroll = 0;
       let _this = this;
-      $(window).on('scroll', function(){
-      
+      $(window).on('scroll', function(){      
         var thisScroll = $(this).scrollTop();
         if(thisScroll > 0){
           $('.header').addClass('is-scroll');
@@ -75,7 +74,6 @@ const uiCommon = (function (uiCommon, $window) {
             gsap.set('.header-wrap', {marginTop:-($('.header-wrap').outerHeight())});
           }});
         },10);
-
       }   
     },
     scrollUp:function(){
@@ -84,7 +82,6 @@ const uiCommon = (function (uiCommon, $window) {
           gsap.set('.header-wrap', {marginTop:0});
         }});
       },10);
-
     }
   }
   uiCommon.gnb = {
@@ -118,17 +115,18 @@ const uiCommon = (function (uiCommon, $window) {
       uiCommon.gnb.itemEvent('.gnb-1depth__items');
     },
     close:(elem) => {
-      gsap.to(elem, {duration:0.4, right:'-100%', ease: "power2", delay:0.3});
+      gsap.to(elem, {duration:0.4, right:'-100%', ease: "power2", delay:0.4});
       gsap.to('.gnb-logo', {duration:0.4, opacity:0, ease: "power2"}); 
-      gsap.to('.pc_gnbImage', {duration:0.4, left:'50%', ease: "power1"}); 
+      gsap.to('.pc_gnbImage', {duration:0.4, left:'50%', ease: "power1", delay:0.2}); 
       let wScrollTop = $('.wrap').scrollTop();
       let hh = $('.header-wrap').outerHeight();
       $('body, .wrap').removeClass('scrollOff');
+      gsap.set('.header-wrap', {marginTop:-($('.header-wrap').outerHeight())});
       $(window).scrollTop(wScrollTop);
       setTimeout(function(){
         $(window).scrollTop(wScrollTop - hh);
       }, 10);
-      $('.header-wrap').css('margin-top' , 0);
+      $('.header-wrap').css('margin-top', 0);
       if($('.header').hasClass('is-gnbOpen')){
         $('.header').removeClass('is-gnbOpen');
       };
@@ -137,15 +135,14 @@ const uiCommon = (function (uiCommon, $window) {
       let wScrollTop = $(window).scrollTop();
       setTimeout(function(){
         $('body').addClass('scrollOff');
-        $('.wrap').addClass('scrollOff').scrollTop(wScrollTop);
-  
-      }, 400);      
+        $('.wrap').addClass('scrollOff').scrollTop(wScrollTop);  
+      }, 200);      
       gsap.to(elem, {duration:0.4, right:0, ease: "power2"});
-      gsap.to('.pc_gnbImage', {duration:0.4, left:0, ease: "power2", delay:0.3});
-      gsap.to('.gnb-logo', {duration:0.6, opacity:1, ease: "power2", delay:0.4}); 
+      gsap.to('.pc_gnbImage', {duration:0.4, left:0, ease: "power2", delay:0.2});
+      gsap.to('.gnb-logo', {duration:0.4, opacity:1, ease: "power2", delay:0.4}); 
       if($('.header').hasClass('is-scroll')){
         $('.header').addClass('is-gnbOpen');
-        gsap.to('.header-wrap', {duration:0.6, marginTop:0, ease:'power1'});
+        // gsap.to('.header-wrap', {duration:0.4, marginTop:0, ease:'power1'});
       };
     },
     itemEvent:(target) => {
