@@ -51,10 +51,13 @@
     }
 
     /* attach file-list */
+    .file-add{
+        width: 100%;
+    }
     .file-wrap{
         background: $gray1;
         padding: 2.2rem 1.5rem;
-        width: 118.2rem;
+        width: 100%;
         margin-top: 2rem;
     }
     .file-list{
@@ -104,9 +107,6 @@
             margin-top: 0.8rem;
         }
         /* attach file-list */
-        .file-add{
-            width: 100%;
-        }
         .file-wrap{
             padding: 2.2rem 1.5rem;
             width: 100%;
