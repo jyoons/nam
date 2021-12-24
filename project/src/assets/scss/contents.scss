@@ -81,10 +81,6 @@
         top: 3rem;
         right: 0;
     }
-    // .layout-wrap-conts .select-wrap{
-    //     display: block;
-    //     flex-grow: 1;
-    // }
 }
 
 @include response('tablet') {
@@ -101,10 +97,39 @@
         /*list detail*/
         .board-detail-wrap{padding-top:7rem;}
         .board-detail-conts + .btn-wrap{margin-top:5rem;}
+        /* privacy */
+        .privacy {
+            @include fontSize('fontS01');
+            padding: 1.2rem;
+            margin-top: 0.8rem;
+        }
+        /* attach file-list */
+        .file-add{
+            width: 100%;
+        }
+        .file-wrap{
+            padding: 2.2rem 1.5rem;
+            width: 100%;
+            margin-top: 2rem;
+        }
+        .file-list{
+            &__name{
+                @include fontSize('fontS02');
+                color: $gray5;            
+            }
+            &__btn{
+                width: 2.4rem;
+                height: 2.4rem;
+                background-image:url('/assets/images/common/btn_input_delete.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size:2.4rem;
+            }
+        }
+
         /* layout detail */
-        // .layout-wrap-conts .select-wrap{
-        //     min-width: auto;
-        // }    
+        .layout-wrap + .btn-wrap{margin-top: 6rem;}
+        .layout-wrap-conts > .input-wrap-check{top: 2rem;}
     }
 }
 

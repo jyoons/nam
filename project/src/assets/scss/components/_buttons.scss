@@ -49,20 +49,20 @@
         align-items: center;
         justify-content: center;
         font-weight:400;
-        i{
-            width:2.4rem;
-            height:2.4rem;
-            background-size: 2.4rem 2.4rem;
-            background-position:0 0;
-            background-repeat: no-repeat;
-            & + em{margin-left:0.8rem;}
-            &.i-print{
-                background-image: url('/assets/images/common/ico_print.svg');
-            }
-            &.i-list{
-                background-image: url('/assets/images/common/ico_list.svg');
-            }
-        }
+        // i{
+        //     width:2.4rem;
+        //     height:2.4rem;
+        //     background-size: 2.4rem 2.4rem;
+        //     background-position:0 0;
+        //     background-repeat: no-repeat;
+        //     & + em{margin-left:0.8rem;}
+        //     &.i-print{
+        //         background-image: url('/assets/images/common/ico_print.svg');
+        //     }
+        //     &.i-list{
+        //         background-image: url('/assets/images/common/ico_list.svg');
+        //     }
+        // }
         em{font-style: normal;}       
     }
 }
@@ -70,22 +70,42 @@
 .btn-has-icon {
     .btn-has-icon__parent {
         position: relative;
-        .btn-icon{
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            &>img {
-                width: 100%;
-            }
-            &.icon-attach {
-                left: 2.8rem;
+        // .btn-icon{
+        //     position: absolute;
+        //     top: 50%;
+        //     transform: translateY(-50%);
+        //     &>img {
+        //         width: 100%;
+        //     }
+        //     &.icon-attach {
+        //         left: 2.8rem;
+        //         width: 1.8rem;
+        //         height: 1.8rem;
+        //     }
+        //     &.icon-print{
+        //         left: 4.2rem;
+        //         width: 2.4rem;
+        //         height: 2.4rem;
+        //     }
+        // }
+        span{
+            display: inline-block;
+            line-height: 100%;
+            &::before{
+                content: '';
+                display: inline-block;
                 width: 1.8rem;
                 height: 1.8rem;
+                background-image: url('/assets/images/common/ico_plus.svg');
+                background-repeat: no-repeat;
+                background-size: 1.8rem 1.8rem;
+                margin-right: 0.8rem;
+                vertical-align: bottom;
             }
-            &.icon-print{
-                left: 4.2rem;
-                width: 2.4rem;
-                height: 2.4rem;
+        }
+        &.btn-print{
+            span::before{
+                background-image: url('/assets/images/common/ico_print.svg');
             }
         }
     }    
@@ -125,7 +145,7 @@
     background-color: #2A2F35;   
 }
 
-// 링크 버튼
+// link btn
 .btn-contents-hover{
     display: inline-block;
     width: 10rem;
@@ -152,14 +172,10 @@
         background-image: url(/assets/images/common/btn_link_hover.svg);
     }
 }
-// 서브 모달 팝업
+// sub modal popup
 .pop-wrap{
     display: inline-block;
     max-width: 42.4rem;
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%,-50%);
     box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.08);
     background: $white;
     padding: 3.4rem 2rem 2rem;
@@ -192,7 +208,7 @@
             }
         }
     }
-    // 토스트 팝업
+    // toast popup
     &.pop-toast{
         box-shadow: none;
         opacity: 0;
@@ -220,7 +236,7 @@
             @include fontSize('fontS03');
         }
     }
-     // 목록 버튼
+     // list btn
      .btn-list {
         @include fontSize('fontS03');
         height: 5.8rem;
@@ -259,7 +275,7 @@
             @include fontSize('fontS02');
         }
     }
-    // 탑 버튼
+    // top btn
     .btn-top {
         width: 4.8rem;
         height: 4.8rem;

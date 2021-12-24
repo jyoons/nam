@@ -182,7 +182,7 @@ input[type="text"]::-ms-clear {
     color: $gray8;
     width: 15.4rem;
     padding-top: 1.5rem;
-    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 // clear
@@ -302,7 +302,7 @@ input[type="text"]::-ms-clear {
 .select-wrap {
     .select1 {
         @include fontSize('fontS03');
-        min-width: 31rem;
+        min-width: 30rem;
         height: 5rem;
         color: $gray4;
         border: 1px solid $gray3;
@@ -330,15 +330,163 @@ input[type="text"]::-ms-clear {
         display: inline-block;
         min-width: 13.6rem;
         min-height: 4.8rem;
-        padding: 1.2rem 0 0 5.4rem;
+        padding: 1.2rem 0 0 0;
         border: 1px solid $gray6;
         color: $gray8;
-        text-align: left;
+        text-align: center;
         cursor: pointer;
     }
 }
 
-@include response('mobile'){
+@include response('tablet') {
+    // common.scss 에 옮겨야함 *****
+    .layout-wrap {
+        &+& {
+            margin-top: 6rem;
+        }
+    }
+
+    .layout-wrap-header {
+        &__title {
+            @include fontSize('fontS07');
+            margin-bottom: 2rem;
+        }
+    }
+
+    .layout-wrap-conts {
+        padding: 2rem 0;
+    }
+
+    .input-layout-title {
+        @include fontSize('fontS03');
+    }
+    // ///// common.scss에 옮겨야함 *****
+
+    .type02{
+        display: flex;
+        .input-text{
+            flex-wrap: wrap;
+        }
+        .input-title{
+            padding-bottom: 0.8rem;
+        }
+    }
+    
+    // checkbox
+    .input-wrap-check{
+        .checkbox-text{
+            @include fontSize('fontS03');
+        }
+    }
+    // default
+    .input-default {
+        @include fontSize('fontS02');
+        min-width: 25rem;
+        padding: 0 1.8rem;
+
+        &::placeholder {
+            @include fontSize('fontS02');
+        }
+        &.w-lg{
+            min-width: 53.8rem;
+            height: 6rem;
+        }
+    }
+
+    .input-title {
+        @include fontSize('fontS02');
+        width: 12.4rem;
+    }
+    // textarea
+    .input-textarea {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 3rem;
+        .input-text__wrap{
+            // width: 118.2rem;
+            flex-grow: 1;
+        }
+        .input-default{
+            @include fontSize('fontS02');
+            min-height: 36rem;
+            padding: 1.8rem;
+            width: 100%;
+        }
+        .textarea-limit{
+            @include fontSize('fontS01');
+            position: absolute;
+            right: 2rem;
+            bottom: 2rem;
+            color: $gray5;
+            span{
+                color: $accent;
+            }
+        }
+    }
+    // email input
+    .input-email {
+        width: 100%;
+        flex-wrap: wrap;
+        .input-title{
+            width: 100%;
+            padding-bottom: 0.8rem;
+        }
+        .input-text__wrap {
+            display: flex;
+
+            &.input-text-clear {
+                .btn-clear {
+                    right: 3.4rem;
+                }
+            }
+        }
+        .select-wrap{
+            width: auto;
+        }
+        .input-email-at {
+            display: inline-block;
+            margin: 0 1rem;
+            height: 5rem;
+            line-height: 5rem;
+        }
+
+        .input-email-text {
+            display: none;
+            margin-right: 1.6rem;
+
+            &.show {
+                display: block;
+            }
+        }
+    }
+
+    // select
+    .select-with-title {
+        margin-bottom: 2rem;
+    }
+
+    .select-wrap {
+        width: 100%;
+        .select1 {
+            @include fontSize('fontS02');
+            min-width: 30rem;
+            padding: 0 1.8rem;
+
+            // 612*50 select
+            &.select-lg {
+                min-width: auto;
+                width: 100%;
+            }
+        }
+    }
+    .select-box{
+        width: 100%;
+    }
+
+}
+
+
+@include response('mobile') {
     // common.scss 에 옮겨야함 *****
     /* layout-wrap */
     .layout-wrap {
@@ -553,7 +701,7 @@ input[type="text"]::-ms-clear {
             display: block;
             min-width: 100%;
             min-height: 5.2rem;
-            padding: 1.4rem 0 0 13.4rem;
+            padding: 1.4rem 0 0 0;
         }
     }
 
