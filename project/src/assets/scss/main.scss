@@ -2,7 +2,6 @@
 
 @import "base/variables";
 @import "base/mixins";
-@import "base/_slick";
 
 .wrap.main{
     .header{
@@ -134,7 +133,6 @@
     display: block;
     box-sizing: border-box;
 }
-
 .slick-list{
     position: relative;
     display: block;
