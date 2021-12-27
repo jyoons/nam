@@ -1843,10 +1843,11 @@ input[type=text]::-ms-clear {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 3.2rem;
+  margin-bottom: 4.2rem;
 }
 .container-contents-wrap .board-list-header .input-wrap {
   flex: 0 0 42rem;
+  margin-bottom: 0;
 }
 .container-contents-wrap .privacy {
   font-size: 1.6rem;
@@ -1973,7 +1974,7 @@ input[type=text]::-ms-clear {
   }
   .container-contents-wrap .board-list-header {
     display: block;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   }
   .container-contents-wrap .board-list-header .input-wrap {
     margin-top: 3.2rem;
