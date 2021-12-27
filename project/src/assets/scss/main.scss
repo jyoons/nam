@@ -127,35 +127,9 @@
     }
 }
 
-@include response('tablet'){
-    .main-popup{
-        width:29.6rem;
-        padding:1.2rem;
-        height:auto;
-        max-height:100%;
-        overflow-y:auto;
-        .popup-slide-items{
-            padding-bottom:5.2rem;
-        }
-        .image-area{height:27.2rem;}
-        .text-area{
-            height:27.2rem;
-            padding:0 2rem;
-            .title-conts{
-                padding:2rem 0 2.4rem;
-                @include fontSize('fontS04');
-            }
-            .text-conts{
-                height:27.2rem;
-            }
-        }
-    }
-    .popup-slide{
-        .slick-dots{top:28.8rem;}
-    }
-
+@include response('tablet'){   
+    .main-popup .text-area .title-conts{@include fontSize('fontS07');}
 }
-
 
 @include response('mobile'){
     .main-popup{
@@ -177,6 +151,7 @@
             }
             .text-conts{
                 height:20.2rem;
+                @include fontSize('fontS02');
             }
         }
     }

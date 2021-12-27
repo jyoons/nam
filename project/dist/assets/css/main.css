@@ -174,34 +174,10 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .main-popup {
-    width: 29.6rem;
-    padding: 1.2rem;
-    height: auto;
-    max-height: 100%;
-    overflow-y: auto;
-  }
-  .main-popup .popup-slide-items {
-    padding-bottom: 5.2rem;
-  }
-  .main-popup .image-area {
-    height: 27.2rem;
-  }
-  .main-popup .text-area {
-    height: 27.2rem;
-    padding: 0 2rem;
-  }
   .main-popup .text-area .title-conts {
-    padding: 2rem 0 2.4rem;
-    font-size: 2rem;
-    line-height: 3rem;
-  }
-  .main-popup .text-area .text-conts {
-    height: 27.2rem;
-  }
-
-  .popup-slide .slick-dots {
-    top: 28.8rem;
+    font-size: 2.8rem;
+    line-height: 4.2rem;
+    font-weight: 700;
   }
 }
 @media (min-width: 320px) and (max-width: 765px) {
@@ -229,6 +205,8 @@
   }
   .main-popup .text-area .text-conts {
     height: 20.2rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
   }
 
   .popup-slide .slick-dots {
