@@ -41,11 +41,15 @@
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
-    width:42.4rem;
-    padding:2rem;
-    background:$white;
+    width:42.4rem;   
     z-index:999;
+    .popup-slide{
+        position:relative;
+        padding:2rem 0;
+        background:$white;
+    }
     .popup-slide-items{
+        padding:0 2rem;
         padding-bottom:6rem;
         position:relative;
         &.slide-btn{padding-bottom:12rem;}
@@ -54,8 +58,13 @@
             bottom:0;
             left:0;
             width:100%;
+            padding:0 2rem;
             button{
                 width:100%;
+                &.h-lg{
+                    font-weight:500;
+                    color:$gray8;
+                }
             }
         }
     }
@@ -79,6 +88,36 @@
             color:$gray6;
         }
     }
+    .btn-close-wrap{
+        display:flex;
+        align-items: center;
+        padding-top:8px;
+        a{
+            position:relative;
+            display:block;
+            padding:1rem 0;
+            text-align:center;
+            color:$white;
+            @include fontSize('fontS02');
+            font-weight:500;
+            &:first-child{
+                width:60%;              
+                & + a{
+                    width:40%;
+                    &:after{
+                        content:'';
+                        position:absolute;
+                        top:50%;
+                        left:0;
+                        transform: translateY(-50%);
+                        width:1px;
+                        height:1.8rem;
+                        background:$white;
+                    }
+                }
+            }
+        }
+    }
 }
 .slick-current.popup-slide-items .text-conts{
     overflow-y:auto;
@@ -89,7 +128,7 @@
     position:relative;
     .slick-dots{
         position:absolute;
-        top:40rem;
+        top:42rem;
         left:50%;
         transform: translateX(-50%);
         display:flex;
@@ -133,13 +172,24 @@
 
 @include response('mobile'){
     .main-popup{
-        width:29.6rem;
-        padding:1.2rem;
+        width:29.6rem;       
         height:auto;
         max-height:100%;
         overflow-y:auto;
+        .popup-slide{
+            padding:1.2rem 0;
+        }
         .popup-slide-items{
+            padding:0 1.2rem;
             padding-bottom:5.2rem;
+            .btn-area{
+                padding:0 1.2rem;
+                button.h-lg{
+                    height:4.8rem;
+                    font-size:1.6rem;
+                    line-height: 2.4rem;
+                }
+            }
         }
         .image-area{height:27.2rem;}
         .text-area{
@@ -154,8 +204,14 @@
                 @include fontSize('fontS02');
             }
         }
+        .btn-close-wrap{
+             a:first-child{
+                width:65%;                
+                & + a{width:35%;}
+            }           
+        }
     }
     .popup-slide{
-        .slick-dots{top:28.8rem;}
+        .slick-dots{top:30rem;}
     }
 }

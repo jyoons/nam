@@ -17,7 +17,8 @@ var mainUi = function (mainUi, $window) {
         initialSlide: 0,
         dots: true,
         adaptiveHeight: true,
-        infinite: false // slidesToShow: 3,
+        infinite: false,
+        centerPadding: 20 // slidesToShow: 3,
         //  slidesToScroll: 1
 
       });

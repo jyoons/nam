@@ -80,11 +80,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 42.4rem;
-  padding: 2rem;
-  background: #FFFFFF;
   z-index: 999;
 }
+.main-popup .popup-slide {
+  position: relative;
+  padding: 2rem 0;
+  background: #FFFFFF;
+}
 .main-popup .popup-slide-items {
+  padding: 0 2rem;
   padding-bottom: 6rem;
   position: relative;
 }
@@ -96,9 +100,14 @@
   bottom: 0;
   left: 0;
   width: 100%;
+  padding: 0 2rem;
 }
 .main-popup .popup-slide-items .btn-area button {
   width: 100%;
+}
+.main-popup .popup-slide-items .btn-area button.h-lg {
+  font-weight: 500;
+  color: #111111;
 }
 .main-popup .image-area {
   height: 38.4rem;
@@ -127,6 +136,37 @@
   line-height: 2.7rem;
   color: #666666;
 }
+.main-popup .btn-close-wrap {
+  display: flex;
+  align-items: center;
+  padding-top: 8px;
+}
+.main-popup .btn-close-wrap a {
+  position: relative;
+  display: block;
+  padding: 1rem 0;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+}
+.main-popup .btn-close-wrap a:first-child {
+  width: 60%;
+}
+.main-popup .btn-close-wrap a:first-child + a {
+  width: 40%;
+}
+.main-popup .btn-close-wrap a:first-child + a:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 1.8rem;
+  background: #FFFFFF;
+}
 
 .slick-current.popup-slide-items .text-conts {
   overflow-y: auto;
@@ -138,7 +178,7 @@
 }
 .popup-slide .slick-dots {
   position: absolute;
-  top: 40rem;
+  top: 42rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -183,13 +223,24 @@
 @media (min-width: 320px) and (max-width: 765px) {
   .main-popup {
     width: 29.6rem;
-    padding: 1.2rem;
     height: auto;
     max-height: 100%;
     overflow-y: auto;
   }
+  .main-popup .popup-slide {
+    padding: 1.2rem 0;
+  }
   .main-popup .popup-slide-items {
+    padding: 0 1.2rem;
     padding-bottom: 5.2rem;
+  }
+  .main-popup .popup-slide-items .btn-area {
+    padding: 0 1.2rem;
+  }
+  .main-popup .popup-slide-items .btn-area button.h-lg {
+    height: 4.8rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
   }
   .main-popup .image-area {
     height: 27.2rem;
@@ -208,8 +259,14 @@
     font-size: 1.6rem;
     line-height: 2.4rem;
   }
+  .main-popup .btn-close-wrap a:first-child {
+    width: 65%;
+  }
+  .main-popup .btn-close-wrap a:first-child + a {
+    width: 35%;
+  }
 
   .popup-slide .slick-dots {
-    top: 28.8rem;
+    top: 30rem;
   }
 }
