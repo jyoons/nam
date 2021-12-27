@@ -174,7 +174,7 @@ const uiCommon = (function (uiCommon, $window) {
         $('.lnb-1depth .select-list-wrap .select-list__items.' + elString[0]).addClass('on');
         $('.lnb-2depth .select-list-wrap .select-list.' + elString[0]).css({'display':'block'});
         $('.lnb-2depth .select-list-wrap .select-list.' + elString[0] + ' .select-list__items').eq(elString[1]).addClass('on');
-        if(elString[0] == 'business'){
+        if(elString[0] == 'business' && elString[1] > 0){
           $('.lnb-3depth').css({'display':'block'});
           $('.lnb-3depth .select-list').eq(elString[2]).css({'display':'block'});
           $('.lnb-3depth .select-list__items').eq(elString[2]).addClass('on');

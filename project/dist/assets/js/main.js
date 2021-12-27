@@ -2,26 +2,41 @@
 
 var mainUi = function (mainUi, $window) {
   mainUi.init = function () {
-    mainUi.slide.init();
+    mainUi.mainPop.init();
   };
 
-  mainUi.slide = {
+  mainUi.mainPop = {
     init: function init() {
+      this.setDefault('.main-popup');
+      this.slide('.popup-slide');
+      this.event();
+    },
+    setDefault: function setDefault(elem) {
       $('body').addClass('scrollOff');
       $('body').append('<div class="dimmed"></div>');
-      $('.popup-slide').slick({
-        //         autoplay: true,
-        //   autoplaySpeed: 1000,
+      $(elem).addClass('is-active');
+    },
+    slide: function slide(elem) {
+      $(elem).slick({
         speed: 200,
         arrows: false,
         initialSlide: 0,
         dots: true,
         adaptiveHeight: true,
-        infinite: false,
-        centerPadding: 20 // slidesToShow: 3,
-        //  slidesToScroll: 1
-
+        infinite: false
       });
+    },
+    event: function event() {
+      var _this = this;
+
+      $('.main-popup .popup-close').on('click', function () {
+        _this.close('.main-popup');
+      });
+    },
+    close: function close(elem) {
+      $('body').removeClass('scrollOff');
+      $(elem).removeClass('is-active');
+      $('.dimmed').remove();
     }
   };
   mainUi.init();

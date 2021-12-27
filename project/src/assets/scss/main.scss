@@ -37,6 +37,10 @@
     }
 }
 .main-popup{
+    display:none;
+    &.is-active{
+        display:block;
+    }
     position:absolute;
     top:50%;
     left:50%;

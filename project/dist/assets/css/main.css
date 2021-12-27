@@ -75,12 +75,16 @@
 }
 
 .main-popup {
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 42.4rem;
   z-index: 999;
+}
+.main-popup.is-active {
+  display: block;
 }
 .main-popup .popup-slide {
   position: relative;

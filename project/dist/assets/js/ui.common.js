@@ -258,7 +258,7 @@ var uiCommon = function (uiCommon, $window) {
         });
         $('.lnb-2depth .select-list-wrap .select-list.' + elString[0] + ' .select-list__items').eq(elString[1]).addClass('on');
 
-        if (elString[0] == 'business') {
+        if (elString[0] == 'business' && elString[1] > 0) {
           $('.lnb-3depth').css({
             'display': 'block'
           });
