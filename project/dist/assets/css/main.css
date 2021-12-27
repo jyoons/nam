@@ -72,6 +72,9 @@
 .main-popup .image-area {
   height: 38.4rem;
 }
+.main-popup .image-area a {
+  display: block;
+}
 .main-popup .text-area {
   width: 100%;
   overflow: hidden;

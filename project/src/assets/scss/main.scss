@@ -71,7 +71,10 @@
             }
         }
     }
-    .image-area{height:38.4rem;}
+    .image-area{
+        height:38.4rem;
+        a{display:block;}
+    }
     .text-area{
         width:100%;
         overflow:hidden;
