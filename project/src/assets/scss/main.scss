@@ -2,6 +2,7 @@
 
 @import "base/variables";
 @import "base/mixins";
+@import "base/_slick";
 
 .wrap.main{
     .header{
@@ -32,6 +33,33 @@
         }
         .select-title:after{
             background-image:url('/assets/images/common/btn_gnb_global_open_w.svg');
+        }
+    }
+}
+
+
+.main-popup{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width:42.4rem;
+    height:54.4rem;
+    padding:2rem;
+    background:$white;
+    z-index:999;
+    .image-area{
+        // margin:2rem;
+    }
+    .text-area{
+        padding:0 1.2rem;
+        .title-conts{
+            padding:3rem 0;
+            text-align:center;
+            @include fontSize('fontS08')
+        }
+        .text-conts{
+            
         }
     }
 }

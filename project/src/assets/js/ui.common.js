@@ -214,7 +214,10 @@ const uiCommon = (function (uiCommon, $window) {
   }
   uiCommon.titText = {
     init: function(){
-      this.event();
+      let flagLen = $('.container-header__text').length;
+      if(flagLen > 0){
+        this.event();
+      }    
     },
     event: function(){
       let tl = gsap.timeline({

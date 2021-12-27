@@ -91,8 +91,9 @@ function htmlInclude(){
 };
 
 //script 관련
-function jsCompile(){
-	return src(paths.scripts.src, { sourcemaps: true })
+function jsCompile(done){
+	return src([paths.scripts.src, '!./project/src/assets/js/main.js'], { sourcemaps: true })
+			.pipe(cached(jsCompile))
 			.pipe(concat('ui.common.js'))
 		    .pipe(babel())
 			.pipe(dest(paths.scripts.dest))
@@ -100,10 +101,24 @@ function jsCompile(){
 			.pipe(uglify())
 			.pipe(rename('ui.common.min.js'))
 			.pipe(dest(paths.scripts.dest))
-		    .pipe(babel())
 			.pipe( browserSync.reload({stream: true}) );
+
+	done();
 };
 
+// main script 배포
+function mainJsCompile(done){
+	return src('./project/src/assets/js/main.js', { sourcemaps: true })
+			.pipe(cached(mainJsCompile))
+			.pipe(concat('main.js'))
+		    .pipe(babel())
+			.pipe(dest(paths.scripts.dest))
+			.pipe(uglify())
+			.pipe(rename('main.min.js'))
+			.pipe(dest(paths.scripts.dest))
+			.pipe( browserSync.reload({stream: true}) );
+	done();
+};
 
 //scss compile
 function scssCompile(){
@@ -194,12 +209,14 @@ function clean(done){
 function watchFiles() {
 	watch(paths.assets.sprite.src, series([spritesImage]));
 	watch(paths.html.src, series([htmlCompile, htmlInclude]));
-	watch('./project/src/assets/js/**/*.js', series([jsCompile, libaryJS]));
+	watch(['./project/src/assets/js/*.js', '!./project/src/assets/js/main.js'], series([jsCompile]));
+	// watch('./project/src/assets/js/**/*.js', series([jsCompile, libaryJS]));
+	watch('./project/src/assets/js/main.js', series([mainJsCompile]));
 	watch('./project/src/assets/scss/**/*.scss', series([scssCompile]));
 	watch(paths.assets.images.src, series([libaryImages]));
 	watch(paths.wsg.src, series([libaryWsg]));
 };
 
 exports.default = series(parallel(serverStart, liveServer, watchFiles)); // 기본 task liveserver용으로
-exports.build = series(parallel(clean, htmlInclude, jsCompile, libaryJS, scssCompile, libaryImages, spritesImage, libaryWsg, libaryFonts)); // 기본 빌드 task
+exports.build = series(parallel(clean, htmlInclude, jsCompile, mainJsCompile, libaryJS, scssCompile, libaryImages, spritesImage, libaryWsg, libaryFonts)); // 기본 빌드 task
 exports.sprite = series(parallel(spritesImage)); // 이미지 스프라이프 태스크
