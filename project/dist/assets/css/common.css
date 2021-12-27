@@ -504,8 +504,8 @@ body {
   width: 35%;
   height: 100%;
   background-image: url("/assets/images/common/menu_left_img.jpg");
-  background-position: 0;
-  background-size: 750px 1080px;
+  background-position: -1280px 0;
+  background-size: 2705px 2333px;
   background-repeat: no-repeat;
 }
 .gnb .gnb-wrap {
