@@ -722,8 +722,7 @@ body {
   margin-left: 2rem;
 }
 .lnb .select-wrap .select-list-wrap {
-  width: auto;
-  white-space: nowrap;
+  width: 30.8rem;
 }
 .lnb .select-wrap .select-list-wrap .select-list__items > a {
   padding: 2rem 3rem 2rem 2rem;
