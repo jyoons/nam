@@ -129,6 +129,20 @@
         }
     }
 } 
+.btn-arrow{
+    display:inline-block;
+    min-width:17rem;
+    font-size:1.6rem;
+    line-height:1.6rem;
+    padding-right:2rem;
+    padding-bottom:1.2rem;
+    border-bottom:1px solid $green5;
+    color:$green5;
+    background-image: url('/assets/images/common/ico_chevron_right.svg');
+    background-repeat: no-repeat;
+    background-position: right 0;
+    background-size:1.8rem 1.8rem;
+}
 // btn wrap
 .btn-wrap{
     display: flex;

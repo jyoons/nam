@@ -359,6 +359,131 @@ body {
   color: #111111;
 }
 
+/*submain business*/
+.container-subMain-header {
+  max-width: 139.6rem;
+  margin: 0 auto;
+  padding: 12rem 3rem 8rem;
+  overflow: hidden;
+}
+
+.subMain-header-wrap {
+  position: relative;
+}
+.subMain-header__title {
+  width: 100%;
+  font-size: 12rem;
+  line-height: 14rem;
+  font-weight: 700;
+  overflow: hidden;
+}
+.subMain-header__title .title-left {
+  float: left;
+  width: auto;
+  text-align: left;
+}
+.subMain-header__title .title-left i {
+  display: block;
+  position: absolute;
+  bottom: 21rem;
+  left: 36rem;
+  width: calc(100% - 72rem);
+  height: 4px;
+  background: #111111;
+}
+.subMain-header__title .title-right {
+  float: right;
+  width: auto;
+  margin-top: 29rem;
+  text-align: right;
+}
+.subMain-header__title .title-right i {
+  display: none;
+  background: #111111;
+}
+.subMain-header__text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+.container-subMain-fixImg {
+  max-width: calc(100% - 7rem);
+  height: 108rem;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+}
+.container-subMain-fixImg + .container-subMain-contents {
+  margin-top: 12rem;
+}
+
+.container-subMain-contents {
+  max-width: 139.6rem;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.layout-wrap-header.type-d {
+  margin-bottom: 5rem;
+}
+.layout-wrap-header.type-d .layout-wrap-header__title {
+  margin-bottom: 0;
+}
+.layout-wrap-header.type-d .layout-wrap-header__title + .layout-wrap-header__text {
+  margin-top: 2rem;
+}
+.layout-wrap-header.type-d .layout-wrap-header__text {
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #333333;
+}
+
+.layout-wrap-conts.type-d {
+  border: none;
+  padding: 0;
+}
+
+.call-center {
+  margin-top: 15rem;
+  background: #EEF5F2;
+}
+.call-center-wrap {
+  max-width: 139.6rem;
+  margin: 0 auto;
+  padding: 10rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.call-center__header {
+  color: #274b48;
+}
+.call-center__header .title {
+  font-size: 4.8rem;
+  line-height: 6rem;
+  font-weight: 700;
+}
+.call-center__header .title + .text {
+  margin-top: 2rem;
+}
+.call-center__header .text {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+.call-center__header .text + .link-area {
+  margin-top: 6.3rem;
+}
+.call-center__header .link-area a {
+  margin-right: 4.4rem;
+}
+.call-center__list {
+  flex: 0 0 42rem;
+  color: #274b48;
+}
+
 .header {
   background: #FFFFFF;
   transition: background-color 0.4s linear;
@@ -1030,6 +1155,78 @@ body {
     color: #999999;
     background-position: center 11rem;
   }
+
+  /*submain business*/
+  .container-subMain-header {
+    padding: 10rem 3.2rem 9rem;
+  }
+
+  .subMain-header__title {
+    font-size: 9rem;
+    line-height: 11rem;
+  }
+  .subMain-header__title .title-left i {
+    bottom: auto;
+    top: 27rem;
+    left: 25rem;
+    width: calc(100% - 50rem);
+  }
+  .subMain-header__title .title-right {
+    position: relative;
+    margin-top: 22rem;
+  }
+  .subMain-header__text {
+    position: relative;
+    margin-top: 6rem;
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+  }
+
+  .container-subMain-fixImg {
+    max-width: 100%;
+    height: 80rem;
+    background: #f0f;
+  }
+  .container-subMain-fixImg + .container-subMain-contents {
+    margin-top: 10rem;
+  }
+
+  .container-subMain-contents {
+    padding: 0 3.2rem;
+  }
+
+  .layout-wrap-header.type-d .layout-wrap-header__text {
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+  }
+
+  .call-center {
+    margin-top: 12rem;
+  }
+  .call-center-wrap {
+    padding: 8rem 3.2rem;
+  }
+  .call-center__header .title {
+    font-size: 3.2rem;
+    line-height: 4.8rem;
+    font-weight: 700;
+  }
+  .call-center__header .title + .text {
+    margin-top: 2rem;
+  }
+  .call-center__header .text + .link-area {
+    margin-top: 4rem;
+  }
+  .call-center__header .link-area a {
+    margin-top: 2rem;
+  }
+  .call-center__header + .call-center__list {
+    margin-top: 0rem;
+  }
+  .call-center__list {
+    flex: 0 0 40%;
+    color: #274b48;
+  }
 }
 @media (min-width: 320px) and (max-width: 765px) {
   /*header*/
@@ -1360,5 +1557,104 @@ body {
     line-height: 2.4rem;
     color: #999999;
     background-position: center 6rem;
+  }
+
+  /*submain business*/
+  .container-subMain-header {
+    padding: 5rem 3.2rem 10rem;
+  }
+
+  .subMain-header__title {
+    font-size: 4.8rem;
+    line-height: 6rem;
+  }
+  .subMain-header__title .title-left {
+    position: relative;
+    float: none;
+  }
+  .subMain-header__title .title-left i {
+    bottom: 3rem;
+    left: 15rem;
+    width: calc(100% - 15rem);
+    height: 2px;
+  }
+  .subMain-header__title .title-right {
+    position: relative;
+    float: none;
+    margin-top: 0;
+  }
+  .subMain-header__title .title-right i {
+    display: block;
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    width: calc(100% - 15rem);
+    height: 2px;
+  }
+  .subMain-header__text {
+    position: relative;
+    margin-top: 4.8rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+
+  .container-subMain-fixImg {
+    max-width: 100%;
+    height: 52.6rem;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    background: #f00;
+  }
+  .container-subMain-fixImg > img {
+    width: 88.2rem;
+  }
+  .container-subMain-fixImg + .container-subMain-contents {
+    margin-top: 8rem;
+  }
+
+  .container-subMain-contents {
+    padding: 0 3.2rem;
+  }
+
+  .layout-wrap-header.type-d {
+    margin-bottom: 4.8rem;
+  }
+  .layout-wrap-header.type-d .layout-wrap-header__title {
+    font-size: 3.2rem;
+    line-height: 4.8rem;
+    font-weight: 700;
+    font-weight: 700;
+  }
+  .layout-wrap-header.type-d .layout-wrap-header__title + .layout-wrap-header__text {
+    margin-top: 3.2rem;
+  }
+  .layout-wrap-header.type-d .layout-wrap-header__text {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+
+  .call-center {
+    margin-top: 8.4rem;
+  }
+  .call-center-wrap {
+    padding: 4.8rem 3.2rem 6rem;
+    display: block;
+  }
+  .call-center__header .title {
+    font-size: 3.2rem;
+    line-height: 4.8rem;
+    font-weight: 700;
+  }
+  .call-center__header .text + .link-area {
+    margin-top: 4rem;
+  }
+  .call-center__header .link-area a {
+    margin-top: 2rem;
+    min-width: 21.8rem;
+    margin-right: 4.4rem;
+  }
+  .call-center__header + .call-center__list {
+    margin-top: 8rem;
   }
 }

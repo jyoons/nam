@@ -151,3 +151,113 @@ body {
   @include fontSize('fontS04');
   color: $gray8;
 }
+/*submain business*/
+.container-subMain-header{
+  max-width:139.6rem;
+  margin:0 auto;
+  padding:12rem 3rem 8rem;
+  overflow:hidden;
+}
+.subMain-header{
+  &-wrap{
+    position:relative;   
+  }
+  &__title{
+    width:100%;
+    font-size:12rem;
+    line-height:14rem;
+    font-weight:700;
+    overflow:hidden;
+    .title-left{
+      float:left;
+      width:auto;
+      text-align:left;
+      i{
+        display:block;
+        position:absolute;
+        bottom:21rem;
+        left:36rem;
+        width:calc(100% - 72rem);
+        height:4px;
+        background:$gray8;
+      }
+    }
+    .title-right{
+      float:right;
+      width:auto;
+      margin-top:29rem;
+      text-align:right;
+      i{
+        display:none;
+        background:$gray8;
+      }
+    }
+  }
+  &__text{
+    position:absolute;
+    top:0;
+    right:0;
+    @include fontSize('fontS04');
+  }
+}
+.container-subMain-fixImg{
+  max-width:calc(100% - 7rem);
+  height:108rem;
+  overflow:hidden;
+  left:0;
+  top:0;
+  & + .container-subMain-contents{
+    margin-top:12rem;
+  }
+
+}
+.container-subMain-contents{
+  max-width:139.6rem;
+  margin:0 auto;
+  padding:0 3rem;
+}
+.layout-wrap-header.type-d{
+  margin-bottom:5rem;
+  .layout-wrap-header__title{
+    margin-bottom:0;
+    & + .layout-wrap-header__text{margin-top:2rem;}
+  }
+  .layout-wrap-header__text{
+    @include fontSize('fontS04');
+    color:$gray7;
+  }
+}
+.layout-wrap-conts.type-d{
+  border:none;
+  padding:0;
+}
+.call-center{
+  margin-top:15rem;
+  background:$grayGreen2;
+  &-wrap{
+    max-width:139.6rem;
+    margin:0 auto;
+    padding:10rem 3rem;
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  &__header{
+    color:$green5;
+    .title{
+      @include fontSize('fontS09');
+      & + .text{margin-top:2rem;}
+    }
+    .text{
+      @include fontSize('fontS02');
+      & + .link-area{margin-top:6.3rem;}
+    }
+    .link-area{
+      a{margin-right:4.4rem;}
+    }
+  }
+  &__list{
+    flex:0 0 42rem;
+    color:$green5;
+  }
+}

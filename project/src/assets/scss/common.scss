@@ -225,7 +225,89 @@
         color:$gray5;
         background-position: center 11rem;
     }
+
+    /*submain business*/
+    .container-subMain-header{
+        padding:10rem 3.2rem 9rem;
+    }
+    .subMain-header{
+        &__title{
+            font-size:9rem;
+            line-height:11rem;
+            .title-left{
+                i{
+                    bottom:auto;
+                    top:27rem;
+                    left:25rem;
+                    width:calc(100% - 50rem);
+                }
+            }
+            .title-right{
+                position:relative;
+                margin-top:22rem;
+            }
+        }
+        &__text{
+            position:relative;
+            margin-top:6rem;
+            @include fontSize('fontS03');
+        }
+    }
+    .container-subMain-fixImg{
+        max-width:100%;
+        height:80rem;
+        // overflow:hidden;
+        // left:0;
+        // top:0;
+        background:#f0f;
+        &>img{
+            // width:88.2rem;
+        }
+        & + .container-subMain-contents{
+            margin-top:10rem;
+        }    
+    }
+    .container-subMain-contents{
+        padding:0 3.2rem;
+    }
+    .layout-wrap-header.type-d{
+        // margin-bottom:4.8rem;
+        .layout-wrap-header__title{
+            // @include fontSize('fontS08');
+            // font-weight:700;
+            // & + .layout-wrap-header__text{margin-top:rem;}
+        }
+        .layout-wrap-header__text{
+            @include fontSize('fontS03');
+        }
+    }
+    .call-center{
+        margin-top:12rem;
+        &-wrap{
+            padding:8rem 3.2rem;
+        }
+        &__header{
+            .title{
+                @include fontSize('fontS08');
+                & + .text{margin-top:2rem;}
+            }
+            .text{
+                & + .link-area{margin-top:4rem;}
+            }
+            .link-area{
+                a{
+                    margin-top:2rem;
+                }
+            }
+            & + .call-center__list{margin-top:0rem;}
+        }
+        &__list{
+            flex:0 0 40%;
+            color:$green5;
+        }
+    }
 }
+
 @include response('mobile') {
    /*header*/
    .header{   
@@ -509,5 +591,94 @@
         @include fontSize('fontS02');
         color:$gray5;
         background-position: center 6rem;
+    }
+    /*submain business*/
+    .container-subMain-header{
+        padding:5rem 3.2rem 10rem;
+    }
+    .subMain-header{
+        &__title{
+            font-size:4.8rem;
+            line-height:6rem;
+            .title-left{
+                position:relative;
+                float:none;
+            i{
+                bottom:3rem;
+                left:15rem;
+                width:calc(100% - 15rem);
+                height:2px;
+            }
+        }
+        .title-right{
+            position:relative;
+            float:none;
+            margin-top:0;
+                i{
+                    display:block;
+                    position:absolute;
+                    top:3rem;
+                    left:0;
+                    width:calc(100% - 15rem);
+                    height:2px;
+                }
+            }
+        }
+        &__text{
+            position:relative;
+            margin-top:4.8rem;
+            @include fontSize('fontS02');
+        }
+    }
+    .container-subMain-fixImg{
+        max-width:100%;
+        height:52.6rem;
+        overflow:hidden;
+        left:0;
+        top:0;
+        background:#f00;
+        &>img{
+            width:88.2rem;
+        }
+        & + .container-subMain-contents{
+            margin-top:8rem;
+        }    
+    }
+    .container-subMain-contents{
+        padding:0 3.2rem;
+    }
+    .layout-wrap-header.type-d{
+        margin-bottom:4.8rem;
+        .layout-wrap-header__title{
+            @include fontSize('fontS08');
+            font-weight:700;
+            & + .layout-wrap-header__text{margin-top:3.2rem;}
+        }
+        .layout-wrap-header__text{
+            @include fontSize('fontS02');
+        }
+    }
+    .call-center{
+        margin-top:8.4rem;
+        &-wrap{
+        padding:4.8rem 3.2rem 6rem;
+        display:block;
+        }
+        &__header{
+            .title{
+                @include fontSize('fontS08');
+            }
+            .text{
+                & + .link-area{margin-top:4rem;}
+            }
+            .link-area{
+                a{
+                    margin-top:2rem;
+                    min-width:21.8rem;
+                    margin-right:4.4rem;
+                }
+            }
+            & + .call-center__list{margin-top:8rem;}
+        }
     }
 }
