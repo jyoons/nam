@@ -55,7 +55,7 @@
             @content;
         }
     } @else if $screen-width == "mobile" {
-        @media (min-width: 320px) and (max-width: 765px){
+        @media (min-width: 320px) and (max-width: 767px){
             @content;
         }
     } 

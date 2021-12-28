@@ -9,6 +9,7 @@ var uiCommon = function (uiCommon, $window) {
     uiCommon.select.init();
     uiCommon.titImg.init();
     uiCommon.titText.init();
+    uiCommon.titText2.init();
     uiCommon.goTop.init();
     uiCommon.accordion.init();
     uiCommon.lineDraw.init();
@@ -347,6 +348,47 @@ var uiCommon = function (uiCommon, $window) {
       }, 1);
     }
   };
+  uiCommon.titText2 = {
+    init: function init() {
+      var flagLen = $('.subMain-header-wrap').length;
+
+      if (flagLen > 0) {
+        this.event();
+      }
+    },
+    event: function event() {
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".subMain-header-wrap",
+          toggleActions: "restart reverse restart none",
+          onLeave: function onLeave() {
+            $('.subMain-header__title .title-left i').removeClass('on');
+            $('.subMain-header__title .title-right i').removeClass('on');
+          },
+          onLeaveBack: function onLeaveBack() {
+            $('.subMain-header__title .title-left i').removeClass('on');
+            $('.subMain-header__title .title-right i').removeClass('on');
+          }
+        },
+        onComplete: function onComplete() {
+          $('.subMain-header__title .title-left i').addClass('on');
+          $('.subMain-header__title .title-right i').addClass('on');
+        }
+      });
+      tl.to('.subMain-header__title>div span', {
+        duration: 0.6,
+        top: 0,
+        opacity: 1,
+        ease: 'power3'
+      }, 0.4);
+      tl.to('.subMain-header__text', {
+        duration: 0.6,
+        top: 0,
+        opacity: 1,
+        ease: 'power1'
+      }, 0.4);
+    }
+  };
   uiCommon.select = {
     init: function init() {
       uiCommon.select.setDefault('.select-wrap');
@@ -502,54 +544,91 @@ var uiCommon = function (uiCommon, $window) {
       this.event();
     },
     event: function event() {
-      var line1 = document.querySelectorAll('.lineDraw-wrap.type3 .front-line i');
-      var line2 = document.querySelectorAll('.lineDraw-wrap.type3 .back-line i');
-
-      for (var i = 0; i < line1.length; i++) {
-        var angle = 180 / line1.length;
-        gsap.to(line1[i], {
-          duration: 1,
-          rotate: i * angle,
-          ease: "power3"
-        }, 0); //gsap.to(line[i], {duration:1, rotate: i*angle , ease: "power3"}, 0.2);
-      }
-
-      for (var i = 0; i < line2.length; i++) {
-        var _angle = 180 / line2.length;
-
-        gsap.to('.lineDraw-wrap.type3 .back-line', {
-          duration: 1.2,
-          rotate: 180,
-          ease: "power3"
-        }, 0);
-        gsap.to(line2[i], {
-          duration: 1,
-          rotate: i * _angle,
-          ease: "power3"
-        }, 0); //gsap.to(line[i], {duration:1, rotate: i*angle , ease: "power3"}, 0.2);
-      }
-
       var tl1 = gsap.timeline({
-        repeat: 0,
-        repeatDelay: 1,
-        yoyo: false,
         scrollTrigger: {
-          trigger: '.lineDraw-wrap',
-          immediateRender: false,
-          // start: "top 50%",
-          // end: "top 50%",
-          markers: true,
+          trigger: '.lineDraw-wrap.type1',
           toggleActions: 'restart none restart none'
         }
-      }); // let tl2 = gsap.timeline({repeat:0, repeatDelay:1, yoyo:false});
+      });
+      var tl2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.lineDraw-wrap.type2',
+          toggleActions: 'restart none restart none'
+        }
+      });
+      var tl3 = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.lineDraw-wrap.type3',
+          toggleActions: 'restart none restart none'
+        }
+      });
+      var gauge;
+      var lineh1;
+      var lineh2;
+      var lineh3;
+      var lineh4;
+
+      if ($('.lineDraw-wrap.type1 .back-draw').width() < 150) {
+        //mobile size
+        gauge = 30;
+        lineh1 = 90;
+        lineh2 = 156;
+      } else {
+        gauge = 40;
+        lineh1 = 118;
+        lineh2 = 234;
+      }
+
+      $(window).on('resize', function () {
+        if ($('.lineDraw-wrap.type1 .back-draw').width() < 150) {
+          //mobile size
+          gauge = 30;
+          lineh1 = 90;
+          lineh2 = 156;
+        } else {
+          gauge = 40;
+          lineh1 = 118;
+          lineh2 = 234;
+        }
+
+        tl1.seek(0);
+        tl1.restart();
+      });
+      tl1.add(rectDraw(tl1, gauge, 4));
+      tl1.add(lineDraw(tl1));
+      tl3.add(lineDraw2(tl3));
+      tl2.fromTo('.lineDraw-wrap.type2 .front-draw', {
+        rotate: -45
+      }, {
+        duration: 2,
+        rotate: 405,
+        ease: "power3"
+      }, 0);
+      tl2.fromTo('.lineDraw-wrap.type2 .midi-draw', {
+        rotate: -45
+      }, {
+        duration: 2,
+        rotate: 315,
+        ease: "power3"
+      }, 0.5);
+      tl2.fromTo('.lineDraw-wrap.type2 .back-draw', {
+        rotate: 0
+      }, {
+        duration: 1,
+        rotate: 180,
+        ease: "power3"
+      }, 1);
 
       function rectDraw(name, psNum, lineNum) {
         var draws = document.querySelectorAll('.lineDraw-wrap.type1 .lineDraw-conts');
-        var parentW = document.querySelector('.lineDraw-wrap.type1').offsetWidth; //250
+        var parentW = document.querySelector('.lineDraw-wrap.type1').offsetWidth;
 
         for (var i = 1; i < draws.length; i++) {
-          name.to(draws[i], {
-            duration: 0.6,
+          name.fromTo(draws[i], {
+            x: 0,
+            y: 0
+          }, {
+            duration: 1,
             x: i * psNum + lineNum,
             y: i * psNum + lineNum,
             ease: "power3"
@@ -562,38 +641,51 @@ var uiCommon = function (uiCommon, $window) {
         var h;
 
         for (var i = 0; i < draws.length; i++) {
-          i < 4 ? h = 118 : h = 234;
-          name.to(draws[i], {
-            duration: 0.8,
+          i < 4 ? h = lineh1 : h = lineh2;
+          name.fromTo(draws[i], {
+            height: 0
+          }, {
+            duration: 1,
             height: h,
             ease: "power3"
           }, 0.2);
         }
       }
 
-      tl1.add(rectDraw(tl1, 40, 4));
-      tl1.add(lineDraw(tl1));
-      tl1.fromTo('.lineDraw-wrap.type2 .front-draw', {
-        rotate: -45
-      }, {
-        duration: 2,
-        rotate: 405,
-        ease: "power3"
-      }, 0);
-      tl1.fromTo('.lineDraw-wrap.type2 .midi-draw', {
-        rotate: -45
-      }, {
-        duration: 2,
-        rotate: 315,
-        ease: "power3"
-      }, 0.5);
-      tl1.fromTo('.lineDraw-wrap.type2 .back-draw', {
-        rotate: 0
-      }, {
-        duration: 1,
-        rotate: 180,
-        ease: "power3"
-      }, 1);
+      function lineDraw2(name) {
+        var line1 = document.querySelectorAll('.lineDraw-wrap.type3 .front-line i');
+        var line2 = document.querySelectorAll('.lineDraw-wrap.type3 .back-line i');
+
+        for (var i = 0; i < line1.length; i++) {
+          var angle = 180 / line1.length;
+          name.fromTo(line1[i], {
+            rotate: 0
+          }, {
+            duration: 1,
+            rotate: i * angle,
+            ease: "power3"
+          }, 1);
+        }
+
+        for (var i = 0; i < line2.length; i++) {
+          var _angle = 180 / line2.length;
+
+          name.fromTo('.lineDraw-wrap.type3 .back-line', {
+            rotate: 0
+          }, {
+            duration: 0.8,
+            rotate: 180,
+            ease: "power3"
+          }, 1);
+          name.fromTo(line2[i], {
+            rotate: 0
+          }, {
+            duration: 1,
+            rotate: i * _angle,
+            ease: "power3"
+          }, 1);
+        }
+      }
     }
   };
   uiCommon.init();

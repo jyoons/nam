@@ -165,9 +165,21 @@ body {
   &__title{
     width:100%;
     font-size:12rem;
-    line-height:14rem;
+    line-height:12rem;
     font-weight:700;
     overflow:hidden;
+    .title-left>div, .title-right>div{
+      position:relative;
+      height:auto;
+      overflow:hidden;
+      & + div{margin-top:2.6rem;}
+      &>span{
+        position:relative; 
+        display:block; 
+        top:100%; 
+        opacity:0;
+      }
+    }
     .title-left{
       float:left;
       width:auto;
@@ -179,7 +191,16 @@ body {
         left:36rem;
         width:calc(100% - 72rem);
         height:4px;
-        background:$gray8;
+        background:rgba(0, 0, 0, 0);
+        &.on:after{width:100%;}
+        &:after{
+          content:'';
+          position:absolute;
+          background:$gray8;
+          width:0;
+          height:100%;
+          transition: width 0.4s ease; 
+        }
       }
     }
     .title-right{
@@ -189,14 +210,26 @@ body {
       text-align:right;
       i{
         display:none;
-        background:$gray8;
+        background:rgba(0, 0, 0, 0);
+        &.on:after{width:100%;}
+        &:after{
+          content:'';
+          position:absolute;
+          left:0;
+          background:$gray8;
+          width:0;
+          height:100%;
+          transition: width 0.4s ease; 
+          transition-delay: 0.2s;
+        }        
       }
     }
   }
   &__text{
     position:absolute;
-    top:0;
+    top:30px;
     right:0;
+    opacity:0;
     @include fontSize('fontS04');
   }
 }

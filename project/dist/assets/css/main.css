@@ -227,7 +227,7 @@
     font-weight: 700;
   }
 }
-@media (min-width: 320px) and (max-width: 765px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .main-popup {
     width: 29.6rem;
     height: auto;

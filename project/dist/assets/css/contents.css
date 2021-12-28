@@ -245,7 +245,7 @@
     margin-left: 1rem;
   }
 }
-@media (min-width: 320px) and (max-width: 765px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .m-btnBlock {
     display: block;
     width: 100%;
@@ -778,7 +778,7 @@ input[type=text]::-ms-clear {
     width: 100%;
   }
 }
-@media (min-width: 320px) and (max-width: 765px) {
+@media (min-width: 320px) and (max-width: 767px) {
   /* layout-wrap */
   .layout-wrap + .layout-wrap {
     margin-top: 6rem;
@@ -1077,7 +1077,7 @@ input[type=text]::-ms-clear {
     line-height: 3rem;
   }
 }
-@media (min-width: 320px) and (max-width: 765px) {
+@media (min-width: 320px) and (max-width: 767px) {
   /*tab menu*/
   .tab-listWrap {
     width: calc(100% + 6.4rem);
@@ -1412,7 +1412,7 @@ input[type=text]::-ms-clear {
     line-height: 2.7rem;
   }
 }
-@media (min-width: 320px) and (max-width: 765px) {
+@media (min-width: 320px) and (max-width: 767px) {
   /*board list*/
   .board-wrap .board-list .board-list__item {
     padding: 2.8rem 0.8rem;
@@ -1625,7 +1625,7 @@ input[type=text]::-ms-clear {
     line-height: 2.4rem;
   }
 }
-@media (min-width: 320px) and (max-width: 765px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .accordion__items__title {
     padding: 3rem 6rem 3rem 3.6rem;
     font-size: 1.6rem;
@@ -1818,7 +1818,7 @@ input[type=text]::-ms-clear {
     bottom: 3.6rem;
   }
 }
-@media (min-width: 320px) and (max-width: 765px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .tab-listWrap + .box-list-wrap {
     margin-top: 4rem;
   }
@@ -1956,7 +1956,7 @@ input[type=text]::-ms-clear {
     padding: 3rem 0 1.2rem;
   }
 }
-@media (min-width: 320px) and (max-width: 765px) {
+@media (min-width: 320px) and (max-width: 767px) {
   /*list*/
   .conts-list.type1 .conts-list__items {
     display: block;
@@ -2002,13 +2002,15 @@ input[type=text]::-ms-clear {
 .figure-conts {
   position: relative;
   width: 50%;
-  min-width: 85rem;
+  min-width: 65.2rem;
   overflow: hidden;
+}
+.figure-conts.type-width {
+  min-width: 85rem;
 }
 .figure-conts.type-right {
   right: 0;
   margin-left: auto;
-  background: #f0f;
 }
 .figure-conts__text {
   word-break: keep-all;
@@ -2069,59 +2071,69 @@ input[type=text]::-ms-clear {
   transform: translate(-50%, -50%);
 }
 .lineDraw-wrap.type2 .back-draw {
-  width: 200px;
-  height: 200px;
-  border: 2px solid #000;
+  width: 20rem;
+  height: 20rem;
+  border: 2px solid #111111;
   transform: translate(-50%, -50%) rotate(0deg);
 }
 .lineDraw-wrap.type2 .midi-draw {
-  width: 200px;
-  height: 200px;
-  border: 2px dashed #000;
+  width: 20rem;
+  height: 20rem;
+  border: 2px dotted #111111;
   transform: translate(-50%, -50%) rotate(-45deg);
   transform-origin: center center;
 }
-
-.lineDraw-wrap.type1 {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 250px;
-  overflow: hidden;
-  background: #CCC;
-}
-
-.lineDraw-wrap.type1 .lineDraw-conts {
-  position: absolute;
-  width: 166px;
-  height: 166px;
-  border: 2px solid #000;
-  box-sizing: border-box;
-}
-
-.lineDraw-wrap.type1 .back-draw {
-  top: 0;
-  left: 0;
-}
-
-.lineDraw-wrap.type1 .midi-draw {
-  top: 0;
-  left: 0;
-}
-
-.lineDraw-wrap.type1 .front-draw {
-  top: 0;
-  left: 0;
-}
-
-.lineDraw-wrap.type1 .line {
+.lineDraw-wrap.type2 .midi-draw:before, .lineDraw-wrap.type2 .midi-draw:after, .lineDraw-wrap.type2 .midi-draw > i:before, .lineDraw-wrap.type2 .midi-draw > i:after {
+  content: "";
   position: absolute;
   width: 10px;
-  box-sizing: border-box;
-  border-left: 2px dashed #000;
+  height: 10px;
+  background: #FFFFFF;
+  border: 2px solid #111111;
 }
-
+.lineDraw-wrap.type2 .midi-draw:before {
+  top: -6px;
+  left: -6px;
+}
+.lineDraw-wrap.type2 .midi-draw:after {
+  top: -6px;
+  right: -6px;
+}
+.lineDraw-wrap.type2 .midi-draw > i:before {
+  bottom: -6px;
+  left: -6px;
+}
+.lineDraw-wrap.type2 .midi-draw > i:after {
+  bottom: -6px;
+  right: -6px;
+}
+.lineDraw-wrap.type2 .front-draw {
+  width: 11.2rem;
+  height: 11.2rem;
+  border: 2px dotted #111111;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transform-origin: center center;
+}
+.lineDraw-wrap.type1 {
+  width: 25rem;
+  height: 25rem;
+  margin: 2rem 0 0 8rem;
+}
+.lineDraw-wrap.type1 .lineDraw-conts {
+  position: absolute;
+  width: 16.6rem;
+  height: 16.6rem;
+  border: 2px solid #111111;
+}
+.lineDraw-wrap.type1 .back-draw, .lineDraw-wrap.type1 .midi-draw, .lineDraw-wrap.type1 .front-draw {
+  top: 0;
+  left: 0;
+}
+.lineDraw-wrap.type1 .line {
+  position: absolute;
+  width: 1rem;
+  border-left: 2px dotted #111111;
+}
 .lineDraw-wrap.type1 .line.line1 {
   top: 0;
   left: -2px;
@@ -2129,7 +2141,6 @@ input[type=text]::-ms-clear {
   transform: rotate(-45deg);
   transform-origin: top left;
 }
-
 .lineDraw-wrap.type1 .line.line2 {
   top: -8px;
   right: -8px;
@@ -2137,7 +2148,6 @@ input[type=text]::-ms-clear {
   transform: rotate(-45deg);
   transform-origin: top right;
 }
-
 .lineDraw-wrap.type1 .line.line3 {
   bottom: 0px;
   left: -2px;
@@ -2145,7 +2155,6 @@ input[type=text]::-ms-clear {
   transform: rotate(135deg);
   transform-origin: bottom left;
 }
-
 .lineDraw-wrap.type1 .line.line4 {
   bottom: -8px;
   right: 4px;
@@ -2153,7 +2162,6 @@ input[type=text]::-ms-clear {
   transform: rotate(135deg);
   transform-origin: bottom right;
 }
-
 .lineDraw-wrap.type1 .line.line5 {
   top: 82px;
   left: -2px;
@@ -2161,7 +2169,6 @@ input[type=text]::-ms-clear {
   transform: rotate(-45deg);
   transform-origin: top left;
 }
-
 .lineDraw-wrap.type1 .line.line6 {
   top: 0px;
   left: 82px;
@@ -2170,58 +2177,145 @@ input[type=text]::-ms-clear {
   transform-origin: top left;
 }
 
-.lineDraw-wrap.type2 .midi-draw:before {
-  content: "";
-  position: absolute;
-  top: -6px;
-  left: -6px;
-  width: 10px;
-  height: 10px;
-  background: #FFF;
-  border: 2px solid #f0f;
+@media (min-width: 768px) and (max-width: 1024px) {
+  /*lineDraw*/
 }
+@media (min-width: 320px) and (max-width: 767px) {
+  /*lineDraw*/
+  .figure-wrap + .layout-wrap {
+    margin-top: 12rem;
+  }
+  .figure-conts {
+    width: 100%;
+    min-width: auto;
+  }
+  .figure-conts + .figure-conts {
+    margin-top: 8rem;
+  }
+  .figure-conts.type-width {
+    min-width: auto;
+  }
+  .figure-conts.type-right {
+    margin-left: 0;
+    padding-left: 10%;
+  }
+  .figure-conts.type-right .figure-conts__text {
+    padding-right: 0;
+  }
+  .figure-conts__text {
+    margin-top: 4rem;
+    padding-right: 6rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
 
-.lineDraw-wrap.type2 .midi-draw:after {
-  content: "";
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  width: 10px;
-  height: 10px;
-  background: #FFF;
-  border: 2px solid #f00;
+  .lineDraw-wrap.type3 {
+    width: 26rem;
+    height: 26rem;
+    margin: 0 auto;
+  }
+  .lineDraw-wrap.type3 .front-line {
+    width: 13rem;
+    height: 13rem;
+  }
+  .lineDraw-wrap.type3 .back-line {
+    width: 13rem;
+    height: 13rem;
+  }
+  .lineDraw-wrap.type3 .front-line > i, .lineDraw-wrap.type3 .back-line > i {
+    height: 13rem;
+  }
+  .lineDraw-wrap.type2 {
+    margin-left: auto;
+    width: 23.6rem;
+    height: 23.6rem;
+  }
+  .lineDraw-wrap.type2 .back-draw {
+    width: 15rem;
+    height: 15rem;
+  }
+  .lineDraw-wrap.type2 .midi-draw {
+    width: 15rem;
+    height: 15rem;
+  }
+  .lineDraw-wrap.type2 .midi-draw:before, .lineDraw-wrap.type2 .midi-draw:after, .lineDraw-wrap.type2 .midi-draw > i:before, .lineDraw-wrap.type2 .midi-draw > i:after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+  }
+  .lineDraw-wrap.type2 .midi-draw:before {
+    top: -6px;
+    left: -6px;
+  }
+  .lineDraw-wrap.type2 .midi-draw:after {
+    top: -6px;
+    right: -6px;
+  }
+  .lineDraw-wrap.type2 .midi-draw > i:before {
+    bottom: -6px;
+    left: -6px;
+  }
+  .lineDraw-wrap.type2 .midi-draw > i:after {
+    bottom: -6px;
+    right: -6px;
+  }
+  .lineDraw-wrap.type2 .front-draw {
+    width: 9rem;
+    height: 9rem;
+  }
+  .lineDraw-wrap.type1 {
+    width: 23.6rem;
+    height: 23.6rem;
+    margin: 1rem 0 1rem 1rem;
+  }
+  .lineDraw-wrap.type1 .lineDraw-conts {
+    width: 13rem;
+    height: 13rem;
+  }
+  .lineDraw-wrap.type1 .line.line1 {
+    top: 0;
+    left: -2px;
+    height: 0;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+  }
+  .lineDraw-wrap.type1 .line.line2 {
+    top: -8px;
+    right: -8px;
+    height: 0;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+  }
+  .lineDraw-wrap.type1 .line.line3 {
+    bottom: 0px;
+    left: -2px;
+    height: 0;
+    transform: rotate(135deg);
+    transform-origin: bottom left;
+  }
+  .lineDraw-wrap.type1 .line.line4 {
+    bottom: -8px;
+    right: 4px;
+    height: 0;
+    transform: rotate(135deg);
+    transform-origin: bottom right;
+  }
+  .lineDraw-wrap.type1 .line.line5 {
+    top: 82px;
+    left: -2px;
+    height: 0;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+  }
+  .lineDraw-wrap.type1 .line.line6 {
+    top: 0px;
+    left: 82px;
+    height: 0;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+  }
 }
-
-.lineDraw-wrap.type2 .midi-draw > i:before {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  left: -6px;
-  width: 10px;
-  height: 10px;
-  background: #FFF;
-  border: 2px solid #f00;
-}
-
-.lineDraw-wrap.type2 .midi-draw > i:after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  right: -6px;
-  width: 10px;
-  height: 10px;
-  background: #FFF;
-  border: 2px solid #f00;
-}
-
-.lineDraw-wrap.type2 .front-draw {
-  width: 112px;
-  height: 112px;
-  border: 2px dashed #000;
-  transform: translate(-50%, -50%) rotate(-45deg);
-  transform-origin: center center;
-}
-
 .container-contents-wrap {
   /*tab + search header*/
   /* privacy */
@@ -2355,7 +2449,7 @@ input[type=text]::-ms-clear {
     top: 2rem;
   }
 }
-@media (min-width: 320px) and (max-width: 765px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .container-contents-wrap {
     /*tab + search header*/
     /*list detail*/
