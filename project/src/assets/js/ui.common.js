@@ -11,6 +11,7 @@ const uiCommon = (function (uiCommon, $window) {
     uiCommon.titText.init();
     uiCommon.goTop.init();
     uiCommon.accordion.init();
+    uiCommon.lineDraw.init();
   };
 
   uiCommon.mobileCheck = {
@@ -30,7 +31,6 @@ const uiCommon = (function (uiCommon, $window) {
       }
     }
   }
-
   uiCommon.header = {
     init:function(){
       this.event();
@@ -341,6 +341,64 @@ const uiCommon = (function (uiCommon, $window) {
       });  
     }
   }
+  uiCommon.lineDraw = {
+    init:function(){
+      this.event();
+    },
+    event:function(){
+      let line1 = document.querySelectorAll('.lineDraw-wrap.type3 .front-line i');
+      let line2 = document.querySelectorAll('.lineDraw-wrap.type3 .back-line i');
+      for(var i=0; i<line1.length; i++){
+          let angle = 180 /line1.length; 
+          gsap.to(line1[i], {duration:1, rotate: i*angle , ease: "power3"}, 0);
+          //gsap.to(line[i], {duration:1, rotate: i*angle , ease: "power3"}, 0.2);
+      }
+      for(var i=0; i<line2.length; i++){
+          let angle = 180 /line2.length; 
+          gsap.to('.lineDraw-wrap.type3 .back-line', {duration:1.2, rotate: 180 , ease: "power3"}, 0);
+          gsap.to(line2[i], {duration:1, rotate: i*angle , ease: "power3"}, 0);
+          //gsap.to(line[i], {duration:1, rotate: i*angle , ease: "power3"}, 0.2);
+      }
+      let tl1 = gsap.timeline({
+          repeat:0, 
+          repeatDelay:1, 
+          yoyo:false,
+          scrollTrigger:{
+          trigger:'.lineDraw-wrap',
+          immediateRender: false,
+          // start: "top 50%",
+          // end: "top 50%",
+          markers: true,
+          toggleActions:'restart none restart none'
+          }
+      });
+
+      
+      // let tl2 = gsap.timeline({repeat:0, repeatDelay:1, yoyo:false});
+      function rectDraw(name, psNum, lineNum){
+          let draws = document.querySelectorAll('.lineDraw-wrap.type1 .lineDraw-conts');
+          let parentW = document.querySelector('.lineDraw-wrap.type1').offsetWidth; //250
+          for(var i=1; i<draws.length; i++){
+              name.to(draws[i], {duration:0.6, x:(i*psNum)+lineNum, y:(i*psNum)+lineNum , ease: "power3"}, 0.2);
+          }
+      }
+      function lineDraw(name){
+          let draws = document.querySelectorAll('.lineDraw-wrap.type1 .line');
+          let h;
+          for(var i=0; i<draws.length; i++){                
+              (i < 4) ? h = 118 : h=234;
+              name.to(draws[i], {duration:0.8, height:h, ease: "power3"}, 0.2);
+          }
+      }
+      tl1.add(rectDraw(tl1, 40, 4));    
+      tl1.add(lineDraw(tl1));
+      tl1.fromTo('.lineDraw-wrap.type2 .front-draw',{rotate:-45}, {duration:2, rotate:405, ease: "power3"}, 0);             
+      tl1.fromTo('.lineDraw-wrap.type2 .midi-draw',{rotate:-45}, {duration:2, rotate:315, ease: "power3"}, 0.5); 
+      tl1.fromTo('.lineDraw-wrap.type2 .back-draw',{rotate:0}, {duration:1, rotate:180, ease: "power3"}, 1);
+    }
+  }
+
+
   uiCommon.init();
   return uiCommon;
 })(window.uiCommon || {}, $(window));

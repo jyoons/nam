@@ -1993,6 +1993,235 @@ input[type=text]::-ms-clear {
     padding: 3rem 0 1.2rem;
   }
 }
+.figure-wrap {
+  position: relative;
+}
+.figure-wrap + .layout-wrap {
+  margin-top: 25.5rem;
+}
+.figure-conts {
+  position: relative;
+  width: 50%;
+  min-width: 85rem;
+  overflow: hidden;
+}
+.figure-conts.type-right {
+  right: 0;
+  margin-left: auto;
+  background: #f0f;
+}
+.figure-conts__text {
+  word-break: keep-all;
+  margin-top: 8rem;
+  font-size: 3.2rem;
+  line-height: 4.8rem;
+  font-weight: 700;
+  font-weight: 400;
+  color: #111111;
+}
+
+.lineDraw-wrap {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.lineDraw-wrap.type3 {
+  width: 80rem;
+  height: 80rem;
+}
+.lineDraw-wrap.type3 .front-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 35rem;
+  height: 35rem;
+  transform: translate(-50%, 0);
+}
+.lineDraw-wrap.type3 .back-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 35rem;
+  height: 35rem;
+  transform: translate(-50%, 0);
+  transform-origin: bottom center;
+}
+.lineDraw-wrap.type3 .front-line > i, .lineDraw-wrap.type3 .back-line > i {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 35rem;
+  transform-origin: bottom center;
+  transform: translateX(-50%) rotate(0deg);
+  background: #111111;
+}
+.lineDraw-wrap.type2 {
+  margin: 0 auto;
+  width: 30rem;
+  height: 30rem;
+}
+.lineDraw-wrap.type2 .lineDraw-conts {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+}
+.lineDraw-wrap.type2 .back-draw {
+  width: 200px;
+  height: 200px;
+  border: 2px solid #000;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+.lineDraw-wrap.type2 .midi-draw {
+  width: 200px;
+  height: 200px;
+  border: 2px dashed #000;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transform-origin: center center;
+}
+
+.lineDraw-wrap.type1 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  background: #CCC;
+}
+
+.lineDraw-wrap.type1 .lineDraw-conts {
+  position: absolute;
+  width: 166px;
+  height: 166px;
+  border: 2px solid #000;
+  box-sizing: border-box;
+}
+
+.lineDraw-wrap.type1 .back-draw {
+  top: 0;
+  left: 0;
+}
+
+.lineDraw-wrap.type1 .midi-draw {
+  top: 0;
+  left: 0;
+}
+
+.lineDraw-wrap.type1 .front-draw {
+  top: 0;
+  left: 0;
+}
+
+.lineDraw-wrap.type1 .line {
+  position: absolute;
+  width: 10px;
+  box-sizing: border-box;
+  border-left: 2px dashed #000;
+}
+
+.lineDraw-wrap.type1 .line.line1 {
+  top: 0;
+  left: -2px;
+  height: 0;
+  transform: rotate(-45deg);
+  transform-origin: top left;
+}
+
+.lineDraw-wrap.type1 .line.line2 {
+  top: -8px;
+  right: -8px;
+  height: 0;
+  transform: rotate(-45deg);
+  transform-origin: top right;
+}
+
+.lineDraw-wrap.type1 .line.line3 {
+  bottom: 0px;
+  left: -2px;
+  height: 0;
+  transform: rotate(135deg);
+  transform-origin: bottom left;
+}
+
+.lineDraw-wrap.type1 .line.line4 {
+  bottom: -8px;
+  right: 4px;
+  height: 0;
+  transform: rotate(135deg);
+  transform-origin: bottom right;
+}
+
+.lineDraw-wrap.type1 .line.line5 {
+  top: 82px;
+  left: -2px;
+  height: 0;
+  transform: rotate(-45deg);
+  transform-origin: top left;
+}
+
+.lineDraw-wrap.type1 .line.line6 {
+  top: 0px;
+  left: 82px;
+  height: 0;
+  transform: rotate(-45deg);
+  transform-origin: top left;
+}
+
+.lineDraw-wrap.type2 .midi-draw:before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: 10px;
+  height: 10px;
+  background: #FFF;
+  border: 2px solid #f0f;
+}
+
+.lineDraw-wrap.type2 .midi-draw:after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 10px;
+  height: 10px;
+  background: #FFF;
+  border: 2px solid #f00;
+}
+
+.lineDraw-wrap.type2 .midi-draw > i:before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: -6px;
+  width: 10px;
+  height: 10px;
+  background: #FFF;
+  border: 2px solid #f00;
+}
+
+.lineDraw-wrap.type2 .midi-draw > i:after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  width: 10px;
+  height: 10px;
+  background: #FFF;
+  border: 2px solid #f00;
+}
+
+.lineDraw-wrap.type2 .front-draw {
+  width: 112px;
+  height: 112px;
+  border: 2px dashed #000;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transform-origin: center center;
+}
+
 .container-contents-wrap {
   /*tab + search header*/
   /* privacy */
