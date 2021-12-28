@@ -544,42 +544,42 @@ var uiCommon = function (uiCommon, $window) {
       this.event();
     },
     event: function event() {
-      var tl1 = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.lineDraw-wrap.type1',
-          toggleActions: 'restart none restart none'
-        }
-      });
-      var tl2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.lineDraw-wrap.type2',
-          toggleActions: 'restart none restart none'
-        }
-      });
-      var tl3 = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.lineDraw-wrap.type3',
-          toggleActions: 'restart none restart none'
-        }
-      });
-      var gauge;
-      var lineh1;
-      var lineh2;
-      var lineh3;
-      var lineh4;
-
-      if ($('.lineDraw-wrap.type1 .back-draw').width() < 150) {
-        //mobile size
-        gauge = 30;
-        lineh1 = 90;
-        lineh2 = 156;
-      } else {
-        gauge = 40;
-        lineh1 = 118;
-        lineh2 = 234;
-      }
-
+      var tl1;
+      var tl2;
+      var tl3;
+      lineMove();
       $(window).on('resize', function () {
+        tl1.kill();
+        tl2.kill();
+        tl3.kill();
+        lineMove();
+      });
+
+      function lineMove() {
+        tl1 = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.lineDraw-wrap.type1',
+            toggleActions: 'restart none restart none'
+          }
+        });
+        tl2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.lineDraw-wrap.type2',
+            toggleActions: 'restart none restart none'
+          }
+        });
+        tl3 = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.lineDraw-wrap.type3',
+            toggleActions: 'restart none restart none'
+          }
+        });
+        var gauge;
+        var lineh1;
+        var lineh2;
+        var lineh3;
+        var lineh4;
+
         if ($('.lineDraw-wrap.type1 .back-draw').width() < 150) {
           //mobile size
           gauge = 30;
@@ -591,99 +591,97 @@ var uiCommon = function (uiCommon, $window) {
           lineh2 = 234;
         }
 
-        tl1.seek(0);
-        tl1.restart();
-      });
-      tl1.add(rectDraw(tl1, gauge, 4));
-      tl1.add(lineDraw(tl1));
-      tl3.add(lineDraw2(tl3));
-      tl2.fromTo('.lineDraw-wrap.type2 .front-draw', {
-        rotate: -45
-      }, {
-        duration: 2,
-        rotate: 405,
-        ease: "power3"
-      }, 0);
-      tl2.fromTo('.lineDraw-wrap.type2 .midi-draw', {
-        rotate: -45
-      }, {
-        duration: 2,
-        rotate: 315,
-        ease: "power3"
-      }, 0.5);
-      tl2.fromTo('.lineDraw-wrap.type2 .back-draw', {
-        rotate: 0
-      }, {
-        duration: 1,
-        rotate: 180,
-        ease: "power3"
-      }, 1);
+        tl1.add(rectDraw(tl1, gauge, 4));
+        tl1.add(lineDraw(tl1));
+        tl3.add(lineDraw2(tl3));
+        tl2.fromTo('.lineDraw-wrap.type2 .front-draw', {
+          rotate: -45
+        }, {
+          duration: 2,
+          rotate: 405,
+          ease: "power3"
+        }, 0);
+        tl2.fromTo('.lineDraw-wrap.type2 .midi-draw', {
+          rotate: -45
+        }, {
+          duration: 2,
+          rotate: 315,
+          ease: "power3"
+        }, 0.5);
+        tl2.fromTo('.lineDraw-wrap.type2 .back-draw', {
+          rotate: 0
+        }, {
+          duration: 1,
+          rotate: 180,
+          ease: "power3"
+        }, 1);
 
-      function rectDraw(name, psNum, lineNum) {
-        var draws = document.querySelectorAll('.lineDraw-wrap.type1 .lineDraw-conts');
-        var parentW = document.querySelector('.lineDraw-wrap.type1').offsetWidth;
+        function rectDraw(name, psNum, lineNum) {
+          var draws = document.querySelectorAll('.lineDraw-wrap.type1 .lineDraw-conts');
+          var parentW = document.querySelector('.lineDraw-wrap.type1').offsetWidth;
 
-        for (var i = 1; i < draws.length; i++) {
-          name.fromTo(draws[i], {
-            x: 0,
-            y: 0
-          }, {
-            duration: 1,
-            x: i * psNum + lineNum,
-            y: i * psNum + lineNum,
-            ease: "power3"
-          }, 0.2);
-        }
-      }
-
-      function lineDraw(name) {
-        var draws = document.querySelectorAll('.lineDraw-wrap.type1 .line');
-        var h;
-
-        for (var i = 0; i < draws.length; i++) {
-          i < 4 ? h = lineh1 : h = lineh2;
-          name.fromTo(draws[i], {
-            height: 0
-          }, {
-            duration: 1,
-            height: h,
-            ease: "power3"
-          }, 0.2);
-        }
-      }
-
-      function lineDraw2(name) {
-        var line1 = document.querySelectorAll('.lineDraw-wrap.type3 .front-line i');
-        var line2 = document.querySelectorAll('.lineDraw-wrap.type3 .back-line i');
-
-        for (var i = 0; i < line1.length; i++) {
-          var angle = 180 / line1.length;
-          name.fromTo(line1[i], {
-            rotate: 0
-          }, {
-            duration: 1,
-            rotate: i * angle,
-            ease: "power3"
-          }, 1);
+          for (var i = 1; i < draws.length; i++) {
+            name.fromTo(draws[i], {
+              x: 0,
+              y: 0
+            }, {
+              duration: 1,
+              x: i * psNum + lineNum,
+              y: i * psNum + lineNum,
+              ease: "power3"
+            }, 0.2);
+          }
         }
 
-        for (var i = 0; i < line2.length; i++) {
-          var _angle = 180 / line2.length;
+        function lineDraw(name) {
+          var draws = document.querySelectorAll('.lineDraw-wrap.type1 .line');
+          var h;
 
-          name.fromTo('.lineDraw-wrap.type3 .back-line', {
-            rotate: 0
-          }, {
-            duration: 0.8,
-            rotate: 180,
-            ease: "power3"
-          }, 1);
-          name.fromTo(line2[i], {
-            rotate: 0
-          }, {
-            duration: 1,
-            rotate: i * _angle,
-            ease: "power3"
-          }, 1);
+          for (var i = 0; i < draws.length; i++) {
+            i < 4 ? h = lineh1 : h = lineh2;
+            name.fromTo(draws[i], {
+              height: 0
+            }, {
+              duration: 1,
+              height: h,
+              ease: "power3"
+            }, 0.2);
+          }
+        }
+
+        function lineDraw2(name) {
+          var line1 = document.querySelectorAll('.lineDraw-wrap.type3 .front-line i');
+          var line2 = document.querySelectorAll('.lineDraw-wrap.type3 .back-line i');
+
+          for (var i = 0; i < line1.length; i++) {
+            var angle = 180 / line1.length;
+            name.fromTo(line1[i], {
+              rotate: 0
+            }, {
+              duration: 1,
+              rotate: i * angle,
+              ease: "power3"
+            }, 1);
+          }
+
+          for (var i = 0; i < line2.length; i++) {
+            var _angle = 180 / line2.length;
+
+            name.fromTo('.lineDraw-wrap.type3 .back-line', {
+              rotate: 0
+            }, {
+              duration: 0.8,
+              rotate: 180,
+              ease: "power3"
+            }, 1);
+            name.fromTo(line2[i], {
+              rotate: 0
+            }, {
+              duration: 1,
+              rotate: i * _angle,
+              ease: "power3"
+            }, 1);
+          }
         }
       }
     }
