@@ -277,6 +277,8 @@ body {
 .layout-wrap-conts.type-d{
   border:none;
   padding:0;
+  width:100%;
+  //cursor: url('/assets/images/common/hover_contents_circle.svg'), auto;
 }
 .call-center{
   margin-top:15rem;
@@ -306,5 +308,10 @@ body {
   &__list{
     flex:0 0 42rem;
     color:$green5;
+  }
+}
+.custom-mouse-area{
+  a{
+    cursor: url('/assets/images/common/hover_contents_circle.svg'), auto; 
   }
 }

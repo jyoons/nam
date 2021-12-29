@@ -500,6 +500,7 @@ body {
 .layout-wrap-conts.type-d {
   border: none;
   padding: 0;
+  width: 100%;
 }
 
 .call-center {
@@ -538,6 +539,10 @@ body {
 .call-center__list {
   flex: 0 0 42rem;
   color: #274b48;
+}
+
+.custom-mouse-area a {
+  cursor: url("/assets/images/common/hover_contents_circle.svg"), auto;
 }
 
 .header {
