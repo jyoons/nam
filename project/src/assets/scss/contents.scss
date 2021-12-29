@@ -77,6 +77,9 @@
             background-position: center;
             background-size:2.4rem;
         }
+        & + *{
+            margin-top: 2rem;
+        }
     }
     /*list detail*/
     .board-detail-wrap{padding-top:10rem;}
@@ -186,6 +189,9 @@
                 display: block;
                 width: 100%;
             }
+            & + *{
+                margin-top: 1.6rem;
+            }    
         }
         /* layout detail */
         .layout-wrap + .btn-wrap{
