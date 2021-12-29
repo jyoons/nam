@@ -251,6 +251,12 @@ body {
   height: auto;
   overflow: hidden;
 }
+.container-header__title.pc {
+  display: block;
+}
+.container-header__title.mobile {
+  display: none;
+}
 .container-header__title > div {
   position: relative;
   height: auto;
@@ -1602,6 +1608,12 @@ body {
     font-size: 6rem;
     line-height: 7rem;
     letter-spacing: 0;
+  }
+  .container-header__title.pc {
+    display: none;
+  }
+  .container-header__title.mobile {
+    display: block;
   }
   .container-header__title > div + div {
     margin-top: 0.6rem;

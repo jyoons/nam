@@ -50,6 +50,8 @@ body {
   margin:0 auto;
   overflow:hidden;
   &__title{  
+    &.pc{display:block;}
+    &.mobile{display:none;}
     font-size:12rem;
     font-weight:700;
     line-height:12rem;

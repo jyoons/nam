@@ -555,7 +555,11 @@ var uiCommon = function (uiCommon, $window) {
   };
   uiCommon.lineDraw = {
     init: function init() {
-      this.event();
+      var flagLen = $('.subMain-header-wrap').length;
+
+      if (flagLen > 0) {
+        this.event();
+      }
     },
     event: function event() {
       var tl1;
