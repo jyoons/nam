@@ -56,6 +56,22 @@
   justify-content: center;
   font-weight: 400;
 }
+.btns.icon i {
+  width: 2.4rem;
+  height: 2.4rem;
+  background-size: 2.4rem 2.4rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+.btns.icon i + em {
+  margin-left: 0.8rem;
+}
+.btns.icon i.i-print {
+  background-image: url("/assets/images/common/ico_print.svg");
+}
+.btns.icon i.i-list {
+  background-image: url("/assets/images/common/ico_list.svg");
+}
 .btns.icon em {
   font-style: normal;
 }

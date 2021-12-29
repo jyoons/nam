@@ -49,20 +49,20 @@
         align-items: center;
         justify-content: center;
         font-weight:400;
-        // i{
-        //     width:2.4rem;
-        //     height:2.4rem;
-        //     background-size: 2.4rem 2.4rem;
-        //     background-position:0 0;
-        //     background-repeat: no-repeat;
-        //     & + em{margin-left:0.8rem;}
-        //     &.i-print{
-        //         background-image: url('/assets/images/common/ico_print.svg');
-        //     }
-        //     &.i-list{
-        //         background-image: url('/assets/images/common/ico_list.svg');
-        //     }
-        // }
+        i{
+            width:2.4rem;
+            height:2.4rem;
+            background-size: 2.4rem 2.4rem;
+            background-position:0 0;
+            background-repeat: no-repeat;
+            & + em{margin-left:0.8rem;}
+            &.i-print{
+                background-image: url('/assets/images/common/ico_print.svg');
+            }
+            &.i-list{
+                background-image: url('/assets/images/common/ico_list.svg');
+            }
+        }
         em{font-style: normal;}       
     }
 }
