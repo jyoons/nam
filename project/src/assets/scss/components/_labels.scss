@@ -147,8 +147,52 @@
 }
 
 @include response('tablet'){
-/*lineDraw*/
-
+    /*lineDraw*/
+    .figure{
+        &-wrap{
+            & + .layout-wrap{margin-top:20rem;}
+        }
+        &-conts{  
+            min-width:60rem;    
+            & + .figure-conts{margin-top:4rem;}  
+            &.type-width{min-width:60rem;}
+            &.type-right{
+                .figure-conts__text{padding-right:0}
+            }
+        }
+        &-conts__text{
+            margin-top:6rem;
+            @include fontSize('fontS04');
+        }
+    }
+    .lineDraw-wrap{
+        &.type3{
+            width:50rem; 
+            height:50rem;
+            margin:0 auto;
+            .front-line{width:25rem; height:25rem;}
+            .back-line{width:25rem; height:25rem;}
+            .front-line>i, .back-line>i{height:25rem;}
+        }
+        &.type2{
+            margin-left:auto;
+            width:26.6rem; 
+            height:26.6rem;
+            .back-draw{width:15rem; height:15rem;}
+            .midi-draw{
+                width:18rem; 
+                height:18rem;
+            }
+            .front-draw{width:9rem; height:9rem;}
+        }
+        &.type1{
+            width:23.6rem; 
+            height:23.6rem;
+            margin:2rem 0 0 4rem;
+            //margin:2rem 0 0 8rem;
+            .lineDraw-conts{width:13rem; height:13rem;}
+        }
+    }
 }
 @include response('mobile'){
     /*lineDraw*/
@@ -178,78 +222,26 @@
             width:26rem; 
             height:26rem;
             margin:0 auto;
-            .front-line{
-                width:13rem; 
-                height:13rem; 
-            }
-            .back-line{             
-                width:13rem; 
-                height:13rem;               
-            }
-            .front-line>i, .back-line>i{               
-                height:13rem;                
-            }
+            .front-line{width:13rem; height:13rem;}
+            .back-line{width:13rem; height:13rem;}
+            .front-line>i, .back-line>i{height:13rem;}
         }
         &.type2{
             margin-left:auto;
             width:23.6rem; 
             height:23.6rem;
-            .back-draw{
-                width:15rem;
-                height:15rem;
-            }
+            .back-draw{width:15rem; height:15rem;}
             .midi-draw{
                 width:15rem; 
-                height:15rem; 
-                &:before, &:after, &>i:before, &>i:after{
-                    content:''; 
-                    position:absolute; 
-                    width:10px; 
-                    height:10px; 
-                }
-                &:before{
-                    top:-6px; 
-                    left:-6px;
-                }
-                &:after{
-                    top:-6px; 
-                    right:-6px;
-                }
-                &>i:before{
-                    bottom:-6px;
-                    left:-6px;
-                }
-                &>i:after{
-                    bottom:-6px;
-                    right:-6px;
-                }
+                height:15rem;
             }
-            .front-draw{
-                width:9rem;
-                height:9rem;
-            }
+            .front-draw{width:9rem; height:9rem;}
         }
         &.type1{
             width:23.6rem; 
             height:23.6rem;
             margin:1rem 0 1rem 1rem;
-            .lineDraw-conts{
-                // position:absolute; 
-                width:13rem; 
-                height:13rem; 
-                // border:2px solid $gray8;        
-            }
-            .line{
-                // position:absolute; 
-                // width:1rem; 
-                // border-left:2px dashed $gray8;  
-                &.line1{top:0; left:-2px; height:0; transform:rotate(-45deg); transform-origin:top left;}    
-                &.line2{top:-8px; right:-8px; height:0; transform:rotate(-45deg); transform-origin:top right;}
-                &.line3{bottom:0px; left:-2px; height:0; transform:rotate(135deg); transform-origin:bottom left;}
-                &.line4{bottom:-8px; right:4px; height:0; transform:rotate(135deg); transform-origin:bottom right;}
-                &.line5{top:82px; left:-2px; height:0; transform:rotate(-45deg); transform-origin:top left;}
-                &.line6{top:0px; left:82px; height:0; transform:rotate(-45deg); transform-origin:top left;}
-            }
+            .lineDraw-conts{width:13rem; height:13rem;}
         }
     }
 }

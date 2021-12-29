@@ -449,12 +449,28 @@ body {
 }
 
 .container-subMain-fixImg {
+  position: relative;
   max-width: calc(100% - 7rem);
-  height: 108rem;
+  height: 100rem;
   overflow: hidden;
   left: 0;
   top: 0;
-  background: #f00;
+}
+.container-subMain-fixImg .fixImg-text {
+  position: absolute;
+  left: 7rem;
+  bottom: 6rem;
+  color: #FFFFFF;
+  font-size: 4.8rem;
+  line-height: 6rem;
+  font-weight: 700;
+  font-weight: 400;
+}
+.container-subMain-fixImg > img {
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  top: -32rem;
 }
 .container-subMain-fixImg + .container-subMain-contents {
   margin-top: 12rem;
@@ -979,6 +995,22 @@ body {
     max-width: calc(100% - 3.2rem);
     left: 0;
     top: 0;
+    height: 90rem;
+  }
+
+  .container-subMain-fixImg {
+    max-width: calc(100% - 3.2rem);
+    left: 0;
+    top: 0;
+  }
+  .container-subMain-fixImg > img {
+    min-width: 170rem;
+    max-width: 100%;
+    top: -27rem;
+    left: 0;
+  }
+  .container-subMain-fixImg .fixImg-text {
+    left: 3.2rem;
   }
 
   .gnb .gnb-logo {
@@ -1228,7 +1260,21 @@ body {
   .container-subMain-fixImg {
     max-width: 100%;
     height: 80rem;
-    background: #f0f;
+  }
+  .container-subMain-fixImg > img {
+    min-width: 140rem;
+    max-width: 100%;
+    top: -25rem;
+    left: -7rem;
+  }
+  .container-subMain-fixImg .fixImg-text {
+    left: 0;
+    bottom: 3.2rem;
+    padding: 0 3.2rem;
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+    font-weight: 500;
+    font-weight: 500;
   }
   .container-subMain-fixImg + .container-subMain-contents {
     margin-top: 10rem;
@@ -1582,7 +1628,7 @@ body {
   .container-header-fixImg img {
     width: 100%;
     min-width: 494px;
-    max-width: 765px;
+    max-width: 768px;
     top: -20rem;
   }
   .container-header-fixImg + .container-contents {
@@ -1646,14 +1692,21 @@ body {
 
   .container-subMain-fixImg {
     max-width: 100%;
-    height: 52.6rem;
-    overflow: hidden;
-    left: 0;
-    top: 0;
-    background: #f00;
+    height: 50rem;
   }
   .container-subMain-fixImg > img {
-    width: 88.2rem;
+    min-width: 88rem;
+    max-width: 10rem;
+    top: -16rem;
+    left: -6rem;
+  }
+  .container-subMain-fixImg .fixImg-text {
+    left: 0;
+    bottom: 3.2rem;
+    padding: 0 3.2rem;
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+    font-weight: 500;
   }
   .container-subMain-fixImg + .container-subMain-contents {
     margin-top: 8rem;

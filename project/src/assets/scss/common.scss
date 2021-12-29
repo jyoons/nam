@@ -26,6 +26,19 @@
         max-width:calc(100% - 3.2rem);
         left:0;
         top:0;
+        height:90rem;
+    }
+    .container-subMain-fixImg{
+        max-width:calc(100% - 3.2rem);
+        left:0;
+        top:0;
+        &>img{
+            min-width:170rem;
+            max-width:100%;
+            top:-27rem;
+            left:0;
+        }
+        .fixImg-text{left:3.2rem;}
     }
     .gnb{
         .gnb-logo{left:3.2rem;}
@@ -259,9 +272,18 @@
     .container-subMain-fixImg{
         max-width:100%;
         height:80rem;
-        background:#f0f;
         &>img{
-            // width:88.2rem;
+            min-width:140rem;
+            max-width:100%;
+            top:-25rem;
+            left:-7rem;
+        }
+        .fixImg-text{
+            left:0;
+            bottom:3.2rem;
+            padding:0 3.2rem;
+            @include fontSize('fontS06');
+            font-weight:500;
         }
         & + .container-subMain-contents{
             margin-top:10rem;
@@ -571,7 +593,7 @@
         img{
             width:100%;
             min-width:494px;
-            max-width:765px;
+            max-width:768px;
             top :-20rem;
         }
         & + .container-contents{padding-top:4.8rem;}
@@ -629,13 +651,19 @@
     }
     .container-subMain-fixImg{
         max-width:100%;
-        height:52.6rem;
-        overflow:hidden;
-        left:0;
-        top:0;
-        background:#f00;
+        height:50rem;
         &>img{
-            width:88.2rem;
+            min-width: 88rem;
+            max-width: 10rem;
+            top:-16rem;
+            left:-6rem;
+        }
+        .fixImg-text{
+            left:0;
+            bottom:3.2rem;
+            padding:0 3.2rem;
+            @include fontSize('fontS05');
+            font-weight:500;
         }
         & + .container-subMain-contents{
             margin-top:8rem;

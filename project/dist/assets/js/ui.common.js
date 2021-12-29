@@ -275,10 +275,13 @@ var uiCommon = function (uiCommon, $window) {
   uiCommon.titImg = {
     init: function init() {
       var contlen = $('.container-header-fixImg').length;
+      var contlenD = $('.container-subMain-fixImg').length;
 
       if (contlen > 0) {
         this.setDefault();
         this.event();
+      } else if (contlenD > 0) {
+        this.eventD();
       }
     },
     setDefault: function setDefault() {
@@ -306,6 +309,18 @@ var uiCommon = function (uiCommon, $window) {
         setTimeout(function () {
           _this.setDefault();
         }, 100);
+      });
+    },
+    eventD: function eventD() {
+      $(window).on('scroll', function () {
+        var _thisTop = $(window).scrollTop();
+
+        gsap.to('.container-subMain-fixImg>img', {
+          duration: 0,
+          x: 0,
+          y: _thisTop * 0.2,
+          ease: "power1"
+        });
       });
     }
   };
@@ -618,7 +633,6 @@ var uiCommon = function (uiCommon, $window) {
 
         function rectDraw(name, psNum, lineNum) {
           var draws = document.querySelectorAll('.lineDraw-wrap.type1 .lineDraw-conts');
-          var parentW = document.querySelector('.lineDraw-wrap.type1').offsetWidth;
 
           for (var i = 1; i < draws.length; i++) {
             name.fromTo(draws[i], {

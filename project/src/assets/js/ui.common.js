@@ -186,9 +186,12 @@ const uiCommon = (function (uiCommon, $window) {
   uiCommon.titImg = {
     init: function(){
       let contlen = $('.container-header-fixImg').length;
+      let contlenD = $('.container-subMain-fixImg').length;
       if(contlen > 0){
         this.setDefault();
         this.event();
+      }else if(contlenD > 0){
+        this.eventD();
       }
       
     },
@@ -210,6 +213,12 @@ const uiCommon = (function (uiCommon, $window) {
         setTimeout(function(){
           _this.setDefault();
         }, 100);      
+      });
+    },
+    eventD:function(){
+      $(window).on('scroll', function(){
+        var _thisTop = $(window).scrollTop();
+        gsap.to('.container-subMain-fixImg>img', {duration:0, x:0, y:(_thisTop * 0.2), ease: "power1"});
       });
     }
   }
@@ -431,7 +440,6 @@ const uiCommon = (function (uiCommon, $window) {
         tl2.fromTo('.lineDraw-wrap.type2 .back-draw',{rotate:0}, {duration:1, rotate:180, ease: "power3"}, 1);         
         function rectDraw(name, psNum, lineNum){
           let draws = document.querySelectorAll('.lineDraw-wrap.type1 .lineDraw-conts');
-          let parentW = document.querySelector('.lineDraw-wrap.type1').offsetWidth;
           for(var i=1; i<draws.length; i++){
               name.fromTo(draws[i], {x:0, y:0}, {duration:1, x:(i*psNum)+lineNum, y:(i*psNum)+lineNum , ease: "power3"}, 0.2);
           }

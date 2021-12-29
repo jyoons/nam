@@ -2179,6 +2179,69 @@ input[type=text]::-ms-clear {
 
 @media (min-width: 768px) and (max-width: 1024px) {
   /*lineDraw*/
+  .figure-wrap + .layout-wrap {
+    margin-top: 20rem;
+  }
+  .figure-conts {
+    min-width: 60rem;
+  }
+  .figure-conts + .figure-conts {
+    margin-top: 4rem;
+  }
+  .figure-conts.type-width {
+    min-width: 60rem;
+  }
+  .figure-conts.type-right .figure-conts__text {
+    padding-right: 0;
+  }
+  .figure-conts__text {
+    margin-top: 6rem;
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+
+  .lineDraw-wrap.type3 {
+    width: 50rem;
+    height: 50rem;
+    margin: 0 auto;
+  }
+  .lineDraw-wrap.type3 .front-line {
+    width: 25rem;
+    height: 25rem;
+  }
+  .lineDraw-wrap.type3 .back-line {
+    width: 25rem;
+    height: 25rem;
+  }
+  .lineDraw-wrap.type3 .front-line > i, .lineDraw-wrap.type3 .back-line > i {
+    height: 25rem;
+  }
+  .lineDraw-wrap.type2 {
+    margin-left: auto;
+    width: 26.6rem;
+    height: 26.6rem;
+  }
+  .lineDraw-wrap.type2 .back-draw {
+    width: 15rem;
+    height: 15rem;
+  }
+  .lineDraw-wrap.type2 .midi-draw {
+    width: 18rem;
+    height: 18rem;
+  }
+  .lineDraw-wrap.type2 .front-draw {
+    width: 9rem;
+    height: 9rem;
+  }
+  .lineDraw-wrap.type1 {
+    width: 23.6rem;
+    height: 23.6rem;
+    margin: 2rem 0 0 4rem;
+  }
+  .lineDraw-wrap.type1 .lineDraw-conts {
+    width: 13rem;
+    height: 13rem;
+  }
 }
 @media (min-width: 320px) and (max-width: 767px) {
   /*lineDraw*/
@@ -2238,28 +2301,6 @@ input[type=text]::-ms-clear {
     width: 15rem;
     height: 15rem;
   }
-  .lineDraw-wrap.type2 .midi-draw:before, .lineDraw-wrap.type2 .midi-draw:after, .lineDraw-wrap.type2 .midi-draw > i:before, .lineDraw-wrap.type2 .midi-draw > i:after {
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 10px;
-  }
-  .lineDraw-wrap.type2 .midi-draw:before {
-    top: -6px;
-    left: -6px;
-  }
-  .lineDraw-wrap.type2 .midi-draw:after {
-    top: -6px;
-    right: -6px;
-  }
-  .lineDraw-wrap.type2 .midi-draw > i:before {
-    bottom: -6px;
-    left: -6px;
-  }
-  .lineDraw-wrap.type2 .midi-draw > i:after {
-    bottom: -6px;
-    right: -6px;
-  }
   .lineDraw-wrap.type2 .front-draw {
     width: 9rem;
     height: 9rem;
@@ -2272,48 +2313,6 @@ input[type=text]::-ms-clear {
   .lineDraw-wrap.type1 .lineDraw-conts {
     width: 13rem;
     height: 13rem;
-  }
-  .lineDraw-wrap.type1 .line.line1 {
-    top: 0;
-    left: -2px;
-    height: 0;
-    transform: rotate(-45deg);
-    transform-origin: top left;
-  }
-  .lineDraw-wrap.type1 .line.line2 {
-    top: -8px;
-    right: -8px;
-    height: 0;
-    transform: rotate(-45deg);
-    transform-origin: top right;
-  }
-  .lineDraw-wrap.type1 .line.line3 {
-    bottom: 0px;
-    left: -2px;
-    height: 0;
-    transform: rotate(135deg);
-    transform-origin: bottom left;
-  }
-  .lineDraw-wrap.type1 .line.line4 {
-    bottom: -8px;
-    right: 4px;
-    height: 0;
-    transform: rotate(135deg);
-    transform-origin: bottom right;
-  }
-  .lineDraw-wrap.type1 .line.line5 {
-    top: 82px;
-    left: -2px;
-    height: 0;
-    transform: rotate(-45deg);
-    transform-origin: top left;
-  }
-  .lineDraw-wrap.type1 .line.line6 {
-    top: 0px;
-    left: 82px;
-    height: 0;
-    transform: rotate(-45deg);
-    transform-origin: top left;
   }
 }
 .container-contents-wrap {

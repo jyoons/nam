@@ -234,16 +234,29 @@ body {
   }
 }
 .container-subMain-fixImg{
+  position:relative;
   max-width:calc(100% - 7rem);
-  height:108rem;
+  height:100rem;
   overflow:hidden;
   left:0;
   top:0;
-  background:#f00;
+  .fixImg-text{
+    position:absolute;
+    left:7rem;
+    bottom:6rem;
+    color:$white;
+    @include fontSize('fontS09');
+    font-weight:400;
+  }
+  &>img{
+    width:100%;
+    max-width:100%;
+    position:absolute;
+    top:-32rem;
+  }
   & + .container-subMain-contents{
     margin-top:12rem;
   }
-
 }
 .container-subMain-contents{
   max-width:139.6rem;
