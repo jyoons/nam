@@ -41,12 +41,10 @@ var uiCommon = function (uiCommon, $window) {
       this.setDefault();
     },
     setDefault: function setDefault() {
-      // let headerH = $('.header').outerHeight();
-      // $('.container').css('padding-top', headerH);
       setTimeout(function () {
         var headerH = $('.header').outerHeight();
         $('.container').css('padding-top', headerH);
-      }, 10); //gsap.to('.header-wrap', {duration:0.1, marginTop:0, ease:'power1'});
+      }, 10);
     },
     event: function event() {
       var lastScroll = 0;

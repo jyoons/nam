@@ -39,13 +39,10 @@ const uiCommon = (function (uiCommon, $window) {
       this.setDefault();
     },
     setDefault:function(){
-      // let headerH = $('.header').outerHeight();
-      // $('.container').css('padding-top', headerH);
       setTimeout(function(){
         let headerH = $('.header').outerHeight();
-      $('.container').css('padding-top', headerH);
+        $('.container').css('padding-top', headerH);
       }, 10);
-      //gsap.to('.header-wrap', {duration:0.1, marginTop:0, ease:'power1'});
     },
     event:function(){
       let lastScroll = 0;
