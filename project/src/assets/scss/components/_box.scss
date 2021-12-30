@@ -11,7 +11,7 @@
         &:nth-child(3n + 1){margin-left:0;}
         &:nth-child(3n){margin-right:0;}
         &:nth-child(1), &:nth-child(2), &:nth-child(3){margin-top:0}
-        &.on, &:hover{
+        &:hover{
             .box-list-items__inner{
                 border:1px solid $accent;
                 transition:border-color 1s ease;
@@ -75,11 +75,11 @@
             align-items: center;
             justify-content: space-between;
             .image-area{
-                width:calc(100% - 7.4rem);     
-            }
-            &>img{
-                max-width:100%;
-                max-height:5.4rem;
+                width:calc(100% - 7.4rem);
+                img{
+                    max-width:100%;
+                    max-height:5.4rem;
+                }
             }
         }
         .arr-btn{
@@ -101,7 +101,12 @@
     }
 } 
 .tab-listWrap + .box-list-wrap{margin-top:4.2rem;}
-
+.dv-mobile .box-list-items{
+    .arr-btn{
+        background-image:url('/assets/images/common/ico_next_white.svg');
+        background-color:$accent;
+    }
+}
 @include response('tablet') {
     .box-list{
         &-items{
@@ -114,7 +119,7 @@
             &:nth-child(3){margin-top:3.2rem}
             &:nth-child(2n){margin-right:0;}
             &:nth-child(2n + 1){margin-left:0;}
-            &.on, &:hover{
+            &:hover{
                 .box-list-items__inner{
                     border:1px solid $accent;
                     transition:border-color 1s ease;

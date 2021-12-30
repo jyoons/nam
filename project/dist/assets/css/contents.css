@@ -1649,18 +1649,18 @@ input[type=text]::-ms-clear {
 .box-list-items:nth-child(1), .box-list-items:nth-child(2), .box-list-items:nth-child(3) {
   margin-top: 0;
 }
-.box-list-items.on .box-list-items__inner, .box-list-items:hover .box-list-items__inner {
+.box-list-items:hover .box-list-items__inner {
   border: 1px solid #25867D;
   transition: border-color 1s ease;
 }
-.box-list-items.on .box-list-items__inner .title, .box-list-items:hover .box-list-items__inner .title {
+.box-list-items:hover .box-list-items__inner .title {
   color: #25867D;
 }
-.box-list-items.on .box-list-items__inner .title:after, .box-list-items:hover .box-list-items__inner .title:after {
+.box-list-items:hover .box-list-items__inner .title:after {
   width: 100%;
   transition: width 0.4s ease;
 }
-.box-list-items.on .box-list-items__inner .arr-btn, .box-list-items:hover .box-list-items__inner .arr-btn {
+.box-list-items:hover .box-list-items__inner .arr-btn {
   background-image: url("/assets/images/common/ico_next_white.svg");
   background-color: #25867D;
   transition: background-color 0.4s ease;
@@ -1717,7 +1717,7 @@ input[type=text]::-ms-clear {
 .box-list .box-list-items__inner .conts .image-area {
   width: calc(100% - 7.4rem);
 }
-.box-list .box-list-items__inner .conts > img {
+.box-list .box-list-items__inner .conts .image-area img {
   max-width: 100%;
   max-height: 5.4rem;
 }
@@ -1740,6 +1740,11 @@ input[type=text]::-ms-clear {
 
 .tab-listWrap + .box-list-wrap {
   margin-top: 4.2rem;
+}
+
+.dv-mobile .box-list-items .arr-btn {
+  background-image: url("/assets/images/common/ico_next_white.svg");
+  background-color: #25867D;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -1768,18 +1773,18 @@ input[type=text]::-ms-clear {
   .box-list-items:nth-child(2n+1) {
     margin-left: 0;
   }
-  .box-list-items.on .box-list-items__inner, .box-list-items:hover .box-list-items__inner {
+  .box-list-items:hover .box-list-items__inner {
     border: 1px solid #25867D;
     transition: border-color 1s ease;
   }
-  .box-list-items.on .box-list-items__inner .title, .box-list-items:hover .box-list-items__inner .title {
+  .box-list-items:hover .box-list-items__inner .title {
     color: #25867D;
   }
-  .box-list-items.on .box-list-items__inner .title:after, .box-list-items:hover .box-list-items__inner .title:after {
+  .box-list-items:hover .box-list-items__inner .title:after {
     width: 100%;
     transition: width 0.4s ease;
   }
-  .box-list-items.on .box-list-items__inner .arr-btn, .box-list-items:hover .box-list-items__inner .arr-btn {
+  .box-list-items:hover .box-list-items__inner .arr-btn {
     background-image: url("/assets/images/common/ico_next_white.svg");
     background-color: #25867D;
     transition: background-color 0.4s ease;
