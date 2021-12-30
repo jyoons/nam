@@ -1,6 +1,17 @@
 /* response */
+@keyframes bar-ani {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
 .wrap.main .header {
   background: none;
+}
+.wrap.main .header .header-wrap {
+  border: none;
 }
 .wrap.main .header.is-scroll, .wrap.main .header.is-gnbOpen {
   background: #FFFFFF;
@@ -28,6 +39,95 @@
 }
 .wrap.main .header .select-title:after {
   background-image: url("/assets/images/common/btn_gnb_global_open_w.svg");
+}
+.wrap.main .section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.wrap.main .section.main-visual {
+  position: fixed;
+}
+.wrap.main .section.section-01 {
+  background: olive;
+}
+.wrap.main .section.section-02 {
+  background: deeppink;
+}
+.wrap.main .section.section-03 {
+  background: blanchedalmond;
+}
+.wrap.main .footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+.wrap.main .main-epilogue {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 68rem;
+  background-image: url("/assets/images/main/img_footer_end.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s;
+}
+.wrap.main .main-epilogue img {
+  position: absolute;
+  top: 50%;
+  left: 29.4rem;
+  transform: translateY(-50%);
+}
+.wrap.main .main-epilogue.show {
+  opacity: 1;
+}
+.wrap.main .main-indi {
+  position: fixed;
+  top: 50%;
+  left: 7rem;
+  z-index: 100;
+  transform: translateY(-50%);
+}
+.wrap.main .main-indi li {
+  font-size: 0;
+}
+.wrap.main .main-indi li ~ * {
+  margin-top: 1.6rem;
+}
+.wrap.main .main-indi li.on a {
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+}
+.wrap.main .main-indi a {
+  display: block;
+  position: relative;
+  width: 2.4rem;
+  height: 2.4rem;
+  transition: all 0.3s;
+}
+.wrap.main .main-indi a::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.6rem;
+  height: 0.6rem;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+.wrap.main .main-indi.color-change li.on a {
+  border-color: #bbbbbb;
+}
+.wrap.main .main-indi.color-change a::before {
+  background-color: #bbbbbb;
 }
 
 .main-popup {
@@ -174,6 +274,7 @@
   float: left;
   height: 100%;
   min-height: 1px;
+  position: relative;
 }
 
 .slick-initialized .slick-slide {
@@ -218,6 +319,129 @@
 .popup-slide .slick-dots > li.slick-active > button {
   border: 1px solid #bbbbbb;
   border-radius: 100%;
+}
+
+.main-slider .slider-title {
+  position: absolute;
+  bottom: 20rem;
+  left: 29.2rem;
+  width: 50%;
+}
+.main-slider .slider-title .main-title {
+  font-size: 8rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+.main-slider .slider-title .sub-title {
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+  margin-bottom: 2rem;
+}
+
+.main-visual .slider-util {
+  position: absolute;
+  bottom: 12rem;
+  left: 29.2rem;
+  z-index: 1;
+}
+.main-visual .slider-util .util {
+  width: 3.6rem;
+  height: 3.6rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.main-visual .slider-util .util-pause {
+  background-image: url("/assets/images/main/btn_indi_pause.svg");
+  display: none;
+}
+.main-visual .slider-util .util-play {
+  background-image: url("/assets/images/main/btn_indi_play.svg");
+  display: none;
+}
+.main-visual .slider-util .util-prev {
+  background-image: url("/assets/images/main/btn_indi_arrow_left.svg");
+}
+.main-visual .slider-util .util-next {
+  background-image: url("/assets/images/main/btn_indi_arrow_right.svg");
+}
+.main-visual .slider-util .util.on {
+  display: inline-block;
+}
+.main-visual .slider-util .page-num {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+.main-visual .slider-util .progress-bar {
+  display: inline-block;
+  position: relative;
+  width: 13rem;
+  height: 1px;
+  margin: 0 2rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+.main-visual .slider-util .progress-bar .bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #FFFFFF;
+  transition: width 0.3s;
+}
+.main-visual .slider-util .progress-bar .bar.bar-ani {
+  animation-name: bar-ani;
+  width: 100%;
+}
+.main-visual .quick-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: auto;
+}
+.main-visual .quick-menu li a {
+  font-size: 3.2rem;
+  line-height: 4.8rem;
+  font-weight: 700;
+  display: block;
+  width: 56.2rem;
+  height: 30rem;
+  font-weight: 400;
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-left: 3.2rem;
+  padding-top: 19rem;
+  transition: background-color 0.3s;
+}
+.main-visual .quick-menu li a span::after {
+  content: "";
+  display: inline-block;
+  width: 3.6rem;
+  height: 3.6rem;
+  background-image: url("/assets/images/main/ico_rnb_arrow.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin-left: 2rem;
+  vertical-align: middle;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.main-visual .quick-menu li a:hover {
+  background-color: #274b48;
+  font-weight: 700;
+}
+.main-visual .quick-menu li a:hover span::after {
+  opacity: 1;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {

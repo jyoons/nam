@@ -593,20 +593,15 @@ var uiCommon = function (uiCommon, $window) {
           }
         });
         var gauge;
-        var lineh1;
-        var lineh2;
-        var lineh3;
-        var lineh4;
+        var lineh;
 
         if ($('.lineDraw-wrap.type1 .back-draw').width() < 150) {
           //mobile size
           gauge = 30;
-          lineh1 = 90;
-          lineh2 = 156;
+          lineh = 90;
         } else {
           gauge = 40;
-          lineh1 = 118;
-          lineh2 = 234;
+          lineh = 118;
         }
 
         tl1.add(rectDraw(tl1, gauge, 4));
@@ -616,23 +611,23 @@ var uiCommon = function (uiCommon, $window) {
           rotate: -45
         }, {
           duration: 2,
-          rotate: 405,
-          ease: "power3"
+          rotate: 135,
+          ease: Power4.easeInOut
         }, 0);
         tl2.fromTo('.lineDraw-wrap.type2 .midi-draw', {
           rotate: -45
         }, {
-          duration: 2,
-          rotate: 315,
-          ease: "power3"
-        }, 0.5);
+          duration: 1.2,
+          rotate: 135,
+          ease: Power4.easeInOut
+        }, 0.8);
         tl2.fromTo('.lineDraw-wrap.type2 .back-draw', {
           rotate: 0
         }, {
-          duration: 1,
-          rotate: 180,
-          ease: "power3"
-        }, 1);
+          duration: 1.4,
+          rotate: 90,
+          ease: Power4.easeInOut
+        }, 0.6);
 
         function rectDraw(name, psNum, lineNum) {
           var draws = document.querySelectorAll('.lineDraw-wrap.type1 .lineDraw-conts');
@@ -642,10 +637,10 @@ var uiCommon = function (uiCommon, $window) {
               x: 0,
               y: 0
             }, {
-              duration: 1,
+              duration: 1.6,
               x: i * psNum + lineNum,
               y: i * psNum + lineNum,
-              ease: "power3"
+              ease: Power4.easeInOut
             }, 0.2);
           }
         }
@@ -655,13 +650,13 @@ var uiCommon = function (uiCommon, $window) {
           var h;
 
           for (var i = 0; i < draws.length; i++) {
-            i < 4 ? h = lineh1 : h = lineh2;
+            h = lineh;
             name.fromTo(draws[i], {
               height: 0
             }, {
-              duration: 1,
+              duration: 1.6,
               height: h,
-              ease: "power3"
+              ease: Power4.easeInOut
             }, 0.2);
           }
         }
@@ -669,35 +664,42 @@ var uiCommon = function (uiCommon, $window) {
         function lineDraw2(name) {
           var line1 = document.querySelectorAll('.lineDraw-wrap.type3 .front-line i');
           var line2 = document.querySelectorAll('.lineDraw-wrap.type3 .back-line i');
+          name.fromTo('.lineDraw-wrap.type3 .front-line', {
+            rotate: 0
+          }, {
+            duration: 1.2,
+            rotate: 90,
+            ease: Power4.easeInOut
+          });
+          name.fromTo('.lineDraw-wrap.type3 .back-line', {
+            rotate: 180
+          }, {
+            duration: 1.2,
+            rotate: 270,
+            ease: Power4.easeInOut
+          }, 0);
 
           for (var i = 0; i < line1.length; i++) {
             var angle = 180 / line1.length;
             name.fromTo(line1[i], {
               rotate: 0
             }, {
-              duration: 1,
+              duration: 1.2,
               rotate: i * angle,
-              ease: "power3"
-            }, 1);
+              ease: Power4.easeInOut
+            }, 0);
           }
 
           for (var i = 0; i < line2.length; i++) {
             var _angle = 180 / line2.length;
 
-            name.fromTo('.lineDraw-wrap.type3 .back-line', {
-              rotate: 0
-            }, {
-              duration: 0.8,
-              rotate: 180,
-              ease: "power3"
-            }, 1);
             name.fromTo(line2[i], {
               rotate: 0
             }, {
-              duration: 1,
+              duration: 1.2,
               rotate: i * _angle,
-              ease: "power3"
-            }, 1);
+              ease: Power4.easeInOut
+            }, 0);
           }
         }
       }

@@ -292,6 +292,33 @@
     .container-subMain-contents{
         padding:0 3.2rem;
     }
+    /*layout wrap*/
+    .container-contents-wrap .layout-wrap.type1:last-of-type{margin-bottom:3rem;}
+     .layout-wrap {
+        &+& {
+            margin-top: 6rem;
+        }
+        &.type1{
+            margin:14rem 0 0;
+            &>div:first-child{
+                flex:0 0 40%;
+            }
+            &>div:nth-child(2){padding-top:0;}
+        } 
+    }
+    .layout-wrap-header {
+        &__title {
+            @include fontSize('fontS07');
+            margin-bottom: 2rem;
+        }
+    }
+    .layout-wrap-conts {
+        padding: 2rem 0;
+    }
+
+    .input-layout-title {
+        @include fontSize('fontS03');
+    }
     .layout-wrap-header.type-d{
         .layout-wrap-header__text{
             @include fontSize('fontS03');
@@ -674,7 +701,42 @@
     .container-subMain-contents{
         padding:0 3.2rem;
     }
+     /* layout-wrap */
+     .container-contents-wrap .layout-wrap.type1:last-of-type{margin-bottom:2rem;}
+     .layout-wrap{
+        & + &{
+          margin-top: 6rem;
+        }
+        & +  &.type1{margin-top:8rem;}
+        &.type1{
+            margin:8rem 0 0;
+            display:block;
+            &>div:nth-child(2){padding-top:0;}
+        } 
+    }
+    .layout-wrap-header {
+        &.type-d1 .layout-wrap-header__title{
+            @include fontSize('fontS08');
+            margin-bottom: 3.2rem;
+        }
+        &__title {
+            @include fontSize('fontS05');
+            margin-bottom: 2rem;
+        }
+    }
+
+    .layout-wrap-conts {
+        padding: 2rem 0;
+        &-privacy {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+    .input-layout-title {
+        @include fontSize('fontS01');
+    }
     .layout-wrap-header.type-d{
+        &.col-2 button.btns.icon{display:none;}
         margin-bottom:4.8rem;
         .layout-wrap-header__title{
             @include fontSize('fontS08');

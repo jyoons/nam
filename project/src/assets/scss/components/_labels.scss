@@ -34,6 +34,7 @@
     &.type3{
         width:80rem; 
         height:80rem;
+        transform-origin: center;
         .front-line{
             position:absolute; 
             top:0; 
@@ -41,6 +42,7 @@
             width:35rem; 
             height:35rem; 
             transform:translate(-50%, 0);
+            transform-origin:bottom center;
         }
         .back-line{
             position:absolute; 
@@ -48,7 +50,7 @@
             left:50%; 
             width:35rem; 
             height:35rem;  
-            transform:translate(-50%, 0); 
+            transform:translate(-50%, 0) rotate(180deg); 
             transform-origin:bottom center;
         }
         .front-line>i, .back-line>i{
@@ -128,6 +130,7 @@
             height:16.6rem; 
             border:2px solid $gray8;        
         }
+        .lineDraw-conts.midi-draw{border:2px dotted $gray8;}
         .back-draw, .midi-draw, .front-draw{
             top:0; 
             left:0;
@@ -137,11 +140,13 @@
             width:1rem; 
             border-left:2px dotted $gray8;  
             &.line1{top:0; left:-2px; height:0; transform:rotate(-45deg); transform-origin:top left;}    
-            &.line2{top:-8px; right:-8px; height:0; transform:rotate(-45deg); transform-origin:top right;}
-            &.line3{bottom:0px; left:-2px; height:0; transform:rotate(135deg); transform-origin:bottom left;}
+            &.line2{top:-8px; right:-8px; height:0; transform:rotate(-45deg); transform-origin:top right; border-left:2px solid $gray8;}
+            &.line3{bottom:0px; left:-2px; height:0; transform:rotate(135deg); transform-origin:bottom left; border-left:2px solid $gray8;}
             &.line4{bottom:-8px; right:4px; height:0; transform:rotate(135deg); transform-origin:bottom right;}
             &.line5{top:82px; left:-2px; height:0; transform:rotate(-45deg); transform-origin:top left;}
             &.line6{top:0px; left:82px; height:0; transform:rotate(-45deg); transform-origin:top left;}
+            &.line7{top:82px; left:162px; height:0; transform:rotate(-45deg); transform-origin:top left;}
+            &.line8{top:162px; left:80px; height:0; transform:rotate(-45deg); transform-origin:top left;}
         }
     }
 }
@@ -191,6 +196,13 @@
             margin:2rem 0 0 4rem;
             //margin:2rem 0 0 8rem;
             .lineDraw-conts{width:13rem; height:13rem;}
+            .line{
+                &.line3{left:-1px;}
+                &.line5{top:64px; left:-2px;}
+                &.line6{top:0px; left:64px;}
+                &.line7{top:64px; left:126px;}
+                &.line8{top:128px; left:62px;}
+            }
         }
     }
 }
@@ -242,6 +254,13 @@
             height:23.6rem;
             margin:1rem 0 1rem 1rem;
             .lineDraw-conts{width:13rem; height:13rem;}
+            .line{
+                &.line3{left:-1px;}
+                &.line5{top:64px; left:-2px;}
+                &.line6{top:0px; left:64px;}
+                &.line7{top:64px; left:126px;}
+                &.line8{top:128px; left:62px;}
+            }
         }
     }
 }

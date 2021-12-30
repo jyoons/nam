@@ -418,52 +418,48 @@ const uiCommon = (function (uiCommon, $window) {
         });
           
         let gauge;
-        let lineh1;
-        let lineh2;
-        let lineh3;
-        let lineh4;
+        let lineh;
   
         if($('.lineDraw-wrap.type1 .back-draw').width() < 150){//mobile size
           gauge = 30;
-          lineh1 = 90;
-          lineh2 = 156;
+          lineh = 90;
         }else{
           gauge = 40;
-          lineh1 = 118;
-          lineh2 = 234;
+          lineh = 118;
         }
   
         tl1.add(rectDraw(tl1, gauge, 4));    
         tl1.add(lineDraw(tl1));
         tl3.add(lineDraw2(tl3));
-        tl2.fromTo('.lineDraw-wrap.type2 .front-draw',{rotate:-45}, {duration:2, rotate:405, ease: "power3"}, 0);             
-        tl2.fromTo('.lineDraw-wrap.type2 .midi-draw',{rotate:-45}, {duration:2, rotate:315, ease: "power3"}, 0.5); 
-        tl2.fromTo('.lineDraw-wrap.type2 .back-draw',{rotate:0}, {duration:1, rotate:180, ease: "power3"}, 1);         
+        tl2.fromTo('.lineDraw-wrap.type2 .front-draw',{rotate:-45}, {duration:2, rotate:135, ease: Power4.easeInOut}, 0);             
+        tl2.fromTo('.lineDraw-wrap.type2 .midi-draw',{rotate:-45}, {duration:1.2, rotate:135, ease: Power4.easeInOut}, 0.8); 
+        tl2.fromTo('.lineDraw-wrap.type2 .back-draw',{rotate:0}, {duration:1.4, rotate:90, ease: Power4.easeInOut}, 0.6);         
         function rectDraw(name, psNum, lineNum){
           let draws = document.querySelectorAll('.lineDraw-wrap.type1 .lineDraw-conts');
           for(var i=1; i<draws.length; i++){
-              name.fromTo(draws[i], {x:0, y:0}, {duration:1, x:(i*psNum)+lineNum, y:(i*psNum)+lineNum , ease: "power3"}, 0.2);
+              name.fromTo(draws[i], {x:0, y:0}, {duration:1.6, x:(i*psNum)+lineNum, y:(i*psNum)+lineNum , ease: Power4.easeInOut}, 0.2);
           }
         }
         function lineDraw(name){
           let draws = document.querySelectorAll('.lineDraw-wrap.type1 .line');
           let h;
           for(var i=0; i<draws.length; i++){                
-              (i < 4) ? h = lineh1 : h = lineh2;
-              name.fromTo(draws[i], {height:0},{duration:1, height:h, ease: "power3"}, 0.2);
+              h = lineh;
+              name.fromTo(draws[i], {height:0},{duration:1.6, height:h, ease: Power4.easeInOut}, 0.2);
           }
         }    
         function lineDraw2(name){
             let line1 = document.querySelectorAll('.lineDraw-wrap.type3 .front-line i');
             let line2 = document.querySelectorAll('.lineDraw-wrap.type3 .back-line i');
+            name.fromTo('.lineDraw-wrap.type3 .front-line', {rotate:0}, {duration:1.2, rotate:90, ease: Power4.easeInOut});
+            name.fromTo('.lineDraw-wrap.type3 .back-line', {rotate:180}, {duration:1.2, rotate:270 , ease: Power4.easeInOut}, 0);
             for(var i=0; i<line1.length; i++){
-              let angle = 180 /line1.length; 
-              name.fromTo(line1[i], {rotate:0}, {duration:1, rotate: i*angle , ease: "power3"}, 1);
+              let angle = 180 /line1.length;              
+              name.fromTo(line1[i], {rotate:0}, {duration:1.2, rotate: i*angle , ease: Power4.easeInOut}, 0);
             }
             for(var i=0; i<line2.length; i++){
-              let angle = 180 /line2.length; 
-              name.fromTo('.lineDraw-wrap.type3 .back-line', {rotate:0}, {duration:0.8, rotate:180 , ease: "power3"}, 1);
-              name.fromTo(line2[i], {rotate:0}, {duration:1, rotate: i*angle , ease: "power3"}, 1);
+              let angle = 180 /line2.length;       
+              name.fromTo(line2[i], {rotate:0}, {duration:1.2, rotate: i*angle ,ease: Power4.easeInOut}, 0);
             }
         }     
       }
