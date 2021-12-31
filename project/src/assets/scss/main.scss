@@ -2,9 +2,14 @@
 
 @import "base/variables";
 @import "base/mixins";
-@keyframes bar-ani {
-    0%{width: 0;}
-    100%{width: 100%;}
+
+// @keyframes bar-ani {
+//     0%{width: 0;}
+//     100%{width: 100%;}
+// }
+@keyframes aniFadeIn {
+    from {opacity: 0;transform: translateY(40%);-webkit-transform: translateY(40%);}
+    to {opacity: 1;transform: translateY(0);-webkit-transform: translateY(0);}
 }
 
 .wrap.main{
@@ -14,7 +19,7 @@
             border: none;
         }
         &.is-scroll, &.is-gnbOpen{
-            background:$white;
+            // background:$white;
             .logo{
                 background-image:url('/assets/images/common/gnb_logo_color.svg');
             }
@@ -51,15 +56,15 @@
         &.main-visual{
             position: fixed;
         }
-        &.section-01{
-            background: olive;
-        }
+        // &.section-01{
+        //     background: olive;
+        // }
         &.section-02{
             background: deeppink;
         }
-        &.section-03{
-            background: blanchedalmond;
-        }
+        // &.section-03{
+        //     background: blanchedalmond;
+        // }
     }
     .footer{
         position: absolute;
@@ -132,6 +137,9 @@
             }
             a::before{background-color: $gray4;}
         }
+    }
+    .main-layout{
+        display: flex;
     }
 }
 .main-popup{
@@ -334,7 +342,6 @@
         position: absolute;
         bottom: 12rem;
         left: 29.2rem;
-        z-index: 1;
         .util{
             width: 3.6rem;
             height: 3.6rem;
@@ -370,10 +377,9 @@
                 height: 100%;
                 background-color: $white;
                 transition: width 0.3s;
-                &.bar-ani{
-                    animation-name: bar-ani;
-                    width: 100%;
-                }
+                // &.bar-ani{
+                //     animation-name: bar-ani;
+                // }
             }
         }
     }
@@ -384,6 +390,15 @@
         height: 100%;
         border-left: 1px solid rgba(255,255,255,0.3);
         overflow: auto;
+        overflow-x: hidden;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    
+        line-height: 0;
+        animation: aniFadeIn 1.5s;
+        &::-webkit-scrollbar{
+            display: none;
+        }
         li{
             a{
                 @include fontSize('fontS08');

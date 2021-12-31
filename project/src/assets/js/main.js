@@ -10,8 +10,16 @@ const mainUi = (function (mainUi, $window) {
     };
     mainUi.headerCtr = {
         init: function() {
-            //여기 수정하기
-            // $('.header').removeClass('is-scroll');
+            $window.on('scroll',function(){
+                let scTop = $(this).scrollTop();
+                $('.header').removeClass('is-scroll');
+
+                if(scTop > $('.main-visual').height() ){
+                    $('.header').addClass('is-scroll');
+                }else{
+                    $('.header').removeClass('is-scroll');
+                }
+            });
         }
     }
     mainUi.mainPop = {
@@ -50,15 +58,45 @@ const mainUi = (function (mainUi, $window) {
     mainUi.mainVisual = {
         init: function(){
             this.mainSlider();
+            // this.quickMenu();
         },
         mainSlider : function(){
-            const barAni = 3000;
+            const barAni = 18000,
+                  $el_length = $('.main-slider li').length,
+                  $bar = $('.progress-bar .bar'),
+                  timeW = $('.progress-bar').width();
+            let index = $('.page-num__current').text();
 
-            $('.main-slider').on('init',function(event,slick){
-                $(this).siblings('.slider-util').find('.bar').css({'animation-duration': (barAni/1000)+0.3+'s'});
-            });        
+            $('.main-slider').on({
+                init : function(event,slick){
+                    $(this).siblings('.slider-util').find('.bar').css({'animation-duration': (barAni/1000)+0.3+'s'});
+                    $('.page-num__total').text($el_length);
+                    $bar.stop().animate({
+                        width : timeW
+                    }, barAni, "linear", function() {
+                        $(this).css({'width': '0'});
+                    });
+                },
+                beforeChange : function(slick, currentSlide, nextSlide){
+                    $bar.removeClass('bar-ani');
+                    $bar.stop().width(0);
+                },
+                afterChange : function(event, slick, currentSlide){
+                    $('.page-num__current').text(currentSlide+1);
+                    $bar.addClass('bar-ani');
+                    $('.video' + index).trigger('play');
+
+                    $bar.stop().width(0);
+                    $bar.stop().animate({
+                        width : timeW
+                    }, barAni, "linear", function() {
+                        $(this).css({'width': '0'});
+                    });    
+                }
+            });
+
             $('.main-slider').slick({
-                dots: true,
+                dots: false,
                 prevArrow: $('.util-prev'),
                 nextArrow: $('.util-next'),
                 pauseOnHover:false,
@@ -69,30 +107,65 @@ const mainUi = (function (mainUi, $window) {
                 slidesToScroll: 1,
                 autoplay: true,
                 autoplaySpeed: barAni,
-                customPaging: function(slider,i){
-                    return{
-                        sliderPage: function(){
-                            $('.page-num__current').text(i+1);
-                            $('.page-num__total').text(slider.slideCount);
-                        }
-                    }
-                }
             });
-            $('.main-slider').on('afterChange',function(){
-                $('.progress-bar .bar').addClass('bar-ani');
-            });
-            $('.main-slider').on('beforeChange',function(){
-                $('.progress-bar .bar').removeClass('bar-ani');
-            });
+
+            
             $('.util-pause').on('click',function(){
+                let index = $('.page-num__current').text(),
+                    w = $('.progress-bar .bar').width();
+
                 $('.main-slider').slick('slickPause');
                 $(this).removeClass('on').siblings('.util-play').addClass('on');
+
+                $bar.width(w).stop();
+                $('.video' + index).trigger('pause');
+
             });
             $('.util-play').on('click',function(){
+                let index = $('.page-num__current').text(),
+                w = $('.progress-bar .bar').width();
+
                 $('.main-slider').slick('slickPlay');
                 $(this).removeClass('on').siblings('.util-pause').addClass('on');
+
+                $('.video' + index).trigger('play');
+                $bar.stop().animate({
+                    width : timeW
+                }, barAni, "linear", function() {
+                    $('.video' + index).trigger('pause');
+                    $('.video' + index).get(0).currentTime = 0;
+                    $(this).css({'width': '0'});
+                });
             });
-        }
+
+            $('.slick-arrow').on('click',function(){
+                $('.util-play').removeClass('on').siblings('.util-pause').addClass('on');
+                $('.video' + index).trigger('play');
+                console.log(index);
+            });
+        },
+        // quickMenu : function(){
+        //     $('.quick-menu').slick({
+        //         vertical: true,
+        //         verticalSwiping : true,
+        //         infinite :false,
+        //         centerMode: true,
+        //         slidesToShow: 4,
+        //         // slidesToScroll: 4,
+        //         dots: false,
+        //         arrows : false,
+        //         pauseOnHover:false,
+        //     });
+        //     $('.quick-menu').on('wheel',function(e){
+        //         e.preventDefault();
+
+        //         if (e.originalEvent.deltaY < 0) {
+        //             $(this).slick('slickPrev');
+        //         } else {
+        //             $(this).slick('slickNext');
+        //         }
+        //     })
+        // }
     };
     mainUi.scrollEv = {
         init: function(){
@@ -118,7 +191,8 @@ const mainUi = (function (mainUi, $window) {
                 sumHeight = sumHeight + height;
                 $(item).css({ 'top' :  height});
             });
-            $('#wrap.main').css({'height' : sumHeight + epilHeight + 'px'}); // 높이 조절하기
+            // $('#wrap.main').css({'height' : sumHeight + epilHeight + 'px'}); 
+            $('#wrap.main').css({'height' : sumHeight - epilHeight - 180 + 'px'});
         },
         scrollEv: function(){
             let $mainVi = $('.main-visual'),
@@ -128,8 +202,7 @@ const mainUi = (function (mainUi, $window) {
                 $navi = $('.main-indi li'),
                 _top01 = $sec01.offset().top, //1057
                 _top02 = $sec02.offset().top, //2114
-                _top03 = $sec03.offset().top, //9171
-                _apilTop = $('.main .main-epilogue').offset().top; 
+                _top03 = $sec03.offset().top; //9171
 
             $navi.find('a').on('click', function() {
                 var index = $(this).parent().index(),
@@ -169,9 +242,12 @@ const mainUi = (function (mainUi, $window) {
                     sec01_value = scTop * ( d - c ) / _top01 + c;
 
                 
+                // mainvisual
                 sec01_value > -50 && $mainVi.css('top', sec01_value + "%");
-                
-
+                // sec01_value > -50 && $mainVi.css('top',0);
+                // $('.quick-menu').css({
+                //     'transform': 'tramslateY('+ sec01_value + '"%")'
+                // })
                 //section01 지날때
                 if ( scTop > _top01 && scTop < _top02) { 
                     scTop = scTop - $(window).height();
@@ -201,9 +277,12 @@ const mainUi = (function (mainUi, $window) {
                         'position' : 'fixed',
                         'top' : 0
                     });
+                    $mainVi.css({
+                        'opacity':'0',
+                        'position' : 'absolute'
+                    });   
                     scTop = scTop - $(window).height() * 2 - 6000;
                     let sec03_value = scTop * ( d - c ) / _top01 + c;
-                    $mainVi.css({'opacity':'0'});
                     if ( $(window).scrollTop() > _top02 + 6000 ) {
                         $sec02.css({
                             'top' : sec03_value + "%"
@@ -218,16 +297,16 @@ const mainUi = (function (mainUi, $window) {
 
                 //section03 지날때
                 if ( scTop > _top03 ) {
-                    console.log(scTop);//11965
                     scTop = scTop - $(window).height() * 3 - 6000;
-                    console.log(scTop);//2794
                     let sec04_value = scTop * ( d - c ) / _top01 + c;
-                    console.log(sec04_value);
+                    $mainVi.css({
+                        'opacity':'0',
+                        'position' : 'absolute'
+                    });   
                     $sec03.css({
                         'position' : 'fixed',
                         'top' : sec04_value + "%"
                     });
-                    $mainVi.css({'opacity':'0'});
                     $('.main-epilogue').addClass('show');
                 } else {
                     $sec03.css({
@@ -236,22 +315,18 @@ const mainUi = (function (mainUi, $window) {
                     });
                     $('.main-epilogue').removeClass('show');
                 }
-                
 
-                // nav scroll
-                // if(scTop >= 0 && scTop < _top01){
-                //     $navi.eq(0).addClass('on').siblings().removeClass('on');
-                // }else if(scTop >= _top01 && scTop < _top02){
+                
+                // if ( scTop > _top01 -400 && scTop < _top02 -400) {
                 //     $navi.eq(1).addClass('on').siblings().removeClass('on');
-                // }else if(scTop >= _top02 && scTop < _top03){
+                // }else{
+                //     $navi.eq(0).addClass('on').siblings().removeClass('on');
+                // }
+                // if ( scTop > _top02 -400 && scTop < _top03 -400) {
                 //     $navi.eq(2).addClass('on').siblings().removeClass('on');
                 // }else{
-                //     $navi.eq(3).addClass('on').siblings().removeClass('on');
+                //     $navi.eq(1).addClass('on').siblings().removeClass('on');
                 // }
-
-                // console.log(_top01,_top02,_top03); 1057 2114 9171
-                console.log(`스크롤탑 : ${scTop}`);
-
             });
         },
         textAni: function(){
