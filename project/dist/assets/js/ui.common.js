@@ -522,7 +522,9 @@ var uiCommon = function (uiCommon, $window) {
       this.event('.accordion__items__title');
     },
     event: function event(elem) {
-      $(elem).on('click', function () {
+      $(elem).on('click', function (e) {
+        e.stopImmediatePropagation();
+
         var _this = $(this).parents('.accordion__items');
 
         var _thisParents = $(this).parents('.accordion-wrap');
@@ -811,6 +813,28 @@ var uiCommon = function (uiCommon, $window) {
       $('.select-wrap .select1').on('click', function () {
         $(this).parent('.select-box').toggleClass('is-active');
       });
+    }
+  };
+  uiCommon.popup = {
+    init: function init() {//this.event('.accordion__items__title');
+    },
+    open: function open(elem) {
+      var wScrollTop = $(window).scrollTop();
+      $('body').addClass('scrollOff');
+      $('.wrap').addClass('scrollOff').scrollTop(wScrollTop);
+      $('body').append('<div class="dimmed"></div>');
+      $(elem).css({
+        'display': 'block'
+      });
+    },
+    close: function close(elem) {
+      var wScrollTop = $('.wrap').scrollTop();
+      $('body, .wrap').removeClass('scrollOff');
+      $(window).scrollTop(wScrollTop);
+      $(elem).css({
+        'display': 'none'
+      });
+      $('.dimmed').remove();
     }
   };
   uiCommon.init();

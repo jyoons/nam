@@ -358,7 +358,8 @@ const uiCommon = (function (uiCommon, $window) {
       this.event('.accordion__items__title');
     },
     event:function(elem){
-      $(elem).on('click', function(){
+      $(elem).on('click', function(e){
+        e.stopImmediatePropagation();
         let _this = $(this).parents('.accordion__items');
         let _thisParents = $(this).parents('.accordion-wrap');
         if(_this.hasClass('is-active')){//close
@@ -381,7 +382,7 @@ const uiCommon = (function (uiCommon, $window) {
   }
   uiCommon.lineDraw = {
     init:function(){
-     let flagLen = $('.subMain-header-wrap').length;
+    let flagLen = $('.subMain-header-wrap').length;
        if(flagLen > 0){
         this.event();
       }
@@ -560,7 +561,25 @@ const uiCommon = (function (uiCommon, $window) {
         })
     }
   }
-
+  uiCommon.popup = {
+    init: function(){
+      //this.event('.accordion__items__title');
+    },
+    open:function(elem){
+      let wScrollTop = $(window).scrollTop();
+      $('body').addClass('scrollOff');
+      $('.wrap').addClass('scrollOff').scrollTop(wScrollTop);  
+      $('body').append('<div class="dimmed"></div>');
+      $(elem).css({'display':'block'});
+    },
+    close:function(elem){    
+      let wScrollTop = $('.wrap').scrollTop();
+      $('body, .wrap').removeClass('scrollOff');
+      $(window).scrollTop(wScrollTop);
+      $(elem).css({'display':'none'});
+      $('.dimmed').remove();
+    }
+  }
   uiCommon.init();
   return uiCommon;
 })(window.uiCommon || {}, $(window));

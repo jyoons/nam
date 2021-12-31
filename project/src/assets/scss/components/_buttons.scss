@@ -186,54 +186,6 @@
         background-image: url(/assets/images/common/btn_link_hover.svg);
     }
 }
-// sub modal popup
-.pop-wrap{
-    display: inline-block;
-    max-width: 42.4rem;
-    box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.08);
-    background: $white;
-    padding: 3.4rem 2rem 2rem;
-    .pop-title{
-        @include fontSize('fontS06');
-        font-weight: 700;
-        color: $gray8;
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-    .pop-text{
-        @include fontSize('fontS03');
-        color: $gray6;
-        padding-bottom: 6rem;
-        max-width: 36rem;
-    }
-    // 기본 텍스트 팝업
-    &.pop-ty01{
-        .pop-text{
-            text-align: center;
-        }
-    }
-    // 리스트 팝업
-    &.pop-ty02{
-        .pop-text{
-            @include fontSize('fontS01');
-            padding-bottom: 3rem;
-            .pop-list:not(:first-of-type){
-                margin-top: 3rem;
-            }
-        }
-    }
-    // toast popup
-    &.pop-toast{
-        box-shadow: none;
-        opacity: 0;
-        transform: translateY(10%);
-        transition: all 0.7s;
-        &.show{
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-}
 
 @include response('tablet') {
     .btns{
@@ -250,8 +202,8 @@
             @include fontSize('fontS03');
         }
     }
-     // list btn
-     .btn-list {
+    // list btn
+    .btn-list {
         @include fontSize('fontS03');
         height: 5.8rem;
     }
@@ -327,5 +279,4 @@
             }
         }    
     }
-
 }
