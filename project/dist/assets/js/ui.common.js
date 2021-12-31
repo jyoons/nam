@@ -816,8 +816,6 @@ var uiCommon = function (uiCommon, $window) {
     }
   };
   uiCommon.popup = {
-    init: function init() {//this.event('.accordion__items__title');
-    },
     open: function open(elem) {
       var wScrollTop = $(window).scrollTop();
       $('body').addClass('scrollOff');
