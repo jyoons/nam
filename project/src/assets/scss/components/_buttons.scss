@@ -62,6 +62,10 @@
             &.i-list{
                 background-image: url('/assets/images/common/ico_list.svg');
             }
+            &.i-file{
+                background-size: 2rem 2rem;
+                background-image: url('/assets/images/common/ico_fc_pdf_b.svg');
+            }
         }
         em{font-style: normal;}       
     }

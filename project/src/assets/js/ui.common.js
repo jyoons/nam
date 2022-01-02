@@ -173,10 +173,11 @@ const uiCommon = (function (uiCommon, $window) {
         $('.lnb-1depth .select-list-wrap .select-list__items.' + elString[0]).addClass('on');
         $('.lnb-2depth .select-list-wrap .select-list.' + elString[0]).css({'display':'block'});
         $('.lnb-2depth .select-list-wrap .select-list.' + elString[0] + ' .select-list__items').eq(elString[1]).addClass('on');
+        
         if(elString[0] == 'business' && elString[1] > 0){
           $('.lnb-3depth').css({'display':'block'});
           $('.lnb-3depth .select-list').eq(elString[2]).css({'display':'block'});
-          $('.lnb-3depth .select-list__items').eq(elString[2]).addClass('on');
+          $('.lnb-3depth .select-list').eq(elString[2]).find('.select-list__items').eq(elString[3]).addClass('on');
         }
       }   
     }
@@ -228,20 +229,44 @@ const uiCommon = (function (uiCommon, $window) {
       }    
     },
     event: function(){
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".container-header__text",
-          toggleActions: "restart reverse restart none"
-        },
-      });
-      function text1(name){
-        var textLen = $('.container-header__title>div').length;
-        for(var i=1; i<(textLen + 1); i++){
-          name.to('.container-header__title>div:nth-child(' + i +')>span', {duration:0.6, top:0, opacity:1, ease:'power3', delay:(i-1)*0.2}, 0.4);
+      let tl;
+      titEvent();
+      function titEvent(){
+        tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".container-header__text",
+            toggleActions: "restart reverse restart none"
+          },
+        });
+
+        function text1(name){
+          var elemLen = $('.container-header__title').length;
+          for(var d=1; d<(elemLen + 1); d++){
+            if($('.container-header__title:nth-child(' + d +')').is(':visible')){
+              var textLen = $('.container-header__title:nth-child(' + d +')>div').length;
+              for(var i=1; i<(textLen + 1); i++){
+                name.fromTo('.container-header__title:nth-child(' + d +')>div:nth-child(' + i +')>span', {top:'100px',  opacity:0}, {duration:0.5, top:0, opacity:1, ease:'power3', delay:(i-1)*0.2}, 0.4);
+              }
+            }
+          }         
         }
+
+        tl.add(text1(tl));
+        tl.fromTo('.container-header__text', {top:'40px',  opacity:0}, {duration:0.4, top:0, opacity:1, ease:'power3'}, 0.8);
+        if($('.container-header__text .container-header__inImage').length > 0){
+          tl.fromTo('.container-header__text .container-header__inImage', {opaciyt:0, right:'-30px'}, {duration:1, right:0, opacity:1, ease:'power3'}, 1);
+        }
+
       }
-      tl.add(text1(tl));
-      tl.to('.container-header__text', {duration:0.4, top:0, opacity:1, ease:'power3'}, 1);
+
+
+      
+      $(window).on('resize', function(){
+        tl.kill();
+        titEvent();
+      });
+
+    
     }
   }
   uiCommon.titText2 = {

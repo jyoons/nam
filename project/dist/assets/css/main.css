@@ -1,10 +1,14 @@
 /* response */
-@keyframes bar-ani {
-  0% {
-    width: 0;
+@keyframes aniFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40%);
+    -webkit-transform: translateY(40%);
   }
-  100% {
-    width: 100%;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
   }
 }
 .wrap.main .header {
@@ -12,9 +16,6 @@
 }
 .wrap.main .header .header-wrap {
   border: none;
-}
-.wrap.main .header.is-scroll, .wrap.main .header.is-gnbOpen {
-  background: #FFFFFF;
 }
 .wrap.main .header.is-scroll .logo, .wrap.main .header.is-gnbOpen .logo {
   background-image: url("/assets/images/common/gnb_logo_color.svg");
@@ -51,14 +52,8 @@
 .wrap.main .section.main-visual {
   position: fixed;
 }
-.wrap.main .section.section-01 {
-  background: olive;
-}
 .wrap.main .section.section-02 {
   background: deeppink;
-}
-.wrap.main .section.section-03 {
-  background: blanchedalmond;
 }
 .wrap.main .footer {
   position: absolute;
@@ -128,6 +123,9 @@
 }
 .wrap.main .main-indi.color-change a::before {
   background-color: #bbbbbb;
+}
+.wrap.main .main-layout {
+  display: flex;
 }
 
 .main-popup {
@@ -346,7 +344,6 @@
   position: absolute;
   bottom: 12rem;
   left: 29.2rem;
-  z-index: 1;
 }
 .main-visual .slider-util .util {
   width: 3.6rem;
@@ -396,10 +393,6 @@
   background-color: #FFFFFF;
   transition: width 0.3s;
 }
-.main-visual .slider-util .progress-bar .bar.bar-ani {
-  animation-name: bar-ani;
-  width: 100%;
-}
 .main-visual .quick-menu {
   position: absolute;
   top: 0;
@@ -407,6 +400,14 @@
   height: 100%;
   border-left: 1px solid rgba(255, 255, 255, 0.3);
   overflow: auto;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  line-height: 0;
+  animation: aniFadeIn 1.5s;
+}
+.main-visual .quick-menu::-webkit-scrollbar {
+  display: none;
 }
 .main-visual .quick-menu li a {
   font-size: 3.2rem;

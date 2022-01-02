@@ -11,7 +11,7 @@
             <div id="navSkip"><a href="#container">본문으로 바로가기</a></div>
             @@include('./pages/ko/include/header.html',{
                     gnbLocation : 'business,1,0',
-                    lnbLocation : 'business,1,0,1'
+                    lnbLocation : 'business,2,1,1'
             })
             <!-- container -->
             <div id="container" class="container">
@@ -126,36 +126,46 @@
                 </div>
                 <!--// container contents -->
                 <!-- call center -->
-                <!-- 20220102 callcenter 수정 -->
                 <div class="call-center">
                     <div class="call-center-wrap">
-                        <div>
-                            <div class="call-center__header">
-                                <div class="title">더 궁금한 점이 있으신가요?</div>
-                                <div class="text">
-                                    견적 요청 또는 문의사항을 전달해주세요.<br>
-                                    각 업무분야별 담당자가 도와드리겠습니다.
-                                </div>                                
+                        <div class="call-center__header">
+                            <div class="title">더 궁금한 점이 있으신가요?</div>
+                            <div class="text">
+                                견적 요청 또는 문의사항을 전달해주세요.<br>
+                                각 업무분야별 담당자가 도와드리겠습니다.
                             </div>
-                            <div class="call-center__header">
-                                <div class="sub-title">화평법</div>
-                                <div class="title type1">02-6714-1091</div>
-                                <div class="text">
-                                    <span>화평법</span>
-                                    <span>평일 09:00 ~18:00 (주말/공휴일 휴무)</span>
-                                </div>                                
-                            </div>      
-                        </div>
-                        <div class="call-center-link">
-                            <div class="title">상담/문의 관련 메뉴</div>
                             <div class="link-area">
                                 <a href="javascript:void(0)" class="btn-arrow"><span>FAQ 바로가기</span></a>
-                                <a href="javascript:void(0)" class="btn-arrow"><span>온라인 상담 바로가기</span></a>
+                                <a href="javascript:void(0)" class="btn-arrow"><span>온라인 상담 바로가기 바로가기</span></a>
                             </div> 
+                        </div>
+                        <div class="call-center__list" onclick="">
+                            <ul class="conts-list type2">
+                                <li class="conts-list__items">
+                                    <div>화평법</div>
+                                    <div>02-6714-1091</div>
+                                </li>
+                                <li class="conts-list__items">
+                                    <div>화관법</div>
+                                    <div>02-6714-1042</div>
+                                </li>
+                                <li class="conts-list__items">
+                                    <div>화학제품안전법</div>
+                                    <div>02-6714-1011</div>
+                                </li>
+                                <li class="conts-list__items">
+                                    <div>국외물질규제</div>
+                                    <div>02-6714-1129</div>
+                                </li>
+                                <li class="conts-list__items">
+                                    <div>GHS/CLP/SDS</div>
+                                    <div>02-6714-1148</div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <!--// 20220102 callcenter 수정 -->
+                <!--// call center -->
             </div>
             <!--// container -->
             @@include('./pages/ko/include/footer.html',{

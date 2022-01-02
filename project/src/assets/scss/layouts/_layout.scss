@@ -88,6 +88,18 @@ body {
     @include fontSize('fontS04');
     text-align:left;
     color:$gray7;
+    &.type-imgae{
+      margin-top:14rem;
+      .container-header__inImage{
+        position:absolute;
+        top:-24rem;
+        right:-3rem;
+        opacity:0;
+        width:24rem;
+        height:24rem;
+        margin-left:auto;
+      }
+    }
   }
 }
 .container-header-fixImg{
@@ -280,6 +292,13 @@ body {
   padding:0 3rem;
 }
 .dv-mobile .layout-wrap-header.type-d.col-2 button.btns.icon{display:none;}
+.btn-wrap.business-only-mobile{
+  display:none; 
+  padding:4rem 0 2.4rem; 
+  margin-top:0;
+  margin:0 auto;
+}
+.dv-mobile .btn-wrap.business-only-mobile{display:block;}
 .layout-wrap-header.type-d{
   margin-bottom:5rem;
   &.col-2{
@@ -316,21 +335,46 @@ body {
   }
   &__header{
     color:$green5;
+    & + .call-center__header{margin-top:4rem;}
+    .sub-title{
+      display:none;
+      @include fontSize('fontS02');
+      color:$green5;
+      margin-bottom:0.6rem;
+    }
     .title{
+      &.type1{
+        font-size:3.2rem;
+        line-height:3rem;
+        font-weight:700;
+        & + .text{margin-top:1rem;} 
+      }
+      word-break: keep-all;
       @include fontSize('fontS09');
-      & + .text{margin-top:2rem;}
+      & + .text{margin-top:2rem;}     
     }
     .text{
       @include fontSize('fontS02');
       & + .link-area{margin-top:6.3rem;}
+      &>span + span{margin-left:2rem;}
     }
     .link-area{
-      a{margin-right:4.4rem;}
+      a{margin-right:4.4rem; min-width:17rem;}
     }
   }
   &__list{
     flex:0 0 42rem;
     color:$green5;
+  }
+  &-link{
+    .title{
+      color:$green5;
+      @include fontSize('fontS02');
+      & + .link-area{margin-top:3rem;}
+    }
+    .link-area{
+      a{margin-right:4.4rem; min-width:17rem;}
+    }
   }
 }
 

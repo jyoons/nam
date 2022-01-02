@@ -215,6 +215,15 @@
             width:60%;    
             left:40%;
             @include fontSize('fontS03');
+            &.type-imgae{
+                margin-top:10rem;
+                .container-header__inImage{
+                    position:absolute;
+                        top:-20rem;
+                        width:20rem;
+                        height:20rem;
+                }
+            }
         }
     }
     .container-header-fixImg{
@@ -348,6 +357,16 @@
             flex:0 0 40%;
             color:$green5;
         }
+        &-link{
+            flex:0 0 40%;
+            .link-area{
+                a{
+                    margin-top:2em;
+                    margin-right:0; 
+                    min-width:21.8rem;
+                }
+            }
+          }
     }
 }
 
@@ -613,6 +632,15 @@
             top:10%;
             margin-top:6rem;
             @include fontSize('fontS02');
+            &.type-imgae{
+                margin-top:4.8rem;
+                .container-header__inImage{
+                  position:relative;  
+                  top:0;
+                  width:12rem;
+                  height:12rem;
+                }
+            }
         }
     }
     .container-header-fixImg{
@@ -754,11 +782,18 @@
         display:block;
         }
         &__header{
+            & + .call-center__header{margin-top:4rem;}
+            .sub-title{display:block;}
             .title{
+                &.type1{
+                    font-size:2.6rem;
+                }
                 @include fontSize('fontS08');
             }
             .text{
                 & + .link-area{margin-top:4rem;}
+                &>span:first-child{display:none;}
+                &>span + span{margin-left:0rem;}
             }
             .link-area{
                 a{
@@ -768,6 +803,19 @@
                 }
             }
             & + .call-center__list{margin-top:8rem;}
+        }
+        &-link{
+            margin-top:4rem;
+            .title{
+                display:none;
+            }
+            .link-area{
+              a{
+                margin-top:2rem;
+                min-width:21.8rem;
+                margin-right:4.4rem;
+              }
+            }
         }
     }
 }
