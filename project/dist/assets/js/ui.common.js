@@ -14,7 +14,6 @@ var uiCommon = function (uiCommon, $window) {
     uiCommon.accordion.init();
     uiCommon.lineDraw.init();
     uiCommon.component.init();
-    uiCommon.ieSVG.init();
   };
 
   uiCommon.mobileCheck = {
@@ -866,16 +865,6 @@ var uiCommon = function (uiCommon, $window) {
         'display': 'none'
       });
       $('.dimmed').remove();
-    }
-  };
-  uiCommon.ieSVG = {
-    init: function init() {
-      this.setDefault();
-    },
-    setDefault: function setDefault() {
-      if ($('body').hasClass('ieBrowser')) {
-        $('.imgMap-wrap>img').attr("src", $('.imgMap-wrap>img').attr("src").replace(".svg", ".png"));
-      }
     }
   };
   uiCommon.init();

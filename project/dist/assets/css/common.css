@@ -1443,7 +1443,7 @@ body {
 
   .layout-wrap-header.type-d.col-2 {
     flex-wrap: wrap;
-    justify-content: right;
+    margin-left: auto;
   }
   .layout-wrap-header.type-d.col-2 .tab-listWrap, .layout-wrap-header.type-d.col-2 .btns.icon {
     margin-top: 1rem;

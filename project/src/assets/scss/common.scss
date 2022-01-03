@@ -332,7 +332,7 @@
     .layout-wrap-header.type-d{
         &.col-2{
             flex-wrap: wrap;
-            justify-content: right;
+            margin-left:auto;
             .tab-listWrap, .btns.icon{margin-top:1rem;}
         }
         .layout-wrap-header__text{
