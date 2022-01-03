@@ -2831,7 +2831,7 @@ input[type=text]::-ms-clear {
 }
 .imgMap-items.item1-2 {
   width: 26.06%;
-  height: 4.66%;
+  height: 4.68%;
   top: 45.72%;
   left: 15.66%;
   background-image: url("/assets/images/contents/fc_box_smaller_color_02-off.svg");
@@ -2879,7 +2879,7 @@ input[type=text]::-ms-clear {
 }
 .imgMap-items.item1-5 {
   width: 12.46%;
-  height: 4.66%;
+  height: 4.68%;
   top: 65.06%;
   left: 65.46%;
   background-image: url("/assets/images/contents/fc_box_smaller_color_05-off.svg");
@@ -2895,9 +2895,9 @@ input[type=text]::-ms-clear {
 }
 .imgMap-items.item1-6 {
   width: 12.46%;
-  height: 4.66%;
+  height: 4.68%;
   top: 65.06%;
-  left: 79.08%;
+  left: 79.06%;
   background-image: url("/assets/images/contents/fc_box_smaller_color_06-off.svg");
 }
 .imgMap-items.item1-6:hover {
@@ -2924,6 +2924,7 @@ input[type=text]::-ms-clear {
   border-radius: 0.6rem;
   padding: 1.2rem 1.6rem;
   background: rgba(51, 51, 51, 0.9);
+  text-align: center;
   color: #FFFFFF;
   font-size: 1.2rem;
   line-height: 1.5rem;
@@ -2980,26 +2981,11 @@ input[type=text]::-ms-clear {
   }
 }
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .imgMap-items.item1-1 {
-    width: 12.45%;
-    height: 4.66%;
-    top: 25.36%;
-    left: 43.8%;
-  }
   .imgMap-items.item1-2 {
-    width: 26.06%;
-    height: 4.66%;
     top: 45.73%;
-    left: 15.61%;
-  }
-  .imgMap-items.item1-3 {
-    width: 26.08%;
-    height: 4.68%;
-    top: 53.66%;
-    left: 8.54%;
+    left: 15.6%;
   }
   .imgMap-items.item1-4 {
-    width: 26.06%;
     height: 4.66%;
     top: 53.68%;
     left: 36.94%;
@@ -3011,10 +2997,10 @@ input[type=text]::-ms-clear {
     left: 65.44%;
   }
   .imgMap-items.item1-6 {
-    width: 12.44%;
+    width: 12.4%;
     height: 4.62%;
     top: 65.06%;
-    left: 79.08%;
+    left: 79.06%;
   }
 }
 .container-contents-wrap {
