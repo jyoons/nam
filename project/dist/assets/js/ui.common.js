@@ -14,6 +14,7 @@ var uiCommon = function (uiCommon, $window) {
     uiCommon.accordion.init();
     uiCommon.lineDraw.init();
     uiCommon.component.init();
+    uiCommon.ieSVG.init();
   };
 
   uiCommon.mobileCheck = {
@@ -21,12 +22,17 @@ var uiCommon = function (uiCommon, $window) {
       this.setDefault();
     },
     setDefault: function setDefault() {
+      var agent = navigator.userAgent.toLowerCase();
       var mobile_filter = new Array('iPhone', 'iPod', 'iPad', 'Android', 'BlackBerry', 'Windows Phone', 'Windows CE', 'LG', 'MOT', 'SAMSUNG', 'SonyEricsson', 'Nokia');
       var isMobile = false;
 
       for (var i in mobile_filter) {
         if (navigator.userAgent.match(mobile_filter[i]) != null) {
           isMobile = true;
+        } else {
+          if (navigator.appName == 'Netscape' && agent.indexOf('trident') != -1 || agent.indexOf("msie") != -1) {
+            $('body').addClass('ieBrowser');
+          }
         }
       }
 
@@ -860,6 +866,16 @@ var uiCommon = function (uiCommon, $window) {
         'display': 'none'
       });
       $('.dimmed').remove();
+    }
+  };
+  uiCommon.ieSVG = {
+    init: function init() {
+      this.setDefault();
+    },
+    setDefault: function setDefault() {
+      if ($('body').hasClass('ieBrowser')) {
+        $('.imgMap-wrap>img').attr("src", $('.imgMap-wrap>img').attr("src").replace(".svg", ".png"));
+      }
     }
   };
   uiCommon.init();

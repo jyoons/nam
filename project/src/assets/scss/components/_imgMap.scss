@@ -50,6 +50,9 @@
     }
     &-items{
         position:absolute;
+        background-repeat:no-repeat;
+        background-position: center center;
+        background-size:100% 100%;
         &:hover{
             background-repeat:no-repeat;
             background-position: center center;
@@ -57,10 +60,11 @@
             .imgMap-items__tooltip{display:block;}
         }
         &.item1-1{
-            width:12.46%;
-            height:4.68%;
+            width:12.45%;
+            height:4.66%;
             top:25.36%;
-            left:43.8%;
+            left:43.8%;            
+            background-image:url('/assets/images/contents/fc_box_smaller_color_01-off.svg');  
             &:hover{
                 background-image:url('/assets/images/contents/fc_box_smaller_color_01.svg');        
             }
@@ -72,10 +76,11 @@
             }
         }
         &.item1-2{
-            width:26.08%;
-            height:4.68%;
+            width:26.06%;
+            height:4.66%;
             top:45.72%;
-            left:15.64%;
+            left:15.66%;
+            background-image:url('/assets/images/contents/fc_box_smaller_color_02-off.svg');
             &:hover{
                 background-image:url('/assets/images/contents/fc_box_smaller_color_02.svg');        
             }
@@ -87,10 +92,11 @@
             }
         }
         &.item1-3{
-            width:26.06%;
+            width:26.08%;
             height:4.68%;
             top:53.66%;
-            left:8.56%;
+            left:8.54%;
+            background-image:url('/assets/images/contents/fc_box_smaller_color_03-off.svg');
             &:hover{
                 background-image:url('/assets/images/contents/fc_box_smaller_color_03.svg');        
             }
@@ -106,6 +112,7 @@
             height:4.68%;
             top:53.66%;
             left:37%;
+            background-image:url('/assets/images/contents/fc_box_smaller_color_04-off.svg');
             &:hover{
                 background-image:url('/assets/images/contents/fc_box_smaller_color_04.svg');        
             }
@@ -121,31 +128,31 @@
             height:4.66%;
             top:65.06%;
             left:65.46%;
+            background-image:url('/assets/images/contents/fc_box_smaller_color_05-off.svg');
             &:hover{
                 background-image:url('/assets/images/contents/fc_box_smaller_color_05.svg');        
             }
             .link{
-                top:40%;
+                top:36%;
                 left:30%;
                 width:40%;
-                height:24%;          
+                height:28%;          
             }
         }
         &.item1-6{
             width:12.46%;
             height:4.66%;
             top:65.06%;
-            left:80.46%;
-            background:rgba(0, 0, 0, 0.2);
+            left:79.08%;
+            background-image:url('/assets/images/contents/fc_box_smaller_color_06-off.svg');
             &:hover{
                 background-image:url('/assets/images/contents/fc_box_smaller_color_06.svg');        
             }
             .link{
-                background:rgba(0, 0, 0, 0.2);
-                top:40%;
+                top:36%;
                 left:30%;
                 width:40%;
-                height:24%;          
+                height:28%;         
             }
         }
         .link{
@@ -163,8 +170,7 @@
         left:50%;
         transform: translateX(-50%);
         width:auto;
-        min-width:max-content;
-        word-break: break-all;
+        white-space: nowrap;
         border-radius:0.6rem;
         padding:1.2rem 1.6rem;
         background:rgba(51, 51, 51, 0.9);
@@ -216,6 +222,52 @@
         &-wrap{
             &.pc{display:none;}
             &.mobile{display:block;}
+        }
+    }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .imgMap{
+        &-items{
+            &.item1-1{
+                width:12.45%;
+                height:4.66%;
+                top:25.36%;
+                left:43.8%;
+            }
+            &.item1-2{
+                width:26.06%;
+                height:4.66%;
+                top:45.73%;
+                left:15.61%;
+            }
+            &.item1-3{
+                width:26.08%;
+                height:4.68%;
+                top:53.66%;
+                left:8.54%;
+               
+                
+            }
+            &.item1-4{
+                width:26.06%;
+                height:4.66%;
+                top:53.68%;
+                left:36.94%;
+              
+            }
+            &.item1-5{
+                width:12.44%;
+                height:4.62%;
+                top:65.06%;
+                left:65.44%;               
+            }
+            &.item1-6{
+                width:12.44%;
+                height:4.62%;
+                top:65.06%;
+                left:79.08%;
+            }
         }
     }
 }
