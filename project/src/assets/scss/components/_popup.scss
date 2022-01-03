@@ -87,8 +87,7 @@
     }
     &__conts{
         padding:0 1.2rem;
-        color:$gray6;
-        
+        color:$gray6;        
         max-height:calc(100vh - 34rem);
         overflow-y:auto;
         overflow-x:hidden;
@@ -101,9 +100,13 @@
                 left:0;
             }
         }
+        .popup__conts-title{
+            margin:2rem 0 1rem;
+            @include fontSize('fontS02');
+        }
+        &>.popup__conts-title:first-child{margin-top:0;}
     }
 }
-
 
 @include response('tablet') {
 

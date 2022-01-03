@@ -146,6 +146,18 @@
     background-repeat: no-repeat;
     background-position: right 0;
     background-size:1.8rem 1.8rem;
+    &.underline{
+        min-width:initial;
+        padding-bottom:0;
+        padding-right:2.8rem;
+        @include fontSize('fontS02');
+        font-weight:700;
+        border-bottom:none;
+        text-decoration: underline;
+        color:$gray8;
+        background-image: url('/assets/images/common/ico_chevron_right_b.svg');
+        background-position: right center;
+    }
 }
 // btn wrap
 .btn-wrap{
@@ -282,5 +294,12 @@
                 }
             }
         }    
+    }
+    .btn-arrow{
+        &.underline{
+            padding-right:2.6rem;
+            @include fontSize('fontS01');
+            font-weight:700;
+        }
     }
 }

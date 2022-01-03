@@ -11,7 +11,7 @@
 <meta property="og:title" content="남앤드남인터내셔널">
 <meta property="og:description" content="남앤드남, 남앤드남인터내셔널, 환경컨설팅, 환경컨설팅 서비스">
 <meta property="og:url" content="">
-<title>남앤드남 | 화평법 | 기존 화학물질 사전 신고</title>
+<title>남앤드남 | 화평법 | 화학물질 등록ㆍ신고 면제 확인</title>
 <link href="/assets/css/common.css" rel="stylesheet">
 <link href="/assets/css/contents.css" rel="stylesheet">
 
@@ -202,7 +202,7 @@
                 <!-- container header -->
                 <div class="container-header">                            
                     <div class="container-header__title pc"><div><span>화학물질 등록ㆍ</span></div><div><span>신고 면제 확인</span></div></div>
-                    <div class="container-header__title mobile"><div><span>화학물질</span></div><div><span>등록ㆍ신고</span></div><div><span>면제 확인</span></div></div>
+                    <div class="container-header__title mobile"><div><span>화학물질</span></div><div><span>등록·신고</span></div><div><span>면제 확인</span></div></div>
                     <div class="container-header__text">
                         저우려 고분자 및 중간체 등에 대한 풍부한 경험과 전문성을 바탕으로 
                         등록ㆍ신고 면제 확인 관련 컨설팅 서비스를 제공하며, 화평법 규제 
@@ -228,9 +228,14 @@
                                         <div class="image"><img src="/assets/images/common/ico_bf_01.svg" alt=""></div>
                                         <div class="title">대상<br>확인</div>
                                         <div class="conts">
+                                            <div>하기 두가지 면제<br>대상에 해당</div>
                                             <div>
-                                                <a href="javascript:void(0)" title="자세히 보기" onclick="uiCommon.popup.open('.popup1')"></a>
-                                                <a href="javascript:void(0)" title="자세히 보기" ></a>
+                                                <div class="btn-wrap">
+                                                    <a href="javascript:void(0)" title="자세히 보기" class="btn-arrow underline" onclick="uiCommon.popup.open('.popup1')">
+                                                        <span>무게별 등록 면제 대상 상세보기</span>
+                                                    </a>
+                                                    <a href="javascript:void(0)" title="자세히 보기" class="btn-arrow underline"><span>물질별 등록 면제 대상 상세보기</span></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </li>
@@ -250,7 +255,9 @@
                                         <div class="conts">
                                             <div class="list-term">변경 사항 발생 시 변경 신청<br>(30일 이내)</div>
                                             <div>
-                                                <div><a href="javascript:void(0)" title="자세히 보기" onclick="uiCommon.popup.open('.popup1')"></a></div>
+                                                <div class="btn-wrap">
+                                                    <a href="javascript:void(0)" title="자세히 보기" onclick="uiCommon.popup.open('.popup1')" class="btn-arrow underline"><span>변경 사항 상세보기</span></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </li>
@@ -269,10 +276,7 @@
                                         <a href="javascript:void(0)">등록ㆍ신고 면제 대상 검토</a>
                                     </li>
                                     <li class="conts-list__items">
-                                        <a href="javascript:void(0)" onclick="uiCommon.popup.open('.popup2')">유일 대리인(Only Representative) 서비스</a>
-                                    </li>
-                                    <li class="conts-list__items">
-                                        <a href="javascript:void(0)">등록ㆍ신고 면제를 위한 컨설팅</a>
+                                        <a href="javascript:void(0)" onclick="uiCommon.popup.open('.popup2')">등록ㆍ신고 면제를 위한 컨설팅</a>
                                     </li>
                                 </ul>
                             </div>
@@ -331,16 +335,20 @@
 </div>
 
         </div>
-        <!-- popup -->
+        <!-- popup1 -->
         <div class="popup popup1"><!-- popup name 추가 ex)popup1 -->
             <div class="popup__wrap popup__wrap-type1">
-                <div class="popup__title">무게별 등록 면제 대상
-                </div>
+                <div class="popup__title">무게별 등록 면제 대상</div>
                 <div class="popup__conts">
+                    <div class="popup__conts-title">등록 면제</div>
                     <ul class="list-dot">
                         <li class="list-dot__items">연간 1톤 이상 제조ㆍ수입되는 기존 화학물질</li>
                         <li class="list-dot__items">연간 0.1톤 이상 제조ㆍ수입되는 기존 화학물질 신고 면제</li>
                         <li class="list-dot__items">연간 1톤 미만 제조ㆍ수입되는 기존 화학물질</li>
+                    </ul>
+                    <div class="popup__conts-title">등록 면제</div>
+                    <ul class="list-dot">
+                        <li class="list-dot__items">연간 1톤 미만 제조ㆍ수입되는 기존 화학물질 </li>
                     </ul>
                 </div>
                 <div class="btn-wrap">
@@ -348,7 +356,23 @@
                 </div>
             </div>
         </div>
-        <!--// popup -->
+        <!--// popup1 -->
+        <!-- popup2 -->
+        <div class="popup popup2"><!-- popup name 추가 ex)popup1 -->
+            <div class="popup__wrap popup__wrap-type1">
+                <div class="popup__title">등록ㆍ신고 면제를 위한 컨설팅</div>
+                 <div class="popup__conts">
+                    <ul class="list-dot">
+                        <li class="list-dot__items">등록ㆍ신고 면제 확인 서류 제출</li>
+                        <li class="list-dot__items">자료 보호 서류 제출</li>
+                    </ul>
+                </div>
+                <div class="btn-wrap">
+                    <button class="btns popup__close" onclick="uiCommon.popup.close('.popup2')">확인</button>
+                </div>
+            </div>
+        </div>
+        <!--// popup2 -->
     </div>
         <script src="/assets/js/lib/jquery.import.js"></script>
 

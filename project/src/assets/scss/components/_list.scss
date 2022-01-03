@@ -102,6 +102,9 @@
                 color:$gray7;
                 &>div + div{margin-top:3.4rem;}
                 &>div.list-term + div{margin-top:1rem;}
+                .btn-wrap{
+                    display:block;
+                }
            }
         }
     }
