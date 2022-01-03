@@ -2232,6 +2232,9 @@ input[type=text]::-ms-clear {
     border-radius: 100%;
     background: #111111;
   }
+  .conts-list.type3 .conts-list__items .conts .btn-wrap {
+    margin-top: 3.2rem;
+  }
   .conts-list.type4 .conts-list__items {
     font-size: 1.6rem;
     line-height: 2.4rem;
