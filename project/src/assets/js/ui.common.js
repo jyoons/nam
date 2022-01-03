@@ -496,7 +496,6 @@ const uiCommon = (function (uiCommon, $window) {
     init: function(){
       this.search();
       this.accordion();
-      this.toastPopup();
       this.selectChange();
       this.selectArrow();
     },
@@ -559,14 +558,6 @@ const uiCommon = (function (uiCommon, $window) {
             }     
         });
     },
-    toastPopup : function() {
-        $('.btn-toast').on('click',function(){
-            $(this).siblings('.pop-toast').addClass('show');
-            setTimeout(() =>{
-                $(this).siblings('.pop-toast').removeClass('show');
-            },2000)
-        });
-    },
     selectChange : function() {
         $('.select-wrap .select1').change(function(){
             if($(this).val() === '직접입력'){
@@ -591,7 +582,9 @@ const uiCommon = (function (uiCommon, $window) {
       let wScrollTop = $(window).scrollTop();
       $('body').addClass('scrollOff');
       $('.wrap').addClass('scrollOff').scrollTop(wScrollTop);  
-      $('body').append('<div class="dimmed"></div>');
+      //$('body').append('<div class="dimmed"></div>');
+      $('.wrap').append('<div class="dimmed"></div>');
+      $(elem).css({'display':'block'});
       $(elem).css({'display':'block'});
     },
     close:function(elem){    

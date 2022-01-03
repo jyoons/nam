@@ -55,7 +55,7 @@
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
-    z-index:999;
+    z-index:9999;
     &__wrap{
         position:relative;
         &.popup__wrap-type1{           
@@ -89,6 +89,7 @@
         padding:0 1.2rem;
         color:$gray6;        
         max-height:calc(100vh - 34rem);
+        @include fontSize('fontS01');
         overflow-y:auto;
         overflow-x:hidden;
         & + .btn-wrap{margin-top:3rem;}

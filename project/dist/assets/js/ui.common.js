@@ -745,7 +745,6 @@ var uiCommon = function (uiCommon, $window) {
     init: function init() {
       this.search();
       this.accordion();
-      this.toastPopup();
       this.selectChange();
       this.selectArrow();
     },
@@ -813,16 +812,6 @@ var uiCommon = function (uiCommon, $window) {
         }
       });
     },
-    toastPopup: function toastPopup() {
-      $('.btn-toast').on('click', function () {
-        var _this2 = this;
-
-        $(this).siblings('.pop-toast').addClass('show');
-        setTimeout(function () {
-          $(_this2).siblings('.pop-toast').removeClass('show');
-        }, 2000);
-      });
-    },
     selectChange: function selectChange() {
       $('.select-wrap .select1').change(function () {
         if ($(this).val() === '직접입력') {
@@ -853,8 +842,12 @@ var uiCommon = function (uiCommon, $window) {
     open: function open(elem) {
       var wScrollTop = $(window).scrollTop();
       $('body').addClass('scrollOff');
-      $('.wrap').addClass('scrollOff').scrollTop(wScrollTop);
-      $('body').append('<div class="dimmed"></div>');
+      $('.wrap').addClass('scrollOff').scrollTop(wScrollTop); //$('body').append('<div class="dimmed"></div>');
+
+      $('.wrap').append('<div class="dimmed"></div>');
+      $(elem).css({
+        'display': 'block'
+      });
       $(elem).css({
         'display': 'block'
       });

@@ -5,14 +5,26 @@
         &.pc{display:block;}
         &.mobile{
             display:none;
-            height:36rem;
+            position:relative;
+            left:-3.2rem;
+            padding-top:4rem;
+            width:calc(100% + 6.4rem);
+            height:40rem;
             overflow:hidden;
-            .imgMap-dimmed{
+            .tit-text{
                 position:absolute;
                 top:0;
                 left:0;
+                padding:0 3.2rem;
+                color:$gray7;
+                @include fontSize('fontS02');
+            }
+            .imgMap-dimmed{
+                position:absolute;
+                top:4rem;
+                left:0rem;
                 width:100%;
-                height:100%;
+                height:36rem;
                 a{
                     display:block;
                     width:100%;
