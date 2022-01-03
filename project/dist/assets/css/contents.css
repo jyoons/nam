@@ -2803,24 +2803,21 @@ input[type=text]::-ms-clear {
   position: absolute;
 }
 .imgMap-items:hover {
-  background-repeat: none;
+  background-repeat: no-repeat;
   background-position: center center;
   background-size: 100% 100%;
 }
 .imgMap-items:hover .imgMap-items__tooltip {
   display: block;
 }
-.imgMap-items:hover .link {
-  display: block;
-}
 .imgMap-items.item1-1 {
-  width: 12.6%;
-  height: 4.45%;
-  top: 25.56%;
-  left: 43.65%;
+  width: 12.46%;
+  height: 4.68%;
+  top: 25.36%;
+  left: 43.8%;
 }
 .imgMap-items.item1-1:hover {
-  background-image: url("/assets/images/contents/fc_box_smaller_color.svg");
+  background-image: url("/assets/images/contents/fc_box_smaller_color_01.svg");
 }
 .imgMap-items.item1-1 .link {
   top: 36%;
@@ -2828,11 +2825,89 @@ input[type=text]::-ms-clear {
   width: 80%;
   height: 28%;
 }
+.imgMap-items.item1-2 {
+  width: 26.08%;
+  height: 4.68%;
+  top: 45.72%;
+  left: 15.64%;
+}
+.imgMap-items.item1-2:hover {
+  background-image: url("/assets/images/contents/fc_box_smaller_color_02.svg");
+}
+.imgMap-items.item1-2 .link {
+  top: 36%;
+  left: 20%;
+  width: 60%;
+  height: 28%;
+}
+.imgMap-items.item1-3 {
+  width: 26.06%;
+  height: 4.68%;
+  top: 53.66%;
+  left: 8.56%;
+}
+.imgMap-items.item1-3:hover {
+  background-image: url("/assets/images/contents/fc_box_smaller_color_03.svg");
+}
+.imgMap-items.item1-3 .link {
+  top: 36%;
+  left: 30%;
+  width: 40%;
+  height: 28%;
+}
+.imgMap-items.item1-4 {
+  width: 26.06%;
+  height: 4.68%;
+  top: 53.66%;
+  left: 37%;
+}
+.imgMap-items.item1-4:hover {
+  background-image: url("/assets/images/contents/fc_box_smaller_color_04.svg");
+}
+.imgMap-items.item1-4 .link {
+  top: 36%;
+  left: 30%;
+  width: 40%;
+  height: 28%;
+}
+.imgMap-items.item1-5 {
+  width: 12.46%;
+  height: 4.66%;
+  top: 65.06%;
+  left: 65.46%;
+}
+.imgMap-items.item1-5:hover {
+  background-image: url("/assets/images/contents/fc_box_smaller_color_05.svg");
+}
+.imgMap-items.item1-5 .link {
+  top: 40%;
+  left: 30%;
+  width: 40%;
+  height: 24%;
+}
+.imgMap-items.item1-6 {
+  width: 12.46%;
+  height: 4.66%;
+  top: 65.06%;
+  left: 80.46%;
+  background: rgba(0, 0, 0, 0.2);
+}
+.imgMap-items.item1-6:hover {
+  background-image: url("/assets/images/contents/fc_box_smaller_color_06.svg");
+}
+.imgMap-items.item1-6 .link {
+  background: rgba(0, 0, 0, 0.2);
+  top: 40%;
+  left: 30%;
+  width: 40%;
+  height: 24%;
+}
 .imgMap-items .link {
-  display: none;
+  display: block;
   position: absolute;
 }
 .imgMap-items__tooltip {
+  display: none;
   position: absolute;
   top: -50px;
   left: 50%;
@@ -2845,8 +2920,11 @@ input[type=text]::-ms-clear {
   background: rgba(51, 51, 51, 0.9);
   color: #FFFFFF;
   font-size: 1.2rem;
-  line-height: 1.3rem;
+  line-height: 1.5rem;
   font-weight: 500;
+}
+.imgMap-items__tooltip.line2 {
+  top: -60px;
 }
 .imgMap-items__tooltip:after {
   content: "";
@@ -2874,7 +2952,10 @@ input[type=text]::-ms-clear {
     padding: 1rem 1.4rem;
     background: rgba(51, 51, 51, 0.9);
     font-size: 1rem;
-    line-height: 1.1rem;
+    line-height: 1.3rem;
+  }
+  .imgMap-items__tooltip.line2 {
+    top: -52px;
   }
   .imgMap-items__tooltip:after {
     content: "";

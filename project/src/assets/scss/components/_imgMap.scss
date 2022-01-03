@@ -51,19 +51,18 @@
     &-items{
         position:absolute;
         &:hover{
-            background-repeat: none;
+            background-repeat:no-repeat;
             background-position: center center;
             background-size:100% 100%;
             .imgMap-items__tooltip{display:block;}
-            .link{display:block;}
         }
         &.item1-1{
-            width:12.6%;
-            height:4.45%;
-            top:25.56%;
-            left:43.65%;
+            width:12.46%;
+            height:4.68%;
+            top:25.36%;
+            left:43.8%;
             &:hover{
-                background-image:url('/assets/images/contents/fc_box_smaller_color.svg');                
+                background-image:url('/assets/images/contents/fc_box_smaller_color_01.svg');        
             }
             .link{
                 top:36%;
@@ -72,12 +71,93 @@
                 height:28%;          
             }
         }
+        &.item1-2{
+            width:26.08%;
+            height:4.68%;
+            top:45.72%;
+            left:15.64%;
+            &:hover{
+                background-image:url('/assets/images/contents/fc_box_smaller_color_02.svg');        
+            }
+            .link{
+                top:36%;
+                left:20%;
+                width:60%;
+                height:28%;          
+            }
+        }
+        &.item1-3{
+            width:26.06%;
+            height:4.68%;
+            top:53.66%;
+            left:8.56%;
+            &:hover{
+                background-image:url('/assets/images/contents/fc_box_smaller_color_03.svg');        
+            }
+            .link{
+                top:36%;
+                left:30%;
+                width:40%;
+                height:28%;          
+            }
+        }
+        &.item1-4{
+            width:26.06%;
+            height:4.68%;
+            top:53.66%;
+            left:37%;
+            &:hover{
+                background-image:url('/assets/images/contents/fc_box_smaller_color_04.svg');        
+            }
+            .link{
+                top:36%;
+                left:30%;
+                width:40%;
+                height:28%;          
+            }
+        }
+        &.item1-5{
+            width:12.46%;
+            height:4.66%;
+            top:65.06%;
+            left:65.46%;
+            &:hover{
+                background-image:url('/assets/images/contents/fc_box_smaller_color_05.svg');        
+            }
+            .link{
+                top:40%;
+                left:30%;
+                width:40%;
+                height:24%;          
+            }
+        }
+        &.item1-6{
+            width:12.46%;
+            height:4.66%;
+            top:65.06%;
+            left:80.46%;
+            background:rgba(0, 0, 0, 0.2);
+            &:hover{
+                background-image:url('/assets/images/contents/fc_box_smaller_color_06.svg');        
+            }
+            .link{
+                background:rgba(0, 0, 0, 0.2);
+                top:40%;
+                left:30%;
+                width:40%;
+                height:24%;          
+            }
+        }
         .link{
-            display:none;
+            display:block;
             position:absolute;
         }
     }
     &-items__tooltip{
+        &.line2{
+            top:-60px;
+        }
+        display:none;
         position:absolute;
         top:-50px;
         left:50%;
@@ -90,7 +170,7 @@
         background:rgba(51, 51, 51, 0.9);
         color:$white;
         font-size:1.2rem;
-        line-height:1.3rem;
+        line-height:1.5rem;
         font-weight:500;
         &:after{
             content:'';
@@ -112,12 +192,15 @@
 }
 @include response('tablet') {
     .imgMap{
-        &-items__tooltip{           
+        &-items__tooltip{    
+            &.line2{
+                top:-52px;
+            }       
             top:-42px;
             padding:1rem 1.4rem;
             background:rgba(51, 51, 51, 0.9);
             font-size:1rem;
-            line-height:1.1rem;
+            line-height:1.3rem;
             &:after{
                 content:'';
                 bottom:-6px;
