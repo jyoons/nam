@@ -159,6 +159,7 @@
                         <li class="select-list__items"><a href="javascript:void(0)">기존 화학물질 사전신고</a></li>
                         <li class="select-list__items"><a href="javascript:void(0)">기존 화학물질 등록</a></li>
                         <li class="select-list__items"><a href="javascript:void(0)">등록 대상 기존 화학물질 등록</a></li>
+                        <li class="select-list__items"><a href="javascript:void(0)">신규 화학물질 등록 및 신고</a></li>
                         <li class="select-list__items"><a href="javascript:void(0)">화학물질 등록 신고ㆍ면제 확인</a></li>
                         <li class="select-list__items"><a href="javascript:void(0)">화학물질 등록 자료 준비</a></li>
                     </ul>
@@ -224,19 +225,19 @@
                             </div>
                             <div class="layout-wrap-conts type-d">
                                 <div class="imgMap-wrap pc">
-                                    <img src="/assets/images/contents/flow_chart.svg" title="등록절차">
-                                    <div class="imgMap-items item1-1">
-                                        <a href="javascript:alert('test')" class="link" title="">
-                                            <div class="imgMap-items__tooltip">기존 화학물질 사전신고 서비스</div>
-                                        </a>                                        
+                                    <div class="imgMap-imgwrap">
+                                        <img src="/assets/images/contents/flow_chart_2_3.svg" title="등록절차">
                                     </div>
-                                    <div class="imgMap-items item1-2">
-                                        <div></div>
-                                    </div>
+                                    <a href="javascript:void(0)" title="Data Gap Analysis 바로가기" class="imgMap-linkItems item1-5"></a>
+                                    <a href="javascript:void(0)" title="Data Gap Filling 바로가기" class="imgMap-linkItems item1-6"></a>
+                                    <a href="javascript:void(0)" title="위해성에 관한 자료(CSR) 준비 바로가기" class="imgMap-linkItems item1-7"></a>
+                                    <a href="javascript:void(0)" onclick="uiCommon.popup.open('.popup1')" class="imgMap-linkItems item1-8"></a>
                                 </div>    
                                 <div class="imgMap-wrap mobile">
                                     <div class="tit-text">상세 내용은 웹사이트에서 확인해주세요.</div>
-                                    <img src="/assets/images/contents/flow_chart.svg" title="등록절차">
+                                    <div class="imgMap-imgwrap">
+                                        <img src="/assets/images/contents/flow_chart_2_3.svg" title="등록절차">
+                                    </div>
                                     <div class="imgMap-dimmed">
                                         <a href="/assets/images/contents/flow_chart.svg" title="등록절차 자세히 보기">
                                             터치 후 상하좌우 및<br>확대하여 보실 수 있습니다.
@@ -360,10 +361,9 @@
         <!-- popup -->
         <div class="popup popup1"><!-- popup name 추가 ex)popup-confirm -->
             <div class="popup__wrap popup__wrap-type1">
-                <div class="popup__title">기존 화학물질 등록 사후관리</div>
+                <div class="popup__title">등록 대상 기존 화학물질 등록 사후관리</div>
                 <div class="popup__conts">
                     <ul class="list-dot">
-                        <li class="list-dot__items">후발 참여자/낮은 톤수 등록 신청자 등록 서비스</li>
                         <li class="list-dot__items">등록 정보 업데이트(변경신고/변경등록)</li>
                         <li class="list-dot__items">유해성 심사/위해성 평가 대응</li>
                 </div>

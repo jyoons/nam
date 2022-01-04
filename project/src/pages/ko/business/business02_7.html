@@ -11,7 +11,7 @@
             <div id="navSkip"><a href="#container">본문으로 바로가기</a></div>
             @@include('./pages/ko/include/header.html',{
                     gnbLocation : 'business,1,0',
-                    lnbLocation : 'business,1,0,5'
+                    lnbLocation : 'business,1,0,6'
             })
             <!-- container -->
             <div id="container" class="container">
@@ -42,19 +42,18 @@
                             </div>
                             <div class="layout-wrap-conts type-d">
                                 <div class="imgMap-wrap pc">
-                                    <img src="/assets/images/contents/flow_chart.svg" title="업무흐름도">
-                                    <div class="imgMap-items item1-1">
-                                        <a href="javascript:alert('test')" class="link" title="사전신고로 바로가기">
-                                            <div class="imgMap-items__tooltip">기존 화학물질 사전신고 서비스</div>
-                                        </a>                                        
+                                    <div class="imgMap-imgwrap">
+                                        <img src="/assets/images/contents/flow_chart_2_7_1.svg" title="업무 흐름도">
                                     </div>
-                                    <div class="imgMap-items item1-2">
-                                        <div></div>
-                                    </div>
+                                    <a href="javascript:void(0)" onclick="uiCommon.popup.open('.popup1')" class="imgMap-linkItems item1-18"></a>
+                                    <a href="javascript:void(0)" onclick="uiCommon.popup.open('.popup2')" class="imgMap-linkItems item1-19"></a>
+                                    <a href="javascript:void(0)" onclick="uiCommon.popup.open('.popup3')" class="imgMap-linkItems item1-20"></a>
                                 </div>    
                                 <div class="imgMap-wrap mobile">
                                     <div class="tit-text">상세 내용은 웹사이트에서 확인해주세요.</div>
-                                    <img src="/assets/images/contents/flow_chart.svg" title="업무흐름도">
+                                    <div class="imgMap-imgwrap">
+                                        <img src="/assets/images/contents/flow_chart_2_7_1.svg" title="업무 흐름도">
+                                    </div>
                                     <div class="imgMap-dimmed">
                                         <a href="/assets/images/contents/flow_chart.svg" title="업무흐름도 자세히 보기">
                                             터치 후 상하좌우 및<br>확대하여 보실 수 있습니다.
@@ -112,17 +111,10 @@
         <!-- popup1 -->
         <div class="popup popup1"><!-- popup name 추가 ex)popup1 -->
             <div class="popup__wrap popup__wrap-type1">
-                <div class="popup__title">무게별 등록 면제 대상</div>
+                <div class="popup__title">최소 요구되는 시험항목 확인</div>
                 <div class="popup__conts">
-                    <div class="popup__conts-title">등록 면제</div>
                     <ul class="list-dot">
-                        <li class="list-dot__items">연간 1톤 이상 제조ㆍ수입되는 기존 화학물질</li>
-                        <li class="list-dot__items">연간 0.1톤 이상 제조ㆍ수입되는 기존 화학물질 신고 면제</li>
-                        <li class="list-dot__items">연간 1톤 미만 제조ㆍ수입되는 기존 화학물질</li>
-                    </ul>
-                    <div class="popup__conts-title">등록 면제</div>
-                    <ul class="list-dot">
-                        <li class="list-dot__items">연간 1톤 미만 제조ㆍ수입되는 기존 화학물질 </li>
+                        <li class="list-dot__items">화평법 시행규칙 [별표1] 시험자료의 제출방법에 근거 제출이 필요한 시험항목 파악</li>
                     </ul>
                 </div>
                 <div class="btn-wrap">
@@ -134,11 +126,11 @@
         <!-- popup2 -->
         <div class="popup popup2"><!-- popup name 추가 ex)popup1 -->
             <div class="popup__wrap popup__wrap-type1">
-                <div class="popup__title">등록ㆍ신고 면제를 위한 컨설팅</div>
+                <div class="popup__title">면제 가능한 항목 파악</div>
                 <div class="popup__conts">
                     <ul class="list-dot">
-                        <li class="list-dot__items">등록ㆍ신고 면제 확인 서류 제출</li>
-                        <li class="list-dot__items">자료 보호 서류 제출</li>
+                        <li class="list-dot__items">등록 신청자로부터 등록 신청물질에 대해 제조 공정, 원료, 사용용도 등 물질특성 파악에 필요한 정보 수집</li>
+                        <li class="list-dot__items">국립환경과학원고시 제2019-2호 [별표 2] 시험면제조건 근거하여 면제 가능성 파악</li>
                     </ul>
                 </div>
                 <div class="btn-wrap">
@@ -147,6 +139,23 @@
             </div>
         </div>
         <!--// popup2 -->
+        <!-- popup3 -->
+        <div class="popup popup3"><!-- popup name 추가 ex)popup1 -->
+        <div class="popup__wrap popup__wrap-type1">
+            <div class="popup__title">시험항목별 시험자료 Collection/Data Gap 고려</div>
+            <div class="popup__conts">
+                <ul class="list-dot">
+                    <li class="list-dot__items">기존 데이터 검색(문헌, 신뢰성 있는 사이트 등), 식별, 목록화, 유효성 검토</li>
+                    <li class="list-dot__items">환경부 Data gap 분석결과 Revision(필요 시)</li>
+                    <li class="list-dot__items">화평법 법적 요구에 대한 정합성 여부 분석</li>
+                </ul>
+            </div>
+            <div class="btn-wrap">
+                <button class="btns popup__close" onclick="uiCommon.popup.close('.popup3')">확인</button>
+            </div>
+        </div>
+    </div>
+    <!--// popup3 -->
     </div>
         @@include('./pages/ko/include/scriptImport.html', {pageMain : false})
     </body>

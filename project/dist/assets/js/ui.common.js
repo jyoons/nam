@@ -21,17 +21,12 @@ var uiCommon = function (uiCommon, $window) {
       this.setDefault();
     },
     setDefault: function setDefault() {
-      var agent = navigator.userAgent.toLowerCase();
       var mobile_filter = new Array('iPhone', 'iPod', 'iPad', 'Android', 'BlackBerry', 'Windows Phone', 'Windows CE', 'LG', 'MOT', 'SAMSUNG', 'SonyEricsson', 'Nokia');
       var isMobile = false;
 
       for (var i in mobile_filter) {
         if (navigator.userAgent.match(mobile_filter[i]) != null) {
           isMobile = true;
-        } else {
-          if (navigator.appName == 'Netscape' && agent.indexOf('trident') != -1 || agent.indexOf("msie") != -1) {
-            $('body').addClass('ieBrowser');
-          }
         }
       }
 
@@ -384,7 +379,7 @@ var uiCommon = function (uiCommon, $window) {
 
         if ($('.container-header__text .container-header__inImage').length > 0) {
           tl.fromTo('.container-header__text .container-header__inImage', {
-            opaciyt: 0,
+            opacity: 0,
             right: '-30px'
           }, {
             duration: 1,

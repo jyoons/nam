@@ -141,6 +141,10 @@
     }
 }
 .list-dot{
+    &.list-dot--none .list-dot__items{
+        padding-left:0;
+        &:before{display:none;}
+    }
     &__items{
         & + .list-dot__items{margin-top:1.6rem;}
         position:relative;

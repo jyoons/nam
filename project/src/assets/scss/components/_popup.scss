@@ -82,7 +82,6 @@
         color:$gray8;
         max-height:7rem;
         overflow:hidden;
-        @include ellipsis;
         & + .popup__conts{margin-top:2rem;}
     }
     &__conts{
@@ -109,9 +108,6 @@
     }
 }
 
-@include response('tablet') {
-
-}
 @include response('mobile') {
     .popup{
         transform: translate(-50%, -50%);

@@ -256,7 +256,7 @@ const uiCommon = (function (uiCommon, $window) {
         tl.add(text1(tl));
         tl.fromTo('.container-header__text', {top:'40px',  opacity:0}, {duration:0.4, top:0, opacity:1, ease:'power3'}, 0.8);
         if($('.container-header__text .container-header__inImage').length > 0){
-          tl.fromTo('.container-header__text .container-header__inImage', {opaciyt:0, right:'-30px'}, {duration:1, right:0, opacity:1, ease:'power3'}, 1);
+          tl.fromTo('.container-header__text .container-header__inImage', {opacity:0, right:'-30px'}, {duration:1, right:0, opacity:1, ease:'power3'}, 1);
         }
 
       }
