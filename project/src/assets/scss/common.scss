@@ -622,7 +622,10 @@
         }
         &__title{  
             &.pc{display:none;}
-            &.mobile{display:block;}
+            &.mobile{
+                display:block;
+                &.small{font-size:5rem;}
+            }
             font-size:6rem;
             line-height:7rem;
             letter-spacing: 0;

@@ -1776,6 +1776,9 @@ body {
   .container-header__title.mobile {
     display: block;
   }
+  .container-header__title.mobile.small {
+    font-size: 5rem;
+  }
   .container-header__title > div + div {
     margin-top: 0.6rem;
   }
