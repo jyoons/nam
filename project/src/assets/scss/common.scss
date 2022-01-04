@@ -308,6 +308,7 @@
         &+& {
             margin-top: 6rem;
         }
+        &.type2{margin:14rem 0 0;}
         &.type1{
             margin:14rem 0 0;
             &>div:first-child{
@@ -624,7 +625,7 @@
             &.pc{display:none;}
             &.mobile{
                 display:block;
-                &.small{font-size:5rem;}
+                &.small{font-size:5rem; line-height:6rem;}
             }
             font-size:6rem;
             line-height:7rem;
@@ -746,6 +747,7 @@
           margin-top: 6rem;
         }
         & +  &.type1{margin-top:8rem;}
+        &.type2{margin:8rem 0 0;}
         &.type1{
             margin:8rem 0 0;
             display:block;

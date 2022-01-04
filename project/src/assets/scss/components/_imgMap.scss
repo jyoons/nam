@@ -64,12 +64,7 @@
             left:43.8%;            
             background-image:url('/assets/images/contents/fc_box_smaller_color_01-off.svg');  
             &:hover{background-image:url('/assets/images/contents/fc_box_smaller_color_01.svg');}
-            .link{
-                top:36%;
-                left:10%;
-                width:80%;
-                height:28%;          
-            }
+            .link{left:10%; width:80%;}
         }
         &.item1-2{
             width:26.06%;
@@ -78,12 +73,7 @@
             left:15.66%;
             background-image:url('/assets/images/contents/fc_box_smaller_color_02-off.svg');
             &:hover{background-image:url('/assets/images/contents/fc_box_smaller_color_02.svg');}
-            .link{
-                top:36%;
-                left:20%;
-                width:60%;
-                height:28%;          
-            }
+            .link{left:20%; width:60%;}
         }
         &.item1-3{
             width:26.08%;
@@ -92,12 +82,6 @@
             left:8.54%;
             background-image:url('/assets/images/contents/fc_box_smaller_color_03-off.svg');
             &:hover{background-image:url('/assets/images/contents/fc_box_smaller_color_03.svg');}
-            .link{
-                top:36%;
-                left:30%;
-                width:40%;
-                height:28%;          
-            }
         }
         &.item1-4{
             width:26.06%;
@@ -106,12 +90,6 @@
             left:37%;
             background-image:url('/assets/images/contents/fc_box_smaller_color_04-off.svg');
             &:hover{background-image:url('/assets/images/contents/fc_box_smaller_color_04.svg');}
-            .link{
-                top:36%;
-                left:30%;
-                width:40%;
-                height:28%;          
-            }
         }
         &.item1-5{
             width:12.46%;
@@ -120,12 +98,6 @@
             left:65.46%;
             background-image:url('/assets/images/contents/fc_box_smaller_color_05-off.svg');
             &:hover{background-image:url('/assets/images/contents/fc_box_smaller_color_05.svg');}
-            .link{
-                top:36%;
-                left:30%;
-                width:40%;
-                height:28%;          
-            }
         }
         &.item1-6{
             width:12.46%;
@@ -134,16 +106,77 @@
             left:79.06%;
             background-image:url('/assets/images/contents/fc_box_smaller_color_06-off.svg');
             &:hover{background-image:url('/assets/images/contents/fc_box_smaller_color_06.svg');}
-            .link{
-                top:36%;
-                left:30%;
-                width:40%;
-                height:28%;         
-            }
         }
+        &.item2-1{
+            width:19.4%;
+            height:6.9%;
+            top:39.8%;
+            left:8.5%;
+            background-image:url('/assets/images/contents/fc_box_smaller_color_07-off.svg');
+            &:hover{background-image:url('/assets/images/contents/fc_box_smaller_color_07.svg');}
+            .link{top:28%; left:16%; width:66%; height:50%;}
+        } 
+        &.item2-2{
+            width:12.5%;
+            height:7%;
+            top:69.7%;
+            left:8.5%;
+            background-image:url('/assets/images/contents/fc_box_smaller_color_08-off.svg');
+            &:hover{background-image:url('/assets/images/contents/fc_box_smaller_color_08.svg');}
+            .link{top:27.6%; left:16%; width:66%; height:50%;}
+        }
+        &.item2-3{
+            width:12.6%;
+            height:7%;
+            top:69.7%;
+            left:26.1%;
+            background-image:url('/assets/images/contents/fc_box_smaller_color_09-off.svg');
+            &:hover{background-image:url('/assets/images/contents/fc_box_smaller_color_09.svg');}
+            .link{top:27.6%; left:16%; width:66%; height:50%;}
+        }
+        &.item2-4{
+            width:12.6%;
+            height:7%;
+            top:69.7%;
+            left:61.4%;
+            background-image:url('/assets/images/contents/fc_box_smaller_color_10-off.svg');
+            &:hover{background-image:url('/assets/images/contents/fc_box_smaller_color_10.svg');}
+            .link{top:14.6%; left:12%; width:77%; height:74%;}
+        }
+        &.item2-5{
+            width:12.6%;
+            height:7%;
+            top:69.7%;
+            left:78.9%;
+            background-image:url('/assets/images/contents/fc_box_smaller_color_11-off.svg');
+            &:hover{background-image:url('/assets/images/contents/fc_box_smaller_color_11.svg');}
+            .link{top:27.6%; left:16%; width:66%; height:50%;}
+        }    
+        &.item2-6{
+            width:40.4%;
+            height:6.9%;
+            top:78.9%;
+            left:8.6%;
+            background-image:url('/assets/images/contents/fc_box_smaller_color_12-off.svg');
+            &:hover{background-image:url('/assets/images/contents/fc_box_smaller_color_12.svg');}
+            .link{top:36%; left:37%; width:26%; height:32%;}
+        }
+        &.item2-7{
+            width:83%;
+            height:7%;
+            top:88%;
+            left:8.6%;
+            background-image:url('/assets/images/contents/fc_box_smaller_color_13-off.svg');
+            &:hover{background-image:url('/assets/images/contents/fc_box_smaller_color_13.svg');}
+            .link{top:36%; left:35%; width:30%; height:32%;}
+        }                                                                                                     
         .link{
             display:block;
             position:absolute;
+            top:36%;
+            left:30%;
+            width:40%;
+            height:28%;        
         }
     }
     &-linkItems{
@@ -176,6 +209,7 @@
         &.item1-23{width:8.8%; height:2.4%; top:86.2%; left:66.6%;}
         &.item1-24{width:8.8%; height:1.4%; top:17.8%; left:45.4%;}
         &.item1-25{width:8.8%; height:1.4%; top:71.8%; left:24.2%;}
+        &.item2-1{height:1.4%; top:27.2%; left:20%;}
     }
     &-items__tooltip{
         &.line2{top:-60px;}
@@ -243,27 +277,16 @@
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .imgMap{
         &-items{
-            &.item1-2{
-                top:45.73%;
-                left:15.6%;
-            }
-            &.item1-4{
-                height:4.66%;
-                top:53.68%;
-                left:36.94%;              
-            }
-            &.item1-5{
-                width:12.44%;
-                height:4.62%;
-                top:65.06%;
-                left:65.44%;               
-            }
-            &.item1-6{
-                width:12.40%;
-                height:4.62%;
-                top:65.06%;
-                left:79.06%;
-            }
+            &.item1-2{top:45.73%; left:15.6%;}
+            &.item1-4{height:4.66%; top:53.68%; left:36.94%;}
+            &.item1-5{width:12.44%; height:4.62%; top:65.06%;left:65.44%;}
+            &.item1-6{width:12.40%; height:4.62%; top:65.06%; left:79.06%;}
+            &.item2-1{width:19.3%;}
+            &.item2-2{width:12.4%; height:6.98%;}
+            &.item2-3{width:12.54%; height:6.96%;}
+            &.item2-4{width:12.5%; height:6.98%;}
+            &.item2-5{width:12.5%; height:6.98%;}
+            &.item2-7{height:6.98%;}
         }
     }
 }
