@@ -110,6 +110,7 @@
            .title{
                 padding-left:2rem;
                 @include fontSize('fontS09');
+                word-break: keep-all;
                 & + .conts{margin-top:4.4rem;}
            }
            .conts{          

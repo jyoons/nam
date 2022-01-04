@@ -317,6 +317,10 @@ body {
     align-items: center;
     justify-content: space-between;
     margin-bottom:3.2rem;
+    .guide-text{
+      @include fontSize('fontS02');
+      color:$gray4;
+    }
   }
   .layout-wrap-header__title{
     margin-bottom:0;

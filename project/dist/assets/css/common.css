@@ -562,6 +562,11 @@ body {
   justify-content: space-between;
   margin-bottom: 3.2rem;
 }
+.layout-wrap-header.type-d.col-2 .guide-text {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #bbbbbb;
+}
 .layout-wrap-header.type-d .layout-wrap-header__title {
   margin-bottom: 0;
 }
@@ -1451,6 +1456,13 @@ body {
   .layout-wrap-conts {
     padding: 2rem 0;
   }
+  .layout-wrap-conts__text {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+  .layout-wrap-conts__text .btn-wrap {
+    margin-top: 2.8rem;
+  }
 
   .input-layout-title {
     font-size: 1.8rem;
@@ -1968,14 +1980,11 @@ body {
     padding-bottom: 0;
   }
   .layout-wrap-conts__text {
-    text-align: left;
-    color: #333333;
-    font-size: 2.4rem;
-    line-height: 3.6rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
   }
   .layout-wrap-conts__text .btn-wrap {
-    margin-top: 3rem;
-    justify-content: flex-start;
+    margin-top: 2.4rem;
   }
 
   .input-layout-title {
@@ -1985,6 +1994,12 @@ body {
 
   .layout-wrap-header.type-d {
     margin-bottom: 4.8rem;
+  }
+  .layout-wrap-header.type-d.col-2 {
+    flex-wrap: wrap;
+  }
+  .layout-wrap-header.type-d.col-2 .guide-text {
+    margin-top: 1rem;
   }
   .layout-wrap-header.type-d.col-2 button.btns.icon {
     display: none;

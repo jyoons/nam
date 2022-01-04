@@ -323,8 +323,14 @@
             margin-bottom: 2rem;
         }
     }
-    .layout-wrap-conts {
+    .layout-wrap-conts{
         padding: 2rem 0;
+        &__text{
+            @include fontSize('fontS04');
+            .btn-wrap{
+                margin-top:2.8rem;
+            }
+        }
     }
 
     .input-layout-title {
@@ -772,12 +778,9 @@
             padding-bottom: 0;
         }
         &__text{
-            text-align:left;
-            color:$gray7;
-            @include fontSize('fontS05');
+            @include fontSize('fontS02');
             .btn-wrap{
-                margin-top:3rem;
-                justify-content: flex-start;
+                margin-top:2.4rem;
             }
         }
     }
@@ -785,7 +788,11 @@
         @include fontSize('fontS01');
     }
     .layout-wrap-header.type-d{
-        &.col-2 button.btns.icon{display:none;}
+        &.col-2{
+            flex-wrap:wrap;
+            .guide-text{margin-top:1rem;}
+            button.btns.icon{display:none;}
+        }
         margin-bottom:4.8rem;
         .layout-wrap-header__title{
             @include fontSize('fontS08');
