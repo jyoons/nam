@@ -1967,6 +1967,16 @@ body {
     border-bottom: none;
     padding-bottom: 0;
   }
+  .layout-wrap-conts__text {
+    text-align: left;
+    color: #333333;
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+  }
+  .layout-wrap-conts__text .btn-wrap {
+    margin-top: 3rem;
+    justify-content: flex-start;
+  }
 
   .input-layout-title {
     font-size: 1.4rem;

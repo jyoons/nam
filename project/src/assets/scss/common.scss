@@ -771,6 +771,15 @@
             border-bottom: none;
             padding-bottom: 0;
         }
+        &__text{
+            text-align:left;
+            color:$gray7;
+            @include fontSize('fontS05');
+            .btn-wrap{
+                margin-top:3rem;
+                justify-content: flex-start;
+            }
+        }
     }
     .input-layout-title {
         @include fontSize('fontS01');
