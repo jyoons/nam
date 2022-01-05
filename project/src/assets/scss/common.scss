@@ -315,7 +315,8 @@
                 flex:0 0 40%;
             }
             &>div:nth-child(2){padding-top:0;}
-        } 
+        }
+        &.layout-imgMap + .layout-wrap.type1{margin-top:9rem;}
     }
     .layout-wrap-header {
         &__title {
@@ -759,6 +760,7 @@
             display:block;
             &>div:nth-child(2){padding-top:0;}
         } 
+        &.layout-imgMap + .layout-wrap.type1{margin-top:8rem;}
     }
     .layout-wrap-header {
         &.type-d1 .layout-wrap-header__title{
