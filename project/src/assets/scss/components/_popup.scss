@@ -103,6 +103,7 @@
         .popup__conts-title{
             margin:2rem 0 1rem;
             @include fontSize('fontS02');
+            color:$gray7;
         }
         &>.popup__conts-title:first-child{margin-top:0;}
     }

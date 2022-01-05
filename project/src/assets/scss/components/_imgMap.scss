@@ -45,6 +45,7 @@
         position:relative;
         width:100%;
         &>img{width:100%;}
+        .imgMap-imgwrap.type-term{margin:12rem 2rem 20rem;}
     }
     &-items{
         position:absolute;
@@ -252,8 +253,11 @@
     &.pc{display:none;}
     &.mobile{display:block;}
 }
-@include response('tablet') {
+@include response('tablet') {    
     .imgMap{
+        &-wrap{
+            .imgMap-imgwrap.type-term{margin:10rem 2rem 18rem;}
+        }
         &-items__tooltip{    
             &.line2{top:-52px;}       
             top:-42px;
@@ -276,6 +280,14 @@
         &-wrap{
             &.pc{display:none;}
             &.mobile{display:block;}
+            .imgMap-imgwrap.type-term{
+                margin:0 6%;
+                &>img{
+                    height:36rem;
+                    object-fit: contain;
+                }
+            
+            }
         }
     }
 }
