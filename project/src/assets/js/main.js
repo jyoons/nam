@@ -176,8 +176,22 @@ const mainUi = (function (mainUi, $window) {
             this.sectionAni();
         },
         scrollInit : function(){
-            var sumHeight = 0,
-            epilHeight = $('.main-epilogue').height(); //680
+            let sumHeight = 0,
+            epilHeight = $('.main-epilogue').height(),
+            h = null,
+            fakeHeight = null;
+
+            if($window.width() < 767){
+                fakeHeight = 0;
+            }else{
+                fakeHeight = 6000;
+            }
+
+            if($window.width() < 1025){
+                h = 0;
+            }else{
+                h = 300;
+            }
 
             setTimeout(function(){
                 if($window.width() > 767){
@@ -194,17 +208,15 @@ const mainUi = (function (mainUi, $window) {
             $('.main .section').each(function(index, item){
                 var height = $(item).index() * $(window).height();
                 if ( index == 3 ) {
-                    if($window.width() > 767){
-                        height = height + 6000;
-                    }else{
-                        height = height;
-                    }
+                    height = height + fakeHeight;
                 }
                 sumHeight = sumHeight + height;
+                console.log(height+ ', sum : ' + sumHeight);
+
                 $(item).css({ 'top' :  height});
             });
-            $('#wrap.main').css({'height' : sumHeight + epilHeight + 300 + 'px'}); 
-            // $('#wrap.main').css({'height' : sumHeight - epilHeight - 180 + 'px'});
+
+            $('#wrap.main').css({'height' : sumHeight + epilHeight + h + 'px'}); 
         },
         scrollEv: function(){
             let $mainVi = $('.main-visual'),
@@ -212,9 +224,9 @@ const mainUi = (function (mainUi, $window) {
                 $sec02 = $('.section-02'),
                 $sec03 = $('.section-03'),
                 $navi = $('.main-indi li'),
-                _top01 = $sec01.offset().top, //1057
-                _top02 = $sec02.offset().top, //2114
-                _top03 = $sec03.offset().top; //9171
+                _top01 = $sec01.offset().top, 
+                _top02 = $sec02.offset().top,
+                _top03 = $sec03.offset().top;
 
             $navi.find('a').on('click', function() {
                 var index = $(this).parent().index(),
@@ -240,18 +252,21 @@ const mainUi = (function (mainUi, $window) {
                         break;
                 };
 
-                // $(window).scrollTop(posi);
-                $('html').animate({scrollTop : posi}, 500);
+                $(window).scrollTop(posi);
             });
 
             $window.on('scroll',function(e){
                 let scTop = $window.scrollTop(),
                     c = 0,
                     d = -50,
-                    sec01_value = scTop * ( d - c ) / _top01 + c;
+                    sec01_value = scTop * ( d - c ) / _top01 + c,
+                    fakeHeight = null;
 
-                
-                
+                if($window.width() < 767){
+                    fakeHeight = 0;
+                }else{
+                    fakeHeight = 6000;
+                }
                 sec01_value > -50 && $mainVi.css('top', sec01_value + "%");
                 
                 //section01 지날때
@@ -287,9 +302,9 @@ const mainUi = (function (mainUi, $window) {
                         'opacity':'0',
                         'position' : 'absolute'
                     });   
-                    scTop = scTop - $(window).height() * 2 - 6000;
+                    scTop = scTop - $(window).height() * 2 - fakeHeight;
                     let sec03_value = scTop * ( d - c ) / _top01 + c;
-                    if ( $(window).scrollTop() > _top02 + 6000 ) {
+                    if ( $(window).scrollTop() > _top02 + fakeHeight ) {
                         $sec02.css({
                             'top' : sec03_value + "%"
                         });
@@ -303,7 +318,7 @@ const mainUi = (function (mainUi, $window) {
 
                 //section03 지날때
                 if ( scTop > _top03 ) {
-                    scTop = scTop - $(window).height() * 3 - 6000;
+                    scTop = scTop - $(window).height() * 3 - fakeHeight;
                     let sec04_value = scTop * ( d - c ) / _top01 + c;
                     $mainVi.css({
                         'opacity':'0',
@@ -331,12 +346,12 @@ const mainUi = (function (mainUi, $window) {
             $navi = $('.main-indi li'),
             $secInfo = $('.section-02 .section-02-text'),
             $sec02_title = $('.section-02-title'),
-            _top01 = $sec01.offset().top - 400, //657 
-            _top02 = $sec02.offset().top - 400, //1714
-            _top03 = $sec03.offset().top - 400, //8771
-            _sec02Posi01 = $sec02.offset().top + 1500, //3614
-            _sec02Posi02 = $sec02.offset().top + 3000, //5114
-            _sec02Posi03 = $sec02.offset().top + 4500, //6614
+            _top01 = $sec01.offset().top - 400, 
+            _top02 = $sec02.offset().top - 400, 
+            _top03 = $sec03.offset().top - 400, 
+            _sec02Posi01 = $sec02.offset().top + 1500, 
+            _sec02Posi02 = $sec02.offset().top + 3000, 
+            _sec02Posi03 = $sec02.offset().top + 4500, 
             _count01 = new countUp.CountUp('count01', 5000),
             _count02 = new countUp.CountUp('count02', 5000),
             _count01Flag = false,
@@ -345,12 +360,12 @@ const mainUi = (function (mainUi, $window) {
             $window.on('scroll',function(){
                 let scTop = $window.scrollTop();
 
-                if( scTop < _top01 ){ //657미만
+                if( scTop < _top01 ){ 
                     $('.main-indi').removeClass('color-change');
                     $navi.removeClass('on').eq(0).addClass('on');
                     $section.removeClass('active');
 
-                }else if( scTop < _top02 ){ //1714미만
+                }else if( scTop < _top02 ){ 
                     $('.main-indi').addClass('color-change');
                     $navi.removeClass('on').eq(1).addClass('on');
                     $secInfo.removeClass('active');
@@ -363,7 +378,7 @@ const mainUi = (function (mainUi, $window) {
                     }, 300);
 
 
-                }else if( scTop < _top03 && $window.width() > 767 ){ //8771 미만
+                }else if( scTop < _top03 && $window.width() > 767 ){ 
                     $('.main-indi').removeClass('color-change');
                     $navi.removeClass('on').eq(2).addClass('on');
                     $section.removeClass('active').eq(2).addClass('active');
@@ -488,17 +503,22 @@ const mainUi = (function (mainUi, $window) {
 
                     }
                 } else if( scTop < _top03 && $window.width() < 767 ){
-                    // 여기에 모바일 section2 적기
+                    // mobile section02
                     $sec02_title = $('.mo-view .section-02-title'),
                     $secInfo = $('.mo-view .section-02-text');
-                    console.log(scTop);
+                    _count01Flag = false,
+                    _count02Flag = false;
+                    
                     $sec02_title.removeClass('on').eq(0).addClass('on');
-                    $secInfo.addClass('active').stop().animate({
-                        'top':'0', 
-                        'opacity': '1',
-                        'z-index': '0'
-                    }, 300);
-
+                    $secInfo.each(function(){
+                        if($(this).hasClass('slick-current') === true){
+                            $(this).addClass('active').stop().animate({
+                                'top':'0', 
+                                'opacity': '1',
+                                'z-index': '0'
+                            }, 300);
+                        }
+                    });
                 } else {
                     $('.main-indi').addClass('color-change');
                     $navi.removeClass('on').eq(3).addClass('on');
@@ -513,11 +533,11 @@ const mainUi = (function (mainUi, $window) {
         init: function(){
             const $mainTab = $('.main-tab-list__item'),
                 $mainTabConts = $('.main-layout__conts');
-            $mainTab.on('click',function(){
-                $(this).addClass('on').siblings().removeClass('on');
-                let tabItem = $(this).attr('data-tab');
-                $mainTabConts.find('.'+tabItem).addClass('on').siblings().removeClass('on');
-            });
+                $mainTab.on('click',function(){
+                    $(this).addClass('on').siblings().removeClass('on');
+                    let tabItem = $(this).attr('data-tab');
+                    $mainTabConts.find('.'+tabItem).addClass('on').siblings().removeClass('on');
+                });
         }
     };
     mainUi.mobile = {
@@ -525,50 +545,99 @@ const mainUi = (function (mainUi, $window) {
 
             if( $window.width() < 767 ){
                 this.moSlick();
-                this.moSectionAni();
+                this.moQuick();
 
                 $('.main .slick-arrow').css({'display':'none'});
-                $('.main .mo-view').show();
-                $('.main .pc-view').hide();
+                $('.main .section-02 .mo-view').show();
+                $('.main .section-02 .pc-view').hide();
             }else{
-                $('.main .pc-view').show();
-                $('.main .mo-view').hide();
+                $('.main .section-02 .pc-view').show();
+                $('.main .section-02 .mo-view').hide();
             }
         },
+        moQuick : function(){
+            const $quickClick = $('.main-visual .mo-view'),
+                    $quickMenu = $('.main .quick-menu');
+
+            $quickClick.on('click', function(){
+                $(this).hide();
+                $quickMenu.stop().animate({
+                    'height': '60rem'
+                },1000);
+            });
+
+            $('html').on('click',function(e){
+                if(e.target.nodeName === 'VIDEO'){
+                    $quickClick.show();
+                    $quickMenu.stop().animate({
+                        'height': '10rem'
+                    },1000);
+                }
+            });
+        },
         moSlick : function(){
+            let $secInfo = $('.mo-view .section-02-text'),
+            _count01 = new countUp.CountUp('count01-mo', 5000),
+            _count02 = new countUp.CountUp('count02-mo', 5000),
+            _count01Flag = false,
+            _count02Flag = false;
+
             $('.mo-view-slider').not('.slick-initialized').slick({
                 dots: true,
                 arrows: false,
                 pauseOnHover: false,
                 infinite: false,
                 speed: 1000,
-                fade: false,
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 autoplay: false,
-                // autoplaySpeed: 1000,
             });
-            // $('.mo-view-slider').slick('setPosition'); 
+            $('.mo-view-slider').on({
+                afterChange : function(event, slick, currentSlide){
+                    $secInfo.each(function(){
+                        if($(this).hasClass('slick-current') === true){
+                            $secInfo.removeClass('active');
+                            $(this).addClass('active').stop().animate({
+                                'top':'0', 
+                                'opacity': '1',
+                                'z-index': '0'
+                            }, 300);
+                            if( $secInfo.eq(1).hasClass('active')  === true){
+                                setTimeout(function(){
+                                    if ( !_count01Flag ) {
+                                        _count01.start();
+                                        _count01Flag = true;
+                                    } 
+        
+                                    _count02Flag = false;
+                                    _count02.reset();    
+                                },300);
+                            }
+                            if( $secInfo.eq(2).hasClass('active') === true){
+                                setTimeout(function(){
+                                    if ( !_count02Flag ) {
+                                        _count02.start();
+                                        _count02Flag = true;
+                                    } 
+        
+                                    _count01Flag = false;
+                                    _count01.reset();    
+                                },300);
+                            }
+                        }else{
+                            $(this).removeClass('active').stop().animate({
+                                'top':'10%', 
+                                'opacity': '0',
+                                'z-index': '-1'
+                            }, 300);
+                        }
+                    });
+                    
+                }
+            });
 
         },
-        moSectionAni : function(){
-            let $section = $('.main .section'),
-            $sec01 = $('.section-01'),
-            $sec02 = $('.section-02'),
-            $sec03 = $('.section-03'),
-            $navi = $('.main-indi li'),
-            $secInfo = $('.section-02 .section-02-text'),
-            $sec02_title = $('.section-02-title'),
-            _top01 = $sec01.offset().top - 400, //657 
-            _top02 = $sec02.offset().top - 400, //1714
-            _top03 = $sec03.offset().top - 400, //8771
-            _count01 = new countUp.CountUp('count01', 5000),
-            _count02 = new countUp.CountUp('count02', 5000),
-            _count01Flag = false,
-            _count02Flag = false;
-
-
-        },
+        
     }
     mainUi.init();
     return mainUi;
