@@ -448,8 +448,6 @@ const mainUi = (function (mainUi, $window) {
                             'z-index':'-1'
                         }, 300);
 
-
-
                         $secInfo.removeClass('active').eq(2).addClass('active').css('top', '-30%').stop().animate({
                             'top':'0', 
                             'opacity': '1',
@@ -485,14 +483,23 @@ const mainUi = (function (mainUi, $window) {
                             _count02.reset();
                         },300);
 
+                        $secInfo.removeClass('active').eq(0).removeClass('active').css({
+                            'top':'-80%',
+                            'opacity':'0',
+                            'z-index':'-1'
+                        });
+                        $secInfo.removeClass('active').eq(1).removeClass('active').css({
+                            'top':'-80%',
+                            'opacity':'0',
+                            'z-index':'-1'
+                        });
+                        $secInfo.removeClass('active').eq(2).removeClass('active').stop().animate({
+                            'top':'-80%',
+                            'opacity':'0',
+                            'z-index':'-1'
+                        }, 300);
 
-                        if ( $secInfo.eq(2).hasClass('active') ) {
-                            $secInfo.removeClass('active').eq(2).removeClass('active').stop().animate({
-                                'top':'-80%',
-                                'opacity':'0',
-                                'z-index':'-1'
-                            }, 300);
-                        }
+
                         if ( !$secInfo.eq(3).hasClass('active') ) {
                             $secInfo.removeClass('active').eq(3).addClass('active').css('top', '80%').stop().animate({
                                 'top':'0', 
@@ -524,6 +531,11 @@ const mainUi = (function (mainUi, $window) {
                     $navi.removeClass('on').eq(3).addClass('on');
                     $section.removeClass('active').eq(3).addClass('active');
                     $sec02_title.removeClass('on');
+                    $secInfo.removeClass('active').css({
+                        'top':'-80%',
+                        'opacity':'0',
+                        'z-index':'-1'
+                    });
                 }
             });
 
