@@ -3182,6 +3182,29 @@ input[type=text]::-ms-clear {
   top: 34.6%;
   left: 66.2%;
 }
+.imgMap-linkItems.item3-3 {
+  width: 16%;
+  height: 1.4%;
+  top: 17%;
+  left: 42%;
+}
+.imgMap-linkItems.item3-4 {
+  width: 14%;
+  top: 33.8%;
+  left: 43%;
+}
+.imgMap-linkItems.item3-5 {
+  width: 16%;
+  height: 1.4%;
+  top: 18%;
+  left: 42%;
+}
+.imgMap-linkItems.item3-6 {
+  width: 13%;
+  height: 1.4%;
+  top: 31.2%;
+  left: 22%;
+}
 .imgMap-items__tooltip {
   display: none;
   position: absolute;
