@@ -433,6 +433,17 @@ body {
 .layout-wrap-conts__text + .conts-list.type5 {
   margin-top: 8rem;
 }
+.layout-wrap-conts__text + .layout-wrap-conts__title {
+  margin-top: 8rem;
+}
+.layout-wrap-conts__title {
+  font-size: 3.2rem;
+  line-height: 4.8rem;
+  font-weight: 700;
+}
+.layout-wrap-conts__title + div, .layout-wrap-conts__title + ul {
+  margin-top: 4rem;
+}
 
 .input-layout-title {
   font-size: 2rem;
@@ -1506,6 +1517,18 @@ body {
   .layout-wrap-conts__text + .conts-list.type5 {
     margin-top: 4rem;
   }
+  .layout-wrap-conts__text + .layout-wrap-conts__title {
+    margin-top: 6rem;
+  }
+  .layout-wrap-conts__title {
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+    font-weight: 500;
+    font-weight: 700;
+  }
+  .layout-wrap-conts__title + div, .layout-wrap-conts__title + ul {
+    margin-top: 3.4rem;
+  }
 
   .input-layout-title {
     font-size: 1.8rem;
@@ -1823,7 +1846,10 @@ body {
 
   /*container*/
   .container-header {
-    padding: 9rem 3.2rem;
+    padding: 10rem 3.2rem;
+  }
+  .container-header.business {
+    padding: 4.8rem 3.2rem 10rem;
   }
   .container-header.container-header-img {
     margin-bottom: 9rem;
@@ -1837,8 +1863,8 @@ body {
     margin-top: 4.8rem;
   }
   .container-header__title {
-    font-size: 6rem;
-    line-height: 7rem;
+    font-size: 4.8rem;
+    line-height: 6rem;
     letter-spacing: 0;
   }
   .container-header__title.pc {
@@ -1847,15 +1873,11 @@ body {
   .container-header__title.mobile {
     display: block;
   }
-  .container-header__title.mobile.small {
-    font-size: 5rem;
-    line-height: 6rem;
-  }
   .container-header__title > div + div {
     margin-top: 0.6rem;
   }
   .container-header__title + .container-header__text {
-    margin-top: 6rem;
+    margin-top: 4.8rem;
   }
   .container-header__text {
     width: 70%;
@@ -2005,6 +2027,10 @@ body {
   .layout-wrap.type1 > div:nth-child(2).line {
     padding-top: 3.2rem;
   }
+  .layout-wrap.type1 > div:nth-child(2).type-d.line {
+    padding-top: 0;
+    border-top: 0;
+  }
   .layout-wrap.type1 > div:first-child {
     padding-right: 0;
   }
@@ -2050,6 +2076,17 @@ body {
     margin-top: 2.4rem;
   }
   .layout-wrap-conts__text + .conts-list.type5 {
+    margin-top: 2.4rem;
+  }
+  .layout-wrap-conts__text + .layout-wrap-conts__title {
+    margin-top: 4.8rem;
+  }
+  .layout-wrap-conts__title {
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 700;
+  }
+  .layout-wrap-conts__title + div, .layout-wrap-conts__title + ul {
     margin-top: 2.4rem;
   }
 

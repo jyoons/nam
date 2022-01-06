@@ -201,6 +201,13 @@ body {
       justify-content: flex-start;
     }
     & + .conts-list.type5{margin-top:8rem;}
+    & + .layout-wrap-conts__title{margin-top:8rem;}
+  }
+  &__title{
+    @include fontSize('fontS08');
+    & + div, & + ul{
+      margin-top:4rem;
+    }
   }
 }
 .input-layout-title{

@@ -158,6 +158,11 @@
         background-image: url('/assets/images/common/ico_chevron_right_b.svg');
         background-position: right center;
     }
+    &.underline.arrow1{
+        padding-right:2.4rem;
+        background-size:1.6rem 1.6rem;
+        background-image: url('/assets/images/common/ico_site_move_b.svg');
+    }
 }
 // btn wrap
 .btn-wrap{

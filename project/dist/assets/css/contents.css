@@ -150,6 +150,11 @@
   background-image: url("/assets/images/common/ico_chevron_right_b.svg");
   background-position: right center;
 }
+.btn-arrow.underline.arrow1 {
+  padding-right: 2.4rem;
+  background-size: 1.6rem 1.6rem;
+  background-image: url("/assets/images/common/ico_site_move_b.svg");
+}
 
 .btn-wrap {
   display: flex;
@@ -3153,17 +3158,17 @@ input[type=text]::-ms-clear {
 .imgMap-linkItems.item1-14 {
   width: 8.8%;
   top: 33.7%;
-  left: 24%;
+  left: 66.4%;
 }
 .imgMap-linkItems.item1-15 {
   width: 8.8%;
   top: 42.2%;
-  left: 24%;
+  left: 66.4%;
 }
 .imgMap-linkItems.item1-16 {
   width: 8.8%;
   top: 59%;
-  left: 24%;
+  left: 66.4%;
 }
 .imgMap-linkItems.item1-17 {
   width: 8.8%;
@@ -3189,21 +3194,21 @@ input[type=text]::-ms-clear {
   left: 45.2%;
 }
 .imgMap-linkItems.item1-21 {
-  width: 8.8%;
-  height: 2.4%;
-  top: 16.2%;
-  left: 45.2%;
+  width: 7.8%;
+  height: 3%;
+  top: 22.6%;
+  left: 46%;
 }
 .imgMap-linkItems.item1-22 {
   width: 8.8%;
-  height: 2.4%;
-  top: 65.2%;
+  height: 3%;
+  top: 52%;
   left: 66.6%;
 }
 .imgMap-linkItems.item1-23 {
   width: 8.8%;
-  height: 2.4%;
-  top: 86.2%;
+  height: 3%;
+  top: 81%;
   left: 66.6%;
 }
 .imgMap-linkItems.item1-24 {
@@ -3257,6 +3262,11 @@ input[type=text]::-ms-clear {
   height: 1.4%;
   top: 31.2%;
   left: 22%;
+}
+.imgMap-linkItems.item4-1 {
+  width: 15%;
+  top: 43.4%;
+  left: 42.4%;
 }
 .imgMap-items__tooltip {
   display: none;
@@ -3378,6 +3388,137 @@ input[type=text]::-ms-clear {
   }
   .imgMap-items.item2-7 {
     height: 6.98%;
+  }
+}
+.table {
+  width: 100%;
+}
+.table.type1 {
+  border-collapse: collapse;
+}
+.table.type1 .table-w1 {
+  width: 65%;
+}
+.table.type1 .table-w2 {
+  width: 35%;
+}
+.table.type1 .row > td:nth-child(1) {
+  position: relative;
+  border: 1px solid #333333;
+  vertical-align: middle;
+}
+.table.type1 .row > td:nth-child(1) > div {
+  position: relative;
+  padding: 4rem;
+  width: 100%;
+  height: 100%;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  color: #333333;
+  word-break: keep-all;
+}
+.table.type1 .row > td:nth-child(2) {
+  position: relative;
+  padding-left: 3.2rem;
+  vertical-align: top;
+}
+.table.type1 .row > td:nth-child(2):after {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: 3.2rem;
+  width: 1px;
+  height: calc(100% - 2rem);
+  background: #dddddd;
+}
+.table.type1 .row > td:nth-child(2) > div {
+  position: relative;
+  margin: 1rem 0;
+  padding-left: 2rem;
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+  word-break: keep-all;
+}
+.table.type1 .row.row-3 > td:nth-child(1) {
+  border-bottom: 0;
+}
+.table.type1 .row.row-3 > td:nth-child(1):after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 1px;
+  height: 100%;
+  background: #333333;
+}
+.table.type1 .row.row-3 > td:nth-child(1) > div {
+  width: calc(100% - 40%);
+  margin-left: 40%;
+  border-left: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+}
+.table.type1 .row.row-4 > td:nth-child(1) {
+  border-top: 0;
+  border-bottom: 0;
+}
+.table.type1 .row.row-4 > td:nth-child(1) > div {
+  width: calc(100% - 10%);
+  margin-left: 10%;
+  border-left: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+}
+.table.type1 .row.row-5 > td:nth-child(1) {
+  border-top: 0;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .table.type1 .row > td:nth-child(1) > div {
+    padding: 3rem;
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+  .table.type1 .row > td:nth-child(2) {
+    padding-left: 2.6rem;
+  }
+  .table.type1 .row > td:nth-child(2):after {
+    left: 2.6rem;
+  }
+  .table.type1 .row > td:nth-child(2) > div {
+    padding-left: 1.4rem;
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+  }
+  .table.type1 .row.row-3 > td:nth-child(1) > div {
+    width: calc(100% - 30%);
+    margin-left: 30%;
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .table.type1 .table-w1 {
+    width: 60%;
+  }
+  .table.type1 .table-w2 {
+    width: 40%;
+  }
+  .table.type1 .row > td:nth-child(1) > div {
+    padding: 2.4rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+  .table.type1 .row > td:nth-child(2) {
+    padding-left: 2rem;
+  }
+  .table.type1 .row > td:nth-child(2):after {
+    left: 2rem;
+  }
+  .table.type1 .row > td:nth-child(2) > div {
+    padding-left: 0.8rem;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+  .table.type1 .row.row-3 > td:nth-child(1) > div {
+    width: calc(100% - 20%);
+    margin-left: 20%;
   }
 }
 .container-contents-wrap {
