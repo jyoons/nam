@@ -23,7 +23,7 @@ const mainUi = (function (mainUi, $window) {
     mainUi.headerCtr = {
         init: function() {
             this.headerScr();
-            this.gnbClick();
+            // this.gnbClick();
         },
         headerScr : function(){
             $window.on('scroll',function(){
@@ -37,14 +37,14 @@ const mainUi = (function (mainUi, $window) {
                 }
             });
         },
-        gnbClick : function(){
-            $('.main .gnb-btn').on('click',function(){
-                $('.wrap.main').css({'height':'100%'});
-            });
-            $('.main .gnb-close').on('click',function(){
-                mainUi.scrollEv.scrollInit();
-            });
-        }
+        // gnbClick : function(){
+        //     $('.main .gnb-btn').on('click',function(){
+        //         $('.wrap.main').css({'height':'100%'});
+        //     });
+        //     $('.main .gnb-close').on('click',function(){
+        //         mainUi.scrollEv.scrollInit();
+        //     });
+        // }
 
     }
     mainUi.mainPop = {
@@ -178,8 +178,8 @@ const mainUi = (function (mainUi, $window) {
         scrollInit : function(){
             let sumHeight = 0,
             epilHeight = $('.main-epilogue').height(),
-            h = null,
-            fakeHeight = null;
+            h = 0,
+            fakeHeight = 0;
 
             if($window.width() < 767){
                 fakeHeight = 0;
@@ -188,9 +188,9 @@ const mainUi = (function (mainUi, $window) {
             }
 
             if($window.width() < 1025){
-                h = 0;
+                h = 1000;
             }else{
-                h = 300;
+                h = 1500;
             }
 
             
@@ -206,31 +206,45 @@ const mainUi = (function (mainUi, $window) {
                 }
             }, 300);
 
-            $window.on('resize',function(){
-                setTimeout(function(){
-                    wrapHeight();
-                    console.log('아아');
-                },300);
-            });
+            // $window.on('resize',function(){
+            //     setTimeout(function(){
+            //         wrapHeight();
+            //     },300);
+            // });
 
-            let wrapHeight = function(){
+            // let wrapHeight = function(){
                 $('.main .section').each(function(index, item){
-                    var height = $(item).index() * $(window).height();
-                    if ( index == 3 ) {
-                        height = height + fakeHeight;
-                    }
-                    sumHeight = sumHeight + height;
-                    // console.log(height+ ', sum : ' + sumHeight);
-    
-                    $(item).css({ 'top' :  height});
-                });
-    
-                // $('#wrap.main').css({'height' : sumHeight + epilHeight + h + 'px'});                 
-                $('#wrap.main .container').css({'height' : sumHeight + epilHeight + h + 'px'});                 
-                sumHeight = 0;
-            }
+                    // var height = $(item).index() * $(window).height();
+                    // let height = $(item).index() * $(window).height();
+                    // if ( index == 3 ) {
+                    //     height = height + fakeHeight;
+                        
+                    // }
+                    // sumHeight = sumHeight + height;
+                    // $(item).css({ 'top' :  height});
+                    var posi = $(item).index() * $(window).height(),
+                        sec_h = $(window).height();
 
-            wrapHeight();
+                    if ( index == 3 ) {
+                        posi = posi + fakeHeight;
+                        sumHeight += $(item).height();
+                    }else {
+                        sumHeight += sec_h;
+                    }
+
+                    $(item).css({ 'top' :  posi});
+                });
+                // $('#wrap.main').css({'height' : sumHeight + epilHeight + h + 'px'});                 
+                // $('#wrap.main .container').css({'height' : sumHeight + epilHeight + h + 'px'});
+                // let winH = $(window).height(),
+                //     sec03H = $('.section-03').height();
+
+
+                // $('#wrap.main .container').css({'height' : (winH * 3) + sec03H + epilHeight + fakeHeight + 'px'});                 
+                $('#wrap.main .container').css({'height' : sumHeight + epilHeight + fakeHeight + h + 'px'}); 
+            // }
+
+            // wrapHeight();
 
         },
         scrollEv: function(){
