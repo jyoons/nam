@@ -56,6 +56,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -186,7 +187,7 @@
   position: absolute;
   opacity: 0;
   transform: scale(0.3);
-  transition: all 0.9s;
+  transition: all 0.5s;
 }
 .wrap.main .section.section-02 .main-layout__conts .section-02-text:nth-of-type(2)::after {
   right: -54.8rem;
@@ -616,9 +617,19 @@
   border-radius: 100%;
 }
 
+.main-slider {
+  height: 100%;
+}
+.main-slider .slick-list {
+  height: 100%;
+}
+.main-slider .slick-track {
+  height: 100%;
+}
 .main-slider .slick-slide video {
   min-width: 100%;
   object-fit: cover;
+  height: 100%;
 }
 .main-slider .slider-title {
   position: absolute;
@@ -988,7 +999,8 @@
 
   .wrap.main .section .main-layout {
     width: 80%;
-    margin: 18rem auto 0;
+    padding-top: 18rem;
+    margin: 0 auto;
   }
   .wrap.main .section .main-layout .main-layout__title {
     width: 35%;
@@ -1328,8 +1340,8 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    padding: 0 3.2rem;
-    margin: 18rem 0 0;
+    padding: 18rem 3.2rem 0;
+    margin: 0;
   }
   .wrap.main .section .main-layout .main-layout__title {
     width: 100%;
@@ -1393,8 +1405,7 @@
     height: 100%;
   }
   .wrap.main .section.section-02 .main-layout {
-    padding: 0;
-    margin: 18rem 0;
+    padding: 18rem 0 0;
   }
   .wrap.main .section.section-02 .main-layout__title {
     position: relative;
@@ -1424,7 +1435,7 @@
   .wrap.main .section.section-02 .main-layout__conts.mo-view-slider .slick-dots {
     display: flex;
     position: absolute;
-    top: 32.9rem;
+    bottom: 9rem;
     left: 3.2rem;
     text-indent: -99999px;
   }
@@ -1455,7 +1466,6 @@
   }
   .wrap.main .section.section-02 .main-layout__conts .section-02-text {
     position: relative;
-    overflow: hidden;
     padding: 0 3.2rem;
   }
   .wrap.main .section.section-02 .main-layout__conts .section-02-text .main-txt {
@@ -1467,7 +1477,7 @@
   .wrap.main .section.section-02 .main-layout__conts .section-02-text:nth-of-type(2)::after {
     right: -13rem;
     top: auto;
-    bottom: 12rem;
+    bottom: -10rem;
     width: 28rem;
     height: 28rem;
     background-size: contain;
@@ -1475,7 +1485,7 @@
   .wrap.main .section.section-02 .main-layout__conts .section-02-text:nth-of-type(3)::after {
     right: -13rem;
     top: auto;
-    bottom: 12rem;
+    bottom: -10rem;
     width: 28rem;
     height: 28rem;
     background-size: contain;
@@ -1483,7 +1493,7 @@
   .wrap.main .section.section-02 .main-layout__conts .section-02-text:nth-of-type(4)::after {
     right: -13rem;
     top: auto;
-    bottom: 12rem;
+    bottom: -10rem;
     width: 28rem;
     height: 28rem;
     background-size: contain;
@@ -1525,7 +1535,7 @@
     background-image: none;
   }
   .wrap.main .section.section-03 .main-layout {
-    margin: 5rem 0 0;
+    padding-top: 5rem;
   }
   .wrap.main .section.section-03 .main-tab-list {
     display: flex;

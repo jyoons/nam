@@ -344,6 +344,11 @@
             & + div, & + ul{
                 margin-top:3.4rem;
             }
+            &.small{
+                margin-top:6rem;
+                @include fontSize('fontS04');
+                font-weight:500;
+            }
         }
     }
 
@@ -819,6 +824,12 @@
             font-weight:700;
             & + div, & + ul{
                 margin-top:2.4rem;
+            }
+            &.small{
+                margin-top:4.8rem;
+                @include fontSize('fontS04');
+                font-weight:500;
+                & + div, & + ul{margin-top:2.4rem;}
             }
         }
     }

@@ -183,7 +183,7 @@ body {
     }
   }
 }
-.layout-wrap-conts{
+.layout-wrap-conts{  
   position: relative;
   padding: 3rem 0;
   border-top: 2px solid #000;
@@ -203,10 +203,15 @@ body {
     & + .conts-list.type5{margin-top:8rem;}
     & + .layout-wrap-conts__title{margin-top:8rem;}
   }
+  & .layout-wrap-conts__title.small:first-child{margin-top:0;}
   &__title{
     @include fontSize('fontS08');
-    & + div, & + ul{
-      margin-top:4rem;
+    & + div, & + ul{margin-top:4rem;}
+    &.small{
+      margin-top:8rem;
+      @include fontSize('fontS05');
+      font-weight:500;
+      & + div, & + ul{margin-top:2rem;}
     }
   }
 }
