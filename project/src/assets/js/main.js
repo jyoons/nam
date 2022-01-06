@@ -589,10 +589,11 @@ const mainUi = (function (mainUi, $window) {
         },
         moSlick : function(){
             let $secInfo = $('.mo-view .section-02-text'),
-            _count01 = new countUp.CountUp('count01-mo', 5000),
-            _count02 = new countUp.CountUp('count02-mo', 5000),
-            _count01Flag = false,
-            _count02Flag = false;
+                $sec02_title = $('.mo-view .section-02-title'),
+                _count01 = new countUp.CountUp('count01-mo', 5000),
+                _count02 = new countUp.CountUp('count02-mo', 5000),
+                _count01Flag = false,
+                _count02Flag = false;
 
             $('.mo-view-slider').not('.slick-initialized').slick({
                 dots: true,
@@ -636,6 +637,12 @@ const mainUi = (function (mainUi, $window) {
                                     _count01.reset();    
                                 },300);
                             }
+                            if( $secInfo.eq(3).hasClass('active') === true ){
+                                $sec02_title.removeClass('on').eq(1).addClass('on');
+                            }else{
+                                $sec02_title.removeClass('on').eq(0).addClass('on');
+                            }
+
                         }else{
                             $(this).removeClass('active').stop().animate({
                                 'top':'10%', 
