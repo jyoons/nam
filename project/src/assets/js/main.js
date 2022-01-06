@@ -193,6 +193,7 @@ const mainUi = (function (mainUi, $window) {
                 h = 300;
             }
 
+            
             setTimeout(function(){
                 if($window.width() > 767){
                     $('.quick-menu').animate({
@@ -201,22 +202,36 @@ const mainUi = (function (mainUi, $window) {
                 }else {
                     $('.quick-menu').animate({
                         'height' : '10rem'
-                    }, 1400);
+                    }, 700);
                 }
             }, 300);
 
-            $('.main .section').each(function(index, item){
-                var height = $(item).index() * $(window).height();
-                if ( index == 3 ) {
-                    height = height + fakeHeight;
-                }
-                sumHeight = sumHeight + height;
-                console.log(height+ ', sum : ' + sumHeight);
-
-                $(item).css({ 'top' :  height});
+            $window.on('resize',function(){
+                setTimeout(function(){
+                    wrapHeight();
+                    console.log('아아');
+                },300);
             });
 
-            $('#wrap.main').css({'height' : sumHeight + epilHeight + h + 'px'}); 
+            let wrapHeight = function(){
+                $('.main .section').each(function(index, item){
+                    var height = $(item).index() * $(window).height();
+                    if ( index == 3 ) {
+                        height = height + fakeHeight;
+                    }
+                    sumHeight = sumHeight + height;
+                    // console.log(height+ ', sum : ' + sumHeight);
+    
+                    $(item).css({ 'top' :  height});
+                });
+    
+                // $('#wrap.main').css({'height' : sumHeight + epilHeight + h + 'px'});                 
+                $('#wrap.main .container').css({'height' : sumHeight + epilHeight + h + 'px'});                 
+                sumHeight = 0;
+            }
+
+            wrapHeight();
+
         },
         scrollEv: function(){
             let $mainVi = $('.main-visual'),
@@ -575,15 +590,15 @@ const mainUi = (function (mainUi, $window) {
                 $(this).hide();
                 $quickMenu.stop().animate({
                     'height': '60rem'
-                },1000);
+                },500);
             });
 
             $('html').on('click',function(e){
-                if(e.target.nodeName === 'VIDEO'){
+                if(!$(e.target).is('.quick-menu, .mo-view')){
                     $quickClick.show();
                     $quickMenu.stop().animate({
                         'height': '10rem'
-                    },1000);
+                    },500);
                 }
             });
         },
@@ -614,7 +629,7 @@ const mainUi = (function (mainUi, $window) {
                                 'top':'0', 
                                 'opacity': '1',
                                 'z-index': '0'
-                            }, 300);
+                            }, 100);
                             if( $secInfo.eq(1).hasClass('active')  === true){
                                 setTimeout(function(){
                                     if ( !_count01Flag ) {
@@ -624,7 +639,7 @@ const mainUi = (function (mainUi, $window) {
         
                                     _count02Flag = false;
                                     _count02.reset();    
-                                },300);
+                                },100);
                             }
                             if( $secInfo.eq(2).hasClass('active') === true){
                                 setTimeout(function(){
@@ -635,7 +650,7 @@ const mainUi = (function (mainUi, $window) {
         
                                     _count01Flag = false;
                                     _count01.reset();    
-                                },300);
+                                },100);
                             }
                             if( $secInfo.eq(3).hasClass('active') === true ){
                                 $sec02_title.removeClass('on').eq(1).addClass('on');
@@ -648,7 +663,7 @@ const mainUi = (function (mainUi, $window) {
                                 'top':'10%', 
                                 'opacity': '0',
                                 'z-index': '-1'
-                            }, 300);
+                            }, 100);
                         }
                     });
                     
