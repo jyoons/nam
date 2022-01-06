@@ -518,8 +518,12 @@ var uiCommon = function (uiCommon, $window) {
   };
   uiCommon.goTop = {
     init: function init() {
-      this.event('.goTop');
-      this.setDefault();
+      var flagLen = $('.goTop').length;
+
+      if (flagLen > 0) {
+        this.event('.goTop');
+        this.setDefault();
+      }
     },
     setDefault: function setDefault() {
       var scrollTop = $(window).scrollTop();

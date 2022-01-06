@@ -2159,6 +2159,21 @@ input[type=text]::-ms-clear {
     font-size: 2rem;
     line-height: 3rem;
   }
+  .conts-list.type5 .conts-list__items {
+    display: flex;
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+  }
+  .conts-list.type5 .conts-list__items > div {
+    padding-left: 2rem;
+  }
+  .conts-list.type5 .conts-list__items .title {
+    flex: 0 0 28%;
+    padding-left: 0;
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+    font-weight: 700;
+  }
 
   .list-dash__items {
     padding-left: 2.2rem;
@@ -2296,6 +2311,17 @@ input[type=text]::-ms-clear {
   }
   .conts-list.type4 .conts-list__items > a {
     padding: 3.6rem 0 1.6rem 0;
+  }
+  .conts-list.type5 .conts-list__items {
+    display: block;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+  .conts-list.type5 .conts-list__items > div {
+    padding-left: 0rem;
+  }
+  .conts-list.type5 .conts-list__items .title + div {
+    margin-top: 2rem;
   }
 
   .list-dash__items {
