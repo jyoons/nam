@@ -1971,6 +1971,10 @@ input[type=text]::-ms-clear {
   color: #25867D;
   font-weight: 700;
 }
+.conts-list.type4 .conts-list__items > div {
+  padding: 4rem 0 2rem 0;
+  color: #111111;
+}
 .conts-list.type5 {
   border-top: 2px solid #111111;
 }

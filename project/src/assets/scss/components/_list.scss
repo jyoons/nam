@@ -137,6 +137,11 @@
                 color:$gray8;
                 &:hover{color:$accent; font-weight:700;}
             }
+            &>div{
+                //display:block;
+                padding:4rem 0 2rem 0;
+                color:$gray8;
+            }
         }
     }
     &.type5{ 
