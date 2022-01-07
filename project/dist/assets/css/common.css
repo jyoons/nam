@@ -1505,6 +1505,9 @@ body {
   .layout-wrap.layout-imgMap + .layout-wrap.type1 {
     margin-top: 9rem;
   }
+  .layout-wrap.type1 + .layout-imgMap {
+    margin-top: 9rem;
+  }
 
   .layout-wrap-header__title {
     font-size: 2.8rem;
@@ -2053,6 +2056,9 @@ body {
     padding-right: 0;
   }
   .layout-wrap.layout-imgMap + .layout-wrap.type1 {
+    margin-top: 8rem;
+  }
+  .layout-wrap.type1 + .layout-imgMap {
     margin-top: 8rem;
   }
   .layout-wrap.only-header button.btns.icon {

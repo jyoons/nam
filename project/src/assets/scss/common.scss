@@ -318,6 +318,7 @@
             &>div:nth-child(2){padding-top:0;}
         }
         &.layout-imgMap + .layout-wrap.type1{margin-top:9rem;}
+        &.type1 + .layout-imgMap{margin-top:9rem;}
     }
     .layout-wrap-header {
         &__title {
@@ -784,10 +785,10 @@
             &>div:first-child{padding-right:0}
         } 
         &.layout-imgMap + .layout-wrap.type1{margin-top:8rem;}
+        &.type1 + .layout-imgMap{margin-top:8rem;}
         &.only-header{
             button.btns.icon{display:none;}
-            & + .layout-wrap{margin-top:1rem;}
-            
+            & + .layout-wrap{margin-top:1rem;}            
         }
     }
     .layout-wrap-header {
