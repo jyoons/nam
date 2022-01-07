@@ -91,29 +91,31 @@
                 background:$gray3;
             }
         }
-        .conts-list__items{
-           flex: 0 0 33.3333%;
-           padding-left:4rem;
-           color:$gray8;
-           .list-term{padding:1.2rem 0 2.5rem 0;}
-           .num{
-               padding-left:2rem;
-                @include fontSize('fontS01');
-                font-weight:700;
-                & + .image{margin-top:4.4rem;}
-           }
-           .image{
-               width:12rem;
-               height:12rem;
-               & + .title{margin-top:4.4rem;}
-           }
-           .title{
+        .conts-list__items{            
+            flex: 0 0 33.3333%;
+            width:33.3333%;
+            flex:inherit;
+            padding-left:4rem;
+            color:$gray8;
+            .list-term{padding:1.2rem 0 2.5rem 0;}
+            .num{
+                padding-left:2rem;
+                    @include fontSize('fontS01');
+                    font-weight:700;
+                    & + .image{margin-top:4.4rem;}
+            }
+            .image{
+                width:12rem;
+                height:12rem;
+                & + .title{margin-top:4.4rem;}
+            }
+            .title{
                 padding-left:2rem;
                 @include fontSize('fontS09');
                 word-break: keep-all;
                 & + .conts{margin-top:4.4rem;}
-           }
-           .conts{          
+            }
+            .conts{          
                 padding-left:2rem;
                 @include fontSize('fontS06');
                 font-weight:500;
@@ -166,12 +168,14 @@
         &.type5.col-3{
             .conts-list__items{
                 &>div{padding-left:3.2rem;}
-                &>div:nth-child(2){flex:0 0 50%;}
+                &>div:nth-child(2){flex:0 0 50%; width:50%; flex:auto;}
                 &>div:nth-child(3){
                     flex:0 0 30%;
+                    width:30%; flex:auto;
                     color:$gray5;
                 }
                 .title{
+                    width:20%; flex:auto;
                     flex:0 0 20%;
                     padding-left:0;
                 }
@@ -362,7 +366,9 @@
             }
             .conts-list__items{
                 padding:6rem 2rem;
-                flex: 0 0 50%;
+                width:50%;
+                //flex: 0 0 50%;
+                
                 .list-term{padding:0;}
                 .num{
                     padding-left:0;
@@ -432,8 +438,8 @@
                     &>div{
                         padding-left:0rem; 
                         margin-top:2.5rem;}
-                    &>div:nth-child(2){flex:0 0 60%;}
-                    &>div:nth-child(3){flex:0 0 40%; padding-left:2rem;}
+                    &>div:nth-child(2){flex:0 0 60%; width:60%; flex:auto;}
+                    &>div:nth-child(3){flex:0 0 40%; padding-left:2rem; width:40%; flex:auto;}
                     .title{flex:0 0 100%;}
                 }
             }
@@ -465,7 +471,8 @@
         }
         &.type7{ 
             .conts-list__items{
-                flex:0 0 50%;
+                width:50%;
+                flex:auto;
                 margin:0;
                 margin-top:4.8rem;
                 &:nth-child(1), &:nth-child(2){margin-top:0;}
@@ -555,6 +562,7 @@
                 }                
             }
             .conts-list__items{
+                width:100%;
                 padding:4.2rem 1rem;
                 border-bottom:1px solid $gray3;
                 .list-term{padding:0;}
@@ -599,6 +607,7 @@
                     }
                     .btn-wrap{
                         margin-top:3.2rem;
+                        &>a{margin:0 1rem;}
                     }
                 }
             }
@@ -622,8 +631,9 @@
             &.type5.col-3{
                 .conts-list__items{
                     &>div{padding-left:0rem;}
-                    &>div:nth-child(2){margin-top:2.4rem;}
-                    &>div:nth-child(3){margin-top:4rem;}
+                    &>div:nth-child(2){margin-top:2.4rem; width:100%;}
+                    &>div:nth-child(3){margin-top:4rem; width:100%;}
+                    .title{width:100%;}
                 }
             }
         }
@@ -655,7 +665,8 @@
         }
         &.type7{
             .conts-list__items{
-                flex:0 0 50%;
+                width:50%;
+                flex:auto;
                 margin:0;
                 margin-top:4.8rem;
                 &:nth-child(1), &:nth-child(2){margin-top:0;}

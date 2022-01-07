@@ -1906,6 +1906,8 @@ input[type=text]::-ms-clear {
 }
 .conts-list.type3 .conts-list__items {
   flex: 0 0 33.3333%;
+  width: 33.3333%;
+  flex: inherit;
   padding-left: 4rem;
   color: #111111;
 }
@@ -2007,12 +2009,18 @@ input[type=text]::-ms-clear {
 }
 .conts-list.type5.type5.col-3 .conts-list__items > div:nth-child(2) {
   flex: 0 0 50%;
+  width: 50%;
+  flex: auto;
 }
 .conts-list.type5.type5.col-3 .conts-list__items > div:nth-child(3) {
   flex: 0 0 30%;
+  width: 30%;
+  flex: auto;
   color: #999999;
 }
 .conts-list.type5.type5.col-3 .conts-list__items .title {
+  width: 20%;
+  flex: auto;
   flex: 0 0 20%;
   padding-left: 0;
 }
@@ -2233,7 +2241,7 @@ input[type=text]::-ms-clear {
   }
   .conts-list.type3 .conts-list__items {
     padding: 6rem 2rem;
-    flex: 0 0 50%;
+    width: 50%;
   }
   .conts-list.type3 .conts-list__items .list-term {
     padding: 0;
@@ -2325,10 +2333,14 @@ input[type=text]::-ms-clear {
   }
   .conts-list.type5.type5.col-3 .conts-list__items > div:nth-child(2) {
     flex: 0 0 60%;
+    width: 60%;
+    flex: auto;
   }
   .conts-list.type5.type5.col-3 .conts-list__items > div:nth-child(3) {
     flex: 0 0 40%;
     padding-left: 2rem;
+    width: 40%;
+    flex: auto;
   }
   .conts-list.type5.type5.col-3 .conts-list__items .title {
     flex: 0 0 100%;
@@ -2357,7 +2369,8 @@ input[type=text]::-ms-clear {
     display: none;
   }
   .conts-list.type7 .conts-list__items {
-    flex: 0 0 50%;
+    width: 50%;
+    flex: auto;
     margin: 0;
     margin-top: 4.8rem;
   }
@@ -2457,6 +2470,7 @@ input[type=text]::-ms-clear {
     padding: 4.2rem 1rem;
   }
   .conts-list.type3 .conts-list__items {
+    width: 100%;
     padding: 4.2rem 1rem;
     border-bottom: 1px solid #dddddd;
   }
@@ -2519,6 +2533,9 @@ input[type=text]::-ms-clear {
   .conts-list.type3 .conts-list__items .conts .btn-wrap {
     margin-top: 3.2rem;
   }
+  .conts-list.type3 .conts-list__items .conts .btn-wrap > a {
+    margin: 0 1rem;
+  }
   .conts-list.type4 .conts-list__items {
     font-size: 1.6rem;
     line-height: 2.4rem;
@@ -2545,9 +2562,14 @@ input[type=text]::-ms-clear {
   }
   .conts-list.type5.type5.col-3 .conts-list__items > div:nth-child(2) {
     margin-top: 2.4rem;
+    width: 100%;
   }
   .conts-list.type5.type5.col-3 .conts-list__items > div:nth-child(3) {
     margin-top: 4rem;
+    width: 100%;
+  }
+  .conts-list.type5.type5.col-3 .conts-list__items .title {
+    width: 100%;
   }
   .conts-list.type6 .conts-list__items {
     display: block;
@@ -2575,7 +2597,8 @@ input[type=text]::-ms-clear {
     display: none;
   }
   .conts-list.type7 .conts-list__items {
-    flex: 0 0 50%;
+    width: 50%;
+    flex: auto;
     margin: 0;
     margin-top: 4.8rem;
   }
@@ -3702,15 +3725,10 @@ input[type=text]::-ms-clear {
   position: relative;
   padding-left: 3.2rem;
   vertical-align: top;
-}
-.table.type1 .row > td:nth-child(2):after {
-  content: "";
-  position: absolute;
-  top: 1rem;
-  left: 3.2rem;
-  width: 1px;
-  height: calc(100% - 2rem);
-  background: #dddddd;
+  background-image: url("/assets/images/common/border.jpg");
+  background-size: 1px calc(100% - 2rem);
+  background-repeat: no-repeat;
+  background-position: 3.2rem 1rem;
 }
 .table.type1 .row > td:nth-child(2) > div {
   position: relative;
@@ -3806,6 +3824,7 @@ input[type=text]::-ms-clear {
   }
   .table.type1 .row > td:nth-child(2) {
     padding-left: 2.6rem;
+    background-position: 2.6rem 1rem;
   }
   .table.type1 .row > td:nth-child(2):after {
     left: 2.6rem;
@@ -3864,6 +3883,7 @@ input[type=text]::-ms-clear {
   }
   .table.type1 .row > td:nth-child(2) {
     padding-left: 2rem;
+    background-position: 2rem 1rem;
   }
   .table.type1 .row > td:nth-child(2):after {
     left: 2rem;

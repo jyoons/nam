@@ -25,15 +25,10 @@
                 position:relative;
                 padding-left:3.2rem;
                 vertical-align: top;
-                &:after{
-                    content:'';
-                    position:absolute;
-                    top:1rem;
-                    left:3.2rem;
-                    width:1px;
-                    height:calc(100% - 2rem);
-                    background:$gray3;
-                }
+                background-image: url('/assets/images/common/border.jpg');
+                background-size: 1px calc(100% - 2rem);
+                background-repeat: no-repeat;
+                background-position: 3.2rem 1rem;
                 &>div{
                     position:relative;
                     margin:1rem 0;
@@ -98,7 +93,6 @@
             font-weight:700;
             text-align:left;
             vertical-align: top;
-            //word-break: keep-all;
         }
         td{
             padding:4rem 0;
@@ -125,6 +119,7 @@
                 }
                 &>td:nth-child(2){
                     padding-left:2.6rem;
+                    background-position: 2.6rem 1rem;
                     &:after{
                         left:2.6rem;
                     }
@@ -176,6 +171,7 @@
                 }
                 &>td:nth-child(2){
                     padding-left:2rem;
+                    background-position: 2rem 1rem;
                     &:after{
                         left:2rem;
                     }
