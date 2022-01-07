@@ -352,7 +352,6 @@
             }
         }
     }
-
     .input-layout-title {
         @include fontSize('fontS03');
     }
@@ -399,7 +398,7 @@
                     min-width:21.8rem;
                 }
             }
-          }
+        }
     }
 }
 
@@ -831,6 +830,14 @@
                 @include fontSize('fontS04');
                 font-weight:500;
                 & + div, & + ul{margin-top:2.4rem;}
+            }
+        }
+        &__image{
+            width:calc(100% + 6.4rem);
+            margin-left:-3.2rem;
+            & + .layout-wrap-conts__text{
+                margin-top:2.4rem;
+                @include fontSize('fontS02');
             }
         }
     }

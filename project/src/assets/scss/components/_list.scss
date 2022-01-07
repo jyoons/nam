@@ -123,14 +123,14 @@
                 .btn-wrap{
                     display:block;
                 }
-           }
+            }
         }
     }
     &.type4{ 
         .conts-list__items{
             border-bottom:1px solid $gray3;
             @include fontSize('fontS05');
-            &:first-child a{padding-top:0;}
+            &:first-child a, &:first-child div{padding-top:0;}
             &>a{
                 display:block;
                 padding:4rem 0 2rem 0;
@@ -230,6 +230,29 @@
                 font-weight:700;
                 .col-2>div>div:nth-child(2){color:$gray8;}
             }
+        }
+    }
+    &.type7{ 
+        display:flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        .conts-list__items{
+            flex:0 0 30%;
+            margin:0 2.5%;
+            margin-top:6rem;
+            &:nth-child(1), &:nth-child(2), &:nth-child(3){margin-top:0;}
+            &:nth-child(3n + 1){margin-left:0;}
+            &:nth-child(3n){margin-right:0;}
+            .image{
+                width:12rem; height:12rem;
+                & + .text{margin-top:2rem;}
+            } 
+            .text{
+                max-width:19.6rem;
+                @include fontSize('fontS03');
+                color:$gray7;
+                word-break: keep-all;
+            }           
         }
     }
 }
@@ -440,6 +463,22 @@
                 }
             }
         }
+        &.type7{ 
+            .conts-list__items{
+                flex:0 0 50%;
+                margin:0;
+                margin-top:4.8rem;
+                &:nth-child(1), &:nth-child(2){margin-top:0;}
+                &:nth-child(3){margin-top:5.4rem;}
+                &:nth-child(2n){padding-left:1rem;}
+                &:nth-child(2n + 1){padding-right:1rem;}
+                .image{ width:10rem; height:10rem;} 
+                .text{
+                    max-width:100%;
+                    @include fontSize('fontS02');
+                }           
+            }
+        }
     }
     .list-dash{
         &__items{
@@ -612,6 +651,25 @@
                 &.conts-list__header{
                     display:none;
                 }
+            }
+        }
+        &.type7{
+            .conts-list__items{
+                flex:0 0 50%;
+                margin:0;
+                margin-top:4.8rem;
+                &:nth-child(1), &:nth-child(2){margin-top:0;}
+                &:nth-child(3){margin-top:4.8rem;}
+                &:nth-child(2n){padding-left:0.8rem;}
+                &:nth-child(2n + 1){padding-right:0.8rem;}
+                .image{
+                    width:8.4rem; height:8.4rem;
+                    & + .text{margin-top:2.4rem;}
+                } 
+                .text{
+                    max-width:100%;
+                    @include fontSize('fontS02');
+                }           
             }
         }
     }

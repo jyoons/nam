@@ -14,6 +14,7 @@
         &:hover{
             .box-list-items__inner{
                 border:1px solid $accent;
+                background:$white;
                 transition:border-color 1s ease;
                 .title{
                     color:$accent;
@@ -27,8 +28,7 @@
                     background-color:$accent;
                     transition: background-color 0.4s ease;
                 }
-            }
-           
+            }           
         }   
     }
     .box-list-items__inner{

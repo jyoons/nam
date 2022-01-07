@@ -456,6 +456,11 @@ body {
 .layout-wrap-conts__title.small + div, .layout-wrap-conts__title.small + ul {
   margin-top: 2rem;
 }
+.layout-wrap-conts__image + .layout-wrap-conts__text {
+  margin-top: 4rem;
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+}
 
 .input-layout-title {
   font-size: 2rem;
@@ -2121,6 +2126,15 @@ body {
   }
   .layout-wrap-conts__title.small + div, .layout-wrap-conts__title.small + ul {
     margin-top: 2.4rem;
+  }
+  .layout-wrap-conts__image {
+    width: calc(100% + 6.4rem);
+    margin-left: -3.2rem;
+  }
+  .layout-wrap-conts__image + .layout-wrap-conts__text {
+    margin-top: 2.4rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
   }
 
   .input-layout-title {
