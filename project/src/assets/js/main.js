@@ -232,6 +232,11 @@ const mainUi = (function (mainUi, $window) {
 
                 $('.main-indi').removeClass('color-change');
                 $navi.removeClass('on').eq(index).addClass('on');
+                $sec02.find('.section-02-text').removeClass('active').css({
+                    'top' : '80%',
+                    'opacity' : 0,
+                    'z-index' : -1
+                });
 
                 switch ( index ) {
                     case 0 :
@@ -260,8 +265,8 @@ const mainUi = (function (mainUi, $window) {
                 // d = -70,
                 sec01_value = scTop * ( d - c ) / _top01 + c,
                 fakeHeight = 0,
-                h = 0,
-                contPadding = Number($('.container').css('padding-top').slice(0,-2));
+                headerH = Number($('.container').css('padding-top').slice(0,-2)),
+                h = 0;
 
                 if($window.width() < 767){
                     fakeHeight = 0;
@@ -294,7 +299,7 @@ const mainUi = (function (mainUi, $window) {
                         //section01 지날때
                         if ( scTop > _top01 && scTop < _top02) { 
                             scTop = scTop - $(window).height();
-                            let sec02_value = scTop * ( d - c ) / _top01 + c;
+                            let sec02_value = scTop * ( d - c ) / newHeight + c;
                             $mainVi.css({
                                 'opacity':'0',
                                 'position' : 'absolute',
@@ -326,7 +331,7 @@ const mainUi = (function (mainUi, $window) {
                                 'position' : 'absolute'
                             });   
                             scTop = scTop - $(window).height() * 2 - fakeHeight;
-                            let sec03_value = scTop * ( d - c ) / _top01 + c;
+                            let sec03_value = scTop * ( d - c ) / newHeight + c;
                             if ( $(window).scrollTop() > _top02 + fakeHeight ) {
                                 $sec02.css({
                                     'top' : sec03_value + "%"
@@ -342,8 +347,14 @@ const mainUi = (function (mainUi, $window) {
         
                         //section03 지날때
                         if ( scTop > _top03 ) {
-                            scTop = scTop - ($(window).height() * 3 + fakeHeight );
-                            let sec04_value = scTop * ( d - c ) / _top01 + c;
+                            scTop = scTop - (newHeight * 3 + fakeHeight );
+                            let sec04_value = scTop * ( d - c ) / newHeight + c;
+                            // let sec04_value = scTop * ( d - c ) / (_top03 - fakeHeight - $sec03.height()  - epilHeight + headerH/2)  + c;
+                            // let sec04_value = scTop * ( d - c ) / ($sec03.height() - (newHeight- epilHeight)) + c; // -50%
+                            // let sec04_value = scTop * ( d - c ) / ($sec03.height() - (newHeight +  epilHeight)) + c;
+                            // console.log($sec03.height());
+                            // console.log(scTop);
+                            // console.log(sec04_value);
                             $mainVi.css({
                                 'opacity':'0',
                                 'position' : 'absolute'
