@@ -48,6 +48,9 @@ body {
     margin-bottom:12rem;
     padding-bottom:46rem;
     .container-header__text{margin-top:0;}
+    &.company{
+      .type-imgae{margin-top:14rem;}
+    }
   }
   position:relative;
   max-width:139.6rem;
@@ -121,6 +124,10 @@ body {
   & + .container-contents{
     padding-top:12rem;
   }
+  &.company{
+    height:46rem;
+    img{top: -39.8rem;}
+  }
 }
 .container-contents{
   width:100%;
@@ -149,7 +156,7 @@ body {
     margin-top: 8rem;
   }
   &.type2{margin:20rem 0 0;}
-  &.type1{//business add
+  &.type1{//business,company add
     margin:20rem 0 0;
     display:flex;
     &>div:first-child{
@@ -160,6 +167,17 @@ body {
     &>div:nth-child(2){
       padding-top:0.6rem;
       &.line{padding-top:3.6rem;}
+    }
+    &.company{
+      margin:8rem 0 0;
+      padding-bottom: 10rem;
+      &:nth-of-type(2){
+        padding-top: 10rem;
+        margin: 0;
+        border-top: 1px solid $gray3;
+      }
+      .btn-wrap{justify-content: flex-start;}
+      .layout-wrap-conts__text{@include fontSize('fontS04');}
     }
   }
   &.only-header{

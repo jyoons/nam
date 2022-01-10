@@ -27,6 +27,10 @@
         left:0;
         top:0;
         height:90rem;
+        &.company{
+            height:46rem;
+            img{top: -19.8rem;}
+        }        
     }
     .container-subMain-fixImg{
         max-width:calc(100% - 3.2rem);
@@ -238,6 +242,10 @@
             top : -30rem;
         }
         & + .container-contents{padding-top:8rem;}
+        &.company{
+            height:36rem;
+            img{top: -7.8rem;}
+        }
     }
     .container-contents-wrap{
         padding:0 3.2rem 10rem 3.2rem;
@@ -316,6 +324,14 @@
                 padding-right:6%;
             }
             &>div:nth-child(2){padding-top:0;}
+            &.company{
+                margin:6rem 0 0;
+                padding-bottom: 8rem;
+                &:nth-of-type(2){
+                    padding-top: 8rem;
+                }
+                .layout-wrap-conts__text{@include fontSize('fontS03');}
+            }          
         }
         &.layout-imgMap + .layout-wrap.type1{margin-top:9rem;}
         &.type1 + .layout-imgMap{margin-top:9rem;}
@@ -646,6 +662,10 @@
                 line-height:5rem;
             }
             .container-header__text{margin-top:4.8rem;}
+            &.company{
+                padding-bottom: 30.4rem;
+                .type-imgae{margin-top:4rem;}
+            }          
         }
         &__title{  
             &.pc{display:none;}
@@ -690,6 +710,16 @@
             top :-20rem;
         }
         & + .container-contents{padding-top:4.8rem;}
+        &.company{
+            height:23.6rem;
+            img{
+                // top: -14rem;
+                top: 0rem;
+                // left: -60%;
+                // width: 90rem;
+                // max-width: none;
+            }
+        }
     }
     .container-contents-wrap{
         padding:0 3.2rem 6rem 3.2rem;
@@ -782,6 +812,19 @@
                 &.type-d.line{padding-top:0; border-top:0;}
             }
             &>div:first-child{padding-right:0}
+            &.company{
+                margin:4rem 0 0;
+                padding-bottom: 4rem;
+                &:nth-of-type(2){
+                    padding-top: 4rem;
+                }
+                .btn-wrap{
+                    margin-bottom: 4rem;
+                    span{@include fontSize('fontS02');}
+                }
+                .layout-wrap-conts__text{@include fontSize('fontS02');}
+                .type-d1 .layout-wrap-header__title{margin-bottom: 2.4rem;}
+            }          
         } 
         &.layout-imgMap + .layout-wrap.type1{margin-top:8rem;}
         &.type1 + .layout-imgMap{margin-top:8rem;}
@@ -794,6 +837,7 @@
         &.type-d1 .layout-wrap-header__title{
             @include fontSize('fontS08');
             margin-bottom: 3.2rem;
+            letter-spacing: -0.64px;
         }
         &__title {
             @include fontSize('fontS05');
