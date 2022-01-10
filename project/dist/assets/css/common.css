@@ -730,6 +730,56 @@ body {
   cursor: url("/assets/images/common/hover_contents_circle.svg"), auto;
 }
 
+.error-wrap {
+  position: fixed;
+  width: 100%;
+  height: calc(100% - 15rem - 14.4rem);
+  overflow: auto;
+  top: 15rem;
+  left: 0;
+  text-align: center;
+  padding: 10rem 0 15rem;
+  word-break: keep-all;
+}
+.error-wrap .image {
+  width: 30rem;
+  height: 30rem;
+  margin: 0 auto;
+}
+.error-wrap .title {
+  color: #111111;
+  font-size: 4.8rem;
+  line-height: 6rem;
+  font-weight: 700;
+}
+.error-wrap .title.pc {
+  display: block;
+}
+.error-wrap .title.mobile {
+  display: none;
+}
+.error-wrap .title + .text {
+  margin-top: 2.6rem;
+}
+.error-wrap .text {
+  color: #333333;
+  font-size: 2rem;
+  line-height: 3rem;
+}
+.error-wrap .text + .btn-wrap {
+  margin-top: 4rem;
+}
+.error-wrap .btn-wrap button + button {
+  margin-left: 1.4rem;
+}
+
+.footerFix + .footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
 .header {
   background: #FFFFFF;
   transition: background-color 0.4s linear;
@@ -1241,6 +1291,7 @@ body {
   .header-wrap .lang-select {
     top: 3rem;
     right: 7.8rem;
+    width: 13rem;
   }
 
   .select-wrap .select-title {
@@ -1608,6 +1659,34 @@ body {
     margin-right: 0;
     min-width: 21.8rem;
   }
+
+  .error-wrap {
+    height: calc(100% - 12rem - 13.4rem);
+    top: 12rem;
+    padding: 10rem 3.2rem;
+    word-break: keep-all;
+  }
+  .error-wrap .image {
+    width: 22rem;
+    height: 22rem;
+  }
+  .error-wrap .title {
+    font-size: 4rem;
+    line-height: 5.2rem;
+  }
+  .error-wrap .title.pc {
+    display: block;
+  }
+  .error-wrap .title.mobile {
+    display: none;
+  }
+  .error-wrap .title + .text {
+    margin-top: 3rem;
+  }
+  .error-wrap .text {
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+  }
 }
 @media (min-width: 320px) and (max-width: 767px) {
   /*header*/
@@ -1816,7 +1895,7 @@ body {
   }
 
   .footer {
-    padding: 2.4rem 0 10rem;
+    padding: 3.6rem 0;
   }
   .footer .footer-wrap {
     padding: 0 3.2rem;
@@ -2216,5 +2295,43 @@ body {
     margin-top: 2rem;
     min-width: 21.8rem;
     margin-right: 4.4rem;
+  }
+
+  .error-wrap {
+    height: calc(100% - 8rem - 11.4rem);
+    top: 8rem;
+    padding: 8rem 3.2rem;
+  }
+  .error-wrap .image {
+    width: 12rem;
+    height: 12rem;
+  }
+  .error-wrap .title {
+    font-size: 2.8rem;
+    line-height: 4.2rem;
+    font-weight: 700;
+  }
+  .error-wrap .title.pc {
+    display: none;
+  }
+  .error-wrap .title.mobile {
+    display: block;
+  }
+  .error-wrap .title + .text {
+    margin-top: 2rem;
+  }
+  .error-wrap .text {
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+  }
+  .error-wrap .btn-wrap {
+    padding: 0 2rem;
+  }
+  .error-wrap .btn-wrap button {
+    display: block;
+    min-width: 100%;
+  }
+  .error-wrap .btn-wrap button + button {
+    margin-left: 1.4rem;
   }
 }

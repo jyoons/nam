@@ -25,10 +25,6 @@
 .main-body body {
   height: 100%;
 }
-.main-body body.dv-mobile {
-  height: -webkit-fill-available;
-  height: fill-available;
-}
 
 .height-fix {
   position: fixed;
@@ -80,6 +76,8 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translateZ(0);
 }
 .wrap.main .section .main-layout {
   display: flex;
@@ -378,6 +376,8 @@
   position: fixed;
   left: 0;
   bottom: 0;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translateZ(0);
   width: 100%;
   height: 68rem;
   background-image: url("/assets/images/main/img_footer_end.jpg");

@@ -175,11 +175,9 @@ var mainUi = function (mainUi, $window) {
       }
 
       if ($window.width() < 1025) {
-        // h = 1000;
-        h = 300;
+        h = 800; // h = 300;
       } else {
-        // h = 1500;
-        h = 700;
+        h = 1800; // h = 700;
       }
 
       setTimeout(function () {
@@ -221,12 +219,18 @@ var mainUi = function (mainUi, $window) {
           epilHeight = $('.main-epilogue').height(),
           _top01 = $sec01.offset().top,
           _top02 = $sec02.offset().top,
-          _top03 = $sec03.offset().top;
+          _top03 = $sec03.offset().top,
+          timer;
       $navi.find('a').on('click', function () {
         var index = $(this).parent().index(),
             posi;
         $('.main-indi').removeClass('color-change');
         $navi.removeClass('on').eq(index).addClass('on');
+        $sec02.find('.section-02-text').removeClass('active').css({
+          'top': '80%',
+          'opacity': 0,
+          'z-index': -1
+        });
 
         switch (index) {
           case 0:
@@ -254,10 +258,11 @@ var mainUi = function (mainUi, $window) {
       $window.on('scroll', function (e) {
         var scTop = $window.scrollTop(),
             c = 0,
-            // d = -50,
-        d = -70,
-            sec01_value = scTop * (d - c) / _top01 + c,
+            d = -50,
+            // d = -70,
+        sec01_value = scTop * (d - c) / _top01 + c,
             fakeHeight = 0,
+            headerH = Number($('.container').css('padding-top').slice(0, -2)),
             h = 0;
 
         if ($window.width() < 767) {
@@ -267,97 +272,108 @@ var mainUi = function (mainUi, $window) {
         }
 
         if ($window.width() < 1025) {
-          // h = 1000;
-          h = 300;
+          h = 800;
         } else {
-          // h = 1500;
-          h = 700;
+          h = 1800;
         }
 
-        var newHeight = $('.height-fix').outerHeight();
-        $mainVi.css({
-          'height': newHeight
-        });
-        $sec01.css({
-          'height': newHeight
-        });
-        $sec02.css({
-          'height': newHeight
-        });
-        $('#wrap.main .container').css({
-          'height': newHeight * 3 + $sec03.height() + epilHeight + fakeHeight + h + Number($('.container').css('padding-top').slice(0, -2)) + 'px'
-        });
-        sec01_value > -50 && $mainVi.css('top', sec01_value + "%"); //section01 지날때
-
-        if (scTop > _top01 && scTop < _top02) {
-          scTop = scTop - $(window).height();
-          var sec02_value = scTop * (d - c) / _top01 + c;
-          $mainVi.css({
-            'opacity': '0',
-            'position': 'absolute'
-          });
-          $sec01.css({
-            'position': 'fixed',
-            'top': sec02_value + "%"
-          });
-        } else {
-          $mainVi.css({
-            'opacity': '1',
-            'position': 'fixed'
-          });
-          $sec01.css({
-            'position': 'absolute',
-            // 'top' : _top01,
-            'top': newHeight
-          });
-        } //section02 지날때
-
-
-        if (scTop > _top02 && scTop < _top03) {
-          $sec02.css({
-            'position': 'fixed',
-            'top': 0
-          });
-          $mainVi.css({
-            'opacity': '0',
-            'position': 'absolute'
-          });
-          scTop = scTop - $(window).height() * 2 - fakeHeight;
-          var sec03_value = scTop * (d - c) / _top01 + c;
-
-          if ($(window).scrollTop() > _top02 + fakeHeight) {
-            $sec02.css({
-              'top': sec03_value + "%"
+        if (!timer) {
+          timer = setTimeout(function () {
+            timer = null;
+            var newHeight = $('.height-fix').outerHeight();
+            $mainVi.css({
+              'height': newHeight
             });
-          }
-        } else {
-          $sec02.css({
-            'position': 'absolute',
-            // 'top' : _top02,
-            'top': newHeight * 2
-          });
-        } //section03 지날때
+            $sec01.css({
+              'height': newHeight
+            });
+            $sec02.css({
+              'height': newHeight
+            });
+            $('#wrap.main .container').css({
+              'height': newHeight * 3 + $sec03.height() + epilHeight + fakeHeight + h + 'px'
+            }); // - Number($('.container').css('padding-top').slice(0,-2))
+            // sec01_value > -50 && $mainVi.css('top', sec01_value + "%");
+
+            $mainVi.css('top', sec01_value + "%"); //section01 지날때
+
+            if (scTop > _top01 && scTop < _top02) {
+              scTop = scTop - $(window).height();
+              var sec02_value = scTop * (d - c) / newHeight + c;
+              $mainVi.css({
+                'opacity': '0',
+                'position': 'absolute'
+              });
+              $sec01.css({
+                'position': 'fixed',
+                'top': sec02_value + "%"
+              });
+            } else {
+              $mainVi.css({
+                'opacity': '1',
+                'position': 'fixed'
+              });
+              $sec01.css({
+                'position': 'absolute',
+                // 'top' : _top01,
+                'top': newHeight
+              });
+            } //section02 지날때
 
 
-        if (scTop > _top03) {
-          scTop = scTop - $(window).height() * 3 - fakeHeight;
-          var sec04_value = scTop * (d - c) / _top01 + c;
-          $mainVi.css({
-            'opacity': '0',
-            'position': 'absolute'
-          });
-          $sec03.css({
-            'position': 'fixed',
-            'top': sec04_value + "%"
-          });
-          $('.main-epilogue').addClass('show');
-        } else {
-          $sec03.css({
-            'position': 'absolute',
-            // 'top' : _top03,
-            'top': newHeight * 3 + fakeHeight
-          });
-          $('.main-epilogue').removeClass('show');
+            if (scTop > _top02 && scTop < _top03) {
+              $sec02.css({
+                'position': 'fixed',
+                'top': 0
+              });
+              $mainVi.css({
+                'opacity': '0',
+                'position': 'absolute'
+              });
+              scTop = scTop - $(window).height() * 2 - fakeHeight;
+              var sec03_value = scTop * (d - c) / newHeight + c;
+
+              if ($(window).scrollTop() > _top02 + fakeHeight) {
+                $sec02.css({
+                  'top': sec03_value + "%"
+                });
+              }
+            } else {
+              $sec02.css({
+                'position': 'absolute',
+                // 'top' : _top02,
+                'top': newHeight * 2
+              });
+            } //section03 지날때
+
+
+            if (scTop > _top03) {
+              scTop = scTop - (newHeight * 3 + fakeHeight);
+              var sec04_value = scTop * (d - c) / newHeight + c; // let sec04_value = scTop * ( d - c ) / (_top03 - fakeHeight - $sec03.height()  - epilHeight + headerH/2)  + c;
+              // let sec04_value = scTop * ( d - c ) / ($sec03.height() - (newHeight- epilHeight)) + c; // -50%
+              // let sec04_value = scTop * ( d - c ) / ($sec03.height() - (newHeight +  epilHeight)) + c;
+              // console.log($sec03.height());
+              // console.log(scTop);
+              // console.log(sec04_value);
+
+              $mainVi.css({
+                'opacity': '0',
+                'position': 'absolute'
+              });
+              $sec03.css({
+                'position': 'fixed',
+                'top': sec04_value + "%"
+              });
+              $('.main-epilogue').addClass('show');
+            } else {
+              $sec03.css({
+                'position': 'absolute',
+                // 'top' : _top03,
+                'top': newHeight * 3 + fakeHeight
+              });
+              $('.main-epilogue').removeClass('show');
+            }
+          }, 0);
         }
       });
     },
@@ -402,7 +418,7 @@ var mainUi = function (mainUi, $window) {
                 'top': '-80%',
                 'opacity': '0',
                 'z-index': '-1'
-              }, 300);
+              }, 200);
             } else if (scTop < _top03 && $window.width() > 767) {
               $('.main-indi').removeClass('color-change');
               $navi.removeClass('on').eq(2).addClass('on');
@@ -415,33 +431,33 @@ var mainUi = function (mainUi, $window) {
                   'top': '0',
                   'opacity': '1',
                   'z-index': '0'
-                }, 300);
+                }, 200);
                 $secInfo.eq(1).stop().animate({
                   'top': '80%',
                   'opacity': '0',
                   'z-index': '-1'
-                }, 300);
+                }, 200);
                 setTimeout(function () {
                   _count01Flag = false;
 
                   _count01.reset();
-                }, 300);
+                }, 200);
               } else if (scTop < _sec02Posi02) {
                 $secInfo.removeClass('active').eq(0).removeClass('active').stop().animate({
                   'top': '-80%',
                   'opacity': '0',
                   'z-index': '-1'
-                }, 300);
+                }, 200);
                 $secInfo.removeClass('active').eq(1).addClass('active').css('top', '30%').stop().animate({
                   'top': '0',
                   'opacity': '1',
                   'z-index': '0'
-                }, 300);
+                }, 200);
                 $secInfo.eq(2).stop().animate({
                   'top': '80%',
                   'opacity': '0',
                   'z-index': '-1'
-                }, 300);
+                }, 200);
 
                 if ($secInfo.eq(1).hasClass('active')) {
                   setTimeout(function () {
@@ -454,24 +470,24 @@ var mainUi = function (mainUi, $window) {
                     _count02Flag = false;
 
                     _count02.reset();
-                  }, 700);
+                  }, 400);
                 }
               } else if (scTop < _sec02Posi03) {
                 $secInfo.removeClass('active').eq(1).removeClass('active').stop().animate({
                   'top': '-80%',
                   'opacity': '0',
                   'z-index': '-1'
-                }, 300);
+                }, 200);
                 $secInfo.removeClass('active').eq(2).addClass('active').css('top', '-30%').stop().animate({
                   'top': '0',
                   'opacity': '1',
                   'z-index': '0'
-                }, 300);
+                }, 200);
                 $secInfo.eq(3).stop().animate({
                   'top': '80%',
                   'opacity': '0',
                   'z-index': '-1'
-                }, 300);
+                }, 200);
 
                 if ($secInfo.eq(2).hasClass('active')) {
                   setTimeout(function () {
@@ -484,7 +500,7 @@ var mainUi = function (mainUi, $window) {
                     _count01Flag = false;
 
                     _count01.reset();
-                  }, 700);
+                  }, 400);
                 }
               } else if (_sec02Posi03 < scTop) {
                 $sec02_title.removeClass('on').eq(1).addClass('on');
@@ -492,7 +508,7 @@ var mainUi = function (mainUi, $window) {
                   _count02Flag = false;
 
                   _count02.reset();
-                }, 300);
+                }, 200);
                 $secInfo.removeClass('active').eq(0).removeClass('active').css({
                   'top': '-80%',
                   'opacity': '0',
@@ -507,14 +523,14 @@ var mainUi = function (mainUi, $window) {
                   'top': '-80%',
                   'opacity': '0',
                   'z-index': '-1'
-                }, 300);
+                }, 200);
 
                 if (!$secInfo.eq(3).hasClass('active')) {
                   $secInfo.removeClass('active').eq(3).addClass('active').css('top', '80%').stop().animate({
                     'top': '0',
                     'opacity': '1',
                     'z-index': '0'
-                  }, 300);
+                  }, 200);
                 }
               }
             } else if (scTop < _top03 && $window.width() < 767) {
@@ -528,7 +544,7 @@ var mainUi = function (mainUi, $window) {
                     'top': '0',
                     'opacity': '1',
                     'z-index': '0'
-                  }, 300);
+                  }, 200);
                 }
               });
             } else {
@@ -542,7 +558,7 @@ var mainUi = function (mainUi, $window) {
                 'z-index': '-1'
               });
             }
-          }, 200);
+          }, 100);
         }
       });
     }
