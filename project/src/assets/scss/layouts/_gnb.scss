@@ -206,6 +206,7 @@
 /*lnb*/
 .lnb-wrap{
     width:100%;
+    border-top:1px solid $gray2;
     border-bottom:1px solid $gray2;
     background:$white;
     &>.lnb-inner{
