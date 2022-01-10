@@ -49,7 +49,10 @@ body {
     padding-bottom:46rem;
     .container-header__text{margin-top:0;}
     &.company{
-      .type-imgae{margin-top:14rem;}
+      .type-imgae{
+        margin-top:14rem;
+        word-break: keep-all;
+      }
     }
   }
   position:relative;
