@@ -458,3 +458,40 @@ body {
     cursor: url('/assets/images/common/hover_contents_circle.svg'), auto;
   }
 }
+.error-wrap{
+  position:fixed;
+  width:100%;
+  height:calc(100% - 15rem - 14.4rem);//header.footer
+  overflow:auto;
+  top:15rem; 
+  left:0;
+  text-align:center;
+  padding:10rem 0 15rem;
+  word-break: keep-all;
+  .image{
+    width:30rem;
+    height:30rem;
+    margin:0 auto;
+  }
+  .title{
+    &.pc{display:block;}
+    &.mobile{display:none;}
+    color:$gray8;
+    @include fontSize('fontS09');
+    & + .text{margin-top:2.6rem;}
+  }
+  .text{
+    color:$gray7;
+    @include fontSize('fontS04');
+    & + .btn-wrap{margin-top:4rem;}
+  }
+  .btn-wrap{
+    button + button{margin-left:1.4rem;}
+  }
+}
+.footerFix + .footer{
+  position:fixed; 
+  width:100%;
+  bottom:0;
+  left:0;
+}

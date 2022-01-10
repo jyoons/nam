@@ -76,6 +76,7 @@
             .lang-select{
                 top:3rem;
                 right:7.8rem;
+                width:13rem;
             }
         }
     }
@@ -256,7 +257,6 @@
         color:$gray5;
         background-position: center 11rem;
     }
-
     /*submain business*/
     .container-subMain-header{
         padding:10rem 3.2rem 9rem;
@@ -414,6 +414,27 @@
                     min-width:21.8rem;
                 }
             }
+        }
+    }
+    .error-wrap{
+        height:calc(100% - 12rem - 13.4rem);//header.footer
+        top:12rem; 
+        padding:10rem 3.2rem;
+        word-break: keep-all;
+        .image{
+            width:22rem; height:22rem;}
+        .title{
+            &.pc{display:block;}
+            &.mobile{display:none;}
+            font-size:4rem;
+            line-height:5.2rem;
+            & + .text{margin-top:3rem;}
+        }
+        .text{@include fontSize('fontS03');}
+        .btn-wrap{
+            // padding:0 2rem;
+            // button{display:block; min-width:100%;}
+            // button + button{margin-left:1.4rem;}
         }
     }
 }
@@ -606,7 +627,7 @@
     /*FOOTER*/
     .wrap.main .footer{padding-top:0;}
     .footer{
-        padding:2.4rem 0 10rem;
+        padding:3.6rem 0;
         .footer-wrap{
             padding:0 3.2rem;
         }
@@ -848,7 +869,6 @@
             }
         }
     }
-
     .layout-wrap-conts{
         padding: 2rem 0;
         &-privacy {
@@ -945,6 +965,26 @@
                     margin-right:4.4rem;
                 }
             }
+        }
+    }
+    .error-wrap{
+        height:calc(100% - 8rem - 11.4rem);//header.footer
+        top:8rem; 
+        padding:8rem 3.2rem;
+        .image{width:12rem; height:12rem;}
+        .title{
+            &.pc{display:none;}
+            &.mobile{display:block;}
+            @include fontSize('fontS07');
+            & + .text{margin-top:2rem;}
+        }
+        .text{
+            @include fontSize('fontS03');
+        }
+        .btn-wrap{
+            padding:0 2rem;
+            button{display:block; min-width:100%;}
+            button + button{margin-left:1.4rem;}
         }
     }
 }
